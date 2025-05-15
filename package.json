@@ -17,6 +17,7 @@
     "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.56.3",
     "swiper": "^11.2.6",
     "tailwind-variants": "^1.0.0",
     "zod": "^3.24.4",
