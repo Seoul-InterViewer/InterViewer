@@ -8,7 +8,7 @@ const config: Config = {
       container: {
         center: true,
         screens: {
-          pc: "1280px",
+          pc: "1260px",
           mobile: "768px",
         },
       },
