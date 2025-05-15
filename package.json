@@ -17,8 +17,9 @@
     "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "swiper": "^11.2.6",
     "tailwind-variants": "^1.0.0",
-    "zod": "^3.24.4", 
+    "zod": "^3.24.4",
     "zustand": "^5.0.4"
   },
   "devDependencies": {
@@ -29,6 +30,8 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
     "cypress": "^14.3.3",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
