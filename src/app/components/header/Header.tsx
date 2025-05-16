@@ -2,6 +2,14 @@
 import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
 import IHeaderProps, { IMenuItem } from "./header.type";
+import {
+  headerVariants,
+  logoVariants,
+  menuButtonVariants,
+  searchButtonVariants,
+  sidebarVariants,
+  modalOverlayVariants,
+} from "./header.variants";
 
 // 사이드바에 표시될 기본 메뉴 항목 데이터
 const defaultMenuItems: IMenuItem[] = [
@@ -28,6 +36,13 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
   // 실제 사용할 메뉴 항목 (props로 받거나 기본값 사용)
   const menuItems = customMenuItems || defaultMenuItems;
 
+  // 네비게이션 메뉴 항목 (PC 화면용)
+  const navMenuItems = [
+    { name: "마이페이지", href: "/mypage" },
+    { name: "빈칸채우기", href: "/fill-blank" },
+    { name: "즐겨찾는 질문들", href: "/favorites" },
+  ];
+
   // 검색 모달이 열릴 때 자동으로 검색창에 포커스
   useEffect(() => {
     if (searchModalOpen && searchInputRef.current) {
@@ -53,44 +68,31 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
   return (
     <>
       {/* 헤더 영역 */}
-      <header className="border-b border-gray-200">
+      <header className={headerVariants()}>
         <div className="mx-auto px-4 py-4 flex justify-between items-center">
           {/* 헤더 좌측: 메뉴 버튼, 로고, 네비게이션 */}
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               {/* 햄버거 메뉴 버튼 (클릭 시 사이드바 표시) */}
-              <div
-                className="border w-[52px] h-[52px] flex items-center justify-center cursor-pointer"
-                onClick={() => setSidebarOpen(true)}
-              >
+              <div className={menuButtonVariants()} onClick={() => setSidebarOpen(true)}>
                 Menu
               </div>
               {/* 로고 (홈페이지 링크) */}
               <Link href="/">
-                <div className="border w-[133px] h-[65px] flex items-center justify-center">
-                  Logo
-                </div>
+                <div className={logoVariants()}>Logo</div>
               </Link>
             </div>
 
             {/* PC 화면에서만 표시되는 네비게이션 메뉴 (768px 이상) */}
             <nav className="hidden md:block">
               <ul className="flex items-center gap-4">
-                <li className="sb24">
-                  <Link href="/mypage" className="hover:text-main transition-colors">
-                    마이페이지
-                  </Link>
-                </li>
-                <li className="sb24">
-                  <Link href="/fill-blank" className="hover:text-main transition-colors">
-                    빈칸채우기
-                  </Link>
-                </li>
-                <li className="sb24">
-                  <Link href="/favorites" className="hover:text-main transition-colors">
-                    즐겨찾는 질문들
-                  </Link>
-                </li>
+                {navMenuItems.map((item) => (
+                  <li key={item.href} className="text-regular-24">
+                    <Link href={item.href} className="hover:text-main transition-colors">
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </nav>
           </div>
@@ -99,7 +101,7 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
           <div className="flex items-center gap-4">
             {/* 검색 버튼 (클릭 시 검색 모달 표시) */}
             <div
-              className="border flex items-center justify-center w-[33px] h-[33px] cursor-pointer hover:bg-gray-100 transition-all"
+              className={searchButtonVariants({ state: "hover" })}
               onClick={() => setSearchModalOpen(true)}
             >
               <svg
@@ -119,7 +121,7 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
             </div>
             {/* 로그인 버튼/상태 */}
             <Link href="#">
-              <div>Login</div>
+              <div className="text-sb-24">Login</div>
             </Link>
           </div>
         </div>
@@ -128,17 +130,13 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
       {/* 사이드바 오버레이 (사이드바가 열려있을 때만 표시) */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/60 z-40 transition-opacity duration-300 cursor-pointer"
+          className={modalOverlayVariants({ type: "sidebar" })}
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       {/* 사이드바 (왼쪽에서 슬라이드 인) */}
-      <div
-        className={`fixed top-0 left-0 bottom-0 w-64 bg-white z-50 transform transition-transform duration-300 ease-in-out shadow-lg ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
+      <div className={sidebarVariants({ isOpen: sidebarOpen })}>
         <div className="p-4">
           {/* 사이드바 헤더: 제목과 닫기 버튼 */}
           <div className="flex justify-between items-center">
@@ -167,7 +165,7 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
             <h1 className="mb-4">
               <Link
                 href="/"
-                className="block py-2 hover:text-main transition-colors font-bold text-xl"
+                className="block py-2 hover:text-main transition-colors font-bold text-bold-32"
               >
                 InterViewer
               </Link>
@@ -176,7 +174,10 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
             <ul className="space-y-4">
               {menuItems.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="block py-2 hover:text-main transition-colors">
+                  <Link
+                    href={item.href}
+                    className="block py-2 hover:text-main transition-colors text-regular-24"
+                  >
                     {item.name}
                   </Link>
                 </li>
@@ -191,7 +192,7 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
         <>
           {/* 검색 모달 오버레이 - 클릭하면 모달 닫힘 */}
           <div
-            className="fixed inset-0 bg-black/70 z-40 transition-opacity duration-300 cursor-pointer"
+            className={modalOverlayVariants({ type: "search" })}
             onClick={() => setSearchModalOpen(false)}
           />
 
@@ -245,7 +246,7 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
                     </svg>
                   </div>
                   <input
-                    ref={searchInputRef} // 모달 열릴 때 자동 포커스를 위한 참조
+                    ref={searchInputRef}
                     type="text"
                     className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main focus:border-transparent"
                     placeholder="검색어를 입력하세요..."
