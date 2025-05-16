@@ -75,9 +75,9 @@ const config: Config = {
           left: "50%",
           transform: "translate(-50%, -50%)",
         },
-        ".border": {
-          border: "1px solid #D9D9D9",
-        },
+        // ".border": {
+        //   border: "1px solid #D9D9D9",
+        // },
       });
     }),
   ],
