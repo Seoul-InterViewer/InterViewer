@@ -1,4 +1,3 @@
-import AutoBreadCrumb from "./components/breadCrumb/AutoBreadCrumb";
 import BreadCrumb from "./components/breadCrumb/BreadCrumb";
 import "./globals.css";
 
