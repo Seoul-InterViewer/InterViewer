@@ -1,0 +1,72 @@
+/* Text Styling */
+
+@layer utilities {
+  /* Text Styles */
+
+  /* Bold text classes */
+  .text-bold-56 {
+    font: var(--font-bold-56);
+  }
+  .text-bold-48 {
+    font: var(--font-bold-48);
+  }
+  .text-bold-40 {
+    font: var(--font-bold-40);
+  }
+  .text-bold-38 {
+    font: var(--font-bold-38);
+  }
+  .text-bold-32 {
+    font: var(--font-bold-32);
+  }
+  .text-bold-18 {
+    font: var(--font-bold-18);
+  }
+  .text-bold-14 {
+    font: var(--font-bold-14);
+  }
+
+  /* Semibold text classes */
+  .text-sb-28 {
+    font: var(--font-sb-28);
+  }
+  .text-sb-24 {
+    font: var(--font-sb-24);
+  }
+  .text-sb-20 {
+    font: var(--font-sb-20);
+  }
+  .text-sb-18 {
+    font: var(--font-sb-18);
+  }
+  .text-sb-16 {
+    font: var(--font-sb-16);
+  }
+  .text-sb-14 {
+    font: var(--font-sb-14);
+  }
+  .text-sb-12 {
+    font: var(--font-sb-12);
+  }
+
+  /* Regular and medium text classes */
+  .text-regular-24 {
+    font: var(--font-regular-24);
+  }
+  .text-regular-18 {
+    font: var(--font-regular-18);
+  }
+  .text-regular-14 {
+    font: var(--font-regular-14);
+  }
+
+  .text-medium-12 {
+    font: var(--font-medium-12);
+  }
+  .text-medium-10 {
+    font: var(--font-medium-10);
+  }
+  .text-medium-8 {
+    font: var(--font-medium-8);
+  }
+}
