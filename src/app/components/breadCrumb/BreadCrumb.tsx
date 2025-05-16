@@ -117,7 +117,7 @@ const BreadCrumb = ({
           const isCurrentPage = item.isCurrentPage;
 
           return (
-            <li key={item.href} className="flex items-center">
+            <li key={item.href} className="flex items-center text-bold-56">
               {index > 0 && (
                 <span className="mx-2">
                   {/* 현재 페이지로 가는 구분자인 경우 활성 색상 적용 */}
