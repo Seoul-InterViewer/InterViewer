@@ -1,3 +1,4 @@
+/* pretandard font 추가 */
 @theme {
   /* Colors */
   --color-main: #f5c02f;
@@ -16,32 +17,32 @@
   /* Font Styles - Combined size and weight */
 
   /* Bold fonts */
-  --font-bold-56: 700 3.5rem/1.2;
-  --font-bold-48: 700 3rem/1.2;
-  --font-bold-40: 700 2.5rem/1.2;
-  --font-bold-38: 700 2.375rem/1.2;
-  --font-bold-32: 700 2rem/1.2;
-  --font-bold-18: 700 1.125rem/1.2;
-  --font-bold-14: 700 0.875rem/1.2;
+  --font-bold-56: 700 3.5rem/1.2 "Pretendard", sans-serif;
+  --font-bold-48: 700 3rem/1.2 "Pretendard", sans-serif;
+  --font-bold-40: 700 2.5rem/1.2 "Pretendard", sans-serif;
+  --font-bold-38: 700 2.375rem/1.2 "Pretendard", sans-serif;
+  --font-bold-32: 700 2rem/1.2 "Pretendard", sans-serif;
+  --font-bold-18: 700 1.125rem/1.2 "Pretendard", sans-serif;
+  --font-bold-14: 700 0.875rem/1.2 "Pretendard", sans-serif;
 
   /* Semibold fonts */
-  --font-sb-28: 600 1.75rem/1.2;
-  --font-sb-24: 600 1.5rem/1.2;
-  --font-sb-20: 600 1.25rem/1.2;
-  --font-sb-18: 600 1.125rem/1.2;
-  --font-sb-16: 600 1rem/1.2;
-  --font-sb-14: 600 0.875rem/1.2;
-  --font-sb-12: 600 0.75rem/1.2;
+  --font-sb-28: 600 1.75rem/1.2 "Pretendard", sans-serif;
+  --font-sb-24: 600 1.5rem/1.2 "Pretendard", sans-serif;
+  --font-sb-20: 600 1.25rem/1.2 "Pretendard", sans-serif;
+  --font-sb-18: 600 1.125rem/1.2 "Pretendard", sans-serif;
+  --font-sb-16: 600 1rem/1.2 "Pretendard", sans-serif;
+  --font-sb-14: 600 0.875rem/1.2 "Pretendard", sans-serif;
+  --font-sb-12: 600 0.75rem/1.2 "Pretendard", sans-serif;
 
   /* Regular fonts */
-  --font-regular-24: 400 1.5rem/1.2;
-  --font-regular-18: 400 1.125rem/1.2;
-  --font-regular-14: 400 0.875rem/1.2;
+  --font-regular-24: 400 1.5rem/1.2 "Pretendard", sans-serif;
+  --font-regular-18: 400 1.125rem/1.2 "Pretendard", sans-serif;
+  --font-regular-14: 400 0.875rem/1.2 "Pretendard", sans-serif;
 
   /* Medium fonts */
-  --font-medium-12: 500 0.75rem/1.2;
-  --font-medium-10: 500 0.625rem/1.2;
-  --font-medium-8: 500 0.5rem/1.2;
+  --font-medium-12: 500 0.75rem/1.2 "Pretendard", sans-serif;
+  --font-medium-10: 500 0.625rem/1.2 "Pretendard", sans-serif;
+  --font-medium-8: 500 0.5rem/1.2 "Pretendard", sans-serif;
 
   /* Container */
   --container-pc: 1260px;
