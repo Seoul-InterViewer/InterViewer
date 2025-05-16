@@ -3,3 +3,47 @@
 @import "../styles/theme.css";
 @import "../styles/variables.css";
 @import "../styles/mixins.css";
+
+/* pretandard font 추가 */
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: "Pretendard", ui-sans-serif, system-ui;
+  font-size: 16px; /* 기본 16px에서 14px로 줄임 */
+}
+
+/* 반응형 폰트 크기 (선택 사항) */
+/* @media (max-width: 1920px) {
+  html,
+  body {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 1440px) {
+  html,
+  body {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  html,
+  body {
+    font-size: 12px;
+  }
+} */
