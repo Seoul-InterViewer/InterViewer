@@ -19,7 +19,7 @@ export const breadCrumbItemVariants = tv({
   variants: {
     state: {
       default: "text-font-gray hover:text-gray-900",
-      current: "text-main font-medium",
+      current: "font-medium",
     },
   },
   defaultVariants: {

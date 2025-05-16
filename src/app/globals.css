@@ -1,13 +1,4 @@
-@import url("https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css");
-
 @import "tailwindcss";
 @import "../styles/theme.css";
 @import "../styles/variables.css";
 @import "../styles/mixins.css";
-
-/* pretandard font 추가 */
-html,
-body {
-  -webkit-font-smoothing: antialiased;
-  font-family: "Pretendard", ui-sans-serif, system-ui;
-}
