@@ -1,0 +1,24 @@
+/* Mixins */
+
+@layer utilities {
+  .flex-center {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .hover-filter {
+    &:hover {
+      filter: brightness(0.7);
+      transition: filter ease-in 0.3s;
+    }
+  }
+  .absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .custom-border {
+    border: 1px solid #d9d9d9;
+  }
+}
