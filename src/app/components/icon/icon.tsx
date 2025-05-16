@@ -1,115 +1,108 @@
-import { IIconProps } from "./icon.type";
+import { IIconProps, IconComponent, IconName } from "./icon.type";
 
-// SVG 파일들을 문자열로 import
-import apple from "/assets/icons/apple.svg?raw";
-import bookmark from "/assets/icons/bookmark.svg?raw";
-import cardQuiz from "/assets/icons/card-quiz.svg?raw";
-import close from "/assets/icons/close.svg?raw";
-import codepen from "/assets/icons/codepen.svg?raw";
-import correct from "/assets/icons/correct.svg?raw";
-import createNew from "/assets/icons/create-new.svg?raw";
-import cs from "/assets/icons/cs.svg?raw";
-import edit from "/assets/icons/edit.svg?raw";
-import github from "/assets/icons/github.svg?raw";
-import google from "/assets/icons/google.svg?raw";
-import heart from "/assets/icons/heart.svg?raw";
-import heartBlack from "/assets/icons/heart-black.svg?raw";
-import heroCodepen from "/assets/icons/hero-codepen.svg?raw";
-import heroNote from "/assets/icons/hero-note.svg?raw";
-import heroQuestion from "/assets/icons/hero-question.svg?raw";
-import heroQuiz from "/assets/icons/hero-quiz.svg?raw";
-import horizontalElipsis from "/assets/icons/horisontal-elipsis.svg?raw";
-import incorrect from "/assets/icons/incorrect.svg?raw";
-import javascript from "/assets/icons/javascript.svg?raw";
-import library from "/assets/icons/library.svg?raw";
-import menu from "/assets/icons/menu.svg?raw";
-import nextjs from "/assets/icons/nextjs.svg?raw";
-import plus from "/assets/icons/plus.svg?raw";
-import questionBlack from "/assets/icons/question-black.svg?raw";
-import react from "/assets/icons/react.svg?raw";
-import reply from "/assets/icons/reply.svg?raw";
-import report from "/assets/icons/report.svg?raw";
-import search from "/assets/icons/search.svg?raw";
-import setting from "/assets/icons/setting.svg?raw";
-import share from "/assets/icons/share.svg?raw";
-import trash from "/assets/icons/trash.svg?raw";
-import typescript from "/assets/icons/typescript.svg?raw";
-import upload from "/assets/icons/upload.svg?raw";
-import user from "/assets/icons/user.svg?raw";
-import verticalElipsis from "/assets/icons/vertical-elipsis.svg?raw";
-import web from "/assets/icons/web.svg?raw";
+// SVG 파일들을 직접 import
+import Apple from "../../../../public/assets/icons/apple.svg";
+import Bookmark from "../../../../public/assets/icons/bookmark.svg";
+import CardQuiz from "../../../../public/assets/icons/card-quiz.svg";
+import Close from "../../../../public/assets/icons/close.svg";
+import Codepen from "../../../../public/assets/icons/codepen.svg";
+import Correct from "../../../../public/assets/icons/correct.svg";
+import CreateNew from "../../../../public/assets/icons/create-new.svg";
+import Cs from "../../../../public/assets/icons/cs.svg";
+import Edit from "../../../../public/assets/icons/edit.svg";
+import Github from "../../../../public/assets/icons/github.svg";
+import Google from "../../../../public/assets/icons/google.svg";
+import Heart from "../../../../public/assets/icons/heart.svg";
+import HeartBlack from "../../../../public/assets/icons/heart-black.svg";
+import HeroCodepen from "../../../../public/assets/icons/hero-codepen.svg";
+import HeroNote from "../../../../public/assets/icons/hero-note.svg";
+import HeroQuestion from "../../../../public/assets/icons/hero-question.svg";
+import HeroQuiz from "../../../../public/assets/icons/hero-quiz.svg";
+import HorizontalElipsis from "../../../../public/assets/icons/horisontal-elipsis.svg";
+import Incorrect from "../../../../public/assets/icons/incorrect.svg";
+import Javascript from "../../../../public/assets/icons/javascript.svg";
+import Library from "../../../../public/assets/icons/library.svg";
+import Menu from "../../../../public/assets/icons/menu.svg";
+import Nextjs from "../../../../public/assets/icons/nextjs.svg";
+import Plus from "../../../../public/assets/icons/plus.svg";
+import QuestionBlack from "../../../../public/assets/icons/question-black.svg";
+import React from "../../../../public/assets/icons/react.svg";
+import Reply from "../../../../public/assets/icons/reply.svg";
+import Report from "../../../../public/assets/icons/report.svg";
+import Search from "../../../../public/assets/icons/search.svg";
+import Setting from "../../../../public/assets/icons/setting.svg";
+import Share from "../../../../public/assets/icons/share.svg";
+import Trash from "../../../../public/assets/icons/trash.svg";
+import Typescript from "../../../../public/assets/icons/typescript.svg";
+import Upload from "../../../../public/assets/icons/upload.svg";
+import User from "../../../../public/assets/icons/user.svg";
+import VerticalElipsis from "../../../../public/assets/icons/vertical-elipsis.svg";
+import Web from "../../../../public/assets/icons/web.svg";
 
-const icons = {
-  apple,
-  bookmark,
-  cardQuiz,
-  close,
-  codepen,
-  correct,
-  createNew,
-  cs,
-  edit,
-  github,
-  google,
-  heart,
-  heartBlack,
-  heroCodepen,
-  heroNote,
-  heroQuestion,
-  heroQuiz,
-  horizontalElipsis,
-  incorrect,
-  javascript,
-  library,
-  menu,
-  nextjs,
-  plus,
-  questionBlack,
-  react,
-  reply,
-  report,
-  search,
-  setting,
-  share,
-  trash,
-  typescript,
-  upload,
-  user,
-  verticalElipsis,
-  web,
+// SVG 컴포넌트 정의
+const icons: Record<IconName, IconComponent> = {
+  apple: Apple,
+  bookmark: Bookmark,
+  cardQuiz: CardQuiz,
+  close: Close,
+  codepen: Codepen,
+  correct: Correct,
+  createNew: CreateNew,
+  cs: Cs,
+  edit: Edit,
+  github: Github,
+  google: Google,
+  heart: Heart,
+  heartBlack: HeartBlack,
+  heroCodepen: HeroCodepen,
+  heroNote: HeroNote,
+  heroQuestion: HeroQuestion,
+  heroQuiz: HeroQuiz,
+  horizontalElipsis: HorizontalElipsis,
+  incorrect: Incorrect,
+  javascript: Javascript,
+  library: Library,
+  menu: Menu,
+  nextjs: Nextjs,
+  plus: Plus,
+  questionBlack: QuestionBlack,
+  react: React,
+  reply: Reply,
+  report: Report,
+  search: Search,
+  setting: Setting,
+  share: Share,
+  trash: Trash,
+  typescript: Typescript,
+  upload: Upload,
+  user: User,
+  verticalElipsis: VerticalElipsis,
+  web: Web,
 };
-
-export type IconName = keyof typeof icons;
 
 export const Icon = ({
   name,
-  size = 24,
+  width = 24,
+  height = 24,
   className = "",
   strokeWidth,
   stroke,
   fill,
   viewBox,
+  ...props
 }: IIconProps) => {
-  const svgString = icons[name as IconName];
-
-  // SVG 문자열을 파싱하여 속성 추출
-  const parser = new DOMParser();
-  const svgDoc = parser.parseFromString(svgString, "image/svg+xml");
-  const svgElement = svgDoc.documentElement;
-
-  // 기본 viewBox 가져오기
-  const defaultViewBox = svgElement.getAttribute("viewBox") || "0 0 24 24";
+  const IconComponent = icons[name];
 
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox={viewBox || defaultViewBox}
+    <IconComponent
+      width={width}
+      height={height}
       className={className}
       strokeWidth={strokeWidth}
       stroke={stroke}
       fill={fill}
-      dangerouslySetInnerHTML={{ __html: svgString }}
+      viewBox={viewBox}
+      {...props}
     />
   );
 };
