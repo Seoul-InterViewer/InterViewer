@@ -1,4 +1,3 @@
-import { ViewportInitializer } from "./components/viewportInitializer/ViewportInitializer";
 import "./globals.css";
 
 export default function RootLayout({
@@ -8,10 +7,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="kr">
-      <body>
-        <ViewportInitializer />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
