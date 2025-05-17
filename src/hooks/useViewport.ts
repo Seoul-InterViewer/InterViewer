@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import viewportStore from "@/stores/viewportStore";
+import { useEffect, useState } from "react";
 export function useViewport() {
-  const { setDimensions } = viewportStore();
+  const [currentVw, setCurrentVw] = useState(0);
+  const [currentVh, setCurrentVh] = useState(0);
 
   const handleResize = () => {
-    setDimensions(window.innerWidth, window.innerHeight);
+    setCurrentVw(window.innerWidth);
+    setCurrentVh(window.innerHeight);
   };
 
   useEffect(() => {
@@ -15,4 +16,6 @@ export function useViewport() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  return { currentVw, currentVh };
 }
