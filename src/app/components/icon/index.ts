@@ -1,3 +1,3 @@
-export * from './icon'
-export * from './icon.type'
-export * from './icon.variants'
+export * from "./icon";
+export * from "./icon.type";
+export * from "./icon.variants";

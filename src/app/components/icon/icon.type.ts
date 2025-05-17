@@ -3,8 +3,13 @@ import { SVGProps } from "react";
 // 아이콘 이름 타입
 export type IconName =
   | "apple"
+  | "arrow"
   | "bookmark"
   | "cardQuiz"
+  | "chevronDown"
+  | "chevronLeft"
+  | "chevronRight"
+  | "chevronUp"
   | "menu"
   | "web"
   | "google"
