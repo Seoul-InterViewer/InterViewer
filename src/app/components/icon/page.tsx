@@ -52,7 +52,7 @@ const IconGalleryPage = () => {
             className="flex flex-col items-center justify-center border p-4 rounded hover:shadow-lg transition-shadow min-h-[120px]"
           >
             <div className="flex items-center justify-center h-[48px]">
-              <Icon name={name} className="mb-2" />
+              <Icon name={name} stroke="black" fill="white" />
             </div>
             <span className="text-sm text-gray-700 mt-2">{name}</span>
           </div>
