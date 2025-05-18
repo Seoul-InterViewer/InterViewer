@@ -10,7 +10,16 @@ export const Modal = ({
   showCloseButton,
   className,
 }: ModalType) => {
-    return (
-        <div></div>
-    )
+  const { bg, container, closeButton, title: titleStyle } = modalVariants();
+  if (!isOpen) return null;
+
+  return (
+    <div className={bg()}>
+      <div className={`${container()} ${className}`}>
+        {showCloseButton && <button />}
+        {title && <h2 className={titleStyle()}>{title}</h2>}
+        {children}
+      </div>
+    </div>
+  );
 };
