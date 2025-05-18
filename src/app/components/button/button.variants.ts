@@ -4,6 +4,7 @@ export const buttonVariants = tv({
   base: "font-var(--font-regular-18) px-5 py-2.5 rounded-[4px]",
   variants: {
     type: {
+      defalut: "",
       blackBtn: "bg-black text-white",
       yellowBtn: "bg-var(--color-main) text-black",
       grayBtn: "bg-var(--color-font-gray) text-[#434343]",
@@ -17,6 +18,6 @@ export const buttonVariants = tv({
     },
   },
   defaultVariants: {
-    type: "blackBtn",
+    type: "defalut",
   },
 });
