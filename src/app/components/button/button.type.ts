@@ -2,8 +2,7 @@ export interface IButtonProps {
   text: string;
   className?: string;
   onClick?: () => void;
-  type?: ButtonType;
-  hover?: hoverType;
+  onSubmit?: () => void;
   mobile?: mobileType;
 }
 
