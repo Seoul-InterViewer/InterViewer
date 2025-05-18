@@ -3,10 +3,12 @@ export interface IButtonProps {
   className?: string;
   onClick?: () => void;
   type?: ButtonType;
+  hover?: hoverType;
+  mobile?: mobileType;
 }
 
 export type ButtonType =
-  | "defalut"
+  | "default"
   | "blackBtn"
   | "yellowBtn"
   | "grayBtn"
@@ -14,4 +16,9 @@ export type ButtonType =
   | "redBtn"
   | "deleteBtn"
   | "editBtn"
-  | "borderBtn";
+  | "fillterWhiteBtn"
+  | "fillterBlackBtn"
+  | "writeBtn";
+
+export type hoverType = boolean;
+export type mobileType = "default" | "normalSize" | "fullSize";
