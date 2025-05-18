@@ -18,7 +18,7 @@ export default function InputTestPage() {
           type="text"
           name="name"
           id="name"
-          placeholder="이메일일"
+          placeholder="이메일"
         />
         <button className="bg-black text-white p-2 h-full flex-1">test</button>
       </div>
@@ -36,7 +36,20 @@ export default function InputTestPage() {
         id="name"
         placeholder="태그"
       />
+      <Input
+        className={inputVariants({ variant: "borderBottom" })}
+        type="text"
+        name="name"
+        id="name"
+        placeholder="태그"
+      />
+      <Input
+        className={inputVariants({ variant: "blank" })}
+        type="text"
+        name="name"
+        id="name"
+        placeholder="빈칸"
+      />
     </div>
   );
 }
-  

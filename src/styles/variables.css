@@ -50,6 +50,9 @@
   }
 
   /* Regular and medium text classes */
+  .text-regular-26 {
+    font: var(--font-regular-26);
+  }
   .text-regular-24 {
     font: var(--font-regular-24);
   }
@@ -119,6 +122,9 @@
       font: var(--font-sb-12);
     }
     
+    .md\:text-regular-26 {
+      font: var(--font-regular-26);
+    }
     .md\:text-regular-24 {
       font: var(--font-regular-24);
     }
