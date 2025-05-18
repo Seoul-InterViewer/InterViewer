@@ -14,14 +14,21 @@ export default function InputTestPage() {
       <Input type="text" name="name" id="name" placeholder="기본" />
       <div className={`flex h-20`}>
         <Input
-          className={inputVariants({ withButton: true })}
-          type="text"
+          className={inputVariants({ withButton: true, variant: "credentials" })}
+          type="email"
           name="name"
           id="name"
           placeholder="이메일"
         />
         <button className="bg-black text-white p-2 h-full flex-1">test</button>
       </div>
+      <Input
+        className={inputVariants({ variant: "credentials" })}
+        type="password"
+        name="name"
+        id="name"
+        placeholder="비밀번호"
+      />
       <Input
         className={inputVariants({ search: true })}
         type="text"
@@ -43,13 +50,15 @@ export default function InputTestPage() {
         id="name"
         placeholder="태그"
       />
-      <Input
-        className={inputVariants({ variant: "blank" })}
-        type="text"
-        name="name"
-        id="name"
-        placeholder="빈칸"
-      />
+      <div className="w-fit">
+        <Input
+          className={inputVariants({ variant: "blank" })}
+          type="text"
+          name="name"
+          id="name"
+          placeholder="빈칸"
+        />
+      </div>
     </div>
   );
 }
