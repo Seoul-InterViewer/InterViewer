@@ -1,15 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { RadioButtonProps } from "./radioButton.type";
+import { IRadioButtonProps } from "./radioButton.type";
 import { radioButtonVariants } from "./radioButton.variants";
 
-export const RadioButton = ({ datas, width }: RadioButtonProps) => {
+export const RadioButton = ({ datas }: IRadioButtonProps) => {
   const [selected, setSeleted] = useState(datas[0].value);
   const { wrapper, item } = radioButtonVariants({ variant: "default" });
 
   return (
-    <ul className={wrapper()} style={{ width }}>
+    <ul className={wrapper()}>
       {datas.map((data) => (
         <li
           key={data.value}

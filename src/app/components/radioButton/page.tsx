@@ -1,7 +1,7 @@
 import { RadioButton } from "./RadioButton";
-import { RadioItem } from "./radioButton.type";
+import { IRadioItem } from "./radioButton.type";
 
-const datas: RadioItem[] = [
+const datas: IRadioItem[] = [
   { value: "react", txt: "React" },
   { value: "js", txt: "JavaScript" },
   { value: "next", txt: "Next" },
@@ -12,5 +12,5 @@ const datas: RadioItem[] = [
 ];
 
 export default function RadioButtonTestPage() {
-  return <RadioButton datas={datas} width={"60%"} />;
+  return <RadioButton datas={datas} />;
 }

@@ -1,9 +1,8 @@
-export interface RadioItem {
+export interface IRadioItem {
   value: string;
   txt: string;
 }
 
-export interface RadioButtonProps {
-  datas: RadioItem[];
-  width: string;
+export interface IRadioButtonProps {
+  datas: IRadioItem[];
 }
