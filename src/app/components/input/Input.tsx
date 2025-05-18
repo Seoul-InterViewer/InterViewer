@@ -10,13 +10,9 @@ export const Input = ({
   id,
   placeholder,
   className = inputVariants(),
+  onChange,
+  value,
 }: IInputProps) => {
-  const [inputValue, setInputValue] = useState("");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
-
   return (
     <input
       type={type}
@@ -24,8 +20,8 @@ export const Input = ({
       name={name}
       id={id}
       placeholder={placeholder}
-      value={inputValue}
-      onChange={handleChange}
+      value={value}
+      onChange={onChange}
     />
   );
 };
