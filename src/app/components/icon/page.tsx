@@ -56,13 +56,13 @@ const IconGalleryPage = () => {
             <div className="flex items-center justify-center h-[48px]">
               <Icon name={name} />
             </div>
-            <span className="text-sb-14 text-gray-700 mt-2">{name}</span>
+            <span className="--font-sb-14 text-gray-700 mt-2">{name}</span>
           </div>
         ))}
       </div>
       <Icon name="menu" width={20} height={20} />
       <Icon name="chevronUp" width={50} height={50} />
-      <Icon name="chevronDown" width={50} height={50} strokeWidth={2} stroke="gray"/>
+      <Icon name="chevronDown" width={50} height={50} strokeWidth={2} stroke="var(--color-main)" />
       <Icon name="typescript" width={50} height={50} />
     </div>
   );
