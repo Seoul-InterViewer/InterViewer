@@ -1,6 +1,5 @@
 import { SVGProps } from "react";
 
-// 아이콘 이름 타입
 export type IconName =
   | "apple"
   | "arrow"
@@ -45,7 +44,6 @@ export type IconName =
   | "codepen"
   | "close";
 
-// Icon 컴포넌트 Props 타입
 export interface IIconProps extends Omit<SVGProps<SVGSVGElement>, "name"> {
   name: IconName;
   width?: number;
@@ -57,10 +55,10 @@ export interface IIconProps extends Omit<SVGProps<SVGSVGElement>, "name"> {
   viewBox?: string;
 }
 
-// SVG 컴포넌트 타입
+export type CloseSize = "modal" | "login" | "tag" | "blank";
+
 export type IconComponent = (props: SVGProps<SVGSVGElement>) => React.ReactElement;
 
-// 아이콘 객체 타입
 export interface IIcons {
   [key: string]: IconComponent;
 }

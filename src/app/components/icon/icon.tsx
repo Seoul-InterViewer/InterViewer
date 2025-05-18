@@ -167,7 +167,6 @@ const UserIcon = (props: SVGProps<SVGSVGElement>) => {
   );
 };
 
-// 추가된 아이콘들
 const VerticalElipsisIcon = (props: SVGProps<SVGSVGElement>) => {
   const { width, height, stroke, strokeWidth, fill, viewBox, ...restProps } = props;
 

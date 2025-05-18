@@ -64,6 +64,7 @@ const IconGalleryPage = () => {
       <Icon name="chevronUp" width={50} height={50} />
       <Icon name="chevronDown" width={50} height={50} strokeWidth={2} stroke="var(--color-main)" />
       <Icon name="typescript" width={50} height={50} />
+      <Icon name="report" width={50} height={50} stroke="var(--color-incorrect)" />
     </div>
   );
 };
