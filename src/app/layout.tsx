@@ -1,4 +1,3 @@
-import BreadCrumb from "./components/breadCrumb/BreadCrumb";
 import "./globals.css";
 
 export default function RootLayout({
@@ -8,10 +7,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="kr">
-      <body>
-        <BreadCrumb autoGenerate items={[]} />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
