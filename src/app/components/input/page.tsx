@@ -48,7 +48,7 @@ export default function InputTestPage() {
         type="text"
         name="name"
         id="name"
-        placeholder="태그"
+        placeholder="비밀번호 변경"
       />
       <div className="w-fit">
         <Input

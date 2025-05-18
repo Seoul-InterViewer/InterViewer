@@ -5,7 +5,7 @@ export const inputVariants = tv({
   variants: {
     variant: {
       withBg: "bg-[#e9e9e9] text-sb-16",
-      borderBottom: "border-0 border-b border-border text-regular-14 md:text-regular-16",
+      borderBottom: "py-3 border-0 border-b border-border text-regular-14 md:text-regular-16 md:py-3",
       blank:
         "p-2 border-0 bg-[#b4b4b4] rounded-lg placeholder:text-black text-regular-16 md:text-regular-26",
 
