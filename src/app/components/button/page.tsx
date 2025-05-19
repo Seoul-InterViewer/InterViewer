@@ -3,7 +3,7 @@ import React from "react";
 import { Button } from "./Button";
 import { buttonVariants } from "./button.variants";
 
-const page = () => {
+export default function page() {
   return (
     <div className="flex-center flex-col gap-4 mt-5">
       <Button text="이전으로" className={buttonVariants({ type: "blackBtn" })} />
@@ -20,6 +20,4 @@ const page = () => {
       <Button text="버튼" className={buttonVariants({ type: "yellowBtn", mobile: "fullSize" })} />
     </div>
   );
-};
-
-export default page;
+}
