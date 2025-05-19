@@ -1,6 +1,5 @@
 import { Icon } from "./Icon";
 import { IconName } from "./icon.type";
-import { iconVariants } from "./icon.variants";
 
 const iconNames: IconName[] = [
   "apple",

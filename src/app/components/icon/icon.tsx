@@ -1,6 +1,5 @@
 import { IIconProps, IconComponent, IconName } from "./icon.type";
 import { SVGProps } from "react";
-import { iconVariants } from "./icon.variants";
 
 // SVG 컴포넌트 직접 정의
 const MenuIcon = (props: SVGProps<SVGSVGElement>) => {
