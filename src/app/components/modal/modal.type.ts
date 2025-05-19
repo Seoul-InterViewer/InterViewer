@@ -5,7 +5,7 @@ export type ModalType = {
   onClose: () => void;
   title?: string;
   children?: ReactNode;
-  buttons?: ReactNode;
+  buttons?: ReactNode[];
   showCloseButton?: boolean;
   className?: string;
 };

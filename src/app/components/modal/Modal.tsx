@@ -6,19 +6,29 @@ export const Modal = ({
   onClose,
   title,
   children,
-  buttons,
+  buttons = [],
   showCloseButton,
-  className,
+  className = modalVariants(),
 }: ModalType) => {
-  const { bg, container, closeButton, title: titleStyle } = modalVariants();
   if (!isOpen) return null;
 
   return (
-    <div className={bg()}>
-      <div className={`${container()} ${className}`}>
-        {showCloseButton && <button />}
-        {title && <h2 className={titleStyle()}>{title}</h2>}
+    <div className={className}>
+      <div className={className}>
+        {showCloseButton && <button onClick={onClose} />}
+        {title && <h2 className={className}>{title}</h2>}
         {children}
+        {buttons?.length > 0 ? (
+          buttons?.length > 1 ? (
+            buttons?.map((button, idx) => (
+              <div key={idx} className={className}>
+                {button}
+              </div>
+            ))
+          ) : (
+            <div className={className}>{buttons}</div>
+          )
+        ) : null}
       </div>
     </div>
   );
