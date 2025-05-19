@@ -13,4 +13,10 @@ export interface IInputProps {
   isCredential?: boolean;
   error?: boolean;
   errorMsg?: string;
+  onFocus?: () => void;
+  onBlur?: () => void;
+  required?: boolean;
+  disabled?: boolean;
+  maxLength?: number;
+  minLength?: number;
 }

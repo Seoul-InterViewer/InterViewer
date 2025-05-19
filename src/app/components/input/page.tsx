@@ -3,6 +3,7 @@ import { Input } from "./Input";
 import { inputVariants, labelVariants } from "./input.variants";
 import { CheckboxInput, checkboxInputVariants } from "./checkboxInput";
 export default function InputTestPage() {
+  
   return (
     <div className="p-20 flex flex-col gap-4">
       <Input

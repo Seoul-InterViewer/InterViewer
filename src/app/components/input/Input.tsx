@@ -16,6 +16,8 @@ export const Input = ({
   isCredential = false,
   error = false,
   errorMsg = "",
+  onBlur,
+  onFocus
 }: IInputProps) => {
   return (
     <>
@@ -32,6 +34,8 @@ export const Input = ({
             placeholder={placeholder}
             value={value}
             onChange={onChange}
+            onBlur={onBlur}
+            onFocus={onFocus}
           />
         </div>
       ) : (
@@ -43,6 +47,8 @@ export const Input = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          onBlur={onBlur}
+          onFocus={onFocus}
         />
       )}
     </>
