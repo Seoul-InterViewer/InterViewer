@@ -1,6 +1,7 @@
 import React from "react";
 import { Input } from "./Input";
-import { inputVariants } from "./input.variants";
+import { inputVariants, labelVariants } from "./input.variants";
+import { CheckboxInput, checkboxInputVariants } from "./checkboxInput";
 export default function InputTestPage() {
   return (
     <div className="p-20 flex flex-col gap-4">
@@ -59,6 +60,14 @@ export default function InputTestPage() {
           placeholder="빈칸"
         />
       </div>
+      <CheckboxInput
+        className={checkboxInputVariants({ variant: "bookmark" })}
+        label={"복습할 것들"}
+        labelClass={labelVariants()}
+        id="bookmark"
+        name="bookmark"
+      />
+      <CheckboxInput className={checkboxInputVariants()} id="list" name="list" />
     </div>
   );
 }
