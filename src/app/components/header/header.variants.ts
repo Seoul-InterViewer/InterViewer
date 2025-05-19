@@ -82,3 +82,21 @@ export const modalOverlayVariants = tv({
     type: "sidebar",
   },
 });
+
+export const sidebarMenuItemVariants = tv({
+  base: "block py-2 transition-colors rounded-md px-2",
+  variants: {
+    type: {
+      title: "font-bold text-bold-32 hover:text-main hover:bg-gray-50",
+      menuItem: "text-font-gray text-regular-24 hover:text-[var(--color-font)] hover:bg-gray-100",
+    },
+    state: {
+      default: "",
+      active: "text-main",
+    },
+  },
+  defaultVariants: {
+    type: "menuItem",
+    state: "default",
+  },
+});

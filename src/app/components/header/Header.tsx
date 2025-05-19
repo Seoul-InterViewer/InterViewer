@@ -9,6 +9,7 @@ import {
   searchButtonVariants,
   sidebarVariants,
   modalOverlayVariants,
+  sidebarMenuItemVariants,
 } from "./header.variants";
 
 // 사이드바에 표시될 기본 메뉴 항목 데이터
@@ -121,7 +122,7 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
             </div>
             {/* 로그인 버튼/상태 */}
             <Link href="#">
-              <div className="text-sb-24">Login</div>
+              <div className="text-sb-24 md:text-sb-24">Login</div>
             </Link>
           </div>
         </div>
@@ -163,10 +164,7 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
           <nav className="mt-8">
             {/* 사이트 제목/로고 */}
             <h1 className="mb-4">
-              <Link
-                href="/"
-                className="block py-2 hover:text-main transition-colors font-bold text-bold-32"
-              >
+              <Link href="/" className={sidebarMenuItemVariants({ type: "title" })}>
                 InterViewer
               </Link>
             </h1>
@@ -174,10 +172,7 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
             <ul className="space-y-4">
               {menuItems.map((item) => (
                 <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="block py-2 hover:text-main transition-colors text-regular-24"
-                  >
+                  <Link href={item.href} className={sidebarMenuItemVariants()}>
                     {item.name}
                   </Link>
                 </li>
