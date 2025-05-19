@@ -17,12 +17,12 @@ export const Input = ({
   error = false,
   errorMsg = "",
   onBlur,
-  onFocus
+  onFocus,
 }: IInputProps) => {
   return (
     <>
       {isCredential ? (
-        <div className="relative flex-5">
+        <div className="relative flex-5 h-full">
           <label className={labelVariants({ isCredential: true, error })} htmlFor={id}>
             {errorMsg || label}
           </label>

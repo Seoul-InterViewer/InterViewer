@@ -1,9 +1,15 @@
+"use client"
+
 import React from "react";
 import { Input } from "./Input";
 import { inputVariants, labelVariants } from "./input.variants";
 import { CheckboxInput, checkboxInputVariants } from "./checkboxInput";
+import useCheckbox from "@/hooks/input/useCheckbox";
+import useInput from "@/hooks/input/useInput";
 export default function InputTestPage() {
-  
+  const { isChecked, setIsChecked, handleCheck } = useCheckbox();
+  const { value, setValue, handleChange, reset } = useInput();
+
   return (
     <div className="p-20 flex flex-col gap-4">
       <Input
@@ -20,7 +26,7 @@ export default function InputTestPage() {
           type="email"
           name="name"
           id="name"
-          placeholder="Example@gmail.com"
+          placeholder="example@gmail.com"
           isCredential
           label="이메일을 입력해주세요."
         />
