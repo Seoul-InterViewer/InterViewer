@@ -46,7 +46,7 @@ const iconNames: IconName[] = [
   "chevronDown",
 ];
 
-const IconGalleryPage = () => {
+function IconGalleryPage() {
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold mb-6">아이콘 목록</h1>
@@ -67,6 +67,6 @@ const IconGalleryPage = () => {
       <Icon name="report" width={50} height={50} stroke="var(--color-incorrect)" />
     </div>
   );
-};
+}
 
 export default IconGalleryPage;
