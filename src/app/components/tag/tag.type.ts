@@ -4,12 +4,11 @@ import { ReactNode } from "react";
 import { tagData } from "./tag.constants"; // 이 파일은 아직 없지만 곧 만들 것입니다
 
 interface ITagProps {
-  children?: ReactNode;
-  type?: "default" | "card";
-  hover?: boolean;
-  selected?: string | null;
-  onClick?: ((item: string) => void) | (() => void);
+  type?: "default" | "card" | "chooseTag" | "correct" | "incorrect";
   className?: string;
+  data: string[]; // 여러 태그를 렌더링하기 위한 데이터 배열
+  choose?: string[]; // 선택된 태그 배열
+  onClose?: (tag: string) => void; // 태그 제거를 위한 콜백 함수
 }
 
 interface TagGroupProps {

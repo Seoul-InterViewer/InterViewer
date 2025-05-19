@@ -7,4 +7,8 @@ export const tagData = {
     label: "기본",
     items: ["React", "난이도 중", "프론트엔드", "API"],
   },
+  chooseTag: {
+    label: "선택",
+    items: ["React", "난이도 중", "프론트엔드", "API"],
+  },
 };
