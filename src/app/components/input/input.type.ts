@@ -11,4 +11,6 @@ export interface IInputProps {
   value?: string;
   label?: string;
   isCredential?: boolean;
+  error?: boolean;
+  errorMsg?: string;
 }

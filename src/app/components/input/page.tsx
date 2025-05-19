@@ -34,6 +34,31 @@ export default function InputTestPage() {
         isCredential
         label="비밀번호를 입력해주세요."
       />
+      <div className={`flex h-20`}>
+        <Input
+          className={inputVariants({ withButton: true, variant: "credentials", error: true })}
+          type="email"
+          name="name"
+          id="name"
+          placeholder="Example@gmail.com"
+          isCredential
+          label="이메일을 입력해주세요."
+          error
+          errorMsg="존재하지 않는 이메일입니다. "
+        />
+        <button className="bg-black text-white p-2 h-full flex-1">test</button>
+      </div>
+      <Input
+        className={inputVariants({ variant: "credentials", error: true })}
+        type="password"
+        name="name"
+        id="name"
+        placeholder="비밀번호"
+        isCredential
+        label="비밀번호를 입력해주세요."
+        error
+        errorMsg="비밀번호가 일치하지 않습니다."
+      />
       <Input
         className={inputVariants({ search: true })}
         type="text"
