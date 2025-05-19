@@ -19,7 +19,9 @@ export default function InputTestPage() {
           type="email"
           name="name"
           id="name"
-          placeholder="이메일"
+          placeholder="Example@gmail.com"
+          isCredential
+          label="이메일을 입력해주세요."
         />
         <button className="bg-black text-white p-2 h-full flex-1">test</button>
       </div>
@@ -29,6 +31,8 @@ export default function InputTestPage() {
         name="name"
         id="name"
         placeholder="비밀번호"
+        isCredential
+        label="비밀번호를 입력해주세요."
       />
       <Input
         className={inputVariants({ search: true })}

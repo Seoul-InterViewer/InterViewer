@@ -9,4 +9,6 @@ export interface IInputProps {
   className?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value?: string;
+  label?: string;
+  isCredential?: boolean;
 }
