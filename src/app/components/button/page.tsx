@@ -5,7 +5,7 @@ import { buttonVariants } from "./button.variants";
 
 const page = () => {
   return (
-    <div className="flex-center flex-col gap-4">
+    <div className="flex-center flex-col gap-4 mt-5">
       <Button text="이전으로" className={buttonVariants({ type: "blackBtn" })} />
       <Button text="다음으로" className={buttonVariants({ type: "yellowBtn" })} />
       <Button text="버튼" className={buttonVariants({ type: "grayBtn" })} />
