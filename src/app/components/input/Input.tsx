@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { IInputProps } from "./input.type";
-import { inputVariants } from "./input.variants";
+import { inputVariants, labelVariants } from "./input.variants";
 
 export const Input = ({
   type,
@@ -10,22 +10,47 @@ export const Input = ({
   id,
   placeholder,
   className = inputVariants(),
+  onChange,
+  value,
+  label,
+  isCredential = false,
+  error = false,
+  errorMsg = "",
+  onBlur,
+  onFocus,
 }: IInputProps) => {
-  const [inputValue, setInputValue] = useState("");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
-
   return (
-    <input
-      type={type}
-      className={className}
-      name={name}
-      id={id}
-      placeholder={placeholder}
-      value={inputValue}
-      onChange={handleChange}
-    />
+    <>
+      {isCredential ? (
+        <div className="relative flex-5 h-full">
+          <label className={labelVariants({ isCredential: true, error })} htmlFor={id}>
+            {errorMsg || label}
+          </label>
+          <input
+            type={type}
+            className={className}
+            name={name}
+            id={id}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            onBlur={onBlur}
+            onFocus={onFocus}
+          />
+        </div>
+      ) : (
+        <input
+          type={type}
+          className={className}
+          name={name}
+          id={id}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          onBlur={onBlur}
+          onFocus={onFocus}
+        />
+      )}
+    </>
   );
 };
