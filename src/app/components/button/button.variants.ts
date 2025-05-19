@@ -10,14 +10,12 @@ export const buttonVariants = tv({
       grayBtn: "bg-[#b2b2b2] text-[#434343]",
       lightGrayBtn: "bg-border text-font p-2.5 [font:var(--font-sb-18)]",
       redBtn: "bg-incorrect/60 text-white",
-      deleteBtn: "bg-incorrect/60 text-white px-[7px] py-[6px] [font:var(--font-medium-12)]",
-      editBtn: "bg-font text-white px-[7px] py-[6px] [font:var(--font-medium-12)]",
-      fillterWhiteBtn:
-        "border border-border text-font px-[16px] py-[6px] [font:var(--font-regular-14)]",
+      deleteBtn: "bg-incorrect/60 text-white px-2 py-1.5 [font:var(--font-medium-12)]",
+      editBtn: "bg-font text-white px-2 py-1.5 [font:var(--font-medium-12)]",
+      fillterWhiteBtn: "border border-border text-font px-4 py-1.5 [font:var(--font-regular-14)]",
       fillterBlackBtn:
-        "bg-black border border-black text-white px-[16px] py-[6px] [font:var(--font-regular-14)]",
-      writeBtn:
-        "bg-white border border-border text-font px-[17px] py-[6px] [font:var(--font-medium-12)]",
+        "bg-black border border-black text-white px-4 py-1.5 [font:var(--font-regular-14)]",
+      writeBtn: "bg-white border border-border text-font px-4 py-1.5 [font:var(--font-medium-12)]",
     },
     hover: {
       true: "hover:opacity-80 transition-opacity cursor-pointer",
