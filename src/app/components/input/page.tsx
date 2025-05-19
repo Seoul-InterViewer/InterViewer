@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import { Input } from "./Input";
@@ -7,8 +7,11 @@ import { CheckboxInput, checkboxInputVariants } from "./checkboxInput";
 import useCheckbox from "@/hooks/input/useCheckbox";
 import useInput from "@/hooks/input/useInput";
 export default function InputTestPage() {
-  const { isChecked, setIsChecked, handleCheck } = useCheckbox();
-  const { value, setValue, handleChange, reset } = useInput();
+  const bookmarkCheckbox = useCheckbox();
+  const cardCheckbox = useCheckbox();
+
+  const passwordInput = useInput();
+  const emailInput = useInput();
 
   return (
     <div className="p-20 flex flex-col gap-4">
@@ -29,6 +32,8 @@ export default function InputTestPage() {
           placeholder="example@gmail.com"
           isCredential
           label="이메일을 입력해주세요."
+          onChange={emailInput.handleChange}
+          value={emailInput.value}
         />
         <button className="bg-black text-white p-2 h-full flex-1">test</button>
       </div>
@@ -40,6 +45,8 @@ export default function InputTestPage() {
         placeholder="비밀번호"
         isCredential
         label="비밀번호를 입력해주세요."
+        onChange={passwordInput.handleChange}
+        value={passwordInput.value}
       />
       <div className={`flex h-20`}>
         <Input
@@ -102,8 +109,16 @@ export default function InputTestPage() {
         labelClass={labelVariants()}
         id="bookmark"
         name="bookmark"
+        checked={bookmarkCheckbox.isChecked}
+        onChange={bookmarkCheckbox.handleCheck}
       />
-      <CheckboxInput className={checkboxInputVariants()} id="list" name="list" />
+      <CheckboxInput
+        className={checkboxInputVariants()}
+        id="list"
+        name="list"
+        checked={cardCheckbox.isChecked}
+        onChange={cardCheckbox.handleCheck}
+      />
     </div>
   );
 }
