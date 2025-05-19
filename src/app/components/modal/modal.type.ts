@@ -7,5 +7,7 @@ export type ModalType = {
   children?: ReactNode;
   buttons?: ReactNode[];
   showCloseButton?: boolean;
+  size?: "default" | "mobile";
+  buttonLocation?: "left" | "center" | "right";
   className?: string;
 };
