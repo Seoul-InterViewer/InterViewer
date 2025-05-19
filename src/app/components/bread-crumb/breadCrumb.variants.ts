@@ -1,17 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const breadCrumbVariants = tv({
-  base: "flex items-center text-sm py-2",
-  variants: {
-    size: {
-      sm: "text-xs",
-      md: "text-sm",
-      lg: "text-base",
-    },
-  },
-  defaultVariants: {
-    size: "md",
-  },
+  base: "flex items-center py-2",
 });
 
 export const breadCrumbItemVariants = tv({

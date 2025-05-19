@@ -111,15 +111,15 @@ const BreadCrumb = ({
 
   return (
     <nav aria-label="Breadcrumb" className={breadCrumbVariants({ className })}>
-      <ol className="flex items-center space-x-1">
+      <ol className="flex flex-wrap items-center gap-1 lg:gap-2">
         {processedItems.map((item, index) => {
           // 현재 항목이 현재 페이지인지 확인
           const isCurrentPage = item.isCurrentPage;
 
           return (
-            <li key={item.href} className="flex items-center text-regular-24">
+            <li key={item.href} className="flex items-center text-regular-18 lg:text-regular-24">
               {index > 0 && (
-                <span className="mx-2">
+                <span className="mr-2">
                   {/* 현재 페이지로 가는 구분자인 경우 활성 색상 적용 */}
                   {isCurrentPage ? <ArrowIcon color={activeColor} /> : separator}
                 </span>
