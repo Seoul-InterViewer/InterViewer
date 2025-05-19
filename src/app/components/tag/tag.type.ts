@@ -5,7 +5,7 @@ import { tagData } from "./tag.constants"; // 이 파일은 아직 없지만 곧
 
 interface ITagProps {
   children?: ReactNode;
-  type?: "default" | "level" | "category" | "card";
+  type?: "default" | "card";
   hover?: boolean;
   selected?: string | null;
   onClick?: ((item: string) => void) | (() => void);
