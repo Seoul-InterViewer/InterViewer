@@ -50,11 +50,17 @@
   }
 
   /* Regular and medium text classes */
+  .text-regular-26 {
+    font: var(--font-regular-26);
+  }
   .text-regular-24 {
     font: var(--font-regular-24);
   }
   .text-regular-18 {
     font: var(--font-regular-18);
+  }
+  .text-regular-16 {
+    font: var(--font-regular-16);
   }
   .text-regular-14 {
     font: var(--font-regular-14);
@@ -116,11 +122,17 @@
       font: var(--font-sb-12);
     }
     
+    .md\:text-regular-26 {
+      font: var(--font-regular-26);
+    }
     .md\:text-regular-24 {
       font: var(--font-regular-24);
     }
     .md\:text-regular-18 {
       font: var(--font-regular-18);
+    }
+    .md\:text-regular-16 {
+      font: var(--font-regular-16);
     }
     .md\:text-regular-14 {
       font: var(--font-regular-14);
