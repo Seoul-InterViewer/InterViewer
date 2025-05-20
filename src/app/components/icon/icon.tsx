@@ -602,7 +602,7 @@ const IncorrectIcon = (props: SVGProps<SVGSVGElement>) => {
   );
 };
 
-const HorisontalElipsisIcon = (props: SVGProps<SVGSVGElement>) => {
+const HorizontalElipsisIcon = (props: SVGProps<SVGSVGElement>) => {
   const { width, height, stroke, strokeWidth, fill, viewBox, ...restProps } = props;
 
   return (
@@ -1103,7 +1103,7 @@ const icons: Record<IconName, IconComponent> = {
   library: LibraryIcon,
   javascript: JavascriptIcon,
   incorrect: IncorrectIcon,
-  horisontalElipsis: HorisontalElipsisIcon,
+  horizontalElipsis: HorizontalElipsisIcon,
   heroQuiz: HeroQuizIcon,
   heroQuestion: HeroQuestionIcon,
   heroNote: HeroNoteIcon,
@@ -1136,8 +1136,6 @@ export const Icon = ({
     console.warn(`Icon ${name} not found`);
     return null;
   }
-
-  console.log(stroke);
 
   return (
     <IconComponent

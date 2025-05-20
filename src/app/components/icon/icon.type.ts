@@ -44,17 +44,6 @@ export type IconName =
   | "codepen"
   | "close";
 
-export type IconSize = "sm" | "md" | "lg" | "xl";
-export type IconColor =
-  | "primary"
-  | "secondary"
-  | "black"
-  | "white"
-  | "gray"
-  | "yellow"
-  | "red"
-  | "green";
-export type IconVariant = "solid" | "outline";
 
 export interface IIconProps extends Omit<SVGProps<SVGSVGElement>, "name"> {
   name: IconName;
@@ -65,15 +54,8 @@ export interface IIconProps extends Omit<SVGProps<SVGSVGElement>, "name"> {
   stroke?: string;
   fill?: string;
   viewBox?: string;
-  size?: IconSize;
-  color?: IconColor;
-  variant?: IconVariant;
 }
-
-export type CloseSize = "modal" | "login" | "tag" | "blank";
 
 export type IconComponent = (props: SVGProps<SVGSVGElement>) => React.ReactElement;
 
-export interface IIcons {
-  [key: string]: IconComponent;
-}
+
