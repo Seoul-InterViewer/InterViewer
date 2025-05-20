@@ -29,7 +29,7 @@ export type IconName =
   | "library"
   | "javascript"
   | "incorrect"
-  | "horisontalElipsis"
+  | "horizontalElipsis"
   | "heroQuiz"
   | "heroQuestion"
   | "heroNote"
