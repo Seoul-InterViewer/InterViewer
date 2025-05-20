@@ -1121,13 +1121,11 @@ const icons: Record<IconName, IconComponent> = {
 
 export const Icon = ({
   name,
-  width,
-  height,
   className,
   strokeWidth,
   stroke,
   fill,
-  viewBox,
+  size,
   ...props
 }: IIconProps) => {
   const IconComponent = icons[name];
@@ -1139,13 +1137,13 @@ export const Icon = ({
 
   return (
     <IconComponent
-      width={width}
-      height={height}
+      width={size}
+      height={size}
       className={className}
       strokeWidth={strokeWidth}
       stroke={stroke}
       fill={fill}
-      viewBox={viewBox}
+      viewBox={`0 0 ${size} ${size}`}
       {...props}
     />
   );
