@@ -12,10 +12,10 @@ export const Toast = ({ content, id, error, onRemove }: IToastProps) => {
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 50 }}
-      className={onRemove ? "min-w-50" : ""}
+      className={onRemove ? "w-fit min-w-30 md:min-w-50" : "w-fit"}
     >
-      <div className="flex items-center justify-between w-full px-4 bg-white text-xs text-black p-3 shadow-lg mb-2 md:text-lg">
-        <p className="flex gap-2">
+      <div className="flex items-center justify-between g-4 w-full px-4 bg-white text-xs text-black p-3 shadow-lg mb-2 md:text-lg">
+        <p className="flex gap-2 w-fit px-3">
           <span>{error ? "🚫" : "✅"}</span>
           {content}
         </p>

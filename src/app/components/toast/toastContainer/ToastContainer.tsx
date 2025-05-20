@@ -17,7 +17,7 @@ const ToastContainer = () => {
   }, []);
 
   const toastContent = (
-    <div className="fixed bottom-12 right-12 flex flex-col items-center z-50">
+    <div className="fixed bottom-12 right-12 flex flex-col items-end z-50">
       <AnimatePresence>
         {toasts.map((toast) => (
           <Toast
@@ -35,4 +35,4 @@ const ToastContainer = () => {
   return portalElement ? createPortal(toastContent, portalElement) : null;
 };
 
-export default ToastContainer;
+export default React.memo(ToastContainer);
