@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { IToastProps } from "./toast.type";
 import { motion } from "motion/react";
