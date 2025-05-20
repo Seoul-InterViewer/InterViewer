@@ -14,46 +14,20 @@ export const headerVariants = tv({
 });
 
 export const logoVariants = tv({
-  base: "border flex items-center justify-center",
-  variants: {
-    size: {
-      default: "w-[133px] h-[65px]",
-      small: "w-[100px] h-[50px]",
-    },
-  },
-  defaultVariants: {
-    size: "default",
-  },
+  base: "border flex items-center justify-center w-[77px] h-[38px] sm:w-[133px] sm:h-[65px]",
 });
 
 export const menuButtonVariants = tv({
-  base: "border flex items-center justify-center cursor-pointer",
-  variants: {
-    size: {
-      default: "w-[52px] h-[52px]",
-      small: "w-[40px] h-[40px]",
-    },
-  },
-  defaultVariants: {
-    size: "default",
-  },
+  base: "border flex items-center justify-center cursor-pointer w-[40px] h-[40px] sm:w-[52px] sm:h-[52px]",
 });
 
 export const searchButtonVariants = tv({
-  base: "border flex items-center justify-center cursor-pointer transition-all",
+  base: "border flex items-center justify-center cursor-pointer transition-all w-[26px] h-[26px] sm:w-[33px] sm:h-[33px]",
   variants: {
-    size: {
-      default: "w-[33px] h-[33px]",
-      small: "w-[28px] h-[28px]",
-    },
     state: {
       default: "",
       hover: "bg-gray-100",
     },
-  },
-  defaultVariants: {
-    size: "default",
-    state: "default",
   },
 });
 
