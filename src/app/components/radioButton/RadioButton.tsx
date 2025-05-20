@@ -15,7 +15,7 @@ export const RadioButton = ({ datas }: IRadioButtonProps) => {
           key={data.value}
           className={`${radioButtonVariants({
             variant: selected === data.value ? "selected" : "default",
-          }).item()} text-sb-14`}
+          }).item()} font-sb-14`}
           onClick={() => setSeleted(data.value)}
         >
           {data.txt}
