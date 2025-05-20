@@ -1,18 +1,18 @@
 "use client";
-import React from "react";
+import React, { useCallback, useState } from "react";
 import toastStore from "@/stores/toastStore";
 
 export default function ToastTestPage() {
+  const [testCount, setTestCount] = useState(0);
   const { addToast } = toastStore();
-  const { removeToast } = toastStore();
   const handleAddToast = () => {
-    let i = 0;
-    addToast(`Test Toast ${i++}`);
+    setTestCount(testCount + 1);
+    addToast(`Test Toast ${testCount}`);
   };
 
   const handleErrorToast = () => {
-    let i = 0;
-    addToast(`Test Toast ${i++}`, 3000, false, "error");
+    setTestCount(testCount + 1);
+    addToast(`Test Toast ${testCount}`, 3000, true, true);
   };
 
   return (
@@ -23,7 +23,10 @@ export default function ToastTestPage() {
       >
         click to add toast
       </button>
-      <button onClick={handleErrorToast} className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors duration-200 shadow-md">
+      <button
+        onClick={handleErrorToast}
+        className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors duration-200 shadow-md"
+      >
         error toast
       </button>
     </div>

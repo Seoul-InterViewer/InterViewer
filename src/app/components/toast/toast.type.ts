@@ -1,6 +1,6 @@
 export interface IToastProps {
   content: string;
-  type?: "success" | "error"
+  error?: boolean;
   id?: string;
   onRemove?: () => void;
 }

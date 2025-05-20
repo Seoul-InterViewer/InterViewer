@@ -7,8 +7,7 @@ import { createPortal } from "react-dom";
 
 const ToastContainer = () => {
   const [portalElement, setPortalElement] = useState<null | HTMLDivElement>(null);
-  const { toasts } = toastStore();
-  const { removeToast } = toastStore();
+  const { toasts, removeToast } = toastStore();
 
   useEffect(() => {
     const element = document.createElement("div");
@@ -18,7 +17,7 @@ const ToastContainer = () => {
   }, []);
 
   const toastContent = (
-    <div className="fixed bottom-12 right-12 flex flex-col-reverse items-center z-50">
+    <div className="fixed bottom-12 right-12 flex flex-col items-center z-50">
       <AnimatePresence>
         {toasts.map((toast) => (
           <Toast
@@ -26,7 +25,7 @@ const ToastContainer = () => {
             id={toast.id}
             content={toast.content}
             onRemove={toast.removeBtn ? () => removeToast(toast.id) : undefined}
-            type={toast.type}
+            error={toast.error}
           />
         ))}
       </AnimatePresence>

@@ -4,7 +4,7 @@ export type Toast = {
   id: string;
   content: string;
   removeBtn?: boolean;
-  type?: "success" | "error";
+  error?: boolean;
 };
 
 export interface IToastStore {
@@ -13,7 +13,7 @@ export interface IToastStore {
     content: string,
     delay?: number,
     removeBtn?: boolean,
-    type?: "success" | "error",
+    error?: boolean,
   ) => void;
   removeToast: (id: string) => void;
 }
