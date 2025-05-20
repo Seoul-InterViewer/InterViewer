@@ -1127,6 +1127,9 @@ export const Icon = ({
   stroke,
   fill,
   size,
+  width,
+  height,
+  viewBox,
   ...props
 }: IIconProps) => {
   const IconComponent = icons[name];
@@ -1138,12 +1141,13 @@ export const Icon = ({
 
   return (
     <IconComponent
-      width={size}
-      height={size}
+      width={size || width}
+      height={size || height}
       className={className}
       strokeWidth={strokeWidth}
       stroke={stroke}
       fill={fill}
+      viewBox={viewBox}
       {...props}
     />
   );
