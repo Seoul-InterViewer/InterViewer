@@ -1063,6 +1063,7 @@ const CloseIcon = (props: SVGProps<SVGSVGElement>) => {
       viewBox={viewBox || "0 0 28 28"}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="w-full h-full object-cover path:w-full path:g-full"
       {...restProps}
     >
       <path
@@ -1143,7 +1144,6 @@ export const Icon = ({
       strokeWidth={strokeWidth}
       stroke={stroke}
       fill={fill}
-      viewBox={`0 0 ${size} ${size}`}
       {...props}
     />
   );

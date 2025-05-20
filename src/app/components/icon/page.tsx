@@ -77,6 +77,9 @@ export default function IconGalleryPage() {
           <Icon name="typescript" width={50} height={50} />
           <Icon name="report" width={50} height={50} stroke="var(--color-incorrect)" />
           <Icon name="plus" width={50} height={50} fill="var(--color-border)" />
+          <Icon name="close" size={50} fill="var(--color-border)" />
+          <Icon name="close" size={140} fill="var(--color-border)" />
+          <Icon name="close" size={20} fill="var(--color-border)" />
         </div>
       </div>
     </div>
