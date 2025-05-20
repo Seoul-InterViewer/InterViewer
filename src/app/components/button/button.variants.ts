@@ -18,6 +18,9 @@ export const buttonVariants = tv({
       borderGray: "bg-white border border-border text-font",
       borderBlack: "bg-black border border-black text-white",
     },
+    icon: {
+      true: "bg-white",
+    },
     mobile: {
       true: "font-medium-14 px-4 py-2.5",
     },
