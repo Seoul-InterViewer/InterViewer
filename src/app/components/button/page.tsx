@@ -11,15 +11,21 @@ export default function page() {
       <Button text="버튼" className={buttonVariants({ type: "grayBtn", hover: true })} />
       <Button text="버튼" className={buttonVariants({ type: "lightGrayBtn", hover: true })} />
       <Button text="버튼" className={buttonVariants({ type: "redBtn", hover: true })} />
-      <Button text="버튼" className={buttonVariants({ type: "deleteBtn", hover: true })} />
+      <Button text="버튼" className={buttonVariants({ type: "deleteBtn" })} />
       <Button text="버튼" className={buttonVariants({ type: "editBtn", hover: true })} />
       <Button text="버튼" className={buttonVariants({ type: "fillterWhiteBtn", hover: true })} />
       <Button text="버튼" className={buttonVariants({ type: "fillterBlackBtn", hover: true })} />
       <Button text="버튼" className={buttonVariants({ type: "writeBtn", hover: true })} />
       <Button text="버튼" className={buttonVariants({ type: "whiteBtn", hover: true })} />
       <Button text="버튼" className={buttonVariants({ type: "disabledBtn", hover: true })} />
-      <Button text="버튼" className={buttonVariants({ type: "yellowBtn", mobile: "normalSize", hover: true })} />
-      <Button text="버튼" className={buttonVariants({ type: "yellowBtn", mobile: "fullSize", hover: true })} />
+      <Button
+        text="버튼"
+        className={buttonVariants({ type: "yellowBtn", mobile: "normalSize", hover: true })}
+      />
+      <Button
+        text="버튼"
+        className={buttonVariants({ type: "yellowBtn", mobile: "fullSize", hover: true })}
+      />
     </div>
   );
 }

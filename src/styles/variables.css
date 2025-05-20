@@ -77,7 +77,7 @@
   }
   
   /* Media query classes */
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     .md\:text-bold-56 {
       font: var(--font-bold-56);
     }
