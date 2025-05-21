@@ -1,17 +1,10 @@
 "use client";
 import React from "react";
 import { listVariants } from "./list.variants";
-import { ListItem } from "./listItem/ListItem";
+import { IListProps } from "./list.type";
 
-const List = () => {
-  return (
-    <ul className={listVariants()}>
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-    </ul>
-  );
+const List = ({ className, children }: IListProps) => {
+  return <ul className={className}>{children}</ul>;
 };
 
 export default List;
