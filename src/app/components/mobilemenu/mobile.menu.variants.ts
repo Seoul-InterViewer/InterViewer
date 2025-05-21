@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const mobileMenuVariants = tv({
-  base: "fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 rounded-t-3xl z-50 shadow-lg ",
+  base: "fixed bottom-[-140px] left-0 right-0 bg-white dark:bg-gray-800 rounded-t-3xl z-50 shadow-lg overflow-hidden pb-12 min-h-[60vh]",
 });
 
 export const backdropVariants = tv({

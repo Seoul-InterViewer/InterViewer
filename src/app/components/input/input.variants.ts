@@ -1,14 +1,50 @@
 import { tv } from "tailwind-variants";
 
 export const inputVariants = tv({
-  base: "w-full border-2 border-gray-300 indent-2 p-2 pl-0 placeholder:text-gray-400 focus:outline-none",
+  base: "w-full h-full border-2 border-border indent-3 px-2 py-4 pl-0 font-sb-20 text-black placeholder:text-sub-text focus:outline-none md:font-sb-24 md:py-6",
   variants: {
     variant: {
-      default: "",
-      withBg: "bg-gray-100",
+      withBg: "bg-[#e9e9e9] font-sb-16",
+      borderBottom:
+        "py-3 border-0 border-b border-border font-regular-14 md:font-regular-16 md:py-3",
+      blank:
+        "p-2 border-0 bg-[#b4b4b4] rounded-lg  placeholder:text-black font-regular-16 text-black md:font-regular-26",
+
+      credentials: "h-15 d:p-3 h-20",
+    },
+    withButton: {
+      true: "flex-5 items-center gap-2 border-r-0",
+    },
+    search: {
+      true: "p-2 indent-0 bg-[#f8f8f8] font-sb-16",
+    },
+    error: {
+      true: "text-red-500 border-red-500",
+    }
+  },
+  compoundVariants: [
+    {
+      variant: "withBg",
+      search: true,
+      className: "indent-10 bg-[#e9e9e9]",
+    },
+  ],
+});
+
+export const labelVariants = tv({
+  base: "flex gap-3 items-center font-regular-14",
+  variants: {
+    isCredential: {
+      true: "absolute -translate-y-1/3 left-3 font-medium-12 bg-white text-sub-text md:font-regular-14",
+    },
+    error: {
+      true: "text-red-500",
     },
   },
+<<<<<<< HEAD
   defaultVariants: {
     variant: "default",
   },
+=======
+>>>>>>> origin/dev
 });

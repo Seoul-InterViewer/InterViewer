@@ -94,20 +94,27 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
             exit="exit"
             drag="y"
             dragConstraints={{ top: 0, bottom: 0 }}
-            dragElastic={0.7}
+            dragDirectionLock
+            dragElastic={{ top: 0.1, bottom: 0.7 }}
+            style={{
+              minHeight: "60vh",
+              height: "auto",
+              touchAction: "none",
+            }}
             onDragEnd={(_, info) => {
-              // 드래그가 일정 거리 이상 아래로 이동했으면 메뉴 닫기
               if (info.offset.y > 100) {
                 onClose();
               }
             }}
           >
-            <div className="p-8">
+            <div className="p-8 h-full flex flex-col">
               <div className={handleVariants()} />
 
-              <div className="space-y-6 py-2">
+              <div className="space-y-6 py-2 flex-1">
                 {effectiveMenuType === "myContent" ? <MyContentMenu /> : <OtherContentMenu />}
               </div>
+
+              <div className="mt-auto pt-10"></div>
             </div>
           </motion.div>
         </>
