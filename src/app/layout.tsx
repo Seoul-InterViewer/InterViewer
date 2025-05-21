@@ -1,4 +1,4 @@
-import BreadCrumb from "./components/bread-crumb/BreadCrumb";
+import ToastContainer from "./components/toast/toastContainer/ToastContainer";
 import "./globals.css";
 
 export default function RootLayout({
@@ -9,8 +9,8 @@ export default function RootLayout({
   return (
     <html lang="kr">
       <body>
-        <BreadCrumb autoGenerate={true} items={[]} />
         {children}
+        <ToastContainer />
       </body>
     </html>
   );
