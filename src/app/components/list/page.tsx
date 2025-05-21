@@ -2,7 +2,11 @@ import React from "react";
 import List from "./List";
 import { listVariants } from "./list.variants";
 
-
+// 아래 4개의 아이템은 단순 목업용 컴포넌트입니다.
+// 단순히 테스트 페이지에서만 사용하기 위해 씁니다.
+// 실제 사용 시 해당 컴포넌트를 사용하지 않고 원하는 컴포넌트를 사용해주세요.
+// 페이지별로 내용이 대부분 달라서 결정한 사항으로, 페이지의 지역 컴포넌트로 내용에 맞게 컴포넌트를 제작해서 List로 감싸주시면 됩니다.
+// 추후 컴포넌트 제작에 참고하셔도 무방합니다.
 
 const MockListItem = ({
   children,
@@ -37,7 +41,7 @@ export default function ListTestPage() {
           <h2 className="text-xl font-semibold mb-4">Search</h2>
           <List className={listVariants({ type: "search" })}>
             {Array.from({ length: 5 }).map((_, index) => (
-              <MockListItem key={index} className="border-b border-border">
+              <MockListItem key={index} className="border-0 border-b border-border">
                 검색 결과 {index + 1}
               </MockListItem>
             ))}
@@ -65,8 +69,8 @@ export default function ListTestPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-4">Answer</h2>
-          <List className={listVariants({ type: "answer" })}>
+          <h2 className="text-xl font-semibold mb-4">Games</h2>
+          <List className={listVariants({ type: "question" })}>
             {Array.from({ length: 3 }).map((_, index) => (
               <MockListItem key={index}>답변 {index + 1}</MockListItem>
             ))}
@@ -114,6 +118,60 @@ export default function ListTestPage() {
           <List className={listVariants({ type: "comment" })}>
             {Array.from({ length: 3 }).map((_, index) => (
               <MockListItem key={index}>댓글 {index + 1}</MockListItem>
+            ))}
+          </List>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold mb-4">TagSearchResult</h2>
+          <List className={listVariants({ type: "tagSearchResult" })}>
+            {Array.from({ length: 3 }).map((_, index) => (
+              <MockListItem key={index}>태그 검색 결과 {index + 1}</MockListItem>
+            ))}
+          </List>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold mb-4">Select</h2>
+          <List className={listVariants({ type: "select" })}>
+            {Array.from({ length: 3 }).map((_, index) => (
+              <MockListItem key={index}>선택 아이템 {index + 1}</MockListItem>
+            ))}
+          </List>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold mb-4">Input</h2>
+          <List className={listVariants({ type: "input" })}>
+            {Array.from({ length: 3 }).map((_, index) => (
+              <MockListItem key={index}>입력 필드 {index + 1}</MockListItem>
+            ))}
+          </List>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold mb-4">TableOfContents</h2>
+          <List className={listVariants({ type: "tableOfContents" })}>
+            {Array.from({ length: 3 }).map((_, index) => (
+              <MockListItem key={index}>목차 항목 {index + 1}</MockListItem>
+            ))}
+          </List>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold mb-4">GameResultNav</h2>
+          <List className={listVariants({ type: "gameResultNav" })}>
+            {Array.from({ length: 3 }).map((_, index) => (
+              <MockListItem key={index}>게임 결과 네비게이션 {index + 1}</MockListItem>
+            ))}
+          </List>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold mb-4">Reply</h2>
+          <List className={listVariants({ type: "reply" })}>
+            {Array.from({ length: 3 }).map((_, index) => (
+              <MockListItem key={index}>답글 {index + 1}</MockListItem>
             ))}
           </List>
         </section>
