@@ -69,10 +69,10 @@ export default function ListTestPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-4">Games</h2>
-          <List className={listVariants({ type: "question" })}>
+          <h2 className="text-xl font-semibold mb-4">Base</h2>
+          <List className={listVariants()}>
             {Array.from({ length: 3 }).map((_, index) => (
-              <MockListItem key={index}>답변 {index + 1}</MockListItem>
+              <MockListItem key={index}>기본 목록 아이템 {index + 1}</MockListItem>
             ))}
           </List>
         </section>
@@ -105,15 +105,6 @@ export default function ListTestPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-4">Question</h2>
-          <List className={listVariants({ type: "question" })}>
-            {Array.from({ length: 3 }).map((_, index) => (
-              <MockListItem key={index}>질문 {index + 1}</MockListItem>
-            ))}
-          </List>
-        </section>
-
-        <section>
           <h2 className="text-xl font-semibold mb-4">Comment</h2>
           <List className={listVariants({ type: "comment" })}>
             {Array.from({ length: 3 }).map((_, index) => (
@@ -127,15 +118,6 @@ export default function ListTestPage() {
           <List className={listVariants({ type: "tagSearchResult" })}>
             {Array.from({ length: 3 }).map((_, index) => (
               <MockListItem key={index}>태그 검색 결과 {index + 1}</MockListItem>
-            ))}
-          </List>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-semibold mb-4">Select</h2>
-          <List className={listVariants({ type: "select" })}>
-            {Array.from({ length: 3 }).map((_, index) => (
-              <MockListItem key={index}>선택 아이템 {index + 1}</MockListItem>
             ))}
           </List>
         </section>
