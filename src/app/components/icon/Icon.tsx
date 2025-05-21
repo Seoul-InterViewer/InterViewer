@@ -828,7 +828,7 @@ const ChevronRightIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "15"}
       height={height || "19"}
       viewBox={viewBox || "0 0 15 19"}
-      fill="none"
+      fill={fill || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import IBreadCrumbProps, { IBreadCrumbItem } from "./breadCrumb.type";
 import breadCrumbVariants, { breadCrumbItemVariants } from "./breadCrumb.variants";
+import { Icon } from "@/app/components/icon";
 
 // 텍스트 길이 제한 함수
 const truncateText = (text: string, maxLength: number = 8) => {
@@ -11,29 +12,13 @@ const truncateText = (text: string, maxLength: number = 8) => {
   return text.substring(0, maxLength) + "...";
 };
 
-const ArrowIcon = ({ color = "#9CA3AF" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke={color}
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polyline points="9 18 15 12 9 6"></polyline>
-  </svg>
-);
-
 const BreadCrumb = ({
   items = [],
-  separator = <ArrowIcon />,
+  separator = <Icon name="chevronRight" className="w-[8px] h-[16px] md:w-[12px] md:h-[24px]" />,
   className = "",
   autoGenerate = false,
-  maxTextLength = 8, // 최대 텍스트 길이
-  activeColor = "#111111", // 활성 아이콘 색상
+  maxTextLength = 12, // 최대 텍스트 길이
+  activeColor = `var(--color-font)`, // 활성 아이콘 색상
 }: IBreadCrumbProps & {
   autoGenerate?: boolean;
   maxTextLength?: number;
@@ -96,7 +81,7 @@ const BreadCrumb = ({
 
     // 홈 항목 추가
     breadcrumbItems.unshift({
-      label: truncateText("홈", maxTextLength),
+      label: truncateText("Home", maxTextLength),
       href: "/",
       isCurrentPage: false,
     });
@@ -117,11 +102,20 @@ const BreadCrumb = ({
           const isCurrentPage = item.isCurrentPage;
 
           return (
-            <li key={item.href} className="flex items-center text-regular-18 lg:text-regular-24">
+            <li key={item.href} className="flex items-center">
               {index > 0 && (
                 <span className="mr-2">
                   {/* 현재 페이지로 가는 구분자인 경우 활성 색상 적용 */}
-                  {isCurrentPage ? <ArrowIcon color={activeColor} /> : separator}
+                  {isCurrentPage ? (
+                    <Icon
+                      name="chevronRight"
+                      className="w-[8px] h-[16px] md:w-[12px] md:h-[24px]"
+                      stroke={activeColor}
+                      strokeWidth={3}
+                    />
+                  ) : (
+                    separator
+                  )}
                 </span>
               )}
 
