@@ -8,7 +8,6 @@ export const Textarea = ({ name, id, type, maxLength, placeholder }: ITextareaPr
   const [count, setCount] = useState(0);
   const onTextareaHandler: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     setCount(e.target.value.length);
-    // setCount(e.target.value.replace(/[\0-\x7f]|([0-\u07ff]|(.))/g, "$&$1$2").length);
   };
 
   return (
