@@ -41,7 +41,7 @@ export default function ListTestPage() {
           <h2 className="text-xl font-semibold mb-4">Search</h2>
           <List className={listVariants({ type: "search" })}>
             {Array.from({ length: 5 }).map((_, index) => (
-              <MockListItem key={index} className="border-0 border-b border-border">
+              <MockListItem key={index} className="rounded-none border-0 border-b border-border">
                 검색 결과 {index + 1}
               </MockListItem>
             ))}
