@@ -22,7 +22,7 @@ export const textareaVariants = tv({
       comment1: "font-regular-18",
       comment2: "font-regular-18",
       report: "font-regular-14",
-      wrongAnswer: "font-regular-10",
+      wrongAnswer: "font-medium-10",
     },
   },
   defaultVariants: {
