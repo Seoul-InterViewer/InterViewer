@@ -10,7 +10,11 @@ import {
   sidebarVariants,
   modalOverlayVariants,
   sidebarMenuItemVariants,
+  navMenuVariants,
+  loginButtonVariants,
 } from "./header.variants";
+import { Button, buttonVariants } from "../button";
+import { Icon } from "../icon/Icon";
 
 // 사이드바에 표시될 기본 메뉴 항목 데이터
 const defaultMenuItems: IMenuItem[] = [
@@ -76,11 +80,15 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
             <div className="flex items-center gap-4">
               {/* 햄버거 메뉴 버튼 (클릭 시 사이드바 표시) */}
               <div className={menuButtonVariants()} onClick={() => setSidebarOpen(true)}>
-                Menu
+                <Button type="button" className={buttonVariants({ color: "white" })}>
+                  <Icon name="menu" className="w-[20px] h-[20px] md:w-[52px] md:h-[52px]" />
+                </Button>
               </div>
               {/* 로고 (홈페이지 링크) */}
               <Link href="/">
-                <div className={logoVariants()}>Logo</div>
+                <div className={logoVariants()}>
+                  <Icon name="logo" className="w-[100px] h-[100px] md:w-[160px] md:h-[160px]" />
+                </div>
               </Link>
             </div>
 
@@ -88,7 +96,7 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
             <nav className="hidden md:block">
               <ul className="flex items-center gap-4">
                 {navMenuItems.map((item) => (
-                  <li key={item.href} className="text-regular-24">
+                  <li key={item.href} className={navMenuVariants()}>
                     <Link href={item.href} className="hover:text-main transition-colors">
                       {item.name}
                     </Link>
@@ -122,7 +130,7 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
             </div>
             {/* 로그인 버튼/상태 */}
             <Link href="#">
-              <div className="text-sb-24 md:text-sb-24">Login</div>
+              <div className={loginButtonVariants()}>Login</div>
             </Link>
           </div>
         </div>
@@ -141,7 +149,7 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
         <div className="p-4">
           {/* 사이드바 헤더: 제목과 닫기 버튼 */}
           <div className="flex justify-between items-center">
-            <h2 className="font-bold text-xl">메뉴</h2>
+            <h2 className="font-sb-24">메뉴</h2>
             <button className="p-2 cursor-pointer" onClick={() => setSidebarOpen(false)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -248,9 +256,9 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
                   />
                 </div>
 
-                {/* 인기 검색어 섹션 */}
+                {/* 검색 섹션 */}
                 <div className="mt-4">
-                  <h3 className="text-sm font-medium text-gray-500 mb-2">인기 검색어</h3>
+                  <h3 className="text-sm font-medium text-gray-500 mb-2"> 검색어</h3>
                   <div className="flex flex-wrap gap-2">
                     <button className="px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 transition-colors">
                       React

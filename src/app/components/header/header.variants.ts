@@ -17,6 +17,14 @@ export const logoVariants = tv({
   base: "border flex items-center justify-center w-[77px] h-[38px] sm:w-[133px] sm:h-[65px]",
 });
 
+export const navMenuVariants = tv({
+  base: "font-regular-24  hover:text-main transition-colors",
+});
+
+export const loginButtonVariants = tv({
+  base: "font-sb-14 md:font-sb-24",
+});
+
 export const menuButtonVariants = tv({
   base: "border flex items-center justify-center cursor-pointer w-[40px] h-[40px] sm:w-[52px] sm:h-[52px]",
 });
@@ -61,8 +69,9 @@ export const sidebarMenuItemVariants = tv({
   base: "block py-2 transition-colors rounded-md px-2",
   variants: {
     type: {
-      title: "font-bold text-bold-32 hover:text-main hover:bg-gray-50",
-      menuItem: "text-font-gray text-regular-24 hover:text-[var(--color-font)] hover:bg-gray-100",
+      title: "font-sb-14 md:font-sb-24 hover:text-main hover:bg-gray-50",
+      menuItem:
+        "text-font-gray font-regular-14 md:font-regular-24 hover:text-[var(--color-font)] hover:bg-gray-100",
     },
     state: {
       default: "",

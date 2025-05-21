@@ -1,3 +1,4 @@
+import ToastContainer from "./components/toast/toastContainer/ToastContainer";
 import "./globals.css";
 import Header from "./components/header/Header";
 export default function RootLayout({
@@ -8,8 +9,8 @@ export default function RootLayout({
   return (
     <html lang="kr">
       <body>
-        <Header />
         {children}
+        <ToastContainer />
       </body>
     </html>
   );
