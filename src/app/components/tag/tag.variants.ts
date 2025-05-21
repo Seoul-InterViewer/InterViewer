@@ -12,7 +12,7 @@ export const tagVariants = tv({
       correct:
         "bg-[var(--color-correct-bg)] text-[var(--color-correct)] border-[var(--color-correct)] px-[7px] py-[3px] text-sb-12",
       incorrect:
-        "bg-[var(--color-incorrect-bg)] text-[var(--color-incorrect)] border-[var(--color-incorrect)] px-[7px] py-[3px] text-sb-12",
+        "bg-[var(--color-incorrect-bg)] text-[var(--color-incorrect)] border-[var(--color-incorrect)] px-[7px] py-[3px] text-sb-12 ",
     },
   },
   defaultVariants: {
