@@ -41,11 +41,11 @@ export default function TextareaTestPage() {
       </div>
 
       {/* type="wrongAnswer" */}
-      <div className="w-full py-5 bg-black text-center">
+      <div className="w-full py-5 bg-modal-bg text-center">
         <div className="w-110 mx-auto p-5 flex flex-col gap-4 rounded-lg bg-white">
           <button className="w-7 h-7 self-end font-sb-28 cursor-pointer">X</button>
           <div className="w-full h-full flex flex-col items-center gap-7.5">
-            <label className="font-bold-32 mb-2.5" htmlFor="wrongAnswerContent">
+            <label className="font-sb-20 mb-2.5" htmlFor="wrongAnswerContent">
               Q2. React에서 useMemo와 useCallback의... 해당 질문을 오답노트에 저장하시겠어요?
             </label>
             <Textarea

@@ -7,7 +7,7 @@ export const wrapperVariants = tv({
       comment1: "px-5 py-4 flex flex-col gap-2.5 border-[#cdcdcd]",
       comment2: "bg-white p-2.5",
       report: "px-4 py-3.75 rounded shadow-[0_0_1px_rgba(0,0,0,0.25)]",
-      wrongAnswer: "bg- white p-2.5 rounded",
+      wrongAnswer: "h-25 bg-white p-2.5 rounded",
     },
   },
   defaultVariants: {
