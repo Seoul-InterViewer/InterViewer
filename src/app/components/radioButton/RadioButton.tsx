@@ -11,14 +11,15 @@ export const RadioButton = ({ datas }: IRadioButtonProps) => {
   return (
     <ul className={wrapper()}>
       {datas.map((data) => (
-        <li
-          key={data.value}
-          className={`${radioButtonVariants({
-            variant: selected === data.value ? "selected" : "default",
-          }).item()} font-sb-14`}
-          onClick={() => setSeleted(data.value)}
-        >
-          {data.txt}
+        <li key={data.value}>
+          <button
+            className={`${radioButtonVariants({
+              variant: selected === data.value ? "selected" : "default",
+            }).item()} text-sb-14`}
+            onClick={() => setSeleted(data.value)}
+          >
+            {data.txt}
+          </button>
         </li>
       ))}
     </ul>
