@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect } from "react";
 import IHeaderProps, { IMenuItem } from "./header.type";
 import {
   headerVariants,
-  logoVariants,
   menuButtonVariants,
   searchButtonVariants,
   sidebarVariants,
@@ -12,6 +11,7 @@ import {
   sidebarMenuItemVariants,
   navMenuVariants,
   loginButtonVariants,
+  createMenuVariants,
 } from "./header.variants";
 import { Button, buttonVariants } from "../button";
 import { Icon } from "../icon/Icon";
@@ -31,15 +31,13 @@ const defaultMenuItems: IMenuItem[] = [
   { name: "TypeScript", href: "/typescript" },
 ];
 
-const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
+const Header = ({ isLoggedIn }: IHeaderProps) => {
   // 상태 관리: 사이드바 및 검색 모달 표시 여부
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
+  const [createMenuOpen, setCreateMenuOpen] = useState(false);
   // 검색 입력란에 대한 참조 (포커스 설정에 사용)
   const searchInputRef = useRef<HTMLInputElement>(null);
-
-  // 실제 사용할 메뉴 항목 (props로 받거나 기본값 사용)
-  const menuItems = customMenuItems || defaultMenuItems;
 
   // 네비게이션 메뉴 항목 (PC 화면용)
   const navMenuItems = [
@@ -70,25 +68,41 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
     };
   }, []);
 
+  // 드롭다운 메뉴가 외부 클릭시 닫히도록 처리
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (createMenuOpen && !target.closest(".create-menu-container")) {
+        setCreateMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [createMenuOpen]);
+
   return (
     <>
       {/* 헤더 영역 */}
       <header className={headerVariants()}>
-        <div className="mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="mx-auto flex justify-between items-center">
           {/* 헤더 좌측: 메뉴 버튼, 로고, 네비게이션 */}
           <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-[8px] md:gap-[12px]">
               {/* 햄버거 메뉴 버튼 (클릭 시 사이드바 표시) */}
               <div className={menuButtonVariants()} onClick={() => setSidebarOpen(true)}>
-                <Button type="button" className={buttonVariants({ color: "white" })}>
-                  <Icon name="menu" className="w-[20px] h-[20px] md:w-[52px] md:h-[52px]" />
+                <Button
+                  type="button"
+                  className={`${buttonVariants({ color: "white" })} !border-0 px-[0px] py-[0px]`}
+                >
+                  <Icon name="menu" className="w-[30px] h-[30px] md:w-[52px] md:h-[52px]" />
                 </Button>
               </div>
               {/* 로고 (홈페이지 링크) */}
               <Link href="/">
-                <div className={logoVariants()}>
-                  <Icon name="logo" className="w-[100px] h-[100px] md:w-[160px] md:h-[160px]" />
-                </div>
+                <img src="/images/logo.svg" alt="logo" className="w-[77px] h-auto md:w-[133px]" />
               </Link>
             </div>
 
@@ -97,9 +111,7 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
               <ul className="flex items-center gap-4">
                 {navMenuItems.map((item) => (
                   <li key={item.href} className={navMenuVariants()}>
-                    <Link href={item.href} className="hover:text-main transition-colors">
-                      {item.name}
-                    </Link>
+                    <Link href={item.href}>{item.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -107,31 +119,58 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
           </div>
 
           {/* 헤더 우측: 검색 버튼, 로그인 */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-[12px] md:gap-[29px]">
             {/* 검색 버튼 (클릭 시 검색 모달 표시) */}
             <div
               className={searchButtonVariants({ state: "hover" })}
               onClick={() => setSearchModalOpen(true)}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
+              <Button type="button" className={`${buttonVariants({ color: "white" })} !border-0`}>
+                <Icon name="search" className="w-[26px] h-[26px] md:w-[33px] md:h-[33px]" />
+              </Button>
             </div>
-            {/* 로그인 버튼/상태 */}
-            <Link href="#">
-              <div className={loginButtonVariants()}>Login</div>
-            </Link>
+
+            {isLoggedIn ? (
+              // 로그인 된 상태 - 아이콘 두 개 추가
+              <>
+                <div className="relative create-menu-container">
+                  <Icon
+                    name="createNew"
+                    className="w-[26px] h-[26px] md:w-[33px] md:h-[33px] cursor-pointer"
+                    onClick={() => setCreateMenuOpen(!createMenuOpen)}
+                  />
+
+                  {/* 드롭다운 메뉴 */}
+                  {createMenuOpen && (
+                    <div className={createMenuVariants()}>
+                      <ul className="py-2">
+                        <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer font-regular-16">
+                          <Link href="/create-question" className="block w-full">
+                            질문올리기
+                          </Link>
+                        </li>
+                        <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer font-regular-16">
+                          <Link href="/create-game" className="block w-full">
+                            게임만들기
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+                <Link href="/setting">
+                  <Icon
+                    name="setting"
+                    className="w-[26px] h-[26px] md:w-[33px] md:h-[33px] cursor-pointer"
+                  />
+                </Link>
+              </>
+            ) : (
+              // 비로그인 상태 - 로그인 버튼 표시
+              <Link href="#">
+                <div className={loginButtonVariants()}>Login</div>
+              </Link>
+            )}
           </div>
         </div>
       </header>
@@ -151,20 +190,7 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
           <div className="flex justify-between items-center">
             <h2 className="font-sb-24">메뉴</h2>
             <button className="p-2 cursor-pointer" onClick={() => setSidebarOpen(false)}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <Icon name="close" className="w-[26px] h-[26px] md:w-[33px] md:h-[33px]" />
             </button>
           </div>
 
@@ -178,7 +204,7 @@ const Header = ({ isLoggedIn = false, customMenuItems }: IHeaderProps) => {
             </h1>
             {/* 메뉴 항목 목록 (배열에서 동적 생성) */}
             <ul className="space-y-4">
-              {menuItems.map((item) => (
+              {defaultMenuItems.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className={sidebarMenuItemVariants()}>
                     {item.name}

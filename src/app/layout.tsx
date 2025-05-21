@@ -9,6 +9,8 @@ export default function RootLayout({
   return (
     <html lang="kr">
       <body>
+        {/* isLoggedin props를 받아서 처리할 수 있음 */}
+        <Header isLoggedIn={true} />
         {children}
         <ToastContainer />
       </body>
