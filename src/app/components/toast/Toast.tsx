@@ -4,6 +4,7 @@ import { IToastProps } from "./toast.type";
 import { motion } from "motion/react";
 import { Icon } from "../icon";
 import toastStore from "@/stores/toastStore";
+import { Button } from "../button";
 
 export const Toast = ({ content, id, error, onRemove }: IToastProps) => {
   return (
@@ -21,9 +22,13 @@ export const Toast = ({ content, id, error, onRemove }: IToastProps) => {
         </p>
 
         {onRemove && (
-          <button className="w-3 h-3 border-none text-sub-text cursor-pointer" onClick={onRemove}>
+          <Button
+            type="button"
+            className="w-3 h-3 border-none text-sub-text cursor-pointer"
+            onClick={onRemove}
+          >
             <Icon name="close" fill="currentColor" size={16} />
-          </button>
+          </Button>
         )}
       </div>
     </motion.div>
