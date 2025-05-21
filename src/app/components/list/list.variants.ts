@@ -1,5 +1,5 @@
 import { tv } from "tailwind-variants";
 
-const listVariants = tv({});
-
-export default listVariants;
+export const listVariants = tv({
+  base: "flex flex-col gap-5 w-full",
+});

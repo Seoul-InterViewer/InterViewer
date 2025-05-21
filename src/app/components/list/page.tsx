@@ -3,7 +3,7 @@ import List from "./List";
 
 export default function ListTestPage() {
   return (
-    <div>
+    <div className="w-pc m-auto">
       <List />
     </div>
   );
