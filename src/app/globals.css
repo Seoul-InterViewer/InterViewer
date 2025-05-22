@@ -3,3 +3,7 @@
 @import "../styles/theme.css";
 @import "../styles/variables.css";
 @import "../styles/mixins.css";
+
+html, body{
+  font-family: "Pretendard" !important;
+}
