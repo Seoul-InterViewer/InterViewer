@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect } from "react";
 import IHeaderProps, { IMenuItem } from "./header.type";
 import {
   headerVariants,
-  menuButtonVariants,
   searchButtonVariants,
   sidebarVariants,
   modalOverlayVariants,
@@ -90,19 +89,18 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
         <div className="mx-auto flex justify-between items-center">
           {/* 헤더 좌측: 메뉴 버튼, 로고, 네비게이션 */}
           <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-[8px] md:gap-[12px]">
+            <div className="flex items-center gap-2 md:gap-3">
               {/* 햄버거 메뉴 버튼 (클릭 시 사이드바 표시) */}
-              <div className={menuButtonVariants()} onClick={() => setSidebarOpen(true)}>
-                <Button
-                  type="button"
-                  className={`${buttonVariants({ color: "white" })} !border-0 px-[0px] py-[0px]`}
-                >
-                  <Icon name="menu" className="w-[30px] h-[30px] md:w-[52px] md:h-[52px]" />
-                </Button>
-              </div>
+              <Button
+                type="button"
+                className={`${buttonVariants({ color: "white" })}  px-[0px] py-[0px]`}
+                onClick={() => setSidebarOpen(true)}
+              >
+                <Icon name="menu" className="w-7 h-7 md:w-13 md:h-13" />
+              </Button>
               {/* 로고 (홈페이지 링크) */}
               <Link href="/">
-                <img src="/images/logo.svg" alt="logo" className="w-[77px] h-auto md:w-[133px]" />
+                <img src="/images/logo.svg" alt="logo" className="w-19 h-auto md:w-33" />
               </Link>
             </div>
 
@@ -119,14 +117,14 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
           </div>
 
           {/* 헤더 우측: 검색 버튼, 로그인 */}
-          <div className="flex items-center gap-[12px] md:gap-[29px]">
+          <div className="flex items-center gap-ᆻ md:gap-6">
             {/* 검색 버튼 (클릭 시 검색 모달 표시) */}
             <div
               className={searchButtonVariants({ state: "hover" })}
               onClick={() => setSearchModalOpen(true)}
             >
-              <Button type="button" className={`${buttonVariants({ color: "white" })} !border-0`}>
-                <Icon name="search" className="w-[26px] h-[26px] md:w-[33px] md:h-[33px]" />
+              <Button type="button" className={`${buttonVariants({ color: "white" })} `}>
+                <Icon name="search" className="w-6 h-6 md:w-8 md:h-8" />
               </Button>
             </div>
 
@@ -134,12 +132,13 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
               // 로그인 된 상태 - 아이콘 두 개 추가
               <>
                 <div className="relative create-menu-container">
-                  <button onClick={() => setCreateMenuOpen(!createMenuOpen)}>
-                    <Icon
-                      name="createNew"
-                      className="w-[26px] h-[26px] md:w-[33px] md:h-[33px] cursor-pointer"
-                    />
-                  </button>
+                  <Button
+                    type="button"
+                    className={`${buttonVariants({ color: "white" })}`}
+                    onClick={() => setCreateMenuOpen(!createMenuOpen)}
+                  >
+                    <Icon name="createNew" className="w-6 h-6 md:w-8 md:h-8 cursor-pointer" />
+                  </Button>
 
                   {/* 드롭다운 메뉴 */}
                   {createMenuOpen && (
@@ -160,19 +159,14 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
                   )}
                 </div>
                 <Link href="/setting">
-                  <Icon
-                    name="setting"
-                    className="w-[26px] h-[26px] md:w-[33px] md:h-[33px] cursor-pointer"
-                  />
+                  <Icon name="setting" className="w-6] h-6 md:w-8 md:h-8 cursor-pointer" />
                 </Link>
               </>
             ) : (
               // 비로그인 상태 - 로그인 버튼 표시
-              <button>
-                <Link href="#">
-                  <div className={loginButtonVariants()}>Login</div>
-                </Link>
-              </button>
+              <Button type="button" className={`${buttonVariants({ color: "white" })}`}>
+                <div className={loginButtonVariants()}>Login</div>
+              </Button>
             )}
           </div>
         </div>
@@ -193,7 +187,7 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
           <div className="flex justify-between items-center">
             <h2 className="font-sb-24">메뉴</h2>
             <button className="p-2 cursor-pointer" onClick={() => setSidebarOpen(false)}>
-              <Icon name="close" className="w-[26px] h-[26px] md:w-[33px] md:h-[33px]" />
+              <Icon name="close" className="w-6 h-6 md:w-8 md:h-8" />
             </button>
           </div>
 
@@ -242,20 +236,7 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
                     className="p-1 hover:bg-gray-100 rounded-full transition-colors"
                     onClick={() => setSearchModalOpen(false)}
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
+                    <Icon name="close" className="w-6 h-6 md:w-8 md:h-8" />
                   </button>
                 </div>
 
