@@ -7,70 +7,54 @@ import breadCrumbVariants, { breadCrumbItemVariants } from "./breadCrumb.variant
 import { Icon } from "@/app/components/icon";
 
 // 텍스트 길이 제한 함수
-const truncateText = (text: string, maxLength: number = 8) => {
-  if (text.length <= maxLength) return text;
-  return text.substring(0, maxLength) + "...";
-};
+const truncateText = (text: string, maxLength: number = 8) =>
+  text.length <= maxLength ? text : text.substring(0, maxLength) + "...";
 
-const BreadCrumb = ({
+const BreadCrumb: React.FC<
+  IBreadCrumbProps & {
+    autoGenerate?: boolean;
+    maxTextLength?: number;
+    activeColor?: string;
+  }
+> = ({
   items = [],
   separator = <Icon name="chevronRight" className="w-[8px] h-[16px] md:w-[12px] md:h-[24px]" />,
   className = "",
   autoGenerate = false,
-  maxTextLength = 12, // 최대 텍스트 길이
-  activeColor = `var(--color-font)`, // 활성 아이콘 색상
-}: IBreadCrumbProps & {
-  autoGenerate?: boolean;
-  maxTextLength?: number;
-  activeColor?: string;
+  maxTextLength = 12,
+  activeColor = `var(--color-font)`,
 }) => {
   const pathname = usePathname();
 
-  // 자동 생성 옵션이 활성화된 경우 경로에서 항목 생성
-  let breadcrumbItems = items;
+  // 1) items 기본 설정
+  let breadcrumbItems: IBreadCrumbItem[] = items;
+
+  // 2) autoGenerate 모드면 URL 경로로부터 아이템 생성
   if (autoGenerate) {
     const pathSegments = pathname.split("/").filter(Boolean);
 
-    // 한글 경로에 대한 매핑 테이블 (필요에 따라 확장)
-    const pathMapping: Record<string, string> = {
-      소개: "소개",
-      서비스: "서비스",
-      연락처: "연락처",
-      // 필요한 경로 매핑 추가
-    };
-
     breadcrumbItems = pathSegments.map((segment, index) => {
-      const href = `/${pathSegments.slice(0, index + 1).join("/")}`;
+      const href = "/" + pathSegments.slice(0, index + 1).join("/");
+      const decoded = decodeURIComponent(segment);
 
-      // URL 디코딩 후 매핑 테이블에서 레이블 찾기
-      const decodedSegment = decodeURIComponent(segment);
-      const label =
-        pathMapping[decodedSegment] ||
-        decodedSegment.charAt(0).toUpperCase() + decodedSegment.slice(1).replace(/-/g, " ");
+      // 기본 라벨: 첫 글자 대문자, 하이픈은 공백으로
+      const baseLabel = decoded.charAt(0).toUpperCase() + decoded.slice(1).replace(/-/g, " ");
 
-      // 게시물 경로 처리 (예: "123-useCallback이-뭔가요")
-      if (decodedSegment.match(/^\d+-/)) {
-        // ID와 제목 분리
-        const id = decodedSegment.match(/^(\d+)-/)?.[1] || "";
-        const title = decodedSegment.replace(/^\d+-/, "").replace(/-/g, " ");
+      // posts/qna 특별 처리
+      let processedLabel = baseLabel;
+      if (decoded === "posts") processedLabel = "게시판";
+      else if (decoded === "qna") processedLabel = "질문게시판";
 
+      // "123-제목-형태" 경로 처리
+      if (/^\d+-/.test(decoded)) {
+        const title = decoded.replace(/^\d+-/, "").replace(/-/g, " ");
         return {
           label: truncateText(title, maxTextLength),
           href,
           isCurrentPage: index === pathSegments.length - 1,
-          fullLabel: title, // 툴팁이나 타이틀 속성에 사용 가능
+          fullLabel: title,
         };
       }
-
-      // 일반 경로 처리
-      let processedLabel = label;
-
-      // 경로에 따른 특별 처리
-      if (decodedSegment === "posts") processedLabel = "게시판";
-      else if (decodedSegment === "qna") processedLabel = "질문게시판";
-      else
-        processedLabel =
-          decodedSegment.charAt(0).toUpperCase() + decodedSegment.slice(1).replace(/-/g, " ");
 
       return {
         label: truncateText(processedLabel, maxTextLength),
@@ -79,7 +63,7 @@ const BreadCrumb = ({
       };
     });
 
-    // 홈 항목 추가
+    // 맨 앞에 Home 추가
     breadcrumbItems.unshift({
       label: truncateText("Home", maxTextLength),
       href: "/",
@@ -87,29 +71,27 @@ const BreadCrumb = ({
     });
   }
 
-  // 현재 경로에 맞게 항목에 현재 페이지 표시
+  // 3) items 중 현재 페이지 표시 보정
   const processedItems = breadcrumbItems.map((item) => ({
     ...item,
     isCurrentPage:
       item.isCurrentPage || decodeURIComponent(item.href) === decodeURIComponent(pathname),
   }));
 
+  // 4) 렌더링
   return (
     <nav aria-label="Breadcrumb" className={breadCrumbVariants({ className })}>
       <ol className="flex flex-wrap items-center gap-1 lg:gap-2">
-        {processedItems.map((item, index) => {
-          // 현재 항목이 현재 페이지인지 확인
-          const isCurrentPage = item.isCurrentPage;
-
+        {processedItems.map((item, idx) => {
+          const isCurrent = item.isCurrentPage;
           return (
-            <li key={item.href} className="flex items-center">
-              {index > 0 && (
+            <li key={item.href + idx} className="flex items-center">
+              {idx > 0 && (
                 <span className="mr-2">
-                  {/* 현재 페이지로 가는 구분자인 경우 활성 색상 적용 */}
-                  {isCurrentPage ? (
+                  {isCurrent ? (
                     <Icon
                       name="chevronRight"
-                      className="w-[8px] h-[16px] md:w-[12px] md:h-[24px]"
+                      className="w-2 h-4 md:w-3 md:h-6"
                       stroke={activeColor}
                       strokeWidth={3}
                     />
@@ -119,7 +101,7 @@ const BreadCrumb = ({
                 </span>
               )}
 
-              {isCurrentPage ? (
+              {isCurrent ? (
                 <span
                   className={breadCrumbItemVariants({ state: "current" })}
                   title={item.fullLabel || item.label}
