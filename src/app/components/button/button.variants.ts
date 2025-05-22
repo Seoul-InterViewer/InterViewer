@@ -6,7 +6,7 @@ export const buttonVariants = tv({
     size: {
       sm: "font-medium-12 px-2 py-1.5",
       md: "font-regular-14 px-4 py-1.5",
-      lg: "font-regular-18 px-5 py-2.5",
+      lg: "md:font-regular-18 md:px-5 md:py-2.5 font-regular-14 px-4 py-2",
     },
     color: {
       black: "bg-black text-white",
@@ -21,12 +21,6 @@ export const buttonVariants = tv({
     icon: {
       true: "bg-white",
     },
-    mobile: {
-      true: "font-medium-14 px-4 py-2.5",
-    },
-    fullWidth: {
-      true: "w-full",
-    },
     hover: {
       true: "hover:opacity-80 transition-opacity",
     },
@@ -35,8 +29,6 @@ export const buttonVariants = tv({
     },
   },
   defaultVariants: {
-    size: "md",
-    color: "black",
     hover: true,
   },
 });
