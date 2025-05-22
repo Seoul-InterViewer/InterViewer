@@ -10,7 +10,9 @@ const MenuIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "52"}
       height={height || "53"}
       viewBox={viewBox || "0 0 52 53"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -30,7 +32,9 @@ const WebIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "32"}
       height={height || "32"}
       viewBox={viewBox || "0 0 32 32"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -50,7 +54,9 @@ const AppleIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "49"}
       height={height || "49"}
       viewBox={viewBox || "0 0 49 49"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -70,7 +76,9 @@ const BookmarkIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "37"}
       height={height || "36"}
       viewBox={viewBox || "0 0 37 36"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -90,7 +98,9 @@ const CardQuizIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "60"}
       height={height || "60"}
       viewBox={viewBox || "0 0 60 60"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -110,7 +120,9 @@ const GoogleIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "36"}
       height={height || "37"}
       viewBox={viewBox || "0 0 36 37"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -153,7 +165,7 @@ const UserIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "24"}
       height={height || "24"}
       viewBox={viewBox || "0 0 24 24"}
-      fill="none"
+      fill={fill || "none"}
       stroke={stroke || "#000000"}
       strokeWidth={strokeWidth || "1.5"}
       xmlns="http://www.w3.org/2000/svg"
@@ -175,7 +187,9 @@ const VerticalElipsisIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "4"}
       height={height || "18"}
       viewBox={viewBox || "0 0 4 18"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -197,7 +211,9 @@ const UploadIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "20"}
       height={height || "20"}
       viewBox={viewBox || "0 0 20 20"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -217,7 +233,9 @@ const TypescriptIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "30"}
       height={height || "30"}
       viewBox={viewBox || "0 0 30 30"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -245,7 +263,9 @@ const TrashIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "32"}
       height={height || "32"}
       viewBox={viewBox || "0 0 32 32"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -282,7 +302,9 @@ const ShareIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "33"}
       height={height || "32"}
       viewBox={viewBox || "0 0 33 32"}
-      fill="none"
+      fill={fill || "#000000"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -302,7 +324,9 @@ const SettingIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "33"}
       height={height || "33"}
       viewBox={viewBox || "0 0 33 33"}
-      fill="none"
+      fill={fill || "#000000"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -322,7 +346,9 @@ const SearchIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "33"}
       height={height || "33"}
       viewBox={viewBox || "0 0 33 33"}
-      fill="none"
+      fill={fill || "#000000"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -342,7 +368,9 @@ const ReportIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "36"}
       height={height || "36"}
       viewBox={viewBox || "0 0 36 36"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -371,7 +399,7 @@ const ReplyIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "14"}
       height={height || "14"}
       viewBox={viewBox || "0 0 14 14"}
-      fill="none"
+      fill={fill || "#000000"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -391,7 +419,9 @@ const ReactIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "30"}
       height={height || "30"}
       viewBox={viewBox || "0 0 30 30"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -430,14 +460,16 @@ const QuestionBlackIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "20"}
       height={height || "20"}
       viewBox={viewBox || "0 0 20 20"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
       <rect width="20" height="20" rx="6" fill="black" />
       <path
         d="M9.11728 12.8828V12.679C9.11728 12.1155 9.16368 11.6664 9.25648 11.3317C9.3526 10.9969 9.4918 10.7285 9.67409 10.5263C9.85639 10.3208 10.0785 10.1335 10.3403 9.96449C10.5491 9.83191 10.7347 9.69768 10.8971 9.56179C11.0628 9.42259 11.1937 9.27344 11.2899 9.11435C11.386 8.95526 11.434 8.77462 11.434 8.57244C11.434 8.37689 11.3876 8.20455 11.2948 8.0554C11.202 7.90625 11.0744 7.7919 10.912 7.71236C10.7529 7.6295 10.5756 7.58807 10.3801 7.58807C10.1845 7.58807 10.0006 7.63281 9.82821 7.7223C9.65918 7.81179 9.51998 7.93939 9.4106 8.10511C9.30454 8.26752 9.24985 8.46473 9.24654 8.69673H6.95961C6.96955 8.00071 7.1303 7.43063 7.44185 6.98651C7.75672 6.54238 8.17267 6.21425 8.68972 6.00213C9.20677 5.78669 9.77684 5.67898 10.3999 5.67898C11.0827 5.67898 11.6892 5.78504 12.2195 5.99716C12.7532 6.20928 13.1724 6.52249 13.4774 6.93679C13.7823 7.35109 13.9347 7.85819 13.9347 8.4581C13.9347 8.85251 13.8685 9.20052 13.7359 9.50213C13.6033 9.80374 13.4177 10.0705 13.1791 10.3026C12.9437 10.5312 12.667 10.7401 12.3488 10.929C12.1002 11.0748 11.8931 11.2273 11.7274 11.3864C11.565 11.5455 11.4423 11.7277 11.3595 11.9332C11.2766 12.1354 11.2352 12.384 11.2352 12.679V12.8828H9.11728ZM10.216 16.1442C9.85804 16.1442 9.55146 16.0182 9.29625 15.7663C9.04436 15.5144 8.92007 15.2095 8.92338 14.8516C8.92007 14.5002 9.04436 14.2003 9.29625 13.9517C9.55146 13.6998 9.85804 13.5739 10.216 13.5739C10.5574 13.5739 10.8573 13.6998 11.1159 13.9517C11.3744 14.2003 11.5053 14.5002 11.5086 14.8516C11.5053 15.0902 11.4423 15.3073 11.3197 15.5028C11.2004 15.6984 11.0429 15.8542 10.8474 15.9702C10.6552 16.0862 10.4447 16.1442 10.216 16.1442Z"
-        fill="white"
+        fill={fill || "white"}
       />
     </svg>
   );
@@ -451,7 +483,9 @@ const PlusIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "18"}
       height={height || "18"}
       viewBox={viewBox || "0 0 18 18"}
-      fill="none"
+      fill={fill || "#000000"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -478,7 +512,9 @@ const NextjsIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "30"}
       height={height || "30"}
       viewBox={viewBox || "0 0 30 30"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -532,20 +568,22 @@ const LibraryIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "32"}
       height={height || "32"}
       viewBox={viewBox || "0 0 32 32"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
       <path
         d="M9.33366 22L2.66699 18L9.33366 14L16.0003 18V25.3333L9.33366 29.3333V22Z"
-        stroke="#000000"
+        stroke={stroke || "#000000"}
         strokeWidth="2.66667"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M2.66699 17.9998V25.3332L9.33366 29.3332M9.33366 22.0598L16.0003 18.0198M22.667 21.9998L16.0003 17.9998M22.667 21.9998V29.3332M22.667 21.9998L29.3337 17.9998M16.0003 17.9998L22.667 13.9998M16.0003 17.9998V10.6665M22.667 13.9998L29.3337 17.9998M22.667 13.9998V6.6665M29.3337 17.9998V25.3332L22.667 29.3332M22.667 29.3332L16.0003 25.3332M16.0003 10.6665L9.33366 6.6665L16.0003 2.6665L22.667 6.6665M16.0003 10.6665L22.667 6.6665M9.33366 6.7065V13.9798"
-        stroke="#000000"
+        stroke={stroke || "#000000"}
         strokeWidth="2.66667"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -562,7 +600,9 @@ const JavascriptIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "30"}
       height={height || "30"}
       viewBox={viewBox || "0 0 30 30"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -590,7 +630,9 @@ const IncorrectIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "24"}
       height={height || "24"}
       viewBox={viewBox || "0 0 24 24"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -610,7 +652,9 @@ const HorizontalElipsisIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "32"}
       height={height || "32"}
       viewBox={viewBox || "0 0 32 32"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -632,20 +676,22 @@ const HeroQuizIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "50"}
       height={height || "50"}
       viewBox={viewBox || "0 0 50 50"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
       <path
         d="M15.6249 7.2915C12.3832 7.38942 10.452 7.74984 9.11445 9.08734C7.2832 10.9207 7.2832 13.8686 7.2832 19.7665V33.3207C7.2832 39.2207 7.2832 42.1686 9.11445 44.0019C10.9436 45.8332 13.8915 45.8332 19.7832 45.8332H30.1999C36.0936 45.8332 39.0395 45.8332 40.8686 43.9998C42.702 42.1686 42.702 39.2207 42.702 33.3207V19.7665C42.702 13.8707 42.702 10.9207 40.8686 9.08734C39.5332 7.74984 37.5999 7.38942 34.3582 7.2915"
-        stroke="#F5C02F"
+        stroke={stroke || "#F5C02F"}
         strokeWidth="3.125"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M13.542 20.8332H21.8753M28.1253 22.9165C28.1253 22.9165 29.167 22.9165 30.2087 24.9998C30.2087 24.9998 33.517 19.7915 36.4587 18.7498M13.542 33.3332H21.8753M28.1253 35.4165C28.1253 35.4165 29.167 35.4165 30.2087 37.4998C30.2087 37.4998 33.517 32.2915 36.4587 31.2498M15.617 7.81234C15.617 5.79984 17.2503 4.1665 19.2628 4.1665H30.7212C31.6881 4.1665 32.6154 4.55062 33.2992 5.23434C33.9829 5.91807 34.367 6.8454 34.367 7.81234C34.367 8.77927 33.9829 9.7066 33.2992 10.3903C32.6154 11.0741 31.6881 11.4582 30.7212 11.4582H19.2628C18.2959 11.4582 17.3686 11.0741 16.6848 10.3903C16.0011 9.7066 15.617 8.77927 15.617 7.81234Z"
-        stroke="#F5C02F"
+        stroke={stroke || "#F5C02F"}
         strokeWidth="3.125"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -662,13 +708,15 @@ const HeroQuestionIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "50"}
       height={height || "50"}
       viewBox={viewBox || "0 0 50 50"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
       <path
         d="M16.6667 18.7502H33.3333M16.6667 27.0835H29.1667M29.1667 37.5002H27.0833L16.6667 43.7502V37.5002H12.5C10.8424 37.5002 9.25269 36.8417 8.08058 35.6696C6.90848 34.4975 6.25 32.9078 6.25 31.2502V14.5835C6.25 12.9259 6.90848 11.3362 8.08058 10.1641C9.25269 8.99198 10.8424 8.3335 12.5 8.3335H37.5C39.1576 8.3335 40.7473 8.99198 41.9194 10.1641C43.0915 11.3362 43.75 12.9259 43.75 14.5835V23.9585M39.5833 45.8335V45.8543M39.5833 39.5835C40.5173 39.5805 41.4232 39.2643 42.1562 38.6855C42.8892 38.1067 43.4068 37.2987 43.6262 36.3909C43.8455 35.483 43.7541 34.5279 43.3663 33.6782C42.9786 32.8285 42.317 32.1335 41.4875 31.7043C40.6587 31.2798 39.7106 31.1481 38.7975 31.3308C37.8844 31.5135 37.06 31.9998 36.4583 32.7106"
-        stroke="#F5C02F"
+        stroke={stroke || "#F5C02F"}
         strokeWidth="2.6"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -685,7 +733,9 @@ const HeroNoteIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "50"}
       height={height || "50"}
       viewBox={viewBox || "0 0 50 50"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -693,7 +743,7 @@ const HeroNoteIcon = (props: SVGProps<SVGSVGElement>) => {
         fillRule="evenodd"
         clipRule="evenodd"
         d="M17.083 6.6665V37.104H37.4997C37.9417 37.104 38.3656 36.9284 38.6782 36.6158C38.9907 36.3033 39.1663 35.8794 39.1663 35.4373V8.33317C39.1663 7.89114 38.9907 7.46722 38.6782 7.15466C38.3656 6.8421 37.9417 6.6665 37.4997 6.6665H17.083ZM14.583 6.6665H10.833V37.104H14.583V6.6665ZM39.1663 39.2561C38.6405 39.4848 38.0731 39.6026 37.4997 39.6019H10.833V43.3332H37.4997C37.9417 43.3332 38.3656 43.1576 38.6782 42.845C38.9907 42.5325 39.1663 42.1085 39.1663 41.6665V39.2561ZM8.33301 4.1665H37.4997C38.6047 4.1665 39.6645 4.60549 40.4459 5.38689C41.2274 6.16829 41.6663 7.2281 41.6663 8.33317V41.6665C41.6663 42.7716 41.2274 43.8314 40.4459 44.6128C39.6645 45.3942 38.6047 45.8332 37.4997 45.8332H8.33301V4.1665Z"
-        fill="#F5C02F"
+        fill={fill || "#F5C02F"}
       />
     </svg>
   );
@@ -707,20 +757,22 @@ const HeroCodepenIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "50"}
       height={height || "50"}
       viewBox={viewBox || "0 0 50 50"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
       <path
         d="M43.5 18.5V31M43.5 18.5L24.75 6M43.5 18.5L24.75 31M6 31V18.5M6 18.5L24.75 31M6 18.5L24.75 6M24.75 43.5V31M24.75 6V18.5"
-        stroke="#F5C02F"
+        stroke={stroke || "#F5C02F"}
         strokeWidth="3.125"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M24.75 43.5L6 31L24.75 18.5L43.5 31L24.75 43.5Z"
-        stroke="#F5C02F"
+        stroke={stroke || "#F5C02F"}
         strokeWidth="3.125"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -737,7 +789,9 @@ const HeartIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "36"}
       height={height || "36"}
       viewBox={viewBox || "0 0 36 36"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -757,7 +811,9 @@ const HeartBlackIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "10"}
       height={height || "10"}
       viewBox={viewBox || "0 0 10 10"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -777,7 +833,9 @@ const ArrowIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "33"}
       height={height || "33"}
       viewBox={viewBox || "0 0 33 33"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -798,7 +856,9 @@ const ChevronLeftIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "15"}
       height={height || "19"}
       viewBox={viewBox || "0 0 15 19"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -828,7 +888,9 @@ const ChevronRightIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "15"}
       height={height || "19"}
       viewBox={viewBox || "0 0 15 19"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -858,7 +920,9 @@ const chevronUpIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "19"}
       height={height || "15"}
       viewBox={viewBox || "0 0 19 15"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -881,7 +945,9 @@ const chevronDownIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "19"}
       height={height || "15"}
       viewBox={viewBox || "0 0 19 15"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -904,7 +970,9 @@ const GithubIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "36"}
       height={height || "37"}
       viewBox={viewBox || "0 0 36 37"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -939,7 +1007,9 @@ const EditIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "20"}
       height={height || "20"}
       viewBox={viewBox || "0 0 20 20"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -966,7 +1036,9 @@ const CsIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "30"}
       height={height || "30"}
       viewBox={viewBox || "0 0 30 30"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -994,7 +1066,9 @@ const CreateNewIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "32"}
       height={height || "33"}
       viewBox={viewBox || "0 0 32 33"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -1020,7 +1094,9 @@ const CorrectIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "24"}
       height={height || "24"}
       viewBox={viewBox || "0 0 24 24"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -1028,7 +1104,7 @@ const CorrectIcon = (props: SVGProps<SVGSVGElement>) => {
         fillRule="evenodd"
         clipRule="evenodd"
         d="M12 24C13.5759 24 15.1363 23.6896 16.5922 23.0866C18.0481 22.4835 19.371 21.5996 20.4853 20.4853C21.5996 19.371 22.4835 18.0481 23.0866 16.5922C23.6896 15.1363 24 13.5759 24 12C24 10.4241 23.6896 8.86371 23.0866 7.4078C22.4835 5.95189 21.5996 4.62902 20.4853 3.51472C19.371 2.40042 18.0481 1.5165 16.5922 0.913445C15.1363 0.310389 13.5759 -2.34822e-08 12 0C8.8174 4.74244e-08 5.76516 1.26428 3.51472 3.51472C1.26428 5.76516 0 8.8174 0 12C0 15.1826 1.26428 18.2348 3.51472 20.4853C5.76516 22.7357 8.8174 24 12 24ZM11.6907 16.8533L18.3573 8.85333L16.3093 7.14667L10.576 14.0253L7.60933 11.0573L5.724 12.9427L9.724 16.9427L10.756 17.9747L11.6907 16.8533Z"
-        fill="#269D5D"
+        fill={fill || "#269D5D"}
       />
     </svg>
   );
@@ -1041,7 +1117,9 @@ const CodepenIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "24"}
       height={height || "24"}
       viewBox={viewBox || "0 0 24 24"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -1061,7 +1139,9 @@ const CloseIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "28"}
       height={height || "28"}
       viewBox={viewBox || "0 0 28 28"}
-      fill="none"
+      fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       className="w-full h-full object-cover path:w-full path:g-full"
       {...restProps}

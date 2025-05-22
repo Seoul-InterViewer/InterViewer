@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
+import { IListProps } from "./list.type";
 
-const List = () => {
-  return <div>List</div>;
+const List = ({ className, children }: IListProps) => {
+  return <ul className={className}>{children}</ul>;
 };
 
 export default List;
