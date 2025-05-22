@@ -26,10 +26,29 @@ export const EmptyUI = ({ type }: IEmptyUIProps) => {
   } = emptyUIStyleVariants();
   const { isMobile } = useViewport();
 
+  const content = {
+    comment: {
+      text: "댓글이 없습니다."
+    },
+    bookmark: {
+      text: "등록된 즐겨찾기가 없습니다 🥲"
+    },
+    wrongNotes: {
+      text: "등록된 오답노트가 없습니다 🥲"
+    },
+    game: {
+      text: "아직 게임을 안만드셨어요 🥲",
+      link: {
+        text: "게임 만들기",
+        href: "/game/create"
+      }
+    }
+  };
+
   const uiContent = () => {
     switch (type) {
       case "comment":
-        return <p className="font-regular-14 md:font-regular-18 text-font-gray">작성된 댓글이 없습니다.</p>;
+        return <p className="font-regular-14 md:font-regular-18 text-font-gray">{content[type].text}</p>;
       case "bookmark":
         return (
           <motion.div
@@ -51,7 +70,7 @@ export const EmptyUI = ({ type }: IEmptyUIProps) => {
                 </motion.div>
               ))}
             </div>
-            <p className={description()}>등록된 즐겨찾기가 없습니다 🥲</p>
+            <p className={description()}>{content[type].text}</p>
           </motion.div>
         );
       case "wrongNotes":
@@ -70,7 +89,7 @@ export const EmptyUI = ({ type }: IEmptyUIProps) => {
                 height={isMobile ? 150 : 320}
               />
             </motion.div>
-            <p className={description()}>등록된 오답노트가 없습니다 🥲</p>
+            <p className={description()}>{content[type].text}</p>
           </motion.div>
         );
       case "game":
@@ -100,12 +119,12 @@ export const EmptyUI = ({ type }: IEmptyUIProps) => {
               ))}
             </div>
             <div className="flex flex-col items-center justify-center gap-y-5">
-              <p className={description()}>아직 게임을 안만드셨어요 🥲</p>
+              <p className={description()}>{content[type].text}</p>
               <Link
-                href="/game/create"
+                href={content[type].link.href}
                 className="underline decoration-sub-text decoration-1 underline-offset-2 font-regular-14 md:font-regular-18 text-sub-text cursor-pointer"
               >
-                게임 만들기
+                {content[type].link.text}
               </Link>
             </div>
           </motion.div>
