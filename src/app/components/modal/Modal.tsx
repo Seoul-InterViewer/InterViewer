@@ -1,49 +1,59 @@
-import { ModalType } from "./modal.type";
+"use client";
+
+import { useEffect, useState } from "react";
+import { IModalProps } from "./modal.type";
 import { modalVariants } from "./modal.variants";
+import { motion } from "framer-motion";
+import { Button } from "../button/Button";
+import { Icon } from "../icon/Icon";
+import { buttonVariants } from "../button";
 
 export const Modal = ({
   isOpen,
   onClose,
-  title,
   children,
-  buttons = [],
-  showCloseButton,
-  size = "default",
-  buttonLocation = "center",
-  className = "",
-}: ModalType) => {
-  const {
-    bg,
-    container,
-    closeButton,
-    title: titleStyle,
-    buttons: buttonsStyle,
-    button,
-  } = modalVariants({ size, buttonLocation });
-  if (!isOpen) return null;
+  closeButton,
+  className
+}: IModalProps) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+
+    // Esc키 닫기
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+
+    document.addEventListener("keydown", handleEsc);
+
+    // Cleanup
+    return () => {
+      document.removeEventListener("keydown", handleEsc);
+    };
+  }, [onClose]);
+
+  if (!mounted || !isOpen) return null;
 
   return (
-    <div className={bg()}>
-      <div className={`${container({ className })}`}>
-        {showCloseButton && (
-          <button className={closeButton()} onClick={onClose}>
-            x
-          </button>
-        )}
-        {title && <h2 className={titleStyle()}>{title}</h2>}
-        {children}
-        {buttons?.length > 0 ? (
-          <div className={buttonLocation}>
-            <div className={buttonsStyle()}>
-              {buttons?.length > 1 ? (
-                buttons?.map((button, idx) => <div key={idx}>{button}</div>)
-              ) : (
-                <div className={button()}>{buttons}</div>
-              )}
-            </div>
+    <div className="fixed left-0 top-0 w-full h-full z-99 flex-center bg-black/25">
+      <motion.div
+        className={modalVariants()}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {closeButton && (
+          <div className="absolute top-5 right-5">
+            <Button type="button" className={buttonVariants({ color: "white" })} onClick={onClose}>
+              <Icon name="close" className={className} />
+            </Button>
           </div>
-        ) : null}
-      </div>
+        )}
+        {children}
+      </motion.div>
     </div>
   );
 };

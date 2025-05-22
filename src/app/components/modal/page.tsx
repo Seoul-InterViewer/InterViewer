@@ -2,48 +2,31 @@
 
 import { Modal } from "./Modal";
 import useModal from "@/hooks/useModal";
-
+import { AnimatePresence } from "motion/react";
+import { Button } from "../button/Button";
+import { buttonVariants } from "../button";
 function ModalPage() {
-  const { isOpen, open, close } = useModal();
+  const modalProps = useModal();
 
   return (
     <div className="flex-center w-full h-[100vh]">
-      <button className="bg-black text-white px-4 py-2 rounded-md" onClick={open}>
+      <Button
+        type="button"
+        className={buttonVariants({ color: "yellow", size: "lg" })}
+        onClick={modalProps.open}
+      >
         모달 열기
-      </button>
+      </Button>
       <div>
-        {/* <Modal
-          size="default"
-          buttonLocation="left"
-          isOpen={isOpen}
-          onClose={close}
-          title="정말로 종료하시겠습니까?"
-          showCloseButton={true}
-          buttons={[
-            <button className="bg-black text-white px-4 py-2 rounded-md" onClick={close}>
-              취소
-            </button>,
-            <button className="bg-main text-black px-4 py-2 rounded-md" onClick={close}>
-              확인
-            </button>,
-          ]}
-        /> */}
-        <Modal
-          size="default"
-          buttonLocation="left"
-          isOpen={isOpen}
-          onClose={close}
-          title="정말로 종료하시겠습니까?"
-          showCloseButton={true}
-          buttons={[
-            <button className="bg-black text-white px-4 py-2 rounded-md" onClick={close}>
-              취소
-            </button>,
-            <button className="bg-main text-black px-4 py-2 rounded-md" onClick={close}>
-              확인
-            </button>,
-          ]}
-        />
+        <AnimatePresence>
+          <Modal
+            isOpen={modalProps.isOpen}
+            onClose={modalProps.close}
+            closeButton={true}
+            type="bookmark"
+            className=""
+          />
+        </AnimatePresence>
       </div>
     </div>
   );

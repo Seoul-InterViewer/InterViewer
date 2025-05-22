@@ -1,37 +1,14 @@
 import { tv } from "tailwind-variants";
 
 export const modalVariants = tv({
-  slots: {
-    bg: "fixed left-0 top-0 w-full h-full z-99 flex-center bg-black/25 ",
-    container: "bg-white rounded-[8px] flex-center flex-col  shadow animate-fadeIn relative z-100",
-    closeButton: "absolute top-5 right-5",
-    title: "font-[var(--font-regular-18)]",
-    buttons: "flex justify-end gap-5 mt-7.5",
-    button: "flex-center mt-7.5",
-  },
+  base: "bg-white md:w-109 md:h-57.5 w-76 md:px-11 md:pt-17 md:pb-11 rounded-lg flex flex-col relative z-100",
   variants: {
-    size: {
-      default: {
-        container: "w-109 h-57",
-      },
-      mobile: {
-        container: "w-76 h-57",
-      },
-    },
-    buttonLocation: {
-      left: {
-        buttons: "flex justify-start",
-      },
-      center: {
-        buttons: "flex justify-center",
-      },
-      right: {
-        buttons: "flex justify-end",
-      },
+    type: {
+      default: "md:w-7 md:h-7 w-5 h-5",
+      bookmark: "w-5 h-5",
     },
   },
   defaultVariants: {
-    size: "default",
-    buttonLocation: "center",
+    type: "default",
   },
 });
