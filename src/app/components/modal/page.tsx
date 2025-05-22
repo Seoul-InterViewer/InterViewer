@@ -23,7 +23,6 @@ function ModalPage() {
             isOpen={modalProps.isOpen}
             onClose={modalProps.close}
             closeButton={true}
-            type="bookmark"
             className=""
           />
         </AnimatePresence>
