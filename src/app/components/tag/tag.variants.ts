@@ -4,15 +4,13 @@ export const tagVariants = tv({
   base: " items-center rounded-md border",
   variants: {
     type: {
-      default:
-        "bg-[var(--color-tag)] text-font border-[var(--color-tag)] px-[7px] py-[3px] font-sb-12",
-      card: "bg-white text-gray-800 border-gray-300 text-medium-8 px-[5px] py-[3px] md:text-regular-14 md:px-[10px] md:py-[5px]",
+      default: "bg-[var(--color-tag)] text-font border-[var(--color-tag)] px-2 py-1 font-sb-12",
+      card: "bg-[var(--color-background)] text-font border-gray-300 font-medium-8 md:font-regular-14  px-1 py-[1] md:px-4 md:py-2 ",
       chooseTag:
-        "bg-white text-[var(--color-font-gray)] border-gray-300 px-[7px] py-[3px] text-sb-12 block text-medium-10 md:text-regular-14",
-      correct:
-        "bg-[var(--color-correct-bg)] text-[var(--color-correct)] border-[var(--color-correct)] px-[7px] py-[3px] text-sb-12",
+        "bg-[var(--color-background)] text-font-gray border-font-gray px-2 py-2 font-medium-10 md:font-regular-14",
+      correct: "bg-[var(--color-correct-bg)] text-correct border-[var(--color-correct)] px-2 py-1",
       incorrect:
-        "bg-[var(--color-incorrect-bg)] text-[var(--color-incorrect)] border-[var(--color-incorrect)] px-[7px] py-[3px] text-sb-12 ",
+        "bg-[var(--color-incorrect)]/10 text-incorrect border-[var(--color-incorrect)] px-2 py-1",
     },
   },
   defaultVariants: {
