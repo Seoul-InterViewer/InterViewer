@@ -134,11 +134,12 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
               // 로그인 된 상태 - 아이콘 두 개 추가
               <>
                 <div className="relative create-menu-container">
-                  <Icon
-                    name="createNew"
-                    className="w-[26px] h-[26px] md:w-[33px] md:h-[33px] cursor-pointer"
-                    onClick={() => setCreateMenuOpen(!createMenuOpen)}
-                  />
+                  <button onClick={() => setCreateMenuOpen(!createMenuOpen)}>
+                    <Icon
+                      name="createNew"
+                      className="w-[26px] h-[26px] md:w-[33px] md:h-[33px] cursor-pointer"
+                    />
+                  </button>
 
                   {/* 드롭다운 메뉴 */}
                   {createMenuOpen && (
@@ -167,9 +168,11 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
               </>
             ) : (
               // 비로그인 상태 - 로그인 버튼 표시
-              <Link href="#">
-                <div className={loginButtonVariants()}>Login</div>
-              </Link>
+              <button>
+                <Link href="#">
+                  <div className={loginButtonVariants()}>Login</div>
+                </Link>
+              </button>
             )}
           </div>
         </div>
