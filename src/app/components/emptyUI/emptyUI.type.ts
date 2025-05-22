@@ -1,3 +1,3 @@
 export interface IEmptyUIProps {
-  type?: string;
+  type: "comment" | "bookmark" | "wrongNotes" | "game";
 }
