@@ -19,12 +19,21 @@ function ModalPage() {
       </Button>
       <div>
         <AnimatePresence>
-          <Modal
-            isOpen={modalProps.isOpen}
-            onClose={modalProps.close}
-            closeButton={true}
-            className=""
-          />
+          {modalProps.isOpen && (
+            <Modal isOpen={modalProps.isOpen} onClose={modalProps.close} closeButton={true}>
+              <div className="flex-center flex-col gap-7.5 w-full h-full">
+                <h2 className="font-regular-18">정말로 게임을 종료하시겠어요?😭</h2>
+                <div className="flex-center gap-5 ">
+                  <Button type="button" className={buttonVariants({ color: "black", size: "lg" })}>
+                    취소하기
+                  </Button>
+                  <Button type="button" className={buttonVariants({ color: "yellow", size: "lg" })}>
+                    네, 종료할게요
+                  </Button>
+                </div>
+              </div>
+            </Modal>
+          )}
         </AnimatePresence>
       </div>
     </div>

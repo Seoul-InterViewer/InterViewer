@@ -6,4 +6,5 @@ export interface IModalProps {
   children?: React.ReactNode;
   closeButton?: boolean;
   className?: string;
+  type?: "default" | "bookmark";
 }

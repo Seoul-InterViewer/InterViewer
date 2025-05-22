@@ -2,23 +2,32 @@
 
 import { useEffect, useState } from "react";
 import { IModalProps } from "./modal.type";
-import { modalVariants } from "./modal.variants";
+import { modalVariants, iconVariants } from "./modal.variants";
 import { motion } from "framer-motion";
 import { Button } from "../button/Button";
 import { Icon } from "../icon/Icon";
 import { buttonVariants } from "../button";
+import Portal from "../Portal";
 
 export const Modal = ({
   isOpen,
   onClose,
   children,
   closeButton,
-  className
+  className,
+  type = "default",
 }: IModalProps) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+
+    // modal-root 요소가 없다면 생성
+    if (!document.getElementById("modal-root")) {
+      const modalRoot = document.createElement("div");
+      modalRoot.id = "modal-root";
+      document.body.appendChild(modalRoot);
+    }
 
     // Esc키 닫기
     const handleEsc = (e: KeyboardEvent) => {
@@ -35,10 +44,10 @@ export const Modal = ({
 
   if (!mounted || !isOpen) return null;
 
-  return (
-    <div className="fixed left-0 top-0 w-full h-full z-99 flex-center bg-black/25">
+  const modalContent = (
+    <div className="fixed left-0 top-0 w-full h-full z-99 flex-center bg-black/25 shadow-lg">
       <motion.div
-        className={modalVariants()}
+        className={`${modalVariants()} ${className || ""}`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -48,7 +57,7 @@ export const Modal = ({
         {closeButton && (
           <div className="absolute top-5 right-5">
             <Button type="button" className={buttonVariants({ color: "white" })} onClick={onClose}>
-              <Icon name="close" className={className} />
+              <Icon name="close" className={iconVariants({ type })} />
             </Button>
           </div>
         )}
@@ -56,4 +65,6 @@ export const Modal = ({
       </motion.div>
     </div>
   );
+
+  return <Portal id="modal-root" content={modalContent} />;
 };
