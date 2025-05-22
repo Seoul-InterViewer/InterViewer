@@ -7,11 +7,11 @@ import { Icon } from "../icon/Icon";
 const OtherContentMenu = () => (
   <div className={contentVariants()}>
     <Link href="#reply" className={menuItemVariants()}>
-      <Icon name="reply" className="w-[20px] h-[20px]" />
+      <Icon name="reply" className="w-5 h-5" />
       <span>답글달기</span>
     </Link>
     <Link href="#report" className={menuItemVariants({ type: "danger" })}>
-      <Icon name="report" className="w-[20px] h-[20px]" />
+      <Icon name="report" className="w-5 h-5" />
       <span>신고하기</span>
     </Link>
   </div>

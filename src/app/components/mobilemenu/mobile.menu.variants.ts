@@ -5,23 +5,19 @@ export const contentVariants = tv({
 });
 
 export const mobileMenuVariants = tv({
-  base: "fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 rounded-t-3xl z-50 ",
+  base: "fixed bottom-0 left-0 right-0 bg-white  rounded-t-3xl z-50 ",
 });
 
 export const backdropVariants = tv({
-  base: " fixed inset-0 bg-black/50 z-40",
+  base: "fixed inset-0 bg-black/50 z-40",
 });
 
-// 하단 흰색 배경을 위한 스타일
-
 export const menuItemVariants = tv({
-  base: "block py-3 text-lg font-medium flex items-center gap-2 ",
+  base: "block py-3  font-regular-18 flex items-center gap-2 ",
   variants: {
     type: {
       default: "",
-      danger: "text-red-500",
-      primary: "text-blue-600 dark:text-blue-400",
-      action: "bg-blue-600 text-white rounded-lg text-center",
+      danger: "text-incorrect/60",
     },
   },
   defaultVariants: {

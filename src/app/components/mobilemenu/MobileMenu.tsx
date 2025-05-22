@@ -25,11 +25,11 @@ const renderMenuContent = (menuType: MenuType) => {
       return (
         <div className={contentVariants()}>
           <Link href="#share-link" className={menuItemVariants()}>
-            <Icon name="share" className="w-[20px] h-[20px]" />
+            <Icon name="share" className="w-5 h-5" />
             <span>링크 공유하기</span>
           </Link>
           <Link href="#share-kakao" className={menuItemVariants()}>
-            <Icon name="share" className="w-[20px] h-[20px]" />
+            <Icon name="share" className="w-5 h-5" />
             <span>카카오톡 공유하기</span>
           </Link>
         </div>
@@ -38,11 +38,11 @@ const renderMenuContent = (menuType: MenuType) => {
       return (
         <div className={contentVariants()}>
           <Link href="#admin-approve" className={menuItemVariants()}>
-            <Icon name="user" className="w-[20px] h-[20px]" />
+            <Icon name="user" className="w-5 h-5" />
             <span>승인하기</span>
           </Link>
           <Link href="#admin-reject" className={menuItemVariants({ type: "danger" })}>
-            <Icon name="trash" className="w-[20px] h-[20px]" />
+            <Icon name="trash" className="w-5 h-5" />
             <span>거절하기</span>
           </Link>
         </div>
@@ -51,15 +51,15 @@ const renderMenuContent = (menuType: MenuType) => {
       return (
         <div className={contentVariants()}>
           <Link href="#settings-profile" className={menuItemVariants()}>
-            <Icon name="user" className="w-[20px] h-[20px]" />
+            <Icon name="user" className="w-5 h-5" />
             <span>프로필 설정</span>
           </Link>
           <Link href="#settings-notification" className={menuItemVariants()}>
-            <Icon name="report" className="w-[20px] h-[20px]" />
+            <Icon name="report" className="w-5 h-5" />
             <span>알림 설정</span>
           </Link>
           <Link href="#settings-logout" className={menuItemVariants({ type: "danger" })}>
-            <Icon name="user" className="w-[20px] h-[20px]" />
+            <Icon name="user" className="w-5 h-5" />
             <span>로그아웃</span>
           </Link>
         </div>

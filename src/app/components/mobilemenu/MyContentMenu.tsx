@@ -7,15 +7,15 @@ import { Icon } from "../icon/Icon";
 const MyContentMenu = () => (
   <div className={contentVariants()}>
     <Link href="#reply" className={menuItemVariants()}>
-      <Icon name="edit" className="w-[20px] h-[20px]" />
+      <Icon name="edit" className="w-5 h-5" />
       <span>수정하기</span>
     </Link>
     <Link href="#report" className={menuItemVariants({ type: "danger" })}>
-      <Icon name="trash" className="w-[20px] h-[20px]" strokeWidth={2.6} />
+      <Icon name="trash" className="w-5 h-5" strokeWidth={2.6} />
       <span>삭제하기</span>
     </Link>
     <Link href="#reply" className={menuItemVariants()}>
-      <Icon name="edit" className="w-[20px] h-[20px]" />
+      <Icon name="edit" className="w-5 h-5" />
       <span>수정하기</span>
     </Link>
   </div>
