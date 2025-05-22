@@ -11,6 +11,8 @@ const MenuIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "53"}
       viewBox={viewBox || "0 0 52 53"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -31,6 +33,8 @@ const WebIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "32"}
       viewBox={viewBox || "0 0 32 32"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -51,6 +55,8 @@ const AppleIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "49"}
       viewBox={viewBox || "0 0 49 49"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -71,6 +77,8 @@ const BookmarkIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "36"}
       viewBox={viewBox || "0 0 37 36"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -91,6 +99,8 @@ const CardQuizIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "60"}
       viewBox={viewBox || "0 0 60 60"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -111,6 +121,8 @@ const GoogleIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "37"}
       viewBox={viewBox || "0 0 36 37"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -176,6 +188,8 @@ const VerticalElipsisIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "18"}
       viewBox={viewBox || "0 0 4 18"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -198,6 +212,8 @@ const UploadIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "20"}
       viewBox={viewBox || "0 0 20 20"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -218,6 +234,8 @@ const TypescriptIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "30"}
       viewBox={viewBox || "0 0 30 30"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -246,6 +264,8 @@ const TrashIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "32"}
       viewBox={viewBox || "0 0 32 32"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -283,6 +303,8 @@ const ShareIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "32"}
       viewBox={viewBox || "0 0 33 32"}
       fill={fill || "#000000"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -303,6 +325,8 @@ const SettingIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "33"}
       viewBox={viewBox || "0 0 33 33"}
       fill={fill || "#000000"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -323,6 +347,8 @@ const SearchIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "33"}
       viewBox={viewBox || "0 0 33 33"}
       fill={fill || "#000000"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -343,6 +369,8 @@ const ReportIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "36"}
       viewBox={viewBox || "0 0 36 36"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -392,6 +420,8 @@ const ReactIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "30"}
       viewBox={viewBox || "0 0 30 30"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -431,6 +461,8 @@ const QuestionBlackIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "20"}
       viewBox={viewBox || "0 0 20 20"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -452,6 +484,8 @@ const PlusIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "18"}
       viewBox={viewBox || "0 0 18 18"}
       fill={fill || "#000000"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -479,6 +513,8 @@ const NextjsIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "30"}
       viewBox={viewBox || "0 0 30 30"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -534,6 +570,7 @@ const LibraryIcon = (props: SVGProps<SVGSVGElement>) => {
       viewBox={viewBox || "0 0 32 32"}
       fill={fill || "none"}
       stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -564,6 +601,8 @@ const JavascriptIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "30"}
       viewBox={viewBox || "0 0 30 30"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -592,6 +631,8 @@ const IncorrectIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "24"}
       viewBox={viewBox || "0 0 24 24"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -612,6 +653,8 @@ const HorizontalElipsisIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "32"}
       viewBox={viewBox || "0 0 32 32"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -633,8 +676,9 @@ const HeroQuizIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "50"}
       height={height || "50"}
       viewBox={viewBox || "0 0 50 50"}
-      stroke={stroke || "none"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -666,6 +710,7 @@ const HeroQuestionIcon = (props: SVGProps<SVGSVGElement>) => {
       viewBox={viewBox || "0 0 50 50"}
       fill={fill || "none"}
       stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -689,6 +734,8 @@ const HeroNoteIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "50"}
       viewBox={viewBox || "0 0 50 50"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -710,8 +757,9 @@ const HeroCodepenIcon = (props: SVGProps<SVGSVGElement>) => {
       width={width || "50"}
       height={height || "50"}
       viewBox={viewBox || "0 0 50 50"}
-      stroke={stroke || "none"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -742,6 +790,8 @@ const HeartIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "36"}
       viewBox={viewBox || "0 0 36 36"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -762,6 +812,8 @@ const HeartBlackIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "10"}
       viewBox={viewBox || "0 0 10 10"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -782,6 +834,8 @@ const ArrowIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "33"}
       viewBox={viewBox || "0 0 33 33"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -803,6 +857,8 @@ const ChevronLeftIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "19"}
       viewBox={viewBox || "0 0 15 19"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -833,6 +889,8 @@ const ChevronRightIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "19"}
       viewBox={viewBox || "0 0 15 19"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -863,6 +921,8 @@ const chevronUpIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "15"}
       viewBox={viewBox || "0 0 19 15"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -886,6 +946,8 @@ const chevronDownIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "15"}
       viewBox={viewBox || "0 0 19 15"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -909,6 +971,8 @@ const GithubIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "37"}
       viewBox={viewBox || "0 0 36 37"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -944,6 +1008,8 @@ const EditIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "20"}
       viewBox={viewBox || "0 0 20 20"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -971,6 +1037,8 @@ const CsIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "30"}
       viewBox={viewBox || "0 0 30 30"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -999,6 +1067,8 @@ const CreateNewIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "33"}
       viewBox={viewBox || "0 0 32 33"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -1025,6 +1095,8 @@ const CorrectIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "24"}
       viewBox={viewBox || "0 0 24 24"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -1046,6 +1118,8 @@ const CodepenIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "24"}
       viewBox={viewBox || "0 0 24 24"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
     >
@@ -1066,6 +1140,8 @@ const CloseIcon = (props: SVGProps<SVGSVGElement>) => {
       height={height || "28"}
       viewBox={viewBox || "0 0 28 28"}
       fill={fill || "none"}
+      stroke={stroke || "none"}
+      strokeWidth={strokeWidth || "none"}
       xmlns="http://www.w3.org/2000/svg"
       className="w-full h-full object-cover path:w-full path:g-full"
       {...restProps}
