@@ -4,9 +4,9 @@ import { Textarea } from "./Textarea";
 
 export default function TextareaTestPage() {
   return (
-    <div className="p-20 flex flex-col gap-10">
+    <div className="px-2.5 py-20 flex flex-col gap-10">
       {/* type="comment1" */}
-      <div className="w-315 h-54">
+      <div className="h-25 md:h-54">
         <Textarea
           name="comment1"
           id="comment1"
@@ -17,7 +17,7 @@ export default function TextareaTestPage() {
       </div>
 
       {/* type="comment2" */}
-      <div className="w-315 h-57 px-7.5 pt-8.5 pb-5.5 bg-[#f5f5f5] flex flex-col gap-3.5">
+      <div className="h-57 px-7.5 pt-8.5 pb-5.5 bg-[#f5f5f5] flex flex-col gap-3.5">
         <Textarea name="comment2" id="comment2" type="comment2" placeholder="댓글을 입력하세요.." />
         <div className="flex justify-end gap-3.5">
           <button className="font-medium-12 underline bg-white cursor-pointer">취소</button>
@@ -28,8 +28,8 @@ export default function TextareaTestPage() {
       </div>
 
       {/* type="report" */}
-      <div className="w-100 h-43 flex flex-col gap-2.5">
-        <label className="flex gap-1 font-regular-18" htmlFor="reportContent">
+      <div className="w-full md:w-100 h-43 flex flex-col gap-2.5">
+        <label className="flex gap-1 font-regular-16 md:font-regular-18" htmlFor="reportContent">
           신고내용<span className="text-incorrect font-medium-12">*</span>
         </label>
         <Textarea
@@ -42,7 +42,7 @@ export default function TextareaTestPage() {
 
       {/* type="wrongAnswer" */}
       <div className="w-full py-5 bg-modal-bg text-center">
-        <div className="w-110 mx-auto p-5 flex flex-col gap-4 rounded-lg bg-white">
+        <div className="w-77 md:w-110 mx-auto p-5 flex flex-col gap-4 rounded-lg bg-white">
           <button className="w-7 h-7 self-end font-sb-28 cursor-pointer">X</button>
           <div className="w-full h-full flex flex-col items-center gap-7.5">
             <label className="font-sb-20 mb-2.5" htmlFor="wrongAnswerContent">

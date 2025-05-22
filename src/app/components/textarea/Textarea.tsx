@@ -22,7 +22,7 @@ export const Textarea = ({ name, id, type, maxLength, placeholder }: ITextareaPr
       ></textarea>
       {type === "comment1" && maxLength && (
         <div className="w-full flex justify-between items-center">
-          <span className="font-regular-18 text-black/50">
+          <span className="font-regular-14 md:font-regular-18 text-black/50">
             {count} / {maxLength}
           </span>
           <button className="px-4 py-1.5 font-medium-12 bg-white border border-[#e5e5e5] rounded">
