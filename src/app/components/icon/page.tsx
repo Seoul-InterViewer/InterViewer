@@ -55,7 +55,12 @@ export default function IconGalleryPage() {
           {iconNames.map((name) => (
             <div key={name} className="flex-center flex-col border p-4 rounded">
               <div className="flex items-center justify-center h-12">
-                <Icon name={name} fill="var(--color-correct)" stroke="var(--color-incorrect)" />
+                <Icon
+                  name={name}
+                  fill="var(--color-correct)"
+                  stroke="var(--color-incorrect)"
+                  strokeWidth={1}
+                />
               </div>
               <span className="--font-sb-14 text-gray-700 mt-2">{name}</span>
             </div>
