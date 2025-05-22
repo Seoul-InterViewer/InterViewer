@@ -1,5 +1,7 @@
 "use client";
 
+import { Button, buttonVariants } from "../button";
+import { Icon } from "../icon";
 import { Textarea } from "./Textarea";
 
 export default function TextareaTestPage() {
@@ -20,10 +22,15 @@ export default function TextareaTestPage() {
       <div className="h-57 px-7.5 pt-8.5 pb-5.5 bg-[#f5f5f5] flex flex-col gap-3.5">
         <Textarea name="reply" id="reply" type="reply" placeholder="댓글을 입력하세요.." />
         <div className="flex justify-end gap-3.5">
-          <button className="font-medium-12 underline bg-white cursor-pointer">취소</button>
-          <button className="px-4 py-1.5 font-medium-12 text-white bg-black rounded cursor-pointer">
+          <Button type="button" className="font-medium-12 underline bg-white cursor-pointer">
+            취소
+          </Button>
+          <Button
+            type="button"
+            className={`${buttonVariants({ size: "sm", color: "black", hover: true })} px-4 py-1.5`}
+          >
             작성
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -43,7 +50,9 @@ export default function TextareaTestPage() {
       {/* type="wrongAnswer" */}
       <div className="w-full py-5 bg-modal-bg text-center">
         <div className="w-77 md:w-110 mx-auto p-5 flex flex-col gap-4 rounded-lg bg-white">
-          <button className="w-7 h-7 self-end font-sb-28 cursor-pointer">X</button>
+          <Button type="button" className={`${buttonVariants({ icon: true })} self-end`}>
+            <Icon name="close" size={28} />
+          </Button>
           <div className="w-full h-full flex flex-col items-center gap-7.5">
             <label className="font-sb-20 mb-2.5" htmlFor="wrongAnswerContent">
               Q2. React에서 useMemo와 useCallback의... 해당 질문을 오답노트에 저장하시겠어요?
@@ -54,9 +63,12 @@ export default function TextareaTestPage() {
               type="wrongAnswer"
               placeholder="오답에 대한 간단한 메모를 작성하실 수 있어요.."
             />
-            <button className="w-fit px-5 py-2.5 rounded bg-black text-white font-sb-16 cursor-pointer">
+            <Button
+              type="button"
+              className={`${buttonVariants({ size: "md", color: "black", hover: true })} px-5 py-2.5`}
+            >
               저장하기
-            </button>
+            </Button>
           </div>
         </div>
       </div>

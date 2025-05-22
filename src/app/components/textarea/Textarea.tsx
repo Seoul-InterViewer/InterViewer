@@ -3,6 +3,7 @@
 import { ChangeEventHandler, useState } from "react";
 import { ITextareaProps } from "./textarea.type";
 import { wrapperVariants, textareaVariants } from "./textarea.variants";
+import { Button, buttonVariants } from "../button";
 
 export const Textarea = ({ name, id, type, maxLength, placeholder }: ITextareaProps) => {
   const [count, setCount] = useState(0);
@@ -25,9 +26,12 @@ export const Textarea = ({ name, id, type, maxLength, placeholder }: ITextareaPr
           <span className="font-regular-14 md:font-regular-18 text-black/50">
             {count} / {maxLength}
           </span>
-          <button className="px-4 py-1.5 font-medium-12 bg-white border border-[#e5e5e5] rounded">
+          <Button
+            type="button"
+            className={`${buttonVariants({ size: "sm", color: "borderGray", hover: true })} px-4 py-1.5`}
+          >
             작성
-          </button>
+          </Button>
         </div>
       )}
     </div>
