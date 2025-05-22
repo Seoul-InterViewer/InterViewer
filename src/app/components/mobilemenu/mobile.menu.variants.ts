@@ -1,15 +1,21 @@
 import { tv } from "tailwind-variants";
 
+export const contentVariants = tv({
+  base: "flex flex-col gap-4 h-[120px] overflow-y-auto ",
+});
+
 export const mobileMenuVariants = tv({
-  base: "fixed bottom-[-140px] left-0 right-0 bg-white dark:bg-gray-800 rounded-t-3xl z-50 shadow-lg overflow-hidden pb-12 min-h-[60vh]",
+  base: "fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 rounded-t-3xl z-50 ",
 });
 
 export const backdropVariants = tv({
-  base: "fixed inset-0 bg-black/50 z-40",
+  base: " fixed inset-0 bg-black/50 z-40",
 });
 
+// 하단 흰색 배경을 위한 스타일
+
 export const menuItemVariants = tv({
-  base: "block py-3 text-lg font-medium flex items-center gap-2",
+  base: "block py-3 text-lg font-medium flex items-center gap-2 ",
   variants: {
     type: {
       default: "",

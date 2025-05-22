@@ -1,0 +1,20 @@
+import React from "react";
+import Link from "next/link";
+import { menuItemVariants, contentVariants } from "./mobile.menu.variants";
+import { Icon } from "../icon/Icon";
+
+// 타인 콘텐츠용 메뉴 컴포넌트
+const OtherContentMenu = () => (
+  <div className={contentVariants()}>
+    <Link href="#reply" className={menuItemVariants()}>
+      <Icon name="reply" className="w-[20px] h-[20px]" />
+      <span>답글달기</span>
+    </Link>
+    <Link href="#report" className={menuItemVariants({ type: "danger" })}>
+      <Icon name="report" className="w-[20px] h-[20px]" />
+      <span>신고하기</span>
+    </Link>
+  </div>
+);
+
+export default OtherContentMenu;

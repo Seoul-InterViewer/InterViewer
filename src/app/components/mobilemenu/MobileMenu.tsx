@@ -1,45 +1,21 @@
 "use client";
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue } from "framer-motion";
 import Link from "next/link";
 import {
   mobileMenuVariants,
   backdropVariants,
   menuItemVariants,
   handleVariants,
+  contentVariants,
 } from "./mobile.menu.variants";
 import { IMobileMenuProps, User, MenuType } from "./mobile.menu.type";
+import { Icon } from "../icon/Icon";
+import OtherContentMenu from "./OtherContentMenu";
+import MyContentMenu from "./MyContentMenu";
 
 const isValidUser = (user: User | null): boolean =>
   Boolean(user && typeof user.id === "string" && user.id.length > 0);
-
-// 내 콘텐츠용 메뉴 컴포넌트
-const MyContentMenu = () => (
-  <>
-    <Link href="#edit" className={menuItemVariants()}>
-      <i>✏️</i>
-      <span>수정하기</span>
-    </Link>
-    <Link href="#delete" className={menuItemVariants({ type: "danger" })}>
-      <i>🗑️</i>
-      <span>삭제하기</span>
-    </Link>
-  </>
-);
-
-// 타인 콘텐츠용 메뉴 컴포넌트
-const OtherContentMenu = () => (
-  <>
-    <Link href="#reply" className={menuItemVariants()}>
-      <i>💬</i>
-      <span>답글달기</span>
-    </Link>
-    <Link href="#report" className={menuItemVariants({ type: "danger" })}>
-      <i>🚨</i>
-      <span>신고하기</span>
-    </Link>
-  </>
-);
 
 const MobileMenu: React.FC<IMobileMenuProps> = ({
   isOpen,
@@ -51,6 +27,9 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
   // 메뉴 타입이 지정되지 않은 경우 작성자 ID로 판단
   const isAuthor = isValidUser(currentUser) && currentUser?.id === authorId;
   const effectiveMenuType: MenuType = menuType || (isAuthor ? "myContent" : "otherContent");
+
+  // y 위치 모션 값 생성
+  const y = useMotionValue(0);
 
   // Animation variants
   const menuVariants = {
@@ -76,7 +55,7 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
+          {/* 반투명 검은색 Backdrop */}
           <motion.div
             className={backdropVariants()}
             initial={{ opacity: 0 }}
@@ -92,29 +71,22 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
             initial="hidden"
             animate="visible"
             exit="exit"
-            drag="y"
+            // drag="y"
+            // 드래그 범위 제한 - 위로는 제한된 범위까지만, 아래로는 제한 없음
             dragConstraints={{ top: 0, bottom: 0 }}
-            dragDirectionLock
-            dragElastic={{ top: 0.1, bottom: 0.7 }}
+            dragElastic={0.4}
             style={{
-              minHeight: "60vh",
-              height: "auto",
-              touchAction: "none",
-            }}
-            onDragEnd={(_, info) => {
-              if (info.offset.y > 100) {
-                onClose();
-              }
+              y,
+              // minHeight: "50vh",
+              // height: "210PX",
             }}
           >
-            <div className="p-8 h-full flex flex-col">
-              <div className={handleVariants()} />
+            <div className="p-8 flex flex-col">
+              <div className={handleVariants()} onClick={onClose} />
 
-              <div className="space-y-6 py-2 flex-1">
+              <div className=" py-2 flex-1">
                 {effectiveMenuType === "myContent" ? <MyContentMenu /> : <OtherContentMenu />}
               </div>
-
-              <div className="mt-auto pt-10"></div>
             </div>
           </motion.div>
         </>
