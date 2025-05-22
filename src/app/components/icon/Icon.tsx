@@ -1067,6 +1067,7 @@ const CloseIcon = (props: SVGProps<SVGSVGElement>) => {
       viewBox={viewBox || "0 0 28 28"}
       fill={fill || "none"}
       xmlns="http://www.w3.org/2000/svg"
+      className="w-full h-full object-cover path:w-full path:g-full"
       {...restProps}
     >
       <path
@@ -1125,12 +1126,13 @@ const icons: Record<IconName, IconComponent> = {
 
 export const Icon = ({
   name,
-  width,
-  height,
   className,
   strokeWidth,
   stroke,
   fill,
+  size,
+  width,
+  height,
   viewBox,
   ...props
 }: IIconProps) => {
@@ -1143,8 +1145,8 @@ export const Icon = ({
 
   return (
     <IconComponent
-      width={width}
-      height={height}
+      width={size || width}
+      height={size || height}
       className={className}
       strokeWidth={strokeWidth}
       stroke={stroke}

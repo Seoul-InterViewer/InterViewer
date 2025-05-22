@@ -44,18 +44,16 @@ export type IconName =
   | "codepen"
   | "close";
 
-
 export interface IIconProps extends Omit<SVGProps<SVGSVGElement>, "name"> {
   name: IconName;
-  width?: number;
-  height?: number;
   className?: string;
   strokeWidth?: number;
   stroke?: string;
   fill?: string;
-  viewBox?: string;
+  size?: number;
+  width?: number;
+  height ?: number;
+  viewBox ?: string;
 }
 
 export type IconComponent = (props: SVGProps<SVGSVGElement>) => React.ReactElement;
-
-
