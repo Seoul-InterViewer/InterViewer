@@ -5,20 +5,20 @@ import { Textarea } from "./Textarea";
 export default function TextareaTestPage() {
   return (
     <div className="px-2.5 py-20 flex flex-col gap-10">
-      {/* type="comment1" */}
+      {/* type="comment" */}
       <div className="h-25 md:h-54">
         <Textarea
-          name="comment1"
-          id="comment1"
-          type="comment1"
+          name="comment"
+          id="comment"
+          type="comment"
           maxLength={500}
           placeholder="댓글을 입력하세요.."
         />
       </div>
 
-      {/* type="comment2" */}
+      {/* type="reply" */}
       <div className="h-57 px-7.5 pt-8.5 pb-5.5 bg-[#f5f5f5] flex flex-col gap-3.5">
-        <Textarea name="comment2" id="comment2" type="comment2" placeholder="댓글을 입력하세요.." />
+        <Textarea name="reply" id="reply" type="reply" placeholder="댓글을 입력하세요.." />
         <div className="flex justify-end gap-3.5">
           <button className="font-medium-12 underline bg-white cursor-pointer">취소</button>
           <button className="px-4 py-1.5 font-medium-12 text-white bg-black rounded cursor-pointer">

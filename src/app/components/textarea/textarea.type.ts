@@ -1,4 +1,4 @@
-type TextareaType = "comment1" | "comment2" | "report" | "wrongAnswer";
+type TextareaType = "comment" | "reply" | "report" | "wrongAnswer";
 
 export interface ITextareaProps {
   name: string;

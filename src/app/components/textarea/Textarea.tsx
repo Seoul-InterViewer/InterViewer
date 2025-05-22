@@ -18,9 +18,9 @@ export const Textarea = ({ name, id, type, maxLength, placeholder }: ITextareaPr
         id={id}
         maxLength={maxLength}
         placeholder={placeholder}
-        onChange={onTextareaHandler}
+        onChange={type === "comment" ? onTextareaHandler : undefined}
       ></textarea>
-      {type === "comment1" && maxLength && (
+      {type === "comment" && maxLength && (
         <div className="w-full flex justify-between items-center">
           <span className="font-regular-14 md:font-regular-18 text-black/50">
             {count} / {maxLength}
