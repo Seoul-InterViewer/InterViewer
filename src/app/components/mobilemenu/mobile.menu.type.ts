@@ -5,7 +5,7 @@ export interface User {
   // Add other user properties as needed
 }
 
-export type MenuType = "myContent" | "otherContent";
+export type MenuType = "myContent" | "otherContent" | "share" | "admin" | "settings";
 
 export interface IMobileMenuProps {
   isOpen: boolean;

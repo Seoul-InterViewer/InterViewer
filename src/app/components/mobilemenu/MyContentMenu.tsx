@@ -14,6 +14,10 @@ const MyContentMenu = () => (
       <Icon name="trash" className="w-[20px] h-[20px]" strokeWidth={2.6} />
       <span>삭제하기</span>
     </Link>
+    <Link href="#reply" className={menuItemVariants()}>
+      <Icon name="edit" className="w-[20px] h-[20px]" />
+      <span>수정하기</span>
+    </Link>
   </div>
 );
 

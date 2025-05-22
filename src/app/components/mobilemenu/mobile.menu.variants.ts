@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const contentVariants = tv({
-  base: "flex flex-col gap-4 h-[120px] overflow-y-auto ",
+  base: "flex flex-col gap-4   ",
 });
 
 export const mobileMenuVariants = tv({

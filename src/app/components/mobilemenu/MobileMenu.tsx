@@ -14,6 +14,61 @@ import { Icon } from "../icon/Icon";
 import OtherContentMenu from "./OtherContentMenu";
 import MyContentMenu from "./MyContentMenu";
 
+// 타입에 따른 컴포넌트 렌더링을 위한 함수
+const renderMenuContent = (menuType: MenuType) => {
+  switch (menuType) {
+    case "myContent":
+      return <MyContentMenu />;
+    case "otherContent":
+      return <OtherContentMenu />;
+    case "share":
+      return (
+        <div className={contentVariants()}>
+          <Link href="#share-link" className={menuItemVariants()}>
+            <Icon name="share" className="w-[20px] h-[20px]" />
+            <span>링크 공유하기</span>
+          </Link>
+          <Link href="#share-kakao" className={menuItemVariants()}>
+            <Icon name="share" className="w-[20px] h-[20px]" />
+            <span>카카오톡 공유하기</span>
+          </Link>
+        </div>
+      );
+    case "admin":
+      return (
+        <div className={contentVariants()}>
+          <Link href="#admin-approve" className={menuItemVariants()}>
+            <Icon name="user" className="w-[20px] h-[20px]" />
+            <span>승인하기</span>
+          </Link>
+          <Link href="#admin-reject" className={menuItemVariants({ type: "danger" })}>
+            <Icon name="trash" className="w-[20px] h-[20px]" />
+            <span>거절하기</span>
+          </Link>
+        </div>
+      );
+    case "settings":
+      return (
+        <div className={contentVariants()}>
+          <Link href="#settings-profile" className={menuItemVariants()}>
+            <Icon name="user" className="w-[20px] h-[20px]" />
+            <span>프로필 설정</span>
+          </Link>
+          <Link href="#settings-notification" className={menuItemVariants()}>
+            <Icon name="report" className="w-[20px] h-[20px]" />
+            <span>알림 설정</span>
+          </Link>
+          <Link href="#settings-logout" className={menuItemVariants({ type: "danger" })}>
+            <Icon name="user" className="w-[20px] h-[20px]" />
+            <span>로그아웃</span>
+          </Link>
+        </div>
+      );
+    default:
+      return <OtherContentMenu />; // 기본값
+  }
+};
+
 const isValidUser = (user: User | null): boolean =>
   Boolean(user && typeof user.id === "string" && user.id.length > 0);
 
@@ -38,8 +93,8 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 300,
-        damping: 30,
+        stiffness: 500,
+        damping: 80,
       },
     },
     exit: {
@@ -71,22 +126,31 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
             initial="hidden"
             animate="visible"
             exit="exit"
-            // drag="y"
+            drag="y"
             // 드래그 범위 제한 - 위로는 제한된 범위까지만, 아래로는 제한 없음
             dragConstraints={{ top: 0, bottom: 0 }}
             dragElastic={0.4}
             style={{
               y,
               // minHeight: "50vh",
-              // height: "210PX",
+              height: "auto",
+            }}
+            onDrag={(_, info) => {
+              if (info.offset.y < 0) {
+                y.set(0);
+              } else {
+                y.set(info.offset.y);
+              }
+            }}
+            onDragEnd={(_, info) => {
+              if (info.offset.y > 100) {
+                onClose();
+              }
             }}
           >
             <div className="p-8 flex flex-col">
               <div className={handleVariants()} onClick={onClose} />
-
-              <div className=" py-2 flex-1">
-                {effectiveMenuType === "myContent" ? <MyContentMenu /> : <OtherContentMenu />}
-              </div>
+              <div className="py-2 flex-1">{renderMenuContent(effectiveMenuType)}</div>
             </div>
           </motion.div>
         </>

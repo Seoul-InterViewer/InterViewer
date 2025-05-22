@@ -21,35 +21,53 @@ export default function MobileMenuPage() {
     email: "another@example.com",
   };
 
-  const openContentMenu = (id?: string | null) => {
-    if (id === currentUser.id) {
-      setMenuType("myContent");
-    } else {
-      setMenuType("otherContent");
-    }
-
+  const openContentMenu = (type: MenuType) => {
+    setMenuType(type);
     setIsOpen(true);
   };
 
   return (
     <div className="p-4 flex flex-col gap-4">
-      <div className="flex gap-4 items-center mb-4">
+      <h1 className="text-xl font-bold mb-4">모바일 메뉴 테스트</h1>
+
+      <div className="flex flex-wrap gap-4 mb-4">
         <button
           className="px-4 py-2 bg-green-500 text-white rounded"
-          onClick={() => openContentMenu(currentUser.id)}
-          /* data-id 속성은 더이상 필요 없어요 */
+          onClick={() => openContentMenu("myContent")}
         >
-          currentUser
+          내 글 메뉴 열기 (수정/삭제)
         </button>
 
         <button
           className="px-4 py-2 bg-purple-500 text-white rounded"
-          onClick={() => openContentMenu(otherContent.id)}
+          onClick={() => openContentMenu("otherContent")}
         >
-          otherContent
+          타인 글 메뉴 열기 (답글/신고)
+        </button>
+
+        <button
+          className="px-4 py-2 bg-blue-500 text-white rounded"
+          onClick={() => openContentMenu("share")}
+        >
+          공유 메뉴 열기
+        </button>
+
+        <button
+          className="px-4 py-2 bg-red-500 text-white rounded"
+          onClick={() => openContentMenu("admin")}
+        >
+          관리자 메뉴 열기
+        </button>
+
+        <button
+          className="px-4 py-2 bg-gray-800 text-white rounded"
+          onClick={() => openContentMenu("settings")}
+        >
+          설정 메뉴 열기
         </button>
       </div>
 
+      {/* isOpen, onClose, menuType, currentUser */}
       <MobileMenu
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
