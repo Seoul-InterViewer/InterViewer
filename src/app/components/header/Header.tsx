@@ -117,21 +117,21 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
           </div>
 
           {/* 헤더 우측: 검색 버튼, 로그인 */}
-          <div className="flex items-center gap-ᆻ md:gap-6">
+          <div className="flex items-center gap-0 md:gap-6">
             {/* 검색 버튼 (클릭 시 검색 모달 표시) */}
-            <div
-              className={searchButtonVariants({ state: "hover" })}
+
+            <Button
+              type="button"
+              className={`${buttonVariants({ color: "white", icon: true })} `}
               onClick={() => setSearchModalOpen(true)}
             >
-              <Button type="button" className={`${buttonVariants({ color: "white" })} `}>
-                <Icon name="search" className="w-6 h-6 md:w-8 md:h-8" />
-              </Button>
-            </div>
+              <Icon name="search" className="w-6 h-6 md:w-8 md:h-8" />
+            </Button>
 
             {isLoggedIn ? (
               // 로그인 된 상태 - 아이콘 두 개 추가
               <>
-                <div className="relative create-menu-container">
+                <div className="flex items-center  relative create-menu-container  gap-2 md:gap-6 ">
                   <Button
                     type="button"
                     className={`${buttonVariants({ color: "white" })}`}
@@ -139,6 +139,9 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
                   >
                     <Icon name="createNew" className="w-6 h-6 md:w-8 md:h-8 cursor-pointer" />
                   </Button>
+                  <Link href="/setting">
+                    <Icon name="setting" className="w-6 h-6 md:w-8 md:h-8 cursor-pointer" />
+                  </Link>
 
                   {/* 드롭다운 메뉴 */}
                   {createMenuOpen && (
@@ -158,9 +161,6 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
                     </div>
                   )}
                 </div>
-                <Link href="/setting">
-                  <Icon name="setting" className="w-6] h-6 md:w-8 md:h-8 cursor-pointer" />
-                </Link>
               </>
             ) : (
               // 비로그인 상태 - 로그인 버튼 표시
