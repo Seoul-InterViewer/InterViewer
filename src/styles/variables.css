@@ -4,147 +4,147 @@
   /* Text Styles */
 
   /* Bold text classes */
-  .text-bold-56 {
+  .font-bold-56 {
     font: var(--font-bold-56);
   }
-  .text-bold-48 {
+  .font-bold-48 {
     font: var(--font-bold-48);
   }
-  .text-bold-40 {
+  .font-bold-40 {
     font: var(--font-bold-40);
   }
-  .text-bold-38 {
+  .font-bold-38 {
     font: var(--font-bold-38);
   }
-  .text-bold-32 {
+  .font-bold-32 {
     font: var(--font-bold-32);
   }
-  .text-bold-18 {
+  .font-bold-18 {
     font: var(--font-bold-18);
   }
-  .text-bold-14 {
+  .font-bold-14 {
     font: var(--font-bold-14);
   }
 
   /* Semibold text classes */
-  .text-sb-28 {
+  .font-sb-28 {
     font: var(--font-sb-28);
   }
-  .text-sb-24 {
+  .font-sb-24 {
     font: var(--font-sb-24);
   }
-  .text-sb-20 {
+  .font-sb-20 {
     font: var(--font-sb-20);
   }
-  .text-sb-18 {
+  .font-sb-18 {
     font: var(--font-sb-18);
   }
-  .text-sb-16 {
+  .font-sb-16 {
     font: var(--font-sb-16);
   }
-  .text-sb-14 {
+  .font-sb-14 {
     font: var(--font-sb-14);
   }
-  .text-sb-12 {
+  .font-sb-12 {
     font: var(--font-sb-12);
   }
 
   /* Regular and medium text classes */
-  .text-regular-26 {
+  .font-regular-26 {
     font: var(--font-regular-26);
   }
-  .text-regular-24 {
+  .font-regular-24 {
     font: var(--font-regular-24);
   }
-  .text-regular-18 {
+  .font-regular-18 {
     font: var(--font-regular-18);
   }
-  .text-regular-16 {
+  .font-regular-16 {
     font: var(--font-regular-16);
   }
-  .text-regular-14 {
+  .font-regular-14 {
     font: var(--font-regular-14);
   }
 
-  .text-medium-12 {
+  .font-medium-12 {
     font: var(--font-medium-12);
   }
-  .text-medium-10 {
+  .font-medium-10 {
     font: var(--font-medium-10);
   }
-  .text-medium-8 {
+  .font-medium-8 {
     font: var(--font-medium-8);
   }
-  
+
   /* Media query classes */
-  @media (min-width: 768px) {
-    .md\:text-bold-56 {
+  @media screen and (min-width: 768px) {
+    .md\:font-bold-56 {
       font: var(--font-bold-56);
     }
-    .md\:text-bold-48 {
+    .md\:font-bold-48 {
       font: var(--font-bold-48);
     }
-    .md\:text-bold-40 {
+    .md\:font-bold-40 {
       font: var(--font-bold-40);
     }
-    .md\:text-bold-38 {
+    .md\:font-bold-38 {
       font: var(--font-bold-38);
     }
-    .md\:text-bold-32 {
+    .md\:font-bold-32 {
       font: var(--font-bold-32);
     }
-    .md\:text-bold-18 {
+    .md\:font-bold-18 {
       font: var(--font-bold-18);
     }
-    .md\:text-bold-14 {
+    .md\:font-bold-14 {
       font: var(--font-bold-14);
     }
-    
-    .md\:text-sb-28 {
+
+    .md\:font-sb-28 {
       font: var(--font-sb-28);
     }
-    .md\:text-sb-24 {
+    .md\:font-sb-24 {
       font: var(--font-sb-24);
     }
-    .md\:text-sb-20 {
+    .md\:font-sb-20 {
       font: var(--font-sb-20);
     }
-    .md\:text-sb-18 {
+    .md\:font-sb-18 {
       font: var(--font-sb-18);
     }
-    .md\:text-sb-16 {
+    .md\:font-sb-16 {
       font: var(--font-sb-16);
     }
-    .md\:text-sb-14 {
+    .md\:font-sb-14 {
       font: var(--font-sb-14);
     }
-    .md\:text-sb-12 {
+    .md\:font-sb-12 {
       font: var(--font-sb-12);
     }
-    
-    .md\:text-regular-26 {
+
+    .md\:font-regular-26 {
       font: var(--font-regular-26);
     }
-    .md\:text-regular-24 {
+    .md\:font-regular-24 {
       font: var(--font-regular-24);
     }
-    .md\:text-regular-18 {
+    .md\:font-regular-18 {
       font: var(--font-regular-18);
     }
-    .md\:text-regular-16 {
+    .md\:font-regular-16 {
       font: var(--font-regular-16);
     }
-    .md\:text-regular-14 {
+    .md\:font-regular-14 {
       font: var(--font-regular-14);
     }
-    
-    .md\:text-medium-12 {
+
+    .md\:font-medium-12 {
       font: var(--font-medium-12);
     }
-    .md\:text-medium-10 {
+    .md\:font-medium-10 {
       font: var(--font-medium-10);
     }
-    .md\:text-medium-8 {
+    .md\:font-medium-8 {
       font: var(--font-medium-8);
     }
   }

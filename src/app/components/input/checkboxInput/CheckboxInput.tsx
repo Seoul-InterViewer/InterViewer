@@ -8,10 +8,11 @@ export const CheckboxInput = ({
   id,
   className,
   labelClass,
+  checked,
 }: ICheckboxInputProps) => {
   return (
     <label className={labelClass}>
-      <input id={id} type={type} onChange={onChange} className={className} />
+      <input id={id} type={type} onChange={onChange} className={className} checked={checked} />
       {label}
     </label>
   );
