@@ -7,7 +7,6 @@ export const listVariants = tv({
   base: "flex flex-col gap-5 w-full",
   variants: {
     type: {
-      slider: "flex-row",
       search: "gap-0 [&>*:last-child]:mb-0 [&>*:last-child]:border-b-0",
       tagSearchResult: "border-border",
       tags: "flex-row gap-1 md:gap-2",
