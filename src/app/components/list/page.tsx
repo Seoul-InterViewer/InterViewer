@@ -47,18 +47,6 @@ export default function ListTestPage() {
             ))}
           </List>
         </section>
-
-        <section>
-          <h2 className="text-xl font-semibold mb-4">Slider</h2>
-          <List className={listVariants({ type: "slider" })}>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <MockListItem key={index} className="min-w-60">
-                슬라이더 아이템 {index + 1}
-              </MockListItem>
-            ))}
-          </List>
-        </section>
-
         <section>
           <h2 className="text-xl font-semibold mb-4">Tags</h2>
           <List className={listVariants({ type: "tags" })}>
