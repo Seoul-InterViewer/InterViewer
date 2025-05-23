@@ -15,7 +15,7 @@ export default function TagPage() {
     <div className="p-8 space-y-8">
       <h1 className="text-2xl font-bold mb-6">태그 컴포넌트</h1>
 
-      <h2 className="text-xl font-bold mt-8 mb-4">새로운 방식 (Children 사용)</h2>
+      <h2 className="text-xl font-bold mt-8 mb-4">(Children 사용)</h2>
       <div className="flex flex-wrap gap-2 mb-4">
         <Tag type="default">React</Tag>
         <Tag type="default">JavaScript</Tag>
@@ -38,7 +38,7 @@ export default function TagPage() {
         <Tag type="incorrect">오답</Tag>
       </div>
 
-      <h2 className="text-xl font-bold mt-8 mb-4">기존 방식 (배열 사용)</h2>
+      <h2 className="text-xl font-bold mt-8 mb-4">(배열 사용)</h2>
       <TagList type="default" data={defaultTags} />
 
       <TagList type="card" data={cardTags} />
@@ -49,9 +49,6 @@ export default function TagPage() {
         choose={["React", "TypeScript", "JavaScript"]}
         onClose={() => console.log("태그 삭제")}
       />
-
-      <TagList type="correct" data={correctTags} />
-      <TagList type="incorrect" data={incorrectTags} />
     </div>
   );
 }
