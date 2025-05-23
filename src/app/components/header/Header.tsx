@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
-import IHeaderProps, { IMenuItem } from "./header.type";
 import {
   headerVariants,
   sidebarVariants,
@@ -12,7 +11,7 @@ import { Button, buttonVariants } from "../button";
 import { Icon } from "../icon/Icon";
 
 // 사이드바에 표시될 기본 메뉴 항목 데이터
-const defaultMenuItems: IMenuItem[] = [
+const defaultMenuItems = [
   { name: "마이페이지", href: "/mypage" },
   { name: "빈칸채우기", href: "/fill-blank" },
   { name: "즐겨찾는 질문들", href: "/favorites" },
@@ -26,7 +25,7 @@ const defaultMenuItems: IMenuItem[] = [
   { name: "TypeScript", href: "/typescript" },
 ];
 
-export const Header = ({ isLoggedIn }: IHeaderProps) => {
+export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
   // 상태 관리: 사이드바 및 검색 모달 표시 여부
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
