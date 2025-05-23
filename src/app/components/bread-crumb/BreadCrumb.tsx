@@ -10,7 +10,7 @@ import { Icon } from "@/app/components/icon";
 const truncateText = (text: string, maxLength: number = 8) =>
   text.length <= maxLength ? text : text.substring(0, maxLength) + "...";
 
-const BreadCrumb: React.FC<
+export const BreadCrumb: React.FC<
   IBreadCrumbProps & {
     autoGenerate?: boolean;
     maxTextLength?: number;
@@ -18,7 +18,7 @@ const BreadCrumb: React.FC<
   }
 > = ({
   items = [],
-  separator = <Icon name="chevronRight" className="w-[8px] h-[16px] md:w-[12px] md:h-[24px]" />,
+  separator = <Icon name="chevronRight" className="w-2 h-4 md:w-3 md:h-6" />,
   className = "",
   autoGenerate = false,
   maxTextLength = 12,
@@ -33,35 +33,41 @@ const BreadCrumb: React.FC<
   if (autoGenerate) {
     const pathSegments = pathname.split("/").filter(Boolean);
 
-    breadcrumbItems = pathSegments.map((segment, index) => {
-      const href = "/" + pathSegments.slice(0, index + 1).join("/");
-      const decoded = decodeURIComponent(segment);
+    // 제외할 민감 segment 리스트 및 정규식
+    const SENSITIVE_SEGMENTS = ["user", "userId", "setting", "token"];
+    const SENSITIVE_REGEX = /^[0-9a-fA-F\-]{8,}$|^\d{8,}$/; // 긴 숫자/UUID 등
 
-      // 기본 라벨: 첫 글자 대문자, 하이픈은 공백으로
-      const baseLabel = decoded.charAt(0).toUpperCase() + decoded.slice(1).replace(/-/g, " ");
+    breadcrumbItems = pathSegments
+      .filter((segment) => !SENSITIVE_SEGMENTS.includes(segment) && !SENSITIVE_REGEX.test(segment))
+      .map((segment, index, filteredSegments) => {
+        const href = "/" + filteredSegments.slice(0, index + 1).join("/");
+        const decoded = decodeURIComponent(segment);
 
-      // posts/qna 특별 처리
-      let processedLabel = baseLabel;
-      if (decoded === "posts") processedLabel = "게시판";
-      else if (decoded === "qna") processedLabel = "질문게시판";
+        // 기본 라벨: 첫 글자 대문자, 하이픈은 공백으로
+        const baseLabel = decoded.charAt(0).toUpperCase() + decoded.slice(1).replace(/-/g, " ");
 
-      // "123-제목-형태" 경로 처리
-      if (/^\d+-/.test(decoded)) {
-        const title = decoded.replace(/^\d+-/, "").replace(/-/g, " ");
+        // posts/qna 특별 처리
+        let processedLabel = baseLabel;
+        if (decoded === "posts") processedLabel = "게시판";
+        else if (decoded === "qna") processedLabel = "질문게시판";
+
+        // "123-제목-형태" 경로 처리
+        if (/^\d+-/.test(decoded)) {
+          const title = decoded.replace(/^\d+-/, "").replace(/-/g, " ");
+          return {
+            label: truncateText(title, maxTextLength),
+            href,
+            isCurrentPage: index === filteredSegments.length - 1,
+            fullLabel: title,
+          };
+        }
+
         return {
-          label: truncateText(title, maxTextLength),
+          label: truncateText(processedLabel, maxTextLength),
           href,
-          isCurrentPage: index === pathSegments.length - 1,
-          fullLabel: title,
+          isCurrentPage: index === filteredSegments.length - 1,
         };
-      }
-
-      return {
-        label: truncateText(processedLabel, maxTextLength),
-        href,
-        isCurrentPage: index === pathSegments.length - 1,
-      };
-    });
+      });
 
     // 맨 앞에 Home 추가
     breadcrumbItems.unshift({
@@ -79,15 +85,25 @@ const BreadCrumb: React.FC<
   }));
 
   // 4) 렌더링
+  // Check if any item's href starts with '/user'
+  const isUserPath = processedItems.some((item) => item.href.startsWith("/user"));
+  const visibleItems =
+    isUserPath && processedItems.length > 1
+      ? [processedItems[0], processedItems[processedItems.length - 1]]
+      : processedItems;
+
   return (
     <nav aria-label="Breadcrumb" className={breadCrumbVariants({ className })}>
       <ol className="flex flex-wrap items-center gap-1 lg:gap-2">
-        {processedItems.map((item, idx) => {
+        {visibleItems.map((item, idx) => {
           const isCurrent = item.isCurrentPage;
+          const showSeparator =
+            idx > 0 && (!isUserPath || (isUserPath && idx === visibleItems.length - 1));
+
           return (
-            <li key={item.href + idx} className="flex items-center">
-              {idx > 0 && (
-                <span className="mr-2">
+            <React.Fragment key={item.href + idx}>
+              {showSeparator && (
+                <span className="mx-2">
                   {isCurrent ? (
                     <Icon
                       name="chevronRight"
@@ -100,7 +116,6 @@ const BreadCrumb: React.FC<
                   )}
                 </span>
               )}
-
               {isCurrent ? (
                 <span
                   className={breadCrumbItemVariants({ state: "current" })}
@@ -117,12 +132,10 @@ const BreadCrumb: React.FC<
                   {item.label}
                 </Link>
               )}
-            </li>
+            </React.Fragment>
           );
         })}
       </ol>
     </nav>
   );
 };
-
-export default BreadCrumb;
