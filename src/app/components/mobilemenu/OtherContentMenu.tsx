@@ -1,11 +1,15 @@
 import React from "react";
 import Link from "next/link";
-import { menuItemVariants, contentVariants } from "./mobile.menu.variants";
+
+import { menuItemVariants, mobileMenuVariants } from "./mobile.menu.variants";
+
+const { content } = mobileMenuVariants();
+
 import { Icon } from "../icon/Icon";
 
 // 타인 콘텐츠용 메뉴 컴포넌트
 const OtherContentMenu = () => (
-  <div className={contentVariants()}>
+  <div className={content()}>
     <Link href="#reply" className={menuItemVariants()}>
       <Icon name="reply" className="w-5 h-5" />
       <span>답글달기</span>

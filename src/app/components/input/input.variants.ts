@@ -20,7 +20,7 @@ export const inputVariants = tv({
     },
     error: {
       true: "text-red-500 border-red-500",
-    }
+    },
   },
   compoundVariants: [
     {
@@ -41,10 +41,4 @@ export const labelVariants = tv({
       true: "text-red-500",
     },
   },
-<<<<<<< HEAD
-  defaultVariants: {
-    variant: "default",
-  },
-=======
->>>>>>> origin/dev
 });

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import MobileMenu from "./MobileMenu";
+import { MobileMenu } from "./MobileMenu";
 import { User, MenuType } from "./mobile.menu.type";
 
 export default function MobileMenuPage() {

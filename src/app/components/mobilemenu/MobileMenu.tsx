@@ -3,12 +3,13 @@ import React from "react";
 import { motion, AnimatePresence, useMotionValue } from "framer-motion";
 import Link from "next/link";
 import {
-  mobileMenuVariants,
-  backdropVariants,
   menuItemVariants,
-  handleVariants,
-  contentVariants,
+  mobileMenuVariants,
+  menuAnimationVariants,
 } from "./mobile.menu.variants";
+
+const { mobileMenu, content, backdrop, handle } = mobileMenuVariants();
+
 import { IMobileMenuProps, User, MenuType } from "./mobile.menu.type";
 import { Icon } from "../icon/Icon";
 import OtherContentMenu from "./OtherContentMenu";
@@ -23,7 +24,7 @@ const renderMenuContent = (menuType: MenuType) => {
       return <OtherContentMenu />;
     case "share":
       return (
-        <div className={contentVariants()}>
+        <div className={content()}>
           <Link href="#share-link" className={menuItemVariants()}>
             <Icon name="share" className="w-5 h-5" />
             <span>링크 공유하기</span>
@@ -36,7 +37,7 @@ const renderMenuContent = (menuType: MenuType) => {
       );
     case "admin":
       return (
-        <div className={contentVariants()}>
+        <div className={content()}>
           <Link href="#admin-approve" className={menuItemVariants()}>
             <Icon name="user" className="w-5 h-5" />
             <span>승인하기</span>
@@ -49,7 +50,7 @@ const renderMenuContent = (menuType: MenuType) => {
       );
     case "settings":
       return (
-        <div className={contentVariants()}>
+        <div className={content()}>
           <Link href="#settings-profile" className={menuItemVariants()}>
             <Icon name="user" className="w-5 h-5" />
             <span>프로필 설정</span>
@@ -72,7 +73,7 @@ const renderMenuContent = (menuType: MenuType) => {
 const isValidUser = (user: User | null): boolean =>
   Boolean(user && typeof user.id === "string" && user.id.length > 0);
 
-const MobileMenu: React.FC<IMobileMenuProps> = ({
+export const MobileMenu: React.FC<IMobileMenuProps> = ({
   isOpen,
   onClose,
   menuType, // 직접 메뉴 타입 지정
@@ -86,33 +87,13 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
   // y 위치 모션 값 생성
   const y = useMotionValue(0);
 
-  // Animation variants
-  const menuVariants = {
-    hidden: { y: "100%" },
-    visible: {
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 500,
-        damping: 80,
-      },
-    },
-    exit: {
-      y: "100%",
-      transition: {
-        ease: "easeInOut",
-        duration: 0.3,
-      },
-    },
-  };
-
   return (
     <AnimatePresence>
       {isOpen && (
         <>
           {/* 반투명 검은색 Backdrop */}
           <motion.div
-            className={backdropVariants()}
+            className={backdrop()}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -121,8 +102,8 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
 
           {/* Menu Panel */}
           <motion.div
-            className={mobileMenuVariants()}
-            variants={menuVariants}
+            className={mobileMenu()}
+            variants={menuAnimationVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
@@ -149,7 +130,7 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
             }}
           >
             <div className="p-8 flex flex-col">
-              <div className={handleVariants()} onClick={onClose} />
+              <div className={handle()} onClick={onClose} />
               <div className="py-2 flex-1">{renderMenuContent(effectiveMenuType)}</div>
             </div>
           </motion.div>
@@ -158,5 +139,3 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
     </AnimatePresence>
   );
 };
-
-export default MobileMenu;
