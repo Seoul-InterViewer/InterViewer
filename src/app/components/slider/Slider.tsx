@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Swiper } from "swiper/react";
 import { ISliderProps } from "./slider.type";
 import { sliderVariants } from "./slider.variants";
@@ -22,10 +22,13 @@ export const Slider = ({
   useNavigation,
 }: ISliderProps) => {
   // 필요한 모듈만 동적으로 추가
-  const modules = [];
-  if (usePagination) modules.push(Pagination);
-  if (useNavigation) modules.push(Navigation);
-  if (useEffectCards) modules.push(EffectCards);
+  const modules = useMemo(() => {
+    const modules = [];
+    if (usePagination) modules.push(Pagination);
+    if (useNavigation) modules.push(Navigation);
+    if (useEffectCards) modules.push(EffectCards);
+    return modules;
+  }, [usePagination, useNavigation, useEffectCards]);
 
   const config = {
     ...sliderConfig[type],
@@ -33,11 +36,7 @@ export const Slider = ({
   };
 
   return (
-    <Swiper
-      className={sliderVariants({ type })}
-      {...config}
-      modules={modules}
-    >
+    <Swiper className={sliderVariants({ type })} {...config} modules={modules}>
       {children}
     </Swiper>
   );
