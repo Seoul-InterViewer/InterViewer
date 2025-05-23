@@ -1,15 +1,12 @@
 import { tv } from "tailwind-variants";
 
 export const headerVariants = tv({
-  base: "transition-all",
-  variants: {
-    type: {
-      header: "border-b border-gray-200 mx-auto px-4 py-4",
-      navMenu: "font-regular-24 hover:text-main hover:font-sb-24",
-      createMenu:
-        "absolute right-0 top-full mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg z-50 transform origin-top-right transition-all duration-200",
-      login: "font-sb-14 md:font-sb-24",
-    },
+  slots: {
+    header: "border-b border-gray-200 mx-auto px-4 py-4",
+    navMenu: "font-regular-24 hover:text-main hover:font-sb-24",
+    createMenu:
+      "absolute right-0 top-full mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg z-50 transform origin-top-right transition-all duration-200",
+    login: "font-sb-14 md:font-sb-24",
   },
 });
 
@@ -17,12 +14,10 @@ export const sidebarVariants = tv({
   base: "fixed top-0 left-0 bottom-0 w-64 bg-white z-50 transform transition-transform duration-300 ease-in-out shadow-lg",
   variants: {
     isOpen: {
+      default: false,
       true: "translate-x-0",
       false: "-translate-x-full",
     },
-  },
-  defaultVariants: {
-    isOpen: false,
   },
 });
 

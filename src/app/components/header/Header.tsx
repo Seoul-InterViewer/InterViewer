@@ -7,6 +7,8 @@ import {
   modalOverlayVariants,
   sidebarMenuItemVariants,
 } from "./header.variants";
+
+const { header, navMenu, createMenu, login } = headerVariants();
 import { Button, buttonVariants } from "../button";
 import { Icon } from "../icon/Icon";
 
@@ -80,7 +82,7 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
   return (
     <>
       {/* 헤더 영역 */}
-      <header className={headerVariants({ type: "header" })}>
+      <header className={header()}>
         <div className="mx-auto flex justify-between items-center">
           {/* 헤더 좌측: 메뉴 버튼, 로고, 네비게이션 */}
           <div className="flex items-center justify-between gap-4">
@@ -103,7 +105,7 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
             <nav className="hidden md:block">
               <ul className="flex items-center gap-4">
                 {navMenuItems.map((item) => (
-                  <li key={item.href} className={headerVariants({ type: "navMenu" })}>
+                  <li key={item.href} className={navMenu()}>
                     <Link href={item.href}>{item.name}</Link>
                   </li>
                 ))}
@@ -140,7 +142,7 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 
                   {/* 드롭다운 메뉴 */}
                   {createMenuOpen && (
-                    <div className={headerVariants({ type: "createMenu" })}>
+                    <div className={createMenu()}>
                       <ul className="py-2">
                         <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer font-regular-16">
                           <Link href="/create-question" className="block w-full">
@@ -160,7 +162,7 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
             ) : (
               // 비로그인 상태 - 로그인 버튼 표시
               <Button type="button" className={`${buttonVariants({ color: "white" })}`}>
-                <div className={headerVariants({ type: "login" })}>Login</div>
+                <div className={login()}>Login</div>
               </Button>
             )}
           </div>
