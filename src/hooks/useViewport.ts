@@ -1,13 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 export function useViewport() {
-  const [currentVw, setCurrentVw] = useState(0);
-  const [currentVh, setCurrentVh] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleResize = () => {
-    setCurrentVw(window.innerWidth);
-    setCurrentVh(window.innerHeight);
+    setIsMobile(window.innerWidth < 768); // Common mobile breakpoint
   };
 
   useEffect(() => {
@@ -17,5 +16,5 @@ export function useViewport() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return { currentVw, currentVh };
+  return { isMobile };
 }
