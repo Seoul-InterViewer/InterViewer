@@ -1,11 +1,11 @@
 import { tv } from "tailwind-variants";
 
 export const contentVariants = tv({
-  base: "flex flex-col gap-4   ",
+  base: "flex flex-col gap-4",
 });
 
 export const mobileMenuVariants = tv({
-  base: "fixed bottom-0 left-0 right-0 bg-white  rounded-t-3xl z-50 ",
+  base: "fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl z-50 ",
 });
 
 export const backdropVariants = tv({
@@ -26,5 +26,5 @@ export const menuItemVariants = tv({
 });
 
 export const handleVariants = tv({
-  base: "w-12 h-1 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-5",
+  base: "w-12 h-1 bg-gray-300 rounded-full mx-auto mb-5",
 });
