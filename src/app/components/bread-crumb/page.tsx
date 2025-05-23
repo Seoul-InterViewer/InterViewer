@@ -8,7 +8,7 @@ export default function BreadCrumbPage() {
 
       <div className="space-y-8">
         <div>
-          <h2 className="text-xl font-semibold mb-4">자동 생성 브레드크럼</h2>
+          <h2 className="text-xl font-semibold mb-4">브레드크럼</h2>
           <BreadCrumb autoGenerate={true} items={[]} />
         </div>
       </div>
