@@ -3,20 +3,28 @@
 import React from "react";
 import { tagVariants } from "./tag.variants";
 import ITagProps, { ITagListProps } from "./tag.type";
+import { Button } from "../button/Button";
+import { Icon } from "../icon";
+import { buttonVariants } from "../button/button.variants";
 
 // 단일 태그 컴포넌트 (children 방식)
-const Tag = ({ type = "default", children, className, onClose, closable }: ITagProps) => {
+export const Tag = ({ type = "default", children, className, onClose, closable }: ITagProps) => {
   return (
     <div
       className={`${tagVariants({ type })} ${className || ""} flex items-center justify-center gap-2`}
     >
       {children}
       {closable && onClose && (
-        <button
-          onClick={onClose}
-          className="hover:bg-gray-100 rounded-full w-[9px] h-[9px] inline-block border border-gray-300 cursor-pointer"
+        <Button
+          type="button"
+          onClick={() => onClose()}
+          className={buttonVariants({
+            icon: true,
+          })}
           aria-label="Remove tag"
-        ></button>
+        >
+          <Icon name="close" className="w-2 h-2 md:w-3 md:h-3" />
+        </Button>
       )}
     </div>
   );
@@ -35,16 +43,19 @@ export const TagList = ({ type = "default", data, choose = [], onClose }: ITagLi
         >
           {item}
           {choose.includes(item) && onClose && (
-            <button
+            <Button
+              type="button"
               onClick={() => onClose(item)}
-              className="hover:bg-gray-100 rounded-full w-[9px] h-[9px] inline-block border border-gray-300 cursor-pointer"
+              className={buttonVariants({
+                icon: true,
+              })}
               aria-label="Remove tag"
-            ></button>
+            >
+              <Icon name="close" className="w-2 h-2 md:w-3 md:h-3" />
+            </Button>
           )}
         </div>
       ))}
     </div>
   );
 };
-
-export default Tag;

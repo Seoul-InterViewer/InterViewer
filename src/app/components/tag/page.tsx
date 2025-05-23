@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Tag, { TagList } from "./Tag";
+import { Tag, TagList } from "./Tag";
 
 export default function TagPage() {
   // 태그 데이터 예시
@@ -47,7 +47,7 @@ export default function TagPage() {
         type="chooseTag"
         data={chooseTags}
         choose={["React", "TypeScript", "JavaScript"]}
-        onClose={(tag) => console.log(tag)}
+        onClose={() => console.log("태그 삭제")}
       />
 
       <TagList type="correct" data={correctTags} />
