@@ -20,7 +20,7 @@ export const inputVariants = tv({
     },
     error: {
       true: "text-red-500 border-red-500",
-    }
+    },
   },
   compoundVariants: [
     {
