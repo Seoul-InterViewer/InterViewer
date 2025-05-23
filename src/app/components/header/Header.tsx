@@ -4,13 +4,9 @@ import React, { useState, useRef, useEffect } from "react";
 import IHeaderProps, { IMenuItem } from "./header.type";
 import {
   headerVariants,
-  searchButtonVariants,
   sidebarVariants,
   modalOverlayVariants,
   sidebarMenuItemVariants,
-  navMenuVariants,
-  loginButtonVariants,
-  createMenuVariants,
 } from "./header.variants";
 import { Button, buttonVariants } from "../button";
 import { Icon } from "../icon/Icon";
@@ -30,7 +26,7 @@ const defaultMenuItems: IMenuItem[] = [
   { name: "TypeScript", href: "/typescript" },
 ];
 
-const Header = ({ isLoggedIn }: IHeaderProps) => {
+export const Header = ({ isLoggedIn }: IHeaderProps) => {
   // 상태 관리: 사이드바 및 검색 모달 표시 여부
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
@@ -85,7 +81,7 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
   return (
     <>
       {/* 헤더 영역 */}
-      <header className={headerVariants()}>
+      <header className={headerVariants({ type: "header" })}>
         <div className="mx-auto flex justify-between items-center">
           {/* 헤더 좌측: 메뉴 버튼, 로고, 네비게이션 */}
           <div className="flex items-center justify-between gap-4">
@@ -108,7 +104,7 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
             <nav className="hidden md:block">
               <ul className="flex items-center gap-4">
                 {navMenuItems.map((item) => (
-                  <li key={item.href} className={navMenuVariants()}>
+                  <li key={item.href} className={headerVariants({ type: "navMenu" })}>
                     <Link href={item.href}>{item.name}</Link>
                   </li>
                 ))}
@@ -117,7 +113,7 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
           </div>
 
           {/* 헤더 우측: 검색 버튼, 로그인 */}
-          <div className="flex items-center gap-0 md:gap-6">
+          <div className="flex items-center gap-2 md:gap-6">
             {/* 검색 버튼 (클릭 시 검색 모달 표시) */}
 
             <Button
@@ -131,7 +127,7 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
             {isLoggedIn ? (
               // 로그인 된 상태 - 아이콘 두 개 추가
               <>
-                <div className="flex items-center  relative create-menu-container  gap-2 md:gap-6 ">
+                <div className="flex items-center  relative create-menu-container gap-2 md:gap-6 ">
                   <Button
                     type="button"
                     className={`${buttonVariants({ color: "white" })}`}
@@ -145,7 +141,7 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
 
                   {/* 드롭다운 메뉴 */}
                   {createMenuOpen && (
-                    <div className={createMenuVariants()}>
+                    <div className={headerVariants({ type: "createMenu" })}>
                       <ul className="py-2">
                         <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer font-regular-16">
                           <Link href="/create-question" className="block w-full">
@@ -165,7 +161,7 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
             ) : (
               // 비로그인 상태 - 로그인 버튼 표시
               <Button type="button" className={`${buttonVariants({ color: "white" })}`}>
-                <div className={loginButtonVariants()}>Login</div>
+                <div className={headerVariants({ type: "login" })}>Login</div>
               </Button>
             )}
           </div>
@@ -203,7 +199,7 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
             <ul className="space-y-4">
               {defaultMenuItems.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className={sidebarMenuItemVariants()}>
+                  <Link href={item.href} className={sidebarMenuItemVariants({ type: "menuItem" })}>
                     {item.name}
                   </Link>
                 </li>
@@ -292,5 +288,3 @@ const Header = ({ isLoggedIn }: IHeaderProps) => {
     </>
   );
 };
-
-export default Header;

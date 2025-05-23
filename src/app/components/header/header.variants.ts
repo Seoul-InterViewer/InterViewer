@@ -1,27 +1,14 @@
 import { tv } from "tailwind-variants";
 
 export const headerVariants = tv({
-  base: "border-b border-gray-200 mx-auto px-4 py-4",
-});
-
-export const navMenuVariants = tv({
-  base: "font-regular-24 hover:text-main hover:font-sb-24 transition-all",
-});
-
-export const createMenuVariants = tv({
-  base: "absolute right-0 top-full mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg z-50 transform origin-top-right transition-all duration-200",
-});
-
-export const loginButtonVariants = tv({
-  base: "font-sb-14 md:font-sb-24",
-});
-
-export const searchButtonVariants = tv({
-  base: "flex items-center justify-center cursor-pointer transition-all w-6.5 h-6.5 sm:w-8 sm:h-8",
+  base: "transition-all",
   variants: {
-    state: {
-      default: "",
-      hover: "bg-gray-100",
+    type: {
+      header: "border-b border-gray-200 mx-auto px-4 py-4",
+      navMenu: "font-regular-24 hover:text-main hover:font-sb-24",
+      createMenu:
+        "absolute right-0 top-full mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg z-50 transform origin-top-right transition-all duration-200",
+      login: "font-sb-14 md:font-sb-24",
     },
   },
 });
