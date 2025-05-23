@@ -7,7 +7,7 @@ import { Button } from "../button/Button";
 import { buttonVariants } from "../button";
 import { modalVariants } from "./modal.variants";
 function ModalPage() {
-  
+
   // useModal에서 open, close, isOpen을 받아옴
   const defaultModalProps = useModal();
   const customModalProps = useModal();
@@ -78,6 +78,7 @@ function ModalPage() {
               onClose={customModalProps.close}
               // className 없을 시 modalVariants의 base 적용
               className="w-200 h-100 md:p-10 p-10"
+              // 모달 컴포넌트 닫기 버튼 유무
               closeButton={true}
               // close button 타입 변경
               type="bookmark"
