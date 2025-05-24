@@ -16,8 +16,8 @@ export default function page() {
   };
 
   return (
-    <div className="w-[1260px] h-[100vh] mx-auto">
-      <Title type="detail" questions={questions} />
+    <div className="md:w-[1260px] h-[100vh] mx-auto w-full">
+      <Title type="setting" questions={questions} />
     </div>
   );
 }
