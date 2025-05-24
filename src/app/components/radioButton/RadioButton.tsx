@@ -6,16 +6,15 @@ import { radioButtonVariants } from "./radioButton.variants";
 
 export const RadioButton = ({ datas }: IRadioButtonProps) => {
   const [selected, setSeleted] = useState(datas[0].value);
-  const { wrapper, item } = radioButtonVariants({ variant: "default" });
 
   return (
-    <ul className={wrapper()}>
+    <ul className="w-full flex items-center gap-4">
       {datas.map((data) => (
         <li key={data.value}>
           <button
-            className={`${radioButtonVariants({
+            className={radioButtonVariants({
               variant: selected === data.value ? "selected" : "default",
-            }).item()} text-sb-14`}
+            })}
             onClick={() => setSeleted(data.value)}
           >
             {data.txt}
