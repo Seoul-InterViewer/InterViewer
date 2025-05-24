@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const paginationVariants = tv({
-  base: "w-6 h-6 border rounded-sm cursor-pointer hover:opacity-80 transition-opacity duration-200",
+  base: "w-6 h-6 border rounded-sm cursor-pointer hover:opacity-50 transition-opacity duration-200",
   variants: {
     variant: {
       default: "border-transparent",
