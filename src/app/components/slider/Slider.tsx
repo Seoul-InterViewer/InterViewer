@@ -11,7 +11,6 @@ import "swiper/css";
 import "swiper/css/effect-cards";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { SwiperModule } from "swiper/types";
 
 export const Slider = ({
   type,

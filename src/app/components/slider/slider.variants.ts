@@ -4,7 +4,7 @@ export const sliderVariants = tv({
   base: "h-full flex gap-5",
   variants: {
     type: {
-      mainPageCards: "md:gap-13",
+      mainPageCards: "",
       images: "",
       selectedQuestionCards: "",
       gameHistory: "",

@@ -29,6 +29,26 @@ export const sliderConfig: Record<string, ISliderConfig> = {
   },
   images: {
     ...base,
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    spaceBetween: 0,
+    loop: true,
+    grabCursor: true,
+    pagination: {
+      type: "fraction",
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+        spaceBetween: 0,
+      },
+    },
+    cardsEffect: {
+      rotate: true,
+      perSlideOffset: 1,
+      perSlideRotate: 1,
+    },
   },
   selectedQuestionCards: {
     ...base,
