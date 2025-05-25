@@ -1,4 +1,3 @@
-import { ITitleProps } from "./title.type";
 
 export const GameInfo = () => {
   return (

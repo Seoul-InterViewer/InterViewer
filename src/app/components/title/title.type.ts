@@ -1,7 +1,4 @@
-export interface ITitleProps {
-  qestions: object;
-  type: "detail" | "note" | "setting";
-}
+export type TitleType = "detail" | "note" | "setting";
 
 export interface IQuestion {
   id: string;

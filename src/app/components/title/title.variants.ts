@@ -3,23 +3,28 @@ import { tv } from "tailwind-variants";
 export const titleVariants = tv({
   base: "flex",
   variants: {
-    layout: {
-      container: "flex flex-col md:mb-12 mb-8",
+    direction: {
+      vertical: "flex-col",
+      horizontalBetween: "justify-between items-center",
       navigation: "gap-5.5 font-sb-24 text-font-gray [&>*:last-child]:text-black md:mb-11 mb-3",
+    },
+    container: {
+      main: "flex-col md:mb-12 mb-8",
       bottom: "justify-between items-center md:mb-13 mb-7.5",
     },
-    content: {
-      detail: "flex flex-col md:gap-7 gap-3",
-      setting: "justify-between items-center",
+    gap: {
+      small: "gap-1.5",
+      medium: "md:gap-7 gap-3",
+      large: "gap-5.5",
     },
-    fontSize: {
-      title: "md:font-bold-56 font-sb-28 w-full",
-      info: "md:font-sb-20 font-sb-12",
-      date: "md:font-sb-12 text-sub-text font-medium-10",
+    text: {
+      heading: "md:font-bold-56 font-sb-28",
+      subheading: "md:font-sb-20 font-sb-12",
+      paragraph: "md:font-regular-18 font-regular-14",
+      description: "md:font-sb-12 font-medium-10 text-sub-text",
     },
-    spacing: {
-      detail: "flex flex-col gap-1.5",
-      info: "gap-1.5 font-regular-18",
+    size: {
+      full: "w-full",
     },
   },
 });

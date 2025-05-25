@@ -1,9 +1,6 @@
-import { IQuestion, ITitleProps } from "./title.type";
+import { IQuestion, TitleType } from "./title.type";
 
-export const UserBox = ({
-  type,
-  questions,
-}: Pick<ITitleProps, "type"> & { questions: IQuestion }) => {
+export const UserBox = ({ questions, type }: { questions: IQuestion; type: TitleType }) => {
   return (
     <>
       {type !== "setting" ? (
