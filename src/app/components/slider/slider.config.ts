@@ -36,7 +36,9 @@ export const sliderConfig: Record<string, ISliderConfig> = {
     grabCursor: true,
     pagination: {
       type: "fraction",
-      
+      renderFraction: function (currentClass: string, totalClass: string) {
+        return `<div class="images-pagination-fraction bg-black/80 text-white text-xs px-4 py-2 rounded-full md:text-sm"><span class="${currentClass}"></span> / <span class="${totalClass}"></span></div>`;
+      },
     },
     breakpoints: {
       768: {
@@ -75,7 +77,7 @@ export const sliderConfig: Record<string, ISliderConfig> = {
     pagination: {
       clickable: true,
       bulletClass: "game-history-bullet",
-      bulletActiveClass: "game-history-bullet-active",  
+      bulletActiveClass: "game-history-bullet-active",
       renderBullet: function (index: number, className: string) {
         return `<span class="${className} !cursor-pointer">${index + 1}</span>`;
       },
