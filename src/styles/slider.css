@@ -1,6 +1,6 @@
 /* swiper-custom.css */
 .swiper-pagination:has(.game-history-bullet){
-  @apply flex flex-wrap justify-center items-center;
+  @apply flex flex-wrap justify-center items-center !w-3/4 !left-1/2 -translate-x-1/2 md:!left-0 md:translate-x-0 md:!w-full;
 }
 
 .game-history-bullet {
