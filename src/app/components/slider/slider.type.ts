@@ -10,7 +10,8 @@ export interface ISliderProps {
   usePagination?: boolean;
   useNavigation?: boolean;
   useEffectCards?: boolean;
-  type: "images" | "mainPageCards" | "selectedQuestionCards" | "gameHistory";
+  useFreeMode?: boolean;
+  type: "images" | "mainPageCards" | "selectedQuestionCards" | "custom" | "gameHistory";
   breakpoints?: {
     [key: string]: {
       slidesPerView: number;

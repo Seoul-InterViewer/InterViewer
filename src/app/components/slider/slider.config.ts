@@ -52,12 +52,38 @@ export const sliderConfig: Record<string, ISliderConfig> = {
   },
   selectedQuestionCards: {
     ...base,
+    navigation: true,
+    freeMode: true,
+    grabCursor: true,
+    slidesPerView: 2,
+    slidesPerGroup: 1,
+    breakpoints: {
+      768: {
+        freeMode: false,
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        spaceBetween: 20,
+      },
+    },
   },
   gameHistory: {
     ...base,
+    grabCursor: true,
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    pagination: {
+      clickable: true,
+      bulletClass: "game-history-bullet",
+      bulletActiveClass: "game-history-bullet-active",  
+      renderBullet: function (index: number, className: string) {
+        return `<span class="${className} !cursor-pointer">${index + 1}</span>`;
+      },
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+      },
+    },
   },
 };
-
-// renderBullet: function (index, className) {
-//   return '<span class="' + className + '">' + (index + 1) + '</span>';
-// },

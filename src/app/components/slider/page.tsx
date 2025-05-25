@@ -33,7 +33,7 @@ export default function SliderTestPage() {
     <div className="flex flex-col gap-10">
       <h2 className="text-2xl font-bold">mainPageCards</h2>
       <div className="h-50">
-        <Slider type="mainPageCards" useNavigation>
+        <Slider type="mainPageCards">
           {Array.from({ length: 16 }, (_, index) => (
             <SwiperSlide key={index}>
               <div className={mockSlideStyles(index)}>{index + 1}</div>
@@ -43,7 +43,7 @@ export default function SliderTestPage() {
       </div>
       <h2 className="text-2xl font-bold">images</h2>
       <div className="w-80 h-130 md:w-110 md:h-140">
-        <Slider type="images" useEffectCards usePagination>
+        <Slider type="images">
           {Array.from({ length: 16 }, (_, index) => (
             <SwiperSlide key={index} className={mockSlideStyles(index)}>
               {index + 1}
@@ -62,8 +62,37 @@ export default function SliderTestPage() {
         </Slider>
       </div>
       <h2 className="text-2xl font-bold">gameHistory</h2>
-      <div className="h-50">
+      <div className="w-70 h-130 md:w-120 md:h-140">
         <Slider type="gameHistory">
+          {Array.from({ length: 16 }, (_, index) => (
+            <SwiperSlide key={index}>
+              <div className={mockSlideStyles(index)}>{index + 1}</div>
+            </SwiperSlide>
+          ))}
+        </Slider>
+      </div>
+      <h2 className="text-2xl font-bold">Custom Config</h2>
+      <p className="text-sm text-gray-500 -mt-4">
+        모듈의 커스텀 스타일링은 따로 styles/slider.css 파일에 작성하셔야합니다.
+      </p>
+      <div className="h-50">
+        <Slider
+          type="custom"
+          customConfig={{
+            slidesPerView: 1,
+            spaceBetween: 10,
+            navigation: true,
+            pagination: true,
+            effect: "cards",
+            freeMode: true,
+            cardsEffect: {
+              rotate: true,
+            },
+          }}
+          useNavigation
+          usePagination
+          useFreeMode
+        >
           {Array.from({ length: 16 }, (_, index) => (
             <SwiperSlide key={index}>
               <div className={mockSlideStyles(index)}>{index + 1}</div>

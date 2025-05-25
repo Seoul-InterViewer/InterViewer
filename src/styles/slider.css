@@ -1,0 +1,12 @@
+/* swiper-custom.css */
+.swiper-pagination:has(.game-history-bullet){
+  @apply flex flex-wrap justify-center items-center;
+}
+
+.game-history-bullet {
+  @apply bg-none opacity-20 border border-transparent rounded-sm p-1 text-xs md:text-sm;
+}
+
+.game-history-bullet-active {
+  @apply bg-none opacity-100 border border-border;
+}
