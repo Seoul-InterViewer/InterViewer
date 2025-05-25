@@ -1,11 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-
-interface IPortalProps {
-  id: string;
-  content: React.ReactNode;
-}
+import { IPortalProps } from "./modal.type";
 
 export default function Portal({ id, content }: IPortalProps) {
   const [portalContent, setPortalContent] = useState<HTMLElement | null>(null);
