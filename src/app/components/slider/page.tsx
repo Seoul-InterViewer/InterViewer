@@ -80,7 +80,7 @@ export default function SliderTestPage() {
         커스터마이징이 이루어졌습니다.
       </p>
       <div className="h-50 relative w-full">
-        <div className="custom-swiper-button-prev absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-300 flex items-center justify-center cursor-pointer">
+        <div className="custom-swiper-button-prev left-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -122,7 +122,7 @@ export default function SliderTestPage() {
             </SwiperSlide>
           ))}
         </Slider>
-        <div className="custom-swiper-button-next absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-300 flex items-center justify-center cursor-pointer">
+        <div className="custom-swiper-button-next right-3 ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
