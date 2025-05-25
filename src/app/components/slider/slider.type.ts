@@ -4,6 +4,7 @@ export interface ISliderConfig extends Partial<SwiperOptions> {}
 
 export interface ISliderProps {
   children: React.ReactNode;
+  className?: string;
   indicator?: boolean;
   draggable?: boolean;
   customConfig?: ISliderConfig;

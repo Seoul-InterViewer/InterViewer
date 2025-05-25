@@ -15,6 +15,7 @@ import { useViewport } from "@/hooks/useViewport";
 export const Slider = ({
   type,
   children,
+  className,
   customConfig,
   useEffectCards,
   usePagination,

@@ -36,6 +36,7 @@ export const sliderConfig: Record<string, ISliderConfig> = {
     grabCursor: true,
     pagination: {
       type: "fraction",
+      
     },
     breakpoints: {
       768: {
