@@ -75,18 +75,29 @@ export default function SliderTestPage() {
       <p className="text-sm text-gray-500 -mt-4">
         모듈의 커스텀 스타일링은 따로 styles/slider.css 파일에 작성하셔야합니다.
       </p>
-      <div className="h-50">
+      <div className="h-50 relative w-full">
+        <div className="custom-swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-300 flex items-center justify-center cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+        </div>
         <Slider
           type="custom"
           customConfig={{
             slidesPerView: 1,
             spaceBetween: 10,
-            navigation: true,
-            pagination: true,
+            pagination: {
+              clickable: true,
+            },
             effect: "cards",
             freeMode: true,
+            rewind: true,
             cardsEffect: {
               rotate: true,
+            },
+            navigation: {
+              prevEl: ".custom-swiper-button-prev",
+              nextEl: ".custom-swiper-button-next",
             },
           }}
           useNavigation
@@ -99,6 +110,11 @@ export default function SliderTestPage() {
             </SwiperSlide>
           ))}
         </Slider>
+        <div className="custom-swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-300 flex items-center justify-center cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </div>
       </div>
     </div>
   );
