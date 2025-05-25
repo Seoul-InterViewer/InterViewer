@@ -65,7 +65,7 @@ export const Slider = ({
   }, [isMobile, type]);
 
   return (
-    <Swiper className={"w-full h-full"} {...config} modules={modules}>
+    <Swiper className={`w-full h-full ${className}`} {...config} modules={modules}>
       {children}
     </Swiper>
   );

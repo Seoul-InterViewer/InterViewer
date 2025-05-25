@@ -30,7 +30,7 @@ const mockSlideStyles = (index: number) => {
 
 export default function SliderTestPage() {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10 overflow-x-hidden">
       <h2 className="text-2xl font-bold">mainPageCards</h2>
       <div className="h-50">
         <Slider type="mainPageCards">
@@ -73,15 +73,27 @@ export default function SliderTestPage() {
       </div>
       <h2 className="text-2xl font-bold">Custom Config</h2>
       <p className="text-sm text-gray-500 -mt-4">
-        모듈의 커스텀 스타일링은 따로 styles/slider.css 파일에 작성하셔야합니다.
+        모듈의 커스텀 스타일링은 따로 styles/slider.css 파일에 작성하셔야합니다. <br />
+        클래스이름을 통해 모듈 스타일을 커스텀하시거나, render 함수, bulletClass등과 같은 swiper자체
+        속성들을 통해 커스텀 스타일을 적용하실 수 있습니다. <br /> <br />
+        해당 예시에서는 pagination을 커스텀 클래스로, navigation을 swiper자체 속성을 통해
+        커스터마이징이 이루어졌습니다.
       </p>
       <div className="h-50 relative w-full">
-        <div className="custom-swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-300 flex items-center justify-center cursor-pointer">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+        <div className="custom-swiper-button-prev absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-300 flex items-center justify-center cursor-pointer">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
           </svg>
         </div>
         <Slider
+          className="custom-slider-demonstration"
           type="custom"
           customConfig={{
             slidesPerView: 1,
@@ -110,8 +122,15 @@ export default function SliderTestPage() {
             </SwiperSlide>
           ))}
         </Slider>
-        <div className="custom-swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-300 flex items-center justify-center cursor-pointer">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+        <div className="custom-swiper-button-next absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-300 flex items-center justify-center cursor-pointer">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
             <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
           </svg>
         </div>

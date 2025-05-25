@@ -7,6 +7,18 @@
   @apply w-fit absolute top-3 !left-auto right-3;
 }
 
+.custom-slider-demonstration .swiper-pagination {
+  @apply !w-3/4 !left-1/2 -translate-x-1/2 md:!left-0 md:translate-x-0 md:!w-full;
+
+  .swiper-pagination-bullet {
+    @apply !bg-gray-400 !opacity-40 hover:!bg-gray-500 transition-all duration-300;
+  }
+
+  .swiper-pagination-bullet-active {
+    @apply !bg-purple-500 !opacity-100 !scale-110 shadow-lg;
+  }
+}
+
 .game-history-bullet {
   @apply bg-none opacity-20 border border-transparent rounded-sm p-1 text-xs md:text-sm;
 }
