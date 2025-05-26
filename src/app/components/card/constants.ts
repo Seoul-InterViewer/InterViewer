@@ -118,15 +118,34 @@ export const detailCardData: ICardDataProps[] = [
 export const checkCardData: ICardDataProps[] = [
   {
     number: "01",
-    contentId: "1092asdf",
-    title: "checkCard",
+    contentId: "check-01",
+    title: "React - virtual DOM(가상돔)",
+    description: "React에서 가상돔을 활용한 렌더링 방식을 자세히 설명합니다.",
+    creator: "전우진",
+    tags: ["React", "JavaScript", "TypeScript"],
+    createdAt: "2025-03-27",
+    updatedAt: "2025-03-27",
+    mainCardImage: "mainCard",
+    isChecked: false,
   },
 ];
 
 export const favoriteCardData: ICardDataProps[] = [
   {
     number: "01",
-    contentId: "1092asdf",
-    title: "favoriteCard",
+    contentId: "favorite-01",
+    title: "Javascript",
+    createdAt: "2025-03-27",
+    description: "DOM, Object, Array, Promise, Class..",
+    tags: ["Javascript"],
+    badgeMain: "JS",
+    badgeSub: "4+",
+    // 모바일용 예시 필드
+    mobileTitle: "Next.js",
+    mobileCreatedAt: "2025-02-12",
+    mobileDescription: "React, useCallback, useMemo..",
+    mobileBadgeMain: "N",
+    mobileBadgeSub: "2+",
+    mobileTags: ["Next"],
   },
 ];

@@ -1,13 +1,16 @@
 import React from "react";
 
 import { ICardProps } from "../card.type";
+import { checkCardVariants } from "../card.variants";
 
 export const CheckCard = ({ data }: ICardProps) => {
+  const { inner, container, section } = checkCardVariants();
+
   return (
-    <div className="w-full">
+    <div className={inner()}>
       {/* Desktop Layout (768px and above) */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <div className="flex flex-col md:flex-row md:items-center gap-6">
+      <div className={container()}>
+        <div className={section()}>
           {/* Left Section - Icon */}
           <div className="flex-shrink-0">
             <div className="w-24 h-24 bg-gray-800 rounded-2xl flex items-center justify-center">
@@ -28,19 +31,24 @@ export const CheckCard = ({ data }: ICardProps) => {
           <div className="flex w-full items-center justify-between relative">
             {/* Right Section - Content */}
             <div className="flex-1">
-              <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                React - virtual DOM(가상돔)
-              </h2>
-              <p className="text-gray-600 text-sm mb-4">
-                React에서 가상돔을 활용한 렌더링 방식을 자세히 설명합니다.
+              <h2 className="font-bold-18 md:font-semibold-20 text-font mb-2">{data.title}</h2>
+              <p className="font-regular-14 md:font-regular-16 text-sub-text mb-2">
+                {data.description}
               </p>
-              <p className="text-gray-600 text-sm mb-4">By. 전우진</p>
+              <p className="font-medium-12 md:font-regular-16 text-sub-text mb-4">
+                By. {data.creator}
+              </p>
 
-              {/* Tag */}
-              <div>
-                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
-                  React
-                </span>
+              {/* Tag Tag 컴포넌트 이용 예정 */}
+              <div className="flex gap-2 mt-0">
+                {data.tags.map((tag: string) => (
+                  <span
+                    key={tag}
+                    className="text-[14px] px-3 py-1  md:px-3 md:py-1 bg-gray-100 text-gray-700 rounded-full md:text-[14px]"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
 
@@ -48,7 +56,7 @@ export const CheckCard = ({ data }: ICardProps) => {
             <div className="flex-shrink-0">
               <input
                 type="checkbox"
-                className="absolute right-0 bottom-0 md:relative w-6 h-6 border-2 border-gray-300 rounded appearance-none checked:bg-blue-500 checked:border-blue-500 focus:outline-none cursor-pointer"
+                className="absolute right-0 bottom-0 md:relative w-6 h-6 border-2 border-gray-300 rounded appearance-none checked:bg-blue-500 checked:border-blue-500 focus:outline-none cursor-pointer "
               />
             </div>
           </div>

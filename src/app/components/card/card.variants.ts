@@ -64,7 +64,9 @@ export const detailCardVariants = tv({
 
 export const checkCardVariants = tv({
   slots: {
-    container: "bg-white rounded-2xl border border-gray-200 flex flex-col justify-between h-full",
+    inner: "w-full",
+    container: "bg-white rounded-lg shadow-sm border border-gray-200 p-6",
+    section: "flex flex-col md:flex-row md:items-center gap-6",
   },
 });
 
