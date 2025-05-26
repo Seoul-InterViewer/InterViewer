@@ -5,6 +5,7 @@ import { paginationVariants } from "./pagination.variants";
 import { IPaginationProps } from "./pagination.type";
 import { useRouter } from "next/navigation";
 import usePagination from "@/hooks/pagination/usePagination";
+import { Button } from "../button";
 
 export const Pagination = ({
   totalItemCount,
@@ -29,23 +30,26 @@ export const Pagination = ({
   return (
     <div className="w-fit flex gap-1 justify-center items-center relative mx-auto">
       <div className="absolute right-full -translate-x-1 flex gap-1">
-        <button
+        <Button
+          type="button"
           className={paginationVariants({ firstLastButton: true, disabled: currentPage === 1 })}
           onClick={() => movePage(1)}
         >
           <Icon name="chevronLeft" className="h-4 absolute top-1/2 right-1/3 -translate-y-1/2" />
           <Icon name="chevronLeft" className="h-4 absolute top-1/2 left-1/3 -translate-y-1/2" />
-        </button>
-        <button
+        </Button>
+        <Button
+          type="button"
           className={paginationVariants({ disabled: noPrev })}
           onClick={() => movePage(start - pageCount)}
         >
           <Icon name="chevronLeft" className="h-4" />
-        </button>
+        </Button>
       </div>
 
       {visiblePages.map((page) => (
-        <button
+        <Button
+          type="button"
           key={page}
           className={paginationVariants({
             variant: page === currentPage ? "selected" : "default",
@@ -53,17 +57,19 @@ export const Pagination = ({
           onClick={() => movePage(page)}
         >
           {page}
-        </button>
+        </Button>
       ))}
 
       <div className="absolute left-full translate-x-1 flex gap-1">
-        <button
+        <Button
+          type="button"
           className={paginationVariants({ disabled: noNext })}
           onClick={() => movePage(start + pageCount)}
         >
           <Icon name="chevronRight" className="h-4" />
-        </button>
-        <button
+        </Button>
+        <Button
+          type="button"
           className={paginationVariants({
             firstLastButton: true,
             disabled: currentPage === totalPages,
@@ -72,7 +78,7 @@ export const Pagination = ({
         >
           <Icon name="chevronRight" className="h-4 absolute top-1/2 right-1/3 -translate-y-1/2" />
           <Icon name="chevronRight" className="h-4 absolute top-1/2 left-1/3 -translate-y-1/2" />
-        </button>
+        </Button>
       </div>
     </div>
   );
