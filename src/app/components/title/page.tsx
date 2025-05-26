@@ -1,4 +1,4 @@
-import Title from "./Title";
+import { Title } from "./Title";
 import { titleVariants } from "./title.variants";
 export default function page() {
   //  타이틀 컴포넌트
@@ -8,20 +8,16 @@ export default function page() {
 
   return (
     <div className="md:w-[1260px] h-[100vh] mx-auto w-full flex flex-col gap-10 mt-10">
-      <Title className={titleVariants({ size: "lg" })}>
-        Q. React에서 useMemo와 useCallback의 차이점은 무엇인가요? 언제 사용하나요?
-      </Title>
+      <Title
+        size="lg"
+        title="   Q. React에서 useMemo와 useCallback의 차이점은 무엇인가요? 언제 사용하나요?"
+      />
 
-      <Title className={titleVariants({ size: "md" })}>
-        <span>📝&nbsp;</span>해설
-      </Title>
+      <Title size="md" title="📝&nbsp;해설" />
 
-      <Title className={titleVariants({ size: "md" })}>(1) 전역 공간에서의 this</Title>
+      <Title size="md" title="(1) 전역 공간에서의 this" />
 
-      {/* 텍스트 사이즈가 서로 다를 경우 */}
-      <Title className={titleVariants({ size: "sm" })}>
-        <span className="md:font-bold-32 font-bold-24">Q.&nbsp;</span>javascript
-      </Title>
+      <Title size="sm" title="Q. javascript" />
     </div>
   );
 }

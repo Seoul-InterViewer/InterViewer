@@ -1,4 +1,5 @@
 export interface ITitleProps {
   className?: string;
-  children: React.ReactNode;
+  title: string ;
+  size?: "lg" | "md" | "sm";
 }

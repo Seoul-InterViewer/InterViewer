@@ -3,12 +3,12 @@
 import { ITitleProps } from "./title.type";
 import { titleVariants } from "./title.variants";
 
-const Title = ({ className, children = titleVariants() }: ITitleProps) => {
+export const Title = ({ title, size }: ITitleProps) => {
   return (
     <div>
-      <h2 className={`${className} flex items-center`}>{children}</h2>
+      {size === "lg" && <h2 className={titleVariants({ size })}>{title}</h2>}
+      {size === "md" && <h3 className={titleVariants({ size })}>{title}</h3>}
+      {size === "sm" && <h4 className={titleVariants({ size })}>{title}</h4>}
     </div>
   );
 };
-
-export default Title;

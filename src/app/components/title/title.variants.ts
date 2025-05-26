@@ -1,6 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const titleVariants = tv({
+  base: "flex items-center",
   variants: {
     size: {
       lg: "md:font-bold-56 font-bold-32",
