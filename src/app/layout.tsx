@@ -11,6 +11,7 @@ export default function RootLayout({
       <body>
         {children}
         <ToastContainer />
+        <div id="modal-root" />
       </body>
     </html>
   );

@@ -7,6 +7,7 @@ import {
   modalOverlayVariants,
   sidebarMenuItemVariants,
 } from "./header.variants";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 const { header, navMenu, createMenu, login } = headerVariants();
 import { Button, buttonVariants } from "../button";
@@ -34,6 +35,8 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
   const [createMenuOpen, setCreateMenuOpen] = useState(false);
   // 검색 입력란에 대한 참조 (포커스 설정에 사용)
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const [isCondensed, setIsCondensed] = useState(false);
+  const { scrollY } = useScroll();
 
   // 네비게이션 메뉴 항목 (PC 화면용)
   const navMenuItems = [
@@ -79,56 +82,93 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
     };
   }, [createMenuOpen]);
 
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    if (latest > previous && latest > 50) {
+      setIsCondensed(true);
+    } else if (latest < previous) {
+      setIsCondensed(false);
+    }
+  });
+
   return (
     <>
       {/* 헤더 영역 */}
-      <header className={header()}>
-        <div className="mx-auto flex justify-between items-center">
+      <motion.header
+        className={header()}
+        animate={{
+          height: isCondensed ? "60px" : "80px",
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="mx-auto flex justify-between items-center h-full">
           {/* 헤더 좌측: 메뉴 버튼, 로고, 네비게이션 */}
           <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-2 md:gap-3">
+            <div className="flex items-center gap-0 md:gap-2">
               {/* 햄버거 메뉴 버튼 (클릭 시 사이드바 표시) */}
-              <Button
-                type="button"
-                className={`${buttonVariants({ color: "white" })}  px-[0px] py-[0px]`}
-                onClick={() => setSidebarOpen(true)}
+              <motion.div
+                className="flex items-center gap-2 md:gap-4"
+                animate={{
+                  scale: isCondensed ? 0.8 : 1,
+                }}
+                transition={{ duration: 0.3 }}
               >
-                <Icon name="menu" className="w-7 h-7 md:w-13 md:h-13" />
-              </Button>
+                <Button
+                  type="button"
+                  className={`${buttonVariants({ color: "white" })}  px-[0px] py-[0px]`}
+                  onClick={() => setSidebarOpen(true)}
+                >
+                  <Icon name="menu" className="w-10 h-10 md:w-13 md:h-13" />
+                </Button>
+              </motion.div>
               {/* 로고 (홈페이지 링크) */}
-              <Link href="/">
-                <img src="/images/logo.svg" alt="logo" className="w-19 h-auto md:w-33" />
-              </Link>
+              <motion.div
+                animate={{
+                  scale: isCondensed ? 0.8 : 1,
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <Link href="/">
+                  <img src="/images/logo.svg" alt="logo" className="w-24 h-auto md:w-33" />
+                </Link>
+              </motion.div>
             </div>
 
             {/* PC 화면에서만 표시되는 네비게이션 메뉴 (768px 이상) */}
-            <nav className="hidden md:block">
-              <ul className="flex items-center gap-4">
-                {navMenuItems.map((item) => (
-                  <li key={item.href} className={navMenu()}>
-                    <Link href={item.href}>{item.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            <div className="hidden md:block">
+              <motion.nav
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: isCondensed ? 0 : 1,
+                  x: isCondensed ? -20 : 0,
+                  display: isCondensed ? "none" : "block",
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <ul className="flex items-center gap-4">
+                  {navMenuItems.map((item) => (
+                    <li key={item.href} className={navMenu()}>
+                      <Link href={item.href}>{item.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </motion.nav>
+            </div>
           </div>
 
           {/* 헤더 우측: 검색 버튼, 로그인 */}
-          <div className="flex items-center gap-2 md:gap-6">
-            {/* 검색 버튼 (클릭 시 검색 모달 표시) */}
-
-            <Button
-              type="button"
-              className={`${buttonVariants({ color: "white", icon: true })} `}
-              onClick={() => setSearchModalOpen(true)}
-            >
-              <Icon name="search" className="w-6 h-6 md:w-8 md:h-8" />
-            </Button>
-
+          <div className="flex items-center justify-end gap-2 md:gap-4 h-full">
             {isLoggedIn ? (
               // 로그인 된 상태 - 아이콘 두 개 추가
-              <>
-                <div className="flex items-center  relative create-menu-container gap-2 md:gap-6 ">
+              <motion.div
+                className="flex items-center gap-2 md:gap-4"
+                animate={{
+                  opacity: isCondensed ? 0 : 1,
+                  x: isCondensed ? 20 : 0,
+                  visibility: isCondensed ? "hidden" : "visible",
+                }}
+              >
+                <div className="relative flex items-center gap-2 md:gap-4">
                   <Button
                     type="button"
                     className={`${buttonVariants({ color: "white" })}`}
@@ -158,16 +198,42 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
                     </div>
                   )}
                 </div>
-              </>
+              </motion.div>
             ) : (
               // 비로그인 상태 - 로그인 버튼 표시
-              <Button type="button" className={`${buttonVariants({ color: "white" })}`}>
-                <div className={login()}>Login</div>
-              </Button>
+              <motion.div
+                className="flex items-center"
+                animate={{
+                  opacity: isCondensed ? 0 : 1,
+                  x: isCondensed ? 20 : 0,
+                  visibility: isCondensed ? "hidden" : "visible",
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <Button type="button" className={`${buttonVariants({ color: "white" })}`}>
+                  <div className={login()}>Login</div>
+                </Button>
+              </motion.div>
             )}
+
+            {/* 검색 버튼 (클릭 시 검색 모달 표시) */}
+            <motion.div
+              className="flex items-center"
+              animate={{
+                scale: isCondensed ? 0.8 : 1,
+              }}
+            >
+              <Button
+                type="button"
+                className={`${buttonVariants({ color: "white", icon: true })} `}
+                onClick={() => setSearchModalOpen(true)}
+              >
+                <Icon name="search" className="w-6 h-6 md:w-8 md:h-8" />
+              </Button>
+            </motion.div>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       {/* 사이드바 오버레이 (사이드바가 열려있을 때만 표시) */}
       {sidebarOpen && (
