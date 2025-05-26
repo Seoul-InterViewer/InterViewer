@@ -4,6 +4,7 @@
 @import "../styles/variables.css";
 @import "../styles/mixins.css";
 
-html, body{
+html,
+body {
   font-family: "Pretendard" !important;
 }
