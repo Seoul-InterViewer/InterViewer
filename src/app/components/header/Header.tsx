@@ -31,10 +31,9 @@ const defaultMenuItems = [
 export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
   // 상태 관리: 사이드바 및 검색 모달 표시 여부
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [searchModalOpen, setSearchModalOpen] = useState(false);
+
   const [createMenuOpen, setCreateMenuOpen] = useState(false);
-  // 검색 입력란에 대한 참조 (포커스 설정에 사용)
-  const searchInputRef = useRef<HTMLInputElement>(null);
+
   const [isCondensed, setIsCondensed] = useState(false);
   const { scrollY } = useScroll();
 
@@ -44,28 +43,6 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
     { name: "빈칸채우기", href: "/fill-blank" },
     { name: "즐겨찾는 질문들", href: "/favorites" },
   ];
-
-  // 검색 모달이 열릴 때 자동으로 검색창에 포커스
-  useEffect(() => {
-    if (searchModalOpen && searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
-  }, [searchModalOpen]);
-
-  // ESC 키를 누르면 검색 모달 닫기 (접근성 향상)
-  useEffect(() => {
-    const handleEsc = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setSearchModalOpen(false);
-      }
-    };
-
-    // 이벤트 리스너 등록 및 클린업
-    window.addEventListener("keydown", handleEsc);
-    return () => {
-      window.removeEventListener("keydown", handleEsc);
-    };
-  }, []);
 
   // 드롭다운 메뉴가 외부 클릭시 닫히도록 처리
   useEffect(() => {
@@ -226,7 +203,6 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
               <Button
                 type="button"
                 className={`${buttonVariants({ color: "white", icon: true })} `}
-                onClick={() => setSearchModalOpen(true)}
               >
                 <Icon name="search" className="w-6 h-6 md:w-8 md:h-8" />
               </Button>
@@ -275,83 +251,6 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
           </nav>
         </div>
       </div>
-
-      {/* 검색 모달 (검색 버튼 클릭 시 표시) */}
-      {searchModalOpen && (
-        <>
-          {/* 검색 모달 오버레이 - 클릭하면 모달 닫힘 */}
-          <div
-            className={modalOverlayVariants({ type: "search" })}
-            onClick={() => setSearchModalOpen(false)}
-          />
-
-          {/* 검색 모달 컨텐츠 영역 - 화면 중앙에 배치하고 오버레이와 이벤트 분리 */}
-          <div
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-2xl px-4 md:px-0"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="bg-white rounded-lg shadow-xl transform transition-all duration-300 scale-100">
-              <div className="p-5">
-                {/* 모달 헤더: 제목과 닫기 버튼 */}
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-bold">검색</h2>
-                  <button
-                    className="p-1 hover:bg-gray-100 rounded-full transition-colors"
-                    onClick={() => setSearchModalOpen(false)}
-                  >
-                    <Icon name="close" className="w-6 h-6 md:w-8 md:h-8" />
-                  </button>
-                </div>
-
-                {/* 검색 입력 필드 (아이콘 포함) */}
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 text-gray-400"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                      />
-                    </svg>
-                  </div>
-                  <input
-                    ref={searchInputRef}
-                    type="text"
-                    className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main focus:border-transparent"
-                    placeholder="검색어를 입력하세요..."
-                  />
-                </div>
-
-                {/* 검색 섹션 */}
-                <div className="mt-4">
-                  <h3 className="text-sm font-medium text-gray-500 mb-2"> 검색어</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <button className="px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 transition-colors">
-                      React
-                    </button>
-                    <button className="px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 transition-colors">
-                      JavaScript
-                    </button>
-                    <button className="px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 transition-colors">
-                      Next.js
-                    </button>
-                    <button className="px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 transition-colors">
-                      TypeScript
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </>
-      )}
     </>
   );
 };
