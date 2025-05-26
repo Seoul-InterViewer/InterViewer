@@ -1,2 +1,2 @@
-export { default } from "./BreadCrumb";
+export { BreadCrumb } from "./BreadCrumb";
 export * from "./breadCrumb.type";

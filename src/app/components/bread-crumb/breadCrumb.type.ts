@@ -12,5 +12,3 @@ export interface IBreadCrumbProps {
   separator?: React.ReactNode;
   className?: string;
 }
-
-export default IBreadCrumbProps;

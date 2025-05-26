@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import IBreadCrumbProps, { IBreadCrumbItem } from "./breadCrumb.type";
+import { IBreadCrumbProps, IBreadCrumbItem } from "./breadCrumb.type";
 import breadCrumbVariants, { breadCrumbItemVariants } from "./breadCrumb.variants";
 import { Icon } from "@/app/components/icon";
 
