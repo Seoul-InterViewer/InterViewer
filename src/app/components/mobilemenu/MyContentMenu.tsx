@@ -2,9 +2,9 @@ import React from "react";
 import Link from "next/link";
 
 import { Icon } from "../icon/Icon";
-import { menuItemVariants, mobileMenuVariants } from "./mobile.menu.variants";
+import { mobileMenuVariants, menuItemVariants } from "./mobileMenu.variants";
 
-const { mobileMenu, content, backdrop, handle } = mobileMenuVariants();
+const { content } = mobileMenuVariants();
 
 // 타인 콘텐츠용 메뉴 컴포넌트
 const MyContentMenu = () => (

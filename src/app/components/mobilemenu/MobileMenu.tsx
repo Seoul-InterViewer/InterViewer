@@ -2,11 +2,7 @@
 import React from "react";
 import { motion, AnimatePresence, useMotionValue } from "framer-motion";
 import Link from "next/link";
-import {
-  menuItemVariants,
-  mobileMenuVariants,
-  menuAnimationVariants,
-} from "./mobile.menu.variants";
+import { mobileMenuVariants, menuAnimationVariants, menuItemVariants } from "./mobileMenu.variants";
 
 const { mobileMenu, content, backdrop, handle } = mobileMenuVariants();
 

@@ -1,3 +1,3 @@
 export * from "./MobileMenu";
-export * from "./mobile.menu.variants";
+export * from "./mobileMenu.variants";
 export * from "./mobile.menu.type";

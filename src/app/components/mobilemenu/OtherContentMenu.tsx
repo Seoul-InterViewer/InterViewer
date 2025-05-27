@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { menuItemVariants, mobileMenuVariants } from "./mobile.menu.variants";
+import { mobileMenuVariants, menuItemVariants } from "./mobileMenu.variants";
 
 const { content } = mobileMenuVariants();
 
