@@ -17,7 +17,7 @@ export const FavoriteCard = ({ data }: ICardProps) => {
 
           {/* Bottom Badges */}
           <div className="flex justify-end gap-3 mt-auto">
-            <div className="w-7 h-7 md:w-12 md:h-12 bg-yellow-400 rounded-full flex items-center justify-center">
+            <div className="w-7 h-7 md:w-12 md:h-12 bg-main/80 rounded-full flex items-center justify-center">
               <span className="text-black font-bold-14 md:font-bold-18 text-lg">
                 {data.badgeMain}
               </span>

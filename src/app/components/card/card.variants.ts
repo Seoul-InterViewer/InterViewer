@@ -8,7 +8,7 @@ export const mainCardVariants = tv({
     header: "flex items-center justify-between mb-2",
     categoryTitle: "font-sb-24 text-[#9a9a9a]",
     tags: "flex gap-2 mb-6",
-    title: "font-sb-28 text-gray-900 mb-4 leading-tight",
+    title: "font-sb-28 text-gray-900 mb-4 leading-tight line-clamp-2",
     content: "text-gray-600 font-r-18  line-clamp-3",
     footer: "flex items-center justify-between",
     creator: "text-gray-500 font-bold-14 truncate max-w-[200px] inline-block align-bottom",
