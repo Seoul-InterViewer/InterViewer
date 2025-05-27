@@ -17,5 +17,4 @@ interface ITagListProps {
   onClose?: (tag: string) => void; // 태그 제거를 위한 콜백 함수
 }
 
-export default ITagProps;
-export type { ITagListProps };
+export type { ITagProps, ITagListProps };

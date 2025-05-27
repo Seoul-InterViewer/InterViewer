@@ -1,4 +1,4 @@
-import { Icon } from "./Icon";
+import { Icon } from "./8con";
 import { IconName } from "./icon.type";
 
 const iconNames: IconName[] = [
@@ -55,7 +55,7 @@ export default function IconGalleryPage() {
           {iconNames.map((name) => (
             <div key={name} className="flex-center flex-col border p-4 rounded">
               <div className="flex items-center justify-center h-12">
-                <Icon name={name} fill="var(--color-correct)" stroke="var(--color-incorrect)" strokeWidth={1} />
+                <Icon name={name} />
               </div>
               <span className="--font-sb-14 text-gray-700 mt-2">{name}</span>
             </div>
@@ -77,11 +77,9 @@ export default function IconGalleryPage() {
           <Icon name="typescript" width={50} height={50} />
           <Icon name="report" width={50} height={50} stroke="var(--color-incorrect)" />
           <Icon name="plus" width={50} height={50} fill="var(--color-border)" />
-          <Icon name="chevronDown" width={50} height={50} fill="var(--color-border)" />
-          <Icon name="chevronUp" width={50} height={50} fill="var(--color-border)" stroke="var(--color-main)" />
-          <Icon name="search" width={50} height={50} fill="var(--color-border)" stroke="var(--color-main)" />
-          <Icon name="user" width={50} height={50} fill="var(--color-border)" stroke="var(--color-main)" />
-          <Icon name="verticalElipsis" width={50} height={50} fill="var(--color-border)" stroke="var(--color-main)" />
+          <Icon name="close" size={50} fill="var(--color-border)" />
+          <Icon name="close" size={140} fill="var(--color-border)" />
+          <Icon name="close" size={20} fill="var(--color-border)" />
         </div>
       </div>
     </div>

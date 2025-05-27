@@ -5,7 +5,7 @@ import { IModalProps } from "./modal.type";
 import { modalVariants, modalCloseButtonVariants } from "./modal.variants";
 import { motion } from "framer-motion";
 import { Button } from "../button/Button";
-import { Icon } from "../icon/Icon";
+import { Icon } from "../icon/8con";
 import { buttonVariants } from "../button";
 import Portal from "./Portal";
 
