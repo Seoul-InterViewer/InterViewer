@@ -7,16 +7,16 @@ export const mobileMenuVariants = tv({
     content: "flex flex-col gap-4",
     backdrop: "fixed inset-0 bg-black/50 z-40",
     handle: "w-12 h-1 bg-gray-300 rounded-full mx-auto mb-5",
+    menuItem: "block py-3 font-regular-18 flex items-center gap-2 ",
   },
-});
-
-// Menu Item Variants
-export const menuItemVariants = tv({
-  base: "block py-3 font-regular-18 flex items-center gap-2 ",
   variants: {
     type: {
-      default: "",
-      danger: "text-incorrect/60",
+      default: {
+        menuItem: "",
+      },
+      danger: {
+        menuItem: "text-incorrect/60",
+      },
     },
   },
 });

@@ -2,11 +2,11 @@
 import React from "react";
 import { motion, AnimatePresence, useMotionValue } from "framer-motion";
 import Link from "next/link";
-import { mobileMenuVariants, menuAnimationVariants, menuItemVariants } from "./mobileMenu.variants";
+import { mobileMenuVariants, menuAnimationVariants } from "./mobileMenu.variants";
 
-const { mobileMenu, content, backdrop, handle } = mobileMenuVariants();
+const { mobileMenu, content, backdrop, handle, menuItem } = mobileMenuVariants();
 
-import { IMobileMenuProps, User, MenuType } from "./mobile.menu.type";
+import { IMobileMenuProps, User, MenuType } from "./mobileMenu.type";
 import { Icon } from "../icon/Icon";
 import OtherContentMenu from "./OtherContentMenu";
 import MyContentMenu from "./MyContentMenu";
@@ -21,11 +21,11 @@ const renderMenuContent = (menuType: MenuType) => {
     case "share":
       return (
         <div className={content()}>
-          <Link href="#share-link" className={menuItemVariants()}>
+          <Link href="#share-link" className={menuItem()}>
             <Icon name="share" className="w-5 h-5" />
             <span>링크 공유하기</span>
           </Link>
-          <Link href="#share-kakao" className={menuItemVariants()}>
+          <Link href="#share-kakao" className={menuItem()}>
             <Icon name="share" className="w-5 h-5" />
             <span>카카오톡 공유하기</span>
           </Link>
@@ -34,11 +34,11 @@ const renderMenuContent = (menuType: MenuType) => {
     case "admin":
       return (
         <div className={content()}>
-          <Link href="#admin-approve" className={menuItemVariants()}>
+          <Link href="#admin-approve" className={menuItem()}>
             <Icon name="user" className="w-5 h-5" />
             <span>승인하기</span>
           </Link>
-          <Link href="#admin-reject" className={menuItemVariants({ type: "danger" })}>
+          <Link href="#admin-reject" className={mobileMenuVariants({ type: "danger" }).menuItem()}>
             <Icon name="trash" className="w-5 h-5" />
             <span>거절하기</span>
           </Link>
@@ -47,15 +47,18 @@ const renderMenuContent = (menuType: MenuType) => {
     case "settings":
       return (
         <div className={content()}>
-          <Link href="#settings-profile" className={menuItemVariants()}>
+          <Link href="#settings-profile" className={menuItem()}>
             <Icon name="user" className="w-5 h-5" />
             <span>프로필 설정</span>
           </Link>
-          <Link href="#settings-notification" className={menuItemVariants()}>
+          <Link href="#settings-notification" className={menuItem()}>
             <Icon name="report" className="w-5 h-5" />
             <span>알림 설정</span>
           </Link>
-          <Link href="#settings-logout" className={menuItemVariants({ type: "danger" })}>
+          <Link
+            href="#settings-logout"
+            className={mobileMenuVariants({ type: "danger" }).menuItem()}
+          >
             <Icon name="user" className="w-5 h-5" />
             <span>로그아웃</span>
           </Link>
