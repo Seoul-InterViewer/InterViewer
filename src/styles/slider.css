@@ -1,0 +1,64 @@
+/* game history slider 위치 조정 스타일링 */
+.swiper-pagination:has(.game-history-bullet) {
+  @apply flex flex-wrap justify-center items-center !w-3/4 !left-1/2 -translate-x-1/2 md:!left-0 md:translate-x-0 md:!w-full;
+}
+
+/* images slider 위치 조정 스타일링 */
+.swiper-pagination:has(.images-pagination-fraction) {
+  @apply w-fit absolute top-3 !left-auto right-3;
+}
+
+/* 커스텀 슬라이더 pagination 설정 예시 */
+.custom-slider-demonstration .swiper-pagination {
+  @apply !w-3/4 !left-1/2 -translate-x-1/2 md:!left-0 md:translate-x-0 md:!w-full;
+
+  .swiper-pagination-bullet {
+    @apply !bg-gray-400 !opacity-40 hover:!bg-gray-500 transition-all duration-300;
+  }
+
+  .swiper-pagination-bullet-active {
+    @apply !bg-purple-500 !opacity-100 !scale-110 shadow-lg;
+  }
+}
+
+/* game history slider pagination 스타일링 */
+.game-history-bullet {
+  @apply bg-none opacity-20 border border-transparent rounded-sm p-1 text-xs md:text-sm;
+}
+
+/* game history slider pagination활성화 스타일링 */
+.game-history-bullet-active {
+  @apply bg-none opacity-100 border border-border;
+}
+
+/* 전체 swiper navigation 스타일링 통일 */
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply !text-black !text-xl !w-8 !h-8 transition-all duration-300 !mt-0 -translate-y-1/2;
+
+  &::after {
+    @apply !text-xl;
+  }
+
+  @media (min-width: 768px) {
+    @apply !text-3xl !w-12 !h-12 hover:!text-gray-600 hover:scale-110;
+
+    &::after {
+      @apply !text-3xl;
+    }
+  }
+}
+
+/* 커스텀 슬라이더 navigation 스타일링 */
+
+.custom-swiper-button-prev,
+.custom-swiper-button-next {
+  @apply absolute top-1/2 -translate-y-1/2 
+         !text-gray-600 !text-xl !w-8 !h-8 
+         hover:!text-black hover:!text-2xl hover:!w-10 hover:!h-10 
+         transition-all duration-300 
+         bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg 
+         hover:bg-white 
+         flex items-center justify-center cursor-pointer z-10;
+}
