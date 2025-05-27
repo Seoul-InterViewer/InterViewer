@@ -26,6 +26,13 @@ const defaultMenuItems = [
   { name: "Node.js", href: "/nodejs" },
   { name: "Vue", href: "/vue" },
   { name: "TypeScript", href: "/typescript" },
+  { name: "Php", href: "/php" },
+  { name: "Python", href: "/python" },
+  { name: "Java", href: "/java" },
+  { name: "C#", href: "/csharp" },
+  { name: "C++", href: "/cpp" },
+  { name: "Ruby", href: "/ruby" },
+  { name: "Swift", href: "/swift" },
 ];
 
 export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
@@ -221,7 +228,7 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 
       {/* 사이드바 (왼쪽에서 슬라이드 인) */}
       <div className={sidebarVariants({ isOpen: sidebarOpen })}>
-        <div className="p-4">
+        <div className="p-4 h-screen flex flex-col">
           {/* 사이드바 헤더: 제목과 닫기 버튼 */}
           <div className="flex justify-between items-center">
             <h2 className="font-sb-24">메뉴</h2>
@@ -231,12 +238,10 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
           </div>
 
           {/* 사이드바 메뉴 항목들 */}
-          <nav className="mt-8">
+          <nav className="mt-8 flex-1 overflow-y-auto">
             {/* 사이트 제목/로고 */}
             <h1 className="mb-4">
-              <Link href="/" className={sidebarMenuItemVariants({ type: "title" })}>
-                InterViewer
-              </Link>
+              <div className={sidebarMenuItemVariants({ type: "title" })}>InterViewer</div>
             </h1>
             {/* 메뉴 항목 목록 (배열에서 동적 생성) */}
             <ul className="space-y-4">

@@ -4,7 +4,7 @@ export const headerVariants = tv({
   slots: {
     header:
       "border-b border-gray-200 mx-auto px-4 fixed w-full top-0 left-0 right-0 bg-white z-40 transition-all duration-300",
-    navMenu: "font-regular-18 hover:text-main hover:font-sb-24",
+    navMenu: "font-regular-18  md: font-regular-16 hover:text-main hover:font-sb-24",
     createMenu:
       "absolute right-0 top-full mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg z-50 transform origin-top-right transition-all duration-200",
     login: "font-sb-14 md:font-sb-24",
@@ -39,8 +39,8 @@ export const sidebarMenuItemVariants = tv({
   base: "block py-2 transition-colors rounded-md px-2",
   variants: {
     type: {
-      title: "font-sb-14 md:font-sb-24 hover:text-main hover:bg-gray-50",
-      menuItem: "text-font-gray font-regular-14 md:font-regular-24 hover:text-main",
+      title: "font-sb-14 md:font-sb-18 hover:text-main hover:bg-gray-50 ",
+      menuItem: "font-regular-14 md:font-regular-18 text-font-gray hover:text-main",
     },
     state: {
       default: "",
