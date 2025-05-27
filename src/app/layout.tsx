@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <html lang="kr">
       <body>
-        {children}
+        <main className="px-5 md:px-10">{children}</main>
         <ToastContainer />
         <div id="modal-root" />
       </body>
