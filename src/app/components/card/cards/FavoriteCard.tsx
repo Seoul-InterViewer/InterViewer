@@ -23,8 +23,8 @@ export const FavoriteCard = ({ data }: ICardProps) => {
               </span>
             </div>
             <div className="w-7 h-7 md:w-12 md:h-12 bg-gray-800 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold-14 md:font-bold-18 text-lg">
-                {data.badgeSub}
+              <span className="text-white font-bold-14 md:font-bold-18">
+                {data.questions?.length}+
               </span>
             </div>
           </div>

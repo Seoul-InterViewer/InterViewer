@@ -164,12 +164,49 @@ export const favoriteCardData: ICardDataProps[] = [
     tags: ["Javascript"],
     badgeMain: "JS",
     badgeSub: "4+",
-    // 모바일용 예시 필드
-    mobileTitle: "Next.js",
-    mobileCreatedAt: "2025-02-12",
-    mobileDescription: "React, useCallback, useMemo..",
-    mobileBadgeMain: "N",
-    mobileBadgeSub: "2+",
-    mobileTags: ["Next"],
+    questions: [
+      {
+        question: "문제1: DOM트리가 무엇인가요?",
+        answer: "DOM트리는 문서 객체 모델(DOM)의 트리 구조를 나타내는 모델입니다.",
+      },
+      {
+        question: "문제2: 호이스팅이 무엇인가요?",
+        answer: "호이스팅은 변수 선언이 해당 스코프의 최상단으로 끌어올려지는 것을 의미합니다.",
+      },
+
+      {
+        question: "문제2: 호이스팅이 무엇인가요?",
+        answer: "호이스팅은 변수 선언이 해당 스코프의 최상단으로 끌어올려지는 것을 의미합니다.",
+      },
+    ],
+  },
+  {
+    number: "01",
+    contentId: "favorite-02",
+    title: "Typescript",
+    createdAt: "2025-03-27",
+    description: "DOM, Object, Array, Promise, Class..",
+    tags: ["Typescript"],
+    badgeMain: "TS",
+    badgeSub: "4+",
+    questions: [
+      {
+        question: "문제1: DOM트리가 무엇인가요?",
+        answer: "DOM트리는 문서 객체 모델(DOM)의 트리 구조를 나타내는 모델입니다.",
+      },
+      {
+        question: "문제2: 호이스팅이 무엇인가요?",
+        answer: "호이스팅은 변수 선언이 해당 스코프의 최상단으로 끌어올려지는 것을 의미합니다.",
+      },
+
+      {
+        question: "문제2: 호이스팅이 무엇인가요?",
+        answer: "호이스팅은 변수 선언이 해당 스코프의 최상단으로 끌어올려지는 것을 의미합니다.",
+      },
+      {
+        question: "문제2: 호이스팅이 무엇인가요?",
+        answer: "호이스팅은 변수 선언이 해당 스코프의 최상단으로 끌어올려지는 것을 의미합니다.",
+      },
+    ],
   },
 ];

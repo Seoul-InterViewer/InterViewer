@@ -3,6 +3,9 @@ import React from "react";
 import { ICardProps } from "../card.type";
 
 import { mainCardVariants } from "../card.variants";
+import { Icon } from "../../icon/Icon";
+import { Button } from "../../button/Button";
+import { buttonVariants } from "../../button/button.variants";
 
 export const MainCard = ({ data, size }: ICardProps) => {
   const { container, header, categoryTitle, tags, title, content, footer, creator, hearts } =
@@ -17,12 +20,27 @@ export const MainCard = ({ data, size }: ICardProps) => {
       case "React":
         return "/images/card-react.svg";
       case "TypeScript":
+        return "/images/card-typescript.svg";
+      case "Next":
+        return "/images/card-nextjs.svg";
+      case "Node":
+        return "/images/card-nodejs.svg";
+      case "Express":
+        return "/images/card-express.svg";
+      default:
+        return "/images/card-javascript.svg";
     }
   };
   return (
     <div className={container()}>
-      <div className="absolute top-[-100] right-[-100]">
-        {<img src={getCardImage(data.category)} alt="main-card-tag" />}
+      <div className="absolute top-[-20] right-[-50] md:top-[-60] md:right-[-60] z-[-1">
+        {
+          <img
+            src={getCardImage(data.category)}
+            alt="main-card-tag"
+            className="w-40 h-40 md:w-70 md:h-70"
+          />
+        }
       </div>
       {/* Header */}
       <div>
@@ -32,7 +50,9 @@ export const MainCard = ({ data, size }: ICardProps) => {
               <span>{data.category}</span> | 난이도: <span>{data.level}</span>
             </span>
           </div>
-          <div className="border w-6 h-6 text-gray-400" />
+          <Button type="button" className={`${buttonVariants()} z-10`}>
+            <Icon name="bookmark" fill="var(--color-border)" className="w-6 md:w-10" />
+          </Button>
         </div>
 
         {/* Tags */}
@@ -59,8 +79,8 @@ export const MainCard = ({ data, size }: ICardProps) => {
       {/* Footer */}
       <div className={footer()}>
         <span className={creator()}>작성자: {data.creator}</span>
-        <div className="flex items-center gap-2">
-          <div className="border w-6 h-6 text-gray-400" />
+        <div className="flex items-center gap-1">
+          <Icon name="heart" width={16} fill="color-font" />
           <span className={hearts()}>{data.hearts}</span>
         </div>
       </div>

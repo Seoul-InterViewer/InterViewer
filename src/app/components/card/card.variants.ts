@@ -18,7 +18,7 @@ export const mainCardVariants = tv({
   variants: {
     size: {
       "410": {
-        container: "w-[414px] h-[414px] py-6 px-4",
+        container: "w-[414px] h-[414px] py-4 px-4",
         // (header/tags/title/... 은 기본 slot 값 그대로 쓸 거면 생략해도 됩니다)
       },
       "178": {
@@ -58,7 +58,7 @@ export const editCardVariants = tv({
 export const detailCardVariants = tv({
   slots: {
     inner: "w-full",
-    container: "bg-white rounded-lg shadow-sm border border-gray-200 p-6",
+    container: "bg-white rounded-lg shadow-sm border border-gray-200 py-5 px-4 md:p-6",
     section: "flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-0",
   },
 });

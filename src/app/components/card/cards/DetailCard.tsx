@@ -13,9 +13,10 @@ export const DetailCard = ({ data }: ICardProps) => {
       <div className={container()}>
         <div className={section()}>
           {/* Left Section - Icon and Content */}
-          <div className="flex flex-col md:flex-row md:items-center gap-6">
-            {/* Yellow Icon */}
-            <div className="w-20 h-20 bg-yellow-400 rounded-lg flex items-center justify-center">
+
+          {/* Yellow Icon */}
+          <div className="flex md:flex-row md:items-center md:gap-6 h-40 md:h-full justify-between">
+            <div className="w-24 md:w-20 md:h-20 bg-yellow-400 rounded-lg flex items-center justify-center">
               <div className="w-10 h-10 text-white border" />
             </div>
 
@@ -27,7 +28,7 @@ export const DetailCard = ({ data }: ICardProps) => {
 
               <div className="space-y-2">
                 {data.problems.slice(0, 2).map((problem: any) => (
-                  <p key={problem.question} className="font-bold-14 md:font-sb-16 text-sub-text">
+                  <p key={problem.question} className="font-medium-12 md:font-sb-16 text-sub-text">
                     {problem.question}
                   </p>
                 ))}

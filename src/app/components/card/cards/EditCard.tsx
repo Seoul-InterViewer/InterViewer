@@ -5,6 +5,7 @@ import { Button } from "../../button";
 import { buttonVariants } from "../../button/button.variants";
 
 import { editCardVariants } from "../card.variants";
+import { Icon } from "../../icon/Icon";
 
 export const EditCard = ({ data }: ICardProps) => {
   const { inner, container, section } = editCardVariants();
@@ -17,7 +18,7 @@ export const EditCard = ({ data }: ICardProps) => {
           <div className="flex gap-4 flex-col">
             <div className="flex items-center gap-2">
               <h1 className="text-xl font-semibold text-gray-900">{data.title}</h1>
-              <div className="w-5 h-5 text-gray-400 border" />
+              <Icon name="chevronRight" strokeWidth={3.2} className="w-3 md:w-3" />
             </div>
 
             <div className="space-y-2">

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { ICardProps } from "../card.type";
 import { checkCardVariants } from "../card.variants";
 
 export const CheckCard = ({ data }: ICardProps) => {
+  const [isChecked, setIsChecked] = useState(false);
   const { inner, container, section } = checkCardVariants();
 
   return (
@@ -56,7 +57,20 @@ export const CheckCard = ({ data }: ICardProps) => {
             <div className="flex-shrink-0">
               <input
                 type="checkbox"
-                className="absolute right-0 bottom-0 md:relative w-6 h-6 border-2 border-gray-300 rounded appearance-none checked:bg-blue-500 checked:border-blue-500 focus:outline-none cursor-pointer "
+                checked={isChecked}
+                onChange={(e) => setIsChecked(e.target.checked)}
+                className="
+                  appearance-none w-6 h-6 md:w-6 md:h-6
+                  border border-[#9E9E9E] rounded
+                  cursor-pointer
+                  checked:border-transparent
+                  checked:bg-[#222222]
+                  checked:bg-[url('data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpolyline%20points%3D%224%208%207%2011%2012%205%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20fill%3D%22none%22/%3E%3C/svg%3E')]
+                  checked:bg-no-repeat
+                  checked:bg-center
+                  checked:bg-contain
+                  absolute right-0 bottom-0 md:relative
+                "
               />
             </div>
           </div>
