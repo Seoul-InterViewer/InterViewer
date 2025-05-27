@@ -10,8 +10,20 @@ export const MainCard = ({ data, size }: ICardProps) => {
       size,
     });
 
+  const getCardImage = (category: string) => {
+    switch (category) {
+      case "JavaScript":
+        return "/images/card-javascript.svg";
+      case "React":
+        return "/images/card-react.svg";
+      case "TypeScript":
+    }
+  };
   return (
     <div className={container()}>
+      <div className="absolute top-[-100] right-[-100]">
+        {<img src={getCardImage(data.category)} alt="main-card-tag" />}
+      </div>
       {/* Header */}
       <div>
         <div className={header()}>

@@ -6,7 +6,7 @@ export const FavoriteCard = ({ data }: ICardProps) => {
   return (
     <>
       <div className="w-full">
-        <div className="w-50 h-50 md:w-80 md:h-80 bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6 flex flex-col">
+        <div className="w-40 h-40 md:w-80 md:h-80 bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6 flex flex-col">
           {/* Content */}
           <div className="flex-1">
             <h1 className="font-sb-24 text-font mb-2">{data.title}</h1>

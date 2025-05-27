@@ -18,35 +18,35 @@ export default function CardPage() {
       <div className="flex flex-col gap-4">
         <h1>mainCard가 렌더링 됩니다.</h1>
         {mainCardData.map((item) => (
-          <Card key={item.contentId} type="mainCard" data={mainCardData} size={size} />
+          <Card key={item.contentId} type="mainCard" data={[item]} size={size} />
         ))}
       </div>
 
       <div className="flex flex-col gap-4">
         <h1>editCard가 렌더링 됩니다.</h1>
         {editCardData.map((item) => (
-          <Card key={item.contentId} type="editCard" data={editCardData} />
+          <Card key={item.contentId} type="editCard" data={[item]} />
         ))}
       </div>
 
       <div className="flex flex-col gap-4">
         <h1>detailCard가 렌더링 됩니다.</h1>
         {detailCardData.map((item) => (
-          <Card key={item.contentId} type="detailCard" data={detailCardData} />
+          <Card key={item.contentId} type="detailCard" data={[item]} />
         ))}
       </div>
 
       <div className="flex flex-col gap-4">
         <h1>checkCard가 렌더링 됩니다.</h1>
         {checkCardData.map((item) => (
-          <Card key={item.contentId} type="checkCard" data={checkCardData} />
+          <Card key={item.contentId} type="checkCard" data={[item]} />
         ))}
       </div>
 
       <div className="flex flex-col gap-4">
         <h1>favoriteCard가 렌더링 됩니다.</h1>
         {favoriteCardData.map((item) => (
-          <Card key={item.contentId} type="favoriteCard" data={favoriteCardData} />
+          <Card key={item.contentId} type="favoriteCard" data={[item]} />
         ))}
       </div>
     </div>

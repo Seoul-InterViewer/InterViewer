@@ -12,20 +12,25 @@ export const Card = ({ type, data, size }: ICardProps) => {
   const cardContent = () => {
     switch (type) {
       case "mainCard":
-        const mainCardItem = data[0];
-        return <MainCard type="mainCard" data={mainCardItem} size={size} />;
+        return data.map((item: string, idx: number) => (
+          <MainCard key={idx} type="mainCard" data={item} size={size} />
+        ));
       case "editCard":
-        const editCardItem = data[0];
-        return <EditCard type="editCard" data={editCardItem} size={size} />;
+        return data.map((item: string, idx: number) => (
+          <EditCard key={idx} type="editCard" data={item} size={size} />
+        ));
       case "detailCard":
-        const detailCardItem = data[0];
-        return <DetailCard type="detailCard" data={detailCardItem} size={size} />;
+        return data.map((item: string, idx: number) => (
+          <DetailCard key={idx} type="detailCard" data={item} size={size} />
+        ));
       case "checkCard":
-        const checkCardItem = data[0];
-        return <CheckCard type="checkCard" data={checkCardItem} size={size} />;
+        return data.map((item: string, idx: number) => (
+          <CheckCard key={idx} type="checkCard" data={item} size={size} />
+        ));
       case "favoriteCard":
-        const favoriteCardItem = data[0];
-        return <FavoriteCard type="favoriteCard" data={favoriteCardItem} size={size} />;
+        return data.map((item: string, idx: number) => (
+          <FavoriteCard key={idx} type="favoriteCard" data={item} size={size} />
+        ));
       default:
         return null;
     }

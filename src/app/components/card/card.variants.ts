@@ -3,7 +3,8 @@ import { tv } from "tailwind-variants";
 export const mainCardVariants = tv({
   // 1) slots 정의
   slots: {
-    container: "bg-white rounded-2xl border border-gray-200 flex flex-col justify-between h-full",
+    container:
+      "relative bg-white rounded-2xl border border-gray-200 flex flex-col justify-between h-full overflow-hidden",
     header: "flex items-center justify-between mb-2",
     categoryTitle: "font-sb-24 text-[#9a9a9a]",
     tags: "flex gap-2 mb-6",

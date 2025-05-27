@@ -25,6 +25,30 @@ export const mainCardData: ICardDataProps[] = [
     isCommented: false,
     isChecked: false,
   },
+  {
+    type: "mainCard",
+    number: "01",
+    contentId: "1092asaf",
+    title: "어떤 걸 중점적으로 공부해야하나요?",
+    description:
+      "React에서 어떤 걸 중점적으로 공부해야하나요? 요새 공부중인데 서버 통신이나 데이터가 어디에서 연동, 그렇지만 사람들이 쓰는 걸 보면 헷갈리고 그렇다는 느낌이 듭니다. 아침 햇살이 좋은 날인 거 같아요",
+    image: "mainCard",
+    creator: "Next는 Next 시간에",
+    category: "JavaScript",
+    level: "초",
+    tags: ["JavaScript", "React", "TypeScript"],
+    createdAt: "2025-07-01",
+    updatedAt: "2025-07-01",
+    mainCardImage: "mainCard",
+    detailCardImage: "detailCard",
+    checkCardImage: "checkCard",
+    favoriteCardImage: "favoriteCard",
+    hearts: 10,
+    isBookmarked: false,
+    isLiked: false,
+    isCommented: false,
+    isChecked: false,
+  },
 ];
 
 export const editCardData: ICardDataProps[] = [
