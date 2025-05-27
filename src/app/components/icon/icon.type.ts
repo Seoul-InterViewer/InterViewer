@@ -52,8 +52,8 @@ export interface IIconProps extends Omit<SVGProps<SVGSVGElement>, "name"> {
   fill?: string;
   size?: number;
   width?: number;
-  height ?: number;
-  viewBox ?: string;
+  height?: number;
+  viewBox?: string;
 }
 
 export type IconComponent = (props: SVGProps<SVGSVGElement>) => React.ReactElement;
