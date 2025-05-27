@@ -1,21 +1,13 @@
 "use client";
 
 import React from "react";
-import { Tag, TagList } from "./Tag";
+import { Tag } from "./Tag";
 
 export default function TagPage() {
-  // 태그 데이터 예시
-  const defaultTags = ["React", "JavaScript", "TypeScript", "Next.js", "Node.js"];
-  const cardTags = ["프론트엔드", "백엔드", "디자이너", "PM", "DevOps"];
-  const chooseTags = ["React", "TypeScript", "JavaScript"];
-  const correctTags = ["정답"];
-  const incorrectTags = ["오답"];
-
   return (
     <div className="p-8 space-y-8">
       <h1 className="text-2xl font-bold mb-6">태그 컴포넌트</h1>
 
-      <h2 className="text-xl font-bold mt-8 mb-4">(Children 사용)</h2>
       <div className="flex flex-wrap gap-2 mb-4">
         <Tag type="default">React</Tag>
         <Tag type="default">JavaScript</Tag>
@@ -37,18 +29,6 @@ export default function TagPage() {
         <Tag type="correct">정답</Tag>
         <Tag type="incorrect">오답</Tag>
       </div>
-
-      <h2 className="text-xl font-bold mt-8 mb-4">(배열 사용)</h2>
-      <TagList type="default" data={defaultTags} />
-
-      <TagList type="card" data={cardTags} />
-
-      <TagList
-        type="chooseTag"
-        data={chooseTags}
-        choose={["React", "TypeScript", "JavaScript"]}
-        onClose={() => console.log("태그 삭제")}
-      />
     </div>
   );
 }

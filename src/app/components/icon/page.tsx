@@ -1,4 +1,4 @@
-import { Icon } from "./8con";
+import { Icon } from "./Icon";
 import { IconName } from "./icon.type";
 
 const iconNames: IconName[] = [
