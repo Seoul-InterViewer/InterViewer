@@ -3,6 +3,7 @@
 @import "../styles/theme.css";
 @import "../styles/variables.css";
 @import "../styles/mixins.css";
+@import "../styles/slider.css";
 
 html,
 body {
