@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   headerVariants,
   sidebarVariants,
   modalOverlayVariants,
   sidebarMenuItemVariants,
 } from "./header.variants";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "motion/react";
 
 const { header, navMenu, createMenu, login } = headerVariants();
 import { Button, buttonVariants } from "../button";
@@ -99,7 +99,7 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
               >
                 <Button
                   type="button"
-                  className={`${buttonVariants({ color: "white" })}  px-[0px] py-[0px]`}
+                  className={`${buttonVariants({ color: "white" })}  px-0 py-0`}
                   onClick={() => setSidebarOpen(true)}
                 >
                   <Icon name="menu" className="w-10 h-10 md:w-13 md:h-13" />
