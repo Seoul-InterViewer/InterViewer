@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion, AnimatePresence, useMotionValue } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue } from "motion/react";
 import Link from "next/link";
 import { mobileMenuVariants, menuAnimationVariants } from "./mobileMenu.variants";
 

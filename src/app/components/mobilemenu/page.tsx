@@ -15,12 +15,6 @@ export default function MobileMenuPage() {
     email: "me@example.com",
   };
 
-  const otherContent = {
-    id: "user456",
-    name: "다른 사용자",
-    email: "another@example.com",
-  };
-
   const openContentMenu = (type: MenuType) => {
     setMenuType(type);
     setIsOpen(true);
