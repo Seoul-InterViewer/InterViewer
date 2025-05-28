@@ -5,6 +5,7 @@ export interface IModalProps {
   closeButton?: boolean;
   className?: string;
   type?: "default" | "bookmark";
+  closeWithOverlay?: boolean;
 }
 
 export interface IPortalProps {

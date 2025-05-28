@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { IModalProps } from "./modal.type";
 import { modalVariants, modalCloseButtonVariants } from "./modal.variants";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Button } from "../button/Button";
 import { Icon } from "../icon/Icon";
 import { buttonVariants } from "../button";
@@ -16,6 +16,7 @@ export const Modal = ({
   closeButton,
   className,
   type = "default",
+  closeWithOverlay = true,
 }: IModalProps) => {
   const [mounted, setMounted] = useState(false);
 
@@ -38,14 +39,17 @@ export const Modal = ({
   if (!mounted || !isOpen) return null;
 
   const modalContent = (
-    <div className="fixed left-0 top-0 w-full h-full z-99 flex-center bg-black/25 shadow-lg">
+    <div
+      className="fixed left-0 top-0 w-full h-full z-99 flex-center bg-black/25 shadow-lg"
+      onClick={() => closeWithOverlay && onClose()}
+    >
       <motion.div
         className={modalVariants({ class: className })}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
       >
         {closeButton && (
           <div className="absolute top-5 right-5">

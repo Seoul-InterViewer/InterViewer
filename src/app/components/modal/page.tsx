@@ -1,7 +1,7 @@
 "use client";
 
 import { Modal } from "./Modal";
-import useModal from "@/hooks/useModal";
+import useModal from "@/hooks/modal/useModal";
 import { AnimatePresence } from "motion/react";
 import { Button } from "../button/Button";
 import { buttonVariants } from "../button";
@@ -43,6 +43,7 @@ function ModalPage() {
             className={modalVariants({ size: "default" })}
             // 모달 컴포넌트 닫기 버튼 유무
             closeButton={true}
+            closeWithOverlay={false}
           >
             <div className="flex-center flex-col gap-7.5 w-full h-full">
               <h2 className="font-regular-18">정말로 게임을 종료하시겠어요?😭</h2>
