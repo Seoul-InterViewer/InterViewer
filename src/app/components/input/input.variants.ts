@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const inputVariants = tv({
-  base: "w-full h-full border-2 border-border indent-3 px-2 py-4 pl-0 font-sb-20 text-black placeholder:text-sub-text focus:outline-none md:font-sb-24 md:py-6",
+  base: "w-full h-full border-2 border-border indent-3 px-2 py-4 pl-0 font-sb-20 text-black placeholder:text-sub-text focus:outline-none md:font-regular-18 md:py-6",
   variants: {
     variant: {
       withBg: "bg-[#e9e9e9] font-sb-16",
@@ -32,7 +32,7 @@ export const inputVariants = tv({
 });
 
 export const labelVariants = tv({
-  base: "flex gap-3 items-center font-regular-14",
+  base: "flex gap-3 items-center font-medium-12",
   variants: {
     isCredential: {
       true: "absolute -translate-y-1/3 left-3 font-medium-12 bg-white text-sub-text md:font-regular-14",
