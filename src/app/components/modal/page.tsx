@@ -6,7 +6,7 @@ import { AnimatePresence } from "motion/react";
 import { Button } from "../button/Button";
 import { buttonVariants } from "../button";
 import { modalVariants } from "./modal.variants";
-function ModalPage() {
+export default function ModalPage() {
   // useModal에서 open, close, isOpen을 받아옴
   const defaultModalProps = useModal();
   const customModalProps = useModal();
@@ -99,5 +99,3 @@ function ModalPage() {
     </div>
   );
 }
-
-export default ModalPage;
