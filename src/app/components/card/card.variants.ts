@@ -2,7 +2,7 @@ import { tv } from "tailwind-variants";
 
 export const cardVariants = tv({
   // 1) base 정의
-  base: "bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-[4px_4px_10px_rgba(0,0,0,0.1)] transition-shadow duration-300 cursor-pointer ",
+  base: "bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-[4px_4px_10px_rgba(0,0,0,0.1)] transition-shadow duration-300 cursor-pointer ",
   // 2) size별로 slots 덮어쓰기
   variants: {
     type: {
