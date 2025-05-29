@@ -2,7 +2,7 @@
 
 import React from "react";
 import { IEmptyUIProps } from "./emptyUI.type";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import {
   emptyUIChildVariants,
   emptyUIGameMobileVariants,

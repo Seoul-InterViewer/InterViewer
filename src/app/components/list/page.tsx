@@ -1,5 +1,5 @@
 import React from "react";
-import List from "./List";
+import { List } from "./List";
 import { listVariants } from "./list.variants";
 
 // 아래 4개의 아이템은 단순 목업용 컴포넌트입니다.

@@ -2,7 +2,6 @@
 
 import { IButtonProps } from "./button.type";
 import { buttonVariants } from "./button.variants";
-import { Icon } from "@/app/components/icon";
 
 export const Button = ({
   type = "button",

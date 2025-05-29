@@ -19,7 +19,7 @@ export const buttonVariants = tv({
       borderBlack: "bg-black border border-black text-white",
     },
     icon: {
-      true: "bg-white",
+      true: "bg-transparent",
     },
     hover: {
       true: "hover:opacity-80 transition-opacity",

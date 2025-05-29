@@ -1,4 +1,4 @@
-import { SwiperModule, SwiperOptions } from "swiper/types";
+import { SwiperOptions } from "swiper/types";
 
 export interface ISliderConfig extends Partial<SwiperOptions> {}
 

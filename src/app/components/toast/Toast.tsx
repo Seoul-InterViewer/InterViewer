@@ -3,7 +3,6 @@ import React from "react";
 import { IToastProps } from "./toast.type";
 import { motion } from "motion/react";
 import { Icon } from "../icon";
-import toastStore from "@/stores/toastStore";
 import { Button } from "../button";
 
 export const Toast = ({ content, id, error, onRemove }: IToastProps) => {
