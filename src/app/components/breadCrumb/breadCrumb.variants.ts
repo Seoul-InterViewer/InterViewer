@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const breadCrumbVariants = tv({
-  base: "flex items-center py-2 font-regular-14 md:font-regular-24",
+  base: "flex items-center py-2 font-regular-14 md:font-regular-16",
 });
 
 export const breadCrumbItemVariants = tv({
@@ -9,7 +9,7 @@ export const breadCrumbItemVariants = tv({
   variants: {
     state: {
       default: "text-font-gray hover:text-font",
-      current: "font-sb-14 md:font-sb-24 ",
+      current: "font-sb-14 md:font-sb-16 ",
     },
   },
   defaultVariants: {

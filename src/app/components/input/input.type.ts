@@ -1,5 +1,4 @@
 import React from "react";
-import { inputVariants } from "./input.variants";
 
 export interface IInputProps {
   name: string;

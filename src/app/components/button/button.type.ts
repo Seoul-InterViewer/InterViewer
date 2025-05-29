@@ -1,5 +1,3 @@
-import { IconName } from "@/app/components/icon";
-
 export interface IButtonProps {
   type: "button" | "submit" | "reset";
   children: React.ReactNode;

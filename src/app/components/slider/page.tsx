@@ -2,7 +2,6 @@
 import React from "react";
 import { Slider } from "./Slider";
 import { SwiperSlide } from "swiper/react";
-import { mock } from "node:test";
 
 const bgColors = [
   "bg-red-100",

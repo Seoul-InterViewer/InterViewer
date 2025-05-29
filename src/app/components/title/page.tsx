@@ -1,6 +1,5 @@
 import { Title } from "./Title";
-import { titleVariants } from "./title.variants";
-export default function page() {
+export default function TitlePage() {
   //  타이틀 컴포넌트
   // 사이즈 lg, md, sm, className(직접입력)으로 스타일링 하시면 됩니다
 

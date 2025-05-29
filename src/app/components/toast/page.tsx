@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import toastStore from "@/stores/toastStore";
 
 export default function ToastTestPage() {

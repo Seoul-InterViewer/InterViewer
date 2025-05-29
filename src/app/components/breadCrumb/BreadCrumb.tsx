@@ -18,7 +18,7 @@ export const BreadCrumb: React.FC<
   }
 > = ({
   items = [],
-  separator = <Icon name="chevronRight" className="w-2 h-4 md:w-3 md:h-6" />,
+  separator = <Icon name="chevronRight" className="w-2 h-4 md:w-2 md:h-4" />,
   className = "",
   autoGenerate = false,
   maxTextLength = 12,
@@ -94,7 +94,7 @@ export const BreadCrumb: React.FC<
 
   return (
     <nav aria-label="Breadcrumb" className={breadCrumbVariants({ className })}>
-      <ol className="flex flex-wrap items-center gap-1 lg:gap-2">
+      <ol className="flex flex-wrap items-center gap-1">
         {visibleItems.map((item, idx) => {
           const isCurrent = item.isCurrentPage;
           const showSeparator =
@@ -107,7 +107,7 @@ export const BreadCrumb: React.FC<
                   {isCurrent ? (
                     <Icon
                       name="chevronRight"
-                      className="w-2 h-4 md:w-3 md:h-6"
+                      className="w-2 h-4 md:w-2 md:h-4"
                       stroke={activeColor}
                       strokeWidth={3}
                     />
