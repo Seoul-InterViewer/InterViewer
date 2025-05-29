@@ -8,7 +8,7 @@ export const headerVariants = tv({
       "font-regular-18  md: font-regular-16 transition-all duration-300 hover:text-main hover:font-sb-24",
     createMenu:
       "absolute right-0 top-full mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg z-50 transform origin-top-right transition-all duration-200",
-    login: "font-sb-14 md:font-sb-24",
+    login: "font-sb-14 md:font-sb-16",
   },
 });
 
