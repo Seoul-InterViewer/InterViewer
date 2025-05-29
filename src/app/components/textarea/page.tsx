@@ -22,7 +22,7 @@ export default function TextareaTestPage() {
       <div className="h-57 px-7.5 pt-8.5 pb-5.5 bg-[#f5f5f5] flex flex-col gap-3.5">
         <Textarea name="reply" id="reply" type="reply" placeholder="댓글을 입력하세요.." />
         <div className="flex justify-end gap-3.5">
-          <Button type="button" className="font-medium-12 underline bg-white cursor-pointer">
+          <Button type="button" className="font-medium-12 underline  cursor-pointer">
             취소
           </Button>
           <Button
