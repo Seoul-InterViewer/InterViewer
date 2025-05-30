@@ -15,7 +15,7 @@ import { Icon } from "../icon/Icon";
 
 // 사이드바에 표시될 기본 메뉴 항목 데이터
 const defaultMenuItems = [
-  { name: "마이페이지", href: "/mypage" },
+  { name: "마이페이지", href: "/my" },
   { name: "빈칸채우기", href: "/fill-blank" },
   { name: "즐겨찾는 질문들", href: "/favorites" },
   { name: "오답노트", href: "/wrong-answers" },
@@ -211,7 +211,9 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
                 type="button"
                 className={`${buttonVariants({ color: "white", icon: true })} `}
               >
-                <Icon name="search" className="w-6 h-6 md:w-8 md:h-8" />
+                <Link href="/search">
+                  <Icon name="search" className="w-6 h-6 md:w-8 md:h-8" />
+                </Link>
               </Button>
             </motion.div>
           </div>
