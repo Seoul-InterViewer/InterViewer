@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="kr">
       <body className="bg-black/76">
-        <main className="px-5 md:px-10 bg-white">{children}</main>
+        <main className="min-h-screen px-5 md:px-10 bg-white">{children}</main>
         <ToastContainer />
         <div id="modal-root"></div>
         {modal}

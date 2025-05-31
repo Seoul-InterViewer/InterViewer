@@ -1,5 +1,16 @@
 import React from "react";
 
-export default function Layout() {
-  return <div></div>;
+export default function Layout({
+  children,
+  slot,
+}: {
+  children: React.ReactNode;
+  slot: React.ReactNode;
+}) {
+  return (
+    <div>
+      {children}
+      {slot}
+    </div>
+  );
 }

@@ -5,7 +5,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header isLoggedIn={true} />
-      <div className="pt-20">{children}</div>
+      <div className="pt-45">{children}</div>
     </>
   );
 }
