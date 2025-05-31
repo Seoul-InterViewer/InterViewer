@@ -15,24 +15,23 @@ import { Icon } from "../icon/Icon";
 
 // 사이드바에 표시될 기본 메뉴 항목 데이터
 const defaultMenuItems = [
-  { name: "마이페이지", href: "/mypage" },
-  { name: "빈칸채우기", href: "/fill-blank" },
-  { name: "즐겨찾는 질문들", href: "/favorites" },
-  { name: "오답노트", href: "/wrong-answers" },
-  { name: "인기질문", href: "/popular-questions" },
-  { name: "React", href: "/react" },
-  { name: "JavaScript", href: "/javascript" },
-  { name: "Next.js", href: "/nextjs" },
-  { name: "Node.js", href: "/nodejs" },
-  { name: "Vue", href: "/vue" },
-  { name: "TypeScript", href: "/typescript" },
-  { name: "Php", href: "/php" },
-  { name: "Python", href: "/python" },
-  { name: "Java", href: "/java" },
-  { name: "C#", href: "/csharp" },
-  { name: "C++", href: "/cpp" },
-  { name: "Ruby", href: "/ruby" },
-  { name: "Swift", href: "/swift" },
+  { name: "마이페이지", href: "/my" },
+  { name: "빈칸채우기", href: "/games" },
+  { name: "즐겨찾는 질문들", href: "/bookmarks" },
+  { name: "오답노트", href: "my/wrong-answers" },
+  { name: "React", href: "questions/categories/react" },
+  { name: "JavaScript", href: "questions/categories/javascript" },
+  { name: "Next.js", href: "questions/categories/nextjs" },
+  { name: "Node.js", href: "questions/categories/nodejs" },
+  { name: "Vue", href: "questions/categories/vue" },
+  { name: "TypeScript", href: "questions/categories/typescript" },
+  { name: "Php", href: "questions/categories/php" },
+  { name: "Python", href: "questions/categories/python" },
+  { name: "Java", href: "questions/categories/java" },
+  { name: "C#", href: "questions/categories/csharp" },
+  { name: "C++", href: "questions/categories/cpp" },
+  { name: "Ruby", href: "questions/categories/ruby" },
+  { name: "Swift", href: "questions/categories/swift" },
 ];
 
 export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
@@ -46,9 +45,9 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 
   // 네비게이션 메뉴 항목 (PC 화면용)
   const navMenuItems = [
-    { name: "마이페이지", href: "/mypage" },
-    { name: "빈칸채우기", href: "/fill-blank" },
-    { name: "즐겨찾는 질문들", href: "/favorites" },
+    { name: "마이페이지", href: "/my" },
+    { name: "빈칸채우기", href: "/games" },
+    { name: "즐겨찾는 질문들", href: "/bookmarks" },
   ];
 
   // 드롭다운 메뉴가 외부 클릭시 닫히도록 처리
@@ -211,7 +210,9 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
                 type="button"
                 className={`${buttonVariants({ color: "white", icon: true })} `}
               >
-                <Icon name="search" className="w-6 h-6 md:w-8 md:h-8" />
+                <Link href="/search">
+                  <Icon name="search" className="w-6 h-6 md:w-8 md:h-8" />
+                </Link>
               </Button>
             </motion.div>
           </div>

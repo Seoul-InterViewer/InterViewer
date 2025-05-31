@@ -40,7 +40,7 @@ export const EmptyUI = ({ type }: IEmptyUIProps) => {
       text: "아직 게임을 안만드셨어요 🥲",
       link: {
         text: "게임 만들기",
-        href: "/game/create"
+        href: "/games/create"
       }
     }
   };
