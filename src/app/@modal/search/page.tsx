@@ -6,6 +6,7 @@ import { useEffect } from "react";
 
 export default function SearchModal() {
   const { isOpen, close, open } = useRouterModal();
+  console.log(isOpen);
   useEffect(() => {
     open();
   }, []);

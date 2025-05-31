@@ -2,15 +2,20 @@
 
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
+import { withViewTransition } from "@/lib/utils/withViewTransition";
 
 export function useRouterModal() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
-  const open = useCallback(() => setIsOpen(true), []);
+  const open = useCallback(() => {
+    withViewTransition(() => setIsOpen(true));
+  }, []);
   const close = useCallback(() => {
-    router.back();
-    setIsOpen(false);
+    withViewTransition(() => {
+      setIsOpen(false);
+      router.back();
+    });
   }, [router]);
 
   return { isOpen, open, close };
