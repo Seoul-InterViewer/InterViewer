@@ -1,11 +1,11 @@
+import { Header } from "@/app/components/header";
 import React from "react";
-import { Header } from "../components/header/Header";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Header isLoggedIn={false} />
-      <div className="pt-20">{children}</div>
+      <Header isLoggedIn={true} />
+      <div className="pt-45">{children}</div>
     </>
   );
 }
