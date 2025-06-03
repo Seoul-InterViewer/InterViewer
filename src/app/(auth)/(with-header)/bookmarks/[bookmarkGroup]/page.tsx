@@ -86,29 +86,29 @@ const bookmarks = [
   },
 ];
 
-const questionTags = [
+const tags = [
   {
-    questionID: "123e4567-e89b-12d3-a456-426614174000",
-    tagID: "react",
-  },
-  {
-    questionID: "987fcdeb-51a2-43d7-b987-654321098765",
-    tagID: "react",
-  },
-  {
-    questionID: "456a789b-cdef-0123-4567-89abcdef0123",
-    tagID: "react",
-  },
-  {
-    questionID: "789b012c-3456-789d-0123-456789abcdef",
-    tagID: "react",
+    id: "550e8400-e29b-41d4-a716-446655440001",
+    name: "react",
   },
 ];
 
-const tags = [
+const questionTags = [
   {
-    id: "react",
-    name: "react",
+    questionID: "123e4567-e89b-12d3-a456-426614174000",
+    tagID: "550e8400-e29b-41d4-a716-446655440001",
+  },
+  {
+    questionID: "987fcdeb-51a2-43d7-b987-654321098765",
+    tagID: "550e8400-e29b-41d4-a716-446655440001",
+  },
+  {
+    questionID: "456a789b-cdef-0123-4567-89abcdef0123",
+    tagID: "550e8400-e29b-41d4-a716-446655440001",
+  },
+  {
+    questionID: "789b012c-3456-789d-0123-456789abcdef",
+    tagID: "550e8400-e29b-41d4-a716-446655440001",
   },
 ];
 
@@ -116,11 +116,12 @@ const bookmarkedQuestions = questions.filter((question) =>
   bookmarks.some((bookmark) => bookmark.question_id === question.id),
 );
 
-const extractQuestionTags = questionTags.filter((tag) =>
-  questions.some((question) =>
-    question.id === tag.questionID ? { ...question, ["tag"]: tag.tagID } : question,
-  ),
-);
+const getTagsForQuestion = (questionID: string) => {
+  return questionTags
+    .filter((qt) => qt.questionID === questionID)
+    .map((qt) => tags.find((tag) => tag.id === qt.tagID)?.name)
+    .filter(Boolean);
+};
 
 const translatedDifficulty = (difficulty: string) => {
   switch (difficulty) {
@@ -136,11 +137,11 @@ export default function Page({ params }: { params: Promise<{ bookmarkGroup: stri
   const resolvedParams = React.use(params);
 
   useEffect(() => {
-    console.log(bookmarkedQuestions, extractQuestionTags, questions);
+    console.log(bookmarkedQuestions, questions);
   }, []);
 
   return (
-    <div className="flex flex-col gap-7.5">
+    <section className="w-full flex flex-col gap-7.5">
       <BreadCrumb
         items={[
           { label: "Home", href: "/" },
@@ -160,7 +161,11 @@ export default function Page({ params }: { params: Promise<{ bookmarkGroup: stri
                   <p className="text-font-gray md:font-sb-18 font-sb-14">by 홍길동</p>
                 </div>
                 <div className="flex gap-2.5">
-                  <Tag type="default">React</Tag>
+                  {getTagsForQuestion(question.id).map((tag) => (
+                    <Tag key={tag} type="default">
+                      {tag}
+                    </Tag>
+                  ))}
                   <Tag type="default">난이도 {translatedDifficulty(question.difficulty)}</Tag>
                 </div>
               </div>
@@ -171,6 +176,6 @@ export default function Page({ params }: { params: Promise<{ bookmarkGroup: stri
           </Card>
         ))}
       </List>
-    </div>
+    </section>
   );
 }
