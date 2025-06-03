@@ -48,7 +48,7 @@ export const NotFound = () => {
 
   return (
     <section className="w-full flex flex-col items-center justify-center gap-20">
-      <div className="flex items-center gap-2 md:gap-5">
+      <div className="flex items-center gap-2 md:gap-5 min-h-45 md:min-h-120">
         {[4, 0, 4].map((num, index, arr) => {
           if (index === 2 && showInput) {
             return (
