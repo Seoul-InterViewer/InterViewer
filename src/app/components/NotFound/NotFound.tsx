@@ -1,13 +1,13 @@
 import { useViewport } from "@/hooks/useViewport";
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import AnimatedNumbers from "react-animated-numbers";
 
 export const NotFound = () => {
   const [showInput, setShowInput] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
 
   const { isMobile } = useViewport();
-
-  console.log(isMobile)
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -27,8 +27,17 @@ export const NotFound = () => {
     [isMobile],
   );
 
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value === "4") {
+      setIsCorrect(true);
+    } else {
+      setIsCorrect(false);
+    }
+  };
+
   return (
-    <section className="w-full flex items-center justify-center">
+    <section className="w-full flex flex-col items-center justify-center gap-20">
       <div className="flex items-center gap-2 md:gap-5">
         {[4, 0, 4].map((num, index, arr) => {
           if (index === 2 && showInput) {
@@ -43,6 +52,9 @@ export const NotFound = () => {
                   className="flex border-none outline-none justify-center items-center w-24 md:w-64 h-45 md:h-fit text-[150px] md:text-[400px] font-bold text-black font-sans"
                   autoFocus
                   autoComplete="off"
+                  autoCorrect="off"
+                  spellCheck="false"
+                  aria-autocomplete="none"
                   maxLength={1}
                 />
               </div>
@@ -66,6 +78,19 @@ export const NotFound = () => {
             </div>
           );
         })}
+      </div>
+      <div className="flex flex-col items-center justify-center">
+        <strong className="block font-bold-32 md:font-bold-48 capitalize mb-5">
+          page not found
+        </strong>
+        <p className="md:w-4/5 font-regular-14 md:font-regular-24 text-center break-keep !leading-5 md:!leading-8">
+          죄송합니다. 요청하신 페이지를 찾을 수 없습니다. 주소가 바뀌었거나, 존재하지 않는 페이지일
+          수 있습니다. 홈 페이지로 돌아가시려면{" "}
+          <Link href="/" className="text-main underline">
+            여기
+          </Link>
+          를 클릭하세요.
+        </p>
       </div>
     </section>
   );
