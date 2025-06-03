@@ -1,11 +1,14 @@
+"use client";
 import { useViewport } from "@/hooks/useViewport";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import AnimatedNumbers from "react-animated-numbers";
+import { motion } from "motion/react";
 
 export const NotFound = () => {
   const [showInput, setShowInput] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [isWrong, setIsWrong] = useState(false);
 
   const { isMobile } = useViewport();
 
@@ -29,10 +32,17 @@ export const NotFound = () => {
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    if (value === "4") {
-      setIsCorrect(true);
+    if (value) {
+      if (value === "4") {
+        setIsCorrect(true);
+        setIsWrong(false);
+      } else {
+        setIsCorrect(false);
+        setIsWrong(true);
+      }
     } else {
       setIsCorrect(false);
+      setIsWrong(false);
     }
   };
 
@@ -42,22 +52,47 @@ export const NotFound = () => {
         {[4, 0, 4].map((num, index, arr) => {
           if (index === 2 && showInput) {
             return (
-              <div
+              <motion.div
                 key={index}
+                animate={{
+                  backgroundColor: isCorrect ? "#DCFCD5" : isWrong ? "#D8A2AC" : "#b6b6b6",
+                  x: isWrong ? [-3, 0, 3, -3, 0, 3] : 0,
+                }}
+                transition={{
+                  x: {
+                    repeat: isWrong ? 1 : 0,
+                    duration: 0.1,
+                  },
+                  backgroundColor: {
+                    duration: 0.2,
+                  },
+                }}
                 className="bg-[#b6b6b6] px-3 md:px-5 rounded-2xl flex gap-8 h-fit md:h-120 items-center overflow-hidden"
               >
-                <input
+                <motion.input
                   type="text"
                   placeholder="4"
-                  className="flex border-none outline-none justify-center items-center w-24 md:w-64 h-45 md:h-fit text-[150px] md:text-[400px] font-bold text-black font-sans"
+                  className="flex border-none outline-none justify-center items-center w-24 md:w-64 h-45 md:h-fit text-[150px] md:text-[400px] font-bold text-black font-sans placeholder-black/40"
                   autoFocus
                   autoComplete="off"
                   autoCorrect="off"
                   spellCheck="false"
                   aria-autocomplete="none"
                   maxLength={1}
+                  onChange={handleInput}
+                  animate={{
+                    color: isCorrect
+                      ? "var(--color-correct)"
+                      : isWrong
+                        ? "var(--color-incorrect)"
+                        : "#000",
+                  }}
+                  onBlur={() => {
+                    setIsCorrect(false);
+                    setIsWrong(false);
+                  }}
                 />
-              </div>
+              </motion.div>
             );
           }
           return (
