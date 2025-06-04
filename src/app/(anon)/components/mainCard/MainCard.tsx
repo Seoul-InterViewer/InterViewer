@@ -11,23 +11,23 @@ export const MainCard = ({
   imageUrl,
   tags,
   likes,
-  publishedAt,
   category,
   difficulty,
+  author,
 }: IMainCardProps) => {
   return (
     <Card type="mainCard">
       <div>
         <div>
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center">
             <strong>
               {category} | {`난이도: ${difficulty}`}
             </strong>
             <div>
-              <Icon name="bookmark" />
+              <Icon name="bookmark" strokeWidth={0.6} className="*:stroke-1" />
             </div>
           </div>
-          <List className={listVariants({ type: "tags" })}>
+          <List type="tags">
             {tags.map((tag) => (
               <Tag type="card" key={tag}>
                 {tag}
@@ -36,12 +36,15 @@ export const MainCard = ({
           </List>
         </div>
         <div>
-          <strong></strong>
-          <p></p>
+          <strong>{title}</strong>
+          <p>{description}</p>
         </div>
         <div>
-          <div></div>
-          <div></div>
+          <div>{author}</div>
+          <div>
+            <Icon name="heart" />
+            <span>{likes}</span>
+          </div>
         </div>
       </div>
     </Card>
