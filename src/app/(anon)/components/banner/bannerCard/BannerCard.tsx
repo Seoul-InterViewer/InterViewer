@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Icon } from "@/app/components/icon/Icon";
 import { IBannerCardData } from "./bannerCard.type";
+import { bannerCardVariants } from "./bannerCard.variants";
 
 export const BannerCard = ({
   iconName,
@@ -13,26 +14,8 @@ export const BannerCard = ({
     <li
       data-title={backTitle}
       data-desc={backDescription}
-      className="p-10 w-85 aspect-square bg-white rounded-lg shadow-[0px_4px_4px_rgba(0,0,0,0.25)] relative
-      before:content-[attr(data-title)]
-      before:absolute
-      before:bottom-0
-      before:left-0
-      before:overflow-hidden
-      before:w-full
-      before:h-0
-      before:duration-300
-      before:ease-in-out
-      before:z-10
-      before:bg-main
-      before:text-white
-      before:p-0
-      before:font-bold-32
-      before:rounded-lg
-      before:transition-all
-      hover:before:h-full
-      hover:before:p-10
-      "
+      // 너무 클래스가 길어지면 Variants로 리펙토링 하는게 좋을 것 같아서..  
+      className={bannerCardVariants()}
     >
       <div className="flex flex-col gap-6">
         <Icon name={iconName} />
