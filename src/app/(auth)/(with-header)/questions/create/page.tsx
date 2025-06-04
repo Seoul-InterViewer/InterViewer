@@ -84,9 +84,36 @@ export default function CreateQuestionPage() {
   return (
     <div className="w-full">
       {/* 질문 제목 */}
-      <div className="flex flex-col gap-11 mb-20 border-b border-gray-200 pb-20">
-        <div className="font-regular-24 ">글 작성 중..</div>
-        <Title title="질문 제목" size="lg" />
+      <div className="flex flex-col gap-11  mb-20 border-b border-gray-200 pb-20">
+        <div className="flex flex-col  gap-4">
+          <div className="font-regular-14 md:font-regular-24 mb-2 md:mb-4">글 작성 중..</div>
+          <input
+            type="text"
+            placeholder="질문 제목"
+            className="
+          pl-3
+    bg-gray-100/50 
+    h-10 md:h-20 
+    font-bold-32 md:font-bold-56 
+    text-color-font
+
+    /* 플레이스홀더의 기본 스타일 */
+    placeholder:text-font 
+    placeholder:opacity-100 
+
+    /* 포커스 시 플레이스홀더 opacity = 0 */
+    focus:placeholder:opacity-0 
+
+    /* 플레이스홀더에만 적용할 트랜지션 속성 */
+    placeholder:transition-opacity 
+    placeholder:duration-300 
+
+    /* input에서 outline 제거 */
+    outline-none
+    focus:outline-none
+  "
+          />
+        </div>
         <div className="flex flex-col gap-4">
           <div>
             <p className="mb-3 font-sb-16">난이도</p>
@@ -169,7 +196,7 @@ export default function CreateQuestionPage() {
           {/* 해설 */}
           <div className="flex flex-col gap-5">
             <Title size="md" title="📝&nbsp;해설" />
-            <div className="w-[100%] h-10 md:h-30 border-border border flex flex-col gap-2.5">
+            <div className="w-[100%] h-25 md:h-54 border-border border flex flex-col gap-2.5">
               <textarea
                 className="w-full h-full px-3 py-3 md:px-5 md:py-4 flex flex-col gap-2.5 border-[#cdcdcd] resize-none placeholder:text-sub-text focus:outline-none font-regular-14 md:font-regular-18"
                 placeholder="해설을 적어주세요"
@@ -188,7 +215,7 @@ export default function CreateQuestionPage() {
               <Icon name="codepen" className="w-8 h-8 md:w-12 md:h-12" />
               <Title size="sm" title="CODEPEN URL" />
             </div>
-            <div className="w-[100%] h-4 md:h-14 border-border border flex flex-col gap-2.5">
+            <div className="w-[100%] h-11 md:h-14 border-border border flex flex-col gap-2.5">
               <textarea
                 className="w-full h-full px-3 py-3 md:px-5 md:py-4 flex flex-col gap-2.5 border-[#cdcdcd] resize-none placeholder:text-sub-text focus:outline-none font-regular-14 md:font-regular-18"
                 placeholder="https://..."
@@ -199,23 +226,23 @@ export default function CreateQuestionPage() {
           {/* 파일 첨부 */}
           <div>
             {/* 파일 첨부 TOP TITLE */}
-            <div className="flex gap-2">
+            <div className="flex gap-8 justify-between md:justify-start mb-5">
               {/* 이미지 UPLOAD */}
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-2 items-center ">
                 <p>이미지 업로드</p>
                 <Icon name="upload" size={22} />
               </div>
               {/* 파일 첫번째 이름 */}
               <div className="flex gap-2">
-                <p>component를 시키는 방법..(10)</p>
-                <div>button</div>
+                <p>img/main.py...(10)</p>
+                <div>수정/편집</div>
               </div>
             </div>
 
             {/* 파일 첨부 내용 */}
             <div className="flex gap-2">
               {/* 이미지 슬라이드 */}
-              <div className="w-80 h-130 md:w-110 md:h-140">
+              <div className="w-88 h-130 md:w-163 md:h-140 rounded-xl overflow-hidden">
                 <Slider type="images">
                   {Array.from({ length: 16 }, (_, index) => (
                     <SwiperSlide key={index} className={mockSlideStyles(index)}>
@@ -225,7 +252,7 @@ export default function CreateQuestionPage() {
                 </Slider>
               </div>
               {/* 첨부된 파일 상세 내용 */}
-              <div className="w-[100%] border-gray-200 border">hi</div>
+              <div className="hidden md:block w-[100%] border-gray-200 border">hi</div>
             </div>
           </div>
         </div>
