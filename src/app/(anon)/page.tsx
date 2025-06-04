@@ -1,13 +1,10 @@
+import Banner from "./components/banner/Banner";
+
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <main className="flex flex-col">
       {/* Hero Banner */}
-      <div className="absolute top-[64px] left-0 right-0 h-[calc(100vh-64px)] bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
-        <div className="text-center text-white">
-          <h1 className="text-4xl font-bold mb-2">Welcome to Our Platform</h1>
-          <p className="text-lg">Discover amazing features and possibilities</p>
-        </div>
-      </div>
+      <Banner />
 
       {/* Main Content */}
       <main className="flex flex-col gap-8 mt-[calc(100vh-64px)]">
@@ -37,6 +34,6 @@ export default function Home() {
           <button className="bg-green-500 text-white rounded px-4 py-2">Button 3</button>
         </div>
       </main>
-    </div>
+    </main>
   );
 }
