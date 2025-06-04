@@ -205,6 +205,58 @@ export const featuredQuestions: IQuestion[] = [
     publishedAt: "2024-01-15",
     imageUrl: "/placeholder.svg?height=300&width=400",
   },
+  {
+    id: "featured-4",
+    title: "React 상태 관리의 모든 것",
+    description:
+      "Context API, Redux, Recoil 등 다양한 상태 관리 도구의 장단점과 실제 프로젝트에서의 선택 기준을 비교합니다.",
+    author: "React 마스터",
+    category: "React",
+    difficulty: "중급",
+    tags: ["상태관리", "Redux", "Recoil", "Context API"],
+    likes: 412,
+    publishedAt: "2024-01-14",
+    imageUrl: "/placeholder.svg?height=300&width=400",
+  },
+  {
+    id: "featured-5",
+    title: "Next.js에서의 이미지 최적화 전략",
+    description:
+      "next/image 컴포넌트의 활용법과 다양한 이미지 최적화 기법을 실제 사례와 함께 소개합니다.",
+    author: "프론트엔드 엔지니어",
+    category: "Next.js",
+    difficulty: "초급",
+    tags: ["Next.js", "이미지 최적화", "next/image"],
+    likes: 301,
+    publishedAt: "2024-01-13",
+    imageUrl: "/placeholder.svg?height=300&width=400",
+  },
+  {
+    id: "featured-6",
+    title: "JavaScript 비동기 처리 완전 정복",
+    description:
+      "콜백, Promise, async/await의 차이와 각각의 장단점, 그리고 실무에서의 활용법을 심도 있게 다룹니다.",
+    author: "JS 마스터",
+    category: "JavaScript",
+    difficulty: "고급",
+    tags: ["비동기", "Promise", "async/await"],
+    likes: 389,
+    publishedAt: "2024-01-12",
+    imageUrl: "/placeholder.svg?height=300&width=400",
+  },
+  {
+    id: "featured-7",
+    title: "웹 접근성(A11y) 실전 체크리스트",
+    description:
+      "실제 서비스에서 바로 적용할 수 있는 웹 접근성 체크리스트와 주요 고려사항을 정리했습니다.",
+    author: "A11y 전문가",
+    category: "웹 접근성",
+    difficulty: "중급",
+    tags: ["접근성", "A11y", "실전"],
+    likes: 277,
+    publishedAt: "2024-01-11",
+    imageUrl: "/placeholder.svg?height=300&width=400",
+  },
 ];
 
 // export const quizData = [
