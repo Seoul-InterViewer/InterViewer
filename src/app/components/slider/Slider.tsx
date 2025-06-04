@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo, useEffect, useState } from "react";
-import { Swiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { ISliderProps } from "./slider.type";
 import { sliderConfig } from "./slider.config";
 import { Pagination, Navigation, EffectCards, FreeMode } from "swiper/modules";
@@ -64,9 +64,14 @@ export const Slider = ({
     }
   }, [isMobile, type]);
 
+    // children이 배열이면 map 돌리고, 아니면 단일 child도 감싸줌
+    const wrappedSlides = React.Children.map(children, (child) => (
+      <SwiperSlide>{child}</SwiperSlide>
+    ));
+
   return (
     <Swiper className={`w-full h-full ${className}`} {...config} modules={modules}>
-      {children}
+      {wrappedSlides}
     </Swiper>
   );
 };
