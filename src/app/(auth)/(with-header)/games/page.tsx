@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { BreadCrumb } from "@/app/components/breadCrumb";
 import { List, listVariants } from "@/app/components/list";
@@ -5,6 +7,9 @@ import { Card, cardVariants } from "@/app/components/card";
 import { Tag } from "@/app/components/tag";
 import { Button, buttonVariants } from "@/app/components/button";
 import { Title } from "@/app/components/title";
+import { Modal, modalVariants } from "@/app/components/modal";
+import useModal from "@/hooks/modal/useModal";
+import { AnimatePresence } from "motion/react";
 
 const questions = [
   {
@@ -105,37 +110,6 @@ const gameQuestions = [
       "987fcdeb-51a2-43d7-b987-654321098765",
     ],
     user_id: "06c2cf08-1f2c-472e-914f-f569f9f0b03b",
-  },
-];
-
-const gameQuestionBlanks = [
-  {
-    id: "8b47a85a-1743-4b1f-a12d-1e10df60e571",
-    word_index: 0,
-    word: "DOM",
-    createdAt: "2024-01-01",
-    game_question_id: "d0a7eecc-06d9-4a76-bd6f-9e77a83b9173",
-  },
-  {
-    id: "90abfa55-03f3-4e47-a216-48c823a923b0",
-    word_index: 1,
-    word: "Hoisting",
-    createdAt: "2024-01-01",
-    game_question_id: "d0a7eecc-06d9-4a76-bd6f-9e77a83b9173",
-  },
-  {
-    id: "e1f2g3h4-i5j6-7890-klmn-opqrstuvwxyz",
-    word_index: 2,
-    word: "Closure",
-    createdAt: "2024-01-01",
-    game_question_id: "d0a7eecc-06d9-4a76-bd6f-9e77a83b9173",
-  },
-  {
-    id: "h5i6j7k8-l9m0-1234-nopq-rstuvwxyzabcd",
-    word_index: 3,
-    word: "Promise",
-    createdAt: "2024-01-01",
-    game_question_id: "d0a7eecc-06d9-4a76-bd6f-9e77a83b9173",
   },
 ];
 
@@ -260,6 +234,8 @@ const getTagsForQuestions = (questionIDs: string[]) =>
   );
 
 export default function page() {
+  const modalProps = useModal();
+
   return (
     <section className="w-full flex flex-col gap-7.5">
       <BreadCrumb
@@ -276,9 +252,9 @@ export default function page() {
 
           return (
             <Card type="checkCard" key={gameQuestion.id}>
-              <div className="flex justify-between">
-                <div className="flex flex-col gap-5">
-                  <div className="flex flex-col gap-8.5">
+              <div className="flex justify-between h-full">
+                <div className="flex flex-col justify-between">
+                  <div className="flex flex-col gap-6.5">
                     <div>
                       <Title size="sm" title={gameQuestion.title} />
                     </div>
@@ -305,16 +281,21 @@ export default function page() {
                 </div>
 
                 <div className="flex items-center">
-                  <div></div>
+                  <div>
+                    <div className="flex-center w-28 h-28 rounded-full bg-sub-text bg-conic-gradient(at top right, navy)">
+                      <div className="w-[85%] h-[85%]  rounded-full bg-white"></div>
+                    </div>
+                  </div>
                   <div className="flex flex-col gap-3.5">
                     <Button
                       type="button"
-                      className="rounded-md cursor-pointer md:font-regular-18 md:px-5 md:py-2.5 font-regular-14 px-4 py-2 bg-sub-text text-white"
+                      className="rounded-md cursor-pointer md:font-regular-18 md:px-5 md:py-2.5 font-regular-14 px-4 py-2 bg-sub-text text-white hover:opacity-80 transition-opacity"
                     >
                       수정하기
                     </Button>
                     <Button
                       type="button"
+                      onClick={modalProps.open}
                       className={buttonVariants({ size: "lg", color: "red", hover: true })}
                     >
                       삭제하기
@@ -326,6 +307,27 @@ export default function page() {
           );
         })}
       </List>
+      <AnimatePresence>
+        {modalProps.isOpen && (
+          <Modal
+            isOpen={modalProps.isOpen}
+            onClose={modalProps.close}
+            className={modalVariants({ size: "default" })}
+            closeButton={true}
+            closeWithOverlay={true}
+          >
+            <div className="w-full h-full flex flex-col justify-center items-center gap-7.5">
+              <h3 className="font-regular-18">정말로 게임을 삭제하시겠습니까?</h3>
+              <Button
+                type="button"
+                className={buttonVariants({ size: "lg", color: "red", hover: true })}
+              >
+                네, 삭제할게요.
+              </Button>
+            </div>
+          </Modal>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
