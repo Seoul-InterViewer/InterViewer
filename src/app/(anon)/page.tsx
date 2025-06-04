@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main className="flex flex-col">
       <Banner />
-      <section className="flex flex-col gap-8 mt-[calc(100vh-64px)]">
+      <section className="flex flex-col gap-8 mt-[calc(100vh+64px)]">
         <Slider type="mainPageCards">
           {featuredQuestions.map((question) => (
             <MainCard key={question.id} {...question} />

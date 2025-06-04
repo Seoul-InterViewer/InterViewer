@@ -1,6 +1,5 @@
 "use client";
 
-import { useViewport } from "@/hooks/useViewport";
 import { motion } from "motion/react";
 import Link from "next/link";
 import React from "react";
@@ -13,7 +12,6 @@ import {
 } from "./banner.variants";
 
 export const Banner = () => {
-  const { isMobile } = useViewport();
   return (
     <div className="absolute top-16 left-0 right-0 h-[calc(100vh-64px)] flex items-center justify-center overflow-hidden">
       <motion.div
