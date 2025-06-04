@@ -42,6 +42,8 @@ export const bannerCardVariants = tv({
     "after:text-white",
     "after:p-0",
     "after:font-regular-18",
+    "after:break-keep",
+    "after:!leading-6",
     "after:transition-all",
     "hover:after:h-full",
     "hover:after:p-10",
