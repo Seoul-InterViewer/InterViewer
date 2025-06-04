@@ -29,6 +29,9 @@ importers:
       react:
         specifier: ^19.0.0
         version: 19.1.0
+      react-animated-numbers:
+        specifier: ^1.0.1
+        version: 1.0.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-dom:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
@@ -2104,6 +2107,20 @@ packages:
   fraction.js@4.3.7:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
 
+  framer-motion@11.18.2:
+    resolution: {integrity: sha512-5F5Och7wrvtLVElIpclDT0CBzMVg3dL22B64aZwHtsIY8RB4mXICLrkajK4G9R+ieSAGcgrLeae2SeUTg2pr6w==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   framer-motion@12.11.3:
     resolution: {integrity: sha512-ksUtDFBZtrbQFt4bEMFrFgo7camhmXcLeuylKQxEYSd9czkZ4tZmFROxWczWeu51WqC2m91ifpvgGCBLd0uviQ==}
     peerDependencies:
@@ -2929,11 +2946,31 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  motion-dom@11.18.1:
+    resolution: {integrity: sha512-g76KvA001z+atjfxczdRtw/RXOM3OMSdd1f4DL77qCTF/+avrRJiawSG4yDibEQ215sr9kpinSlX2pCTJ9zbhw==}
+
   motion-dom@12.11.2:
     resolution: {integrity: sha512-wZ396XNNTI9GOkyrr80wFSbZc1JbIHSHTbLdririSbkEgahWWKmsHzsxyxqBBvuBU/iaQWVu1YCjdpXYNfo2yQ==}
 
+  motion-utils@11.18.1:
+    resolution: {integrity: sha512-49Kt+HKjtbJKLtgO/LKj9Ld+6vw9BjH5d9sc40R/kVyH8GLAXgT42M2NnuPcJNuA3s9ZfZBUcwIgpmZWGEE+hA==}
+
   motion-utils@12.9.4:
     resolution: {integrity: sha512-BW3I65zeM76CMsfh3kHid9ansEJk9Qvl+K5cu4DVHKGsI52n76OJ4z2CUJUV+Mn3uEP9k1JJA3tClG0ggSrRcg==}
+
+  motion@11.18.2:
+    resolution: {integrity: sha512-JLjvFDuFr42NFtcVoMAyC2sEjnpA8xpy6qWPyzQvCloznAyQ8FIXioxWfHiLtgYhoVpfUqSWpn1h9++skj9+Wg==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
 
   motion@12.11.3:
     resolution: {integrity: sha512-R9t8IYJ5hSl+Ao5rj6XGS4lJN+fXQstcpwKOcFA5aWjlwjf3IHcHr8DUjPV0My6T/5ZCQ1jqh0pmjggO4zUpEA==}
@@ -3238,6 +3275,12 @@ packages:
   raw-body@3.0.0:
     resolution: {integrity: sha512-RmkhL8CAyCRPXCE28MMH0z2PNWQBNk2Q09ZdxM9IOOXwxwZbN+qbWaatPkdkWIKL2ZVDImrN/pK5HTRz2PcS4g==}
     engines: {node: '>= 0.8'}
+
+  react-animated-numbers@1.0.1:
+    resolution: {integrity: sha512-4nvqTZpcsagwKl4uvnKt71y4JjNmIWyX+HOjj4OWJK3aOmnu8kBN9bFwdkpA9zHBzvBY0cbyFVZ7Jpi21MCdww==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
 
   react-dom@19.1.0:
     resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
@@ -6323,6 +6366,15 @@ snapshots:
 
   fraction.js@4.3.7: {}
 
+  framer-motion@11.18.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+    dependencies:
+      motion-dom: 11.18.1
+      motion-utils: 11.18.1
+      tslib: 2.8.1
+    optionalDependencies:
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+
   framer-motion@12.11.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       motion-dom: 12.11.2
@@ -7283,11 +7335,25 @@ snapshots:
 
   mkdirp@3.0.1: {}
 
+  motion-dom@11.18.1:
+    dependencies:
+      motion-utils: 11.18.1
+
   motion-dom@12.11.2:
     dependencies:
       motion-utils: 12.9.4
 
+  motion-utils@11.18.1: {}
+
   motion-utils@12.9.4: {}
+
+  motion@11.18.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+    dependencies:
+      framer-motion: 11.18.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      tslib: 2.8.1
+    optionalDependencies:
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
 
   motion@12.11.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
@@ -7567,6 +7633,14 @@ snapshots:
       http-errors: 2.0.0
       iconv-lite: 0.6.3
       unpipe: 1.0.0
+
+  react-animated-numbers@1.0.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+    dependencies:
+      motion: 11.18.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+    transitivePeerDependencies:
+      - '@emotion/is-prop-valid'
 
   react-dom@19.1.0(react@19.1.0):
     dependencies:
