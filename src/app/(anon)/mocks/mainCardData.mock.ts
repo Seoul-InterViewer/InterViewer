@@ -1,0 +1,235 @@
+import { IMainCardProps as IArticle } from "../components/mainCard/mainCard.type";
+
+export const mockArticles: Record<string, IArticle[]> = {
+  next: [
+    {
+      id: "next-1",
+      title: "SSR이 무엇이고 언제 사용해야 할까요?",
+      description:
+        "Server-Side Rendering의 개념과 CSR과의 차이점, 그리고 실제 프로젝트에서 SSR을 선택해야 하는 상황에 대해 자세히 알아보겠습니다.",
+      author: "프론트엔드 개발자",
+      category: "Next.js",
+      difficulty: "중급",
+      tags: ["SSR", "Next.js", "렌더링"],
+      likes: 124,
+      publishedAt: "2024-01-15",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      id: "next-2",
+      title: "Next.js App Router vs Pages Router 비교",
+      description:
+        "Next.js 13에서 도입된 App Router와 기존 Pages Router의 차이점을 실제 코드 예시와 함께 비교 분석해보겠습니다.",
+      author: "시니어 개발자",
+      category: "Next.js",
+      difficulty: "고급",
+      tags: ["App Router", "Pages Router", "Next.js 13"],
+      likes: 89,
+      publishedAt: "2024-01-12",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      id: "next-3",
+      title: "getStaticProps와 getServerSideProps 차이점",
+      description:
+        "Next.js의 데이터 페칭 메서드들의 차이점과 각각을 언제 사용해야 하는지에 대한 실무 관점에서의 설명입니다.",
+      author: "웹 개발 전문가",
+      category: "Next.js",
+      difficulty: "중급",
+      tags: ["getStaticProps", "getServerSideProps", "데이터 페칭"],
+      likes: 156,
+      publishedAt: "2024-01-10",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      id: "next-4",
+      title: "Next.js 미들웨어 활용법과 실제 사례",
+      description:
+        "인증, 리다이렉션, 국제화 등 다양한 상황에서 Next.js 미들웨어를 효과적으로 활용하는 방법을 알아보겠습니다.",
+      author: "풀스택 개발자",
+      category: "Next.js",
+      difficulty: "고급",
+      tags: ["Middleware", "인증", "리다이렉션"],
+      likes: 203,
+      publishedAt: "2024-01-08",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+    },
+  ],
+  react: [
+    {
+      id: "react-1",
+      title: "어떤 상태를 중앙집중으로 관리해야 할까요?",
+      description:
+        "React에서 상태 관리 방법에 대해 설명하고 어떤 상황에서 어떤 방법을 사용해야 하는지, 그리고 왜 사용해야 하는지 설명해주세요.",
+      author: "React 전문가",
+      category: "React",
+      difficulty: "중급",
+      tags: ["상태관리", "Redux", "Context API"],
+      likes: 178,
+      publishedAt: "2024-01-14",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      id: "react-2",
+      title: "useEffect의 의존성 배열 완벽 이해하기",
+      description:
+        "useEffect 훅의 의존성 배열이 어떻게 작동하는지, 빈 배열과 의존성이 있는 경우의 차이점을 실제 예시로 설명합니다.",
+      author: "리액트 개발자",
+      category: "React",
+      difficulty: "초급",
+      tags: ["useEffect", "Hooks", "의존성 배열"],
+      likes: 245,
+      publishedAt: "2024-01-13",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      id: "react-3",
+      title: "React 18의 새로운 기능들과 변경사항",
+      description:
+        "Concurrent Features, Automatic Batching, Suspense 개선사항 등 React 18에서 새롭게 추가된 기능들을 살펴봅니다.",
+      author: "프론트엔드 아키텍트",
+      category: "React",
+      difficulty: "고급",
+      tags: ["React 18", "Concurrent", "Suspense"],
+      likes: 134,
+      publishedAt: "2024-01-11",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      id: "react-4",
+      title: "Custom Hook 설계 패턴과 베스트 프랙티스",
+      description:
+        "재사용 가능하고 테스트하기 쉬운 Custom Hook을 만드는 방법과 실제 프로젝트에서 활용할 수 있는 패턴들을 소개합니다.",
+      author: "시니어 리액트 개발자",
+      category: "React",
+      difficulty: "고급",
+      tags: ["Custom Hook", "설계 패턴", "재사용성"],
+      likes: 167,
+      publishedAt: "2024-01-09",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+    },
+  ],
+  javascript: [
+    {
+      id: "js-1",
+      title: "클로저(Closure)의 개념과 실제 활용 사례",
+      description:
+        "JavaScript의 클로저 개념을 이해하고, 실제 개발에서 어떻게 활용할 수 있는지 다양한 예시와 함께 설명합니다.",
+      author: "JavaScript 전문가",
+      category: "JavaScript",
+      difficulty: "중급",
+      tags: ["클로저", "스코프", "함수형 프로그래밍"],
+      likes: 289,
+      publishedAt: "2024-01-16",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      id: "js-2",
+      title: "Promise와 async/await 완벽 가이드",
+      description:
+        "비동기 처리의 핵심인 Promise와 async/await의 차이점, 에러 처리 방법, 그리고 실무에서의 활용법을 알아봅니다.",
+      author: "웹 개발자",
+      category: "JavaScript",
+      difficulty: "초급",
+      tags: ["Promise", "async/await", "비동기"],
+      likes: 312,
+      publishedAt: "2024-01-15",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      id: "js-3",
+      title: "JavaScript 이벤트 루프와 동작 원리",
+      description:
+        "JavaScript 엔진의 이벤트 루프가 어떻게 작동하는지, 콜 스택과 태스크 큐의 관계를 시각적으로 설명합니다.",
+      author: "백엔드 개발자",
+      category: "JavaScript",
+      difficulty: "고급",
+      tags: ["이벤트 루프", "콜 스택", "태스크 큐"],
+      likes: 198,
+      publishedAt: "2024-01-14",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      id: "js-4",
+      title: "ES6+ 문법 정리와 실무 활용법",
+      description:
+        "ES6부터 최신 JavaScript까지의 새로운 문법들을 정리하고, 실제 프로젝트에서 어떻게 활용할 수 있는지 알아봅니다.",
+      author: "프론트엔드 개발자",
+      category: "JavaScript",
+      difficulty: "초급",
+      tags: ["ES6+", "모던 JavaScript", "문법"],
+      likes: 267,
+      publishedAt: "2024-01-13",
+      imageUrl: "/placeholder.svg?height=200&width=300",
+    },
+  ],
+};
+
+export const featuredArticles: IArticle[] = [
+  {
+    id: "featured-1",
+    title: "2024년 프론트엔드 개발자 면접 트렌드",
+    description:
+      "최신 프론트엔드 기술 스택과 면접에서 자주 묻는 질문들, 그리고 준비 방법에 대한 종합적인 가이드입니다.",
+    author: "테크 리드",
+    category: "면접 준비",
+    difficulty: "중급",
+    tags: ["면접", "트렌드", "2024"],
+    likes: 456,
+    publishedAt: "2024-01-17",
+    imageUrl: "/placeholder.svg?height=300&width=400",
+  },
+  {
+    id: "featured-2",
+    title: "TypeScript 고급 타입 시스템 마스터하기",
+    description:
+      "Generic, Conditional Types, Mapped Types 등 TypeScript의 고급 타입 시스템을 실제 예시와 함께 완벽하게 이해해봅시다.",
+    author: "TypeScript 전문가",
+    category: "TypeScript",
+    difficulty: "고급",
+    tags: ["TypeScript", "고급 타입", "Generic"],
+    likes: 378,
+    publishedAt: "2024-01-16",
+    imageUrl: "/placeholder.svg?height=300&width=400",
+  },
+  {
+    id: "featured-3",
+    title: "웹 성능 최적화 실전 가이드",
+    description:
+      "Core Web Vitals 개선부터 번들 사이즈 최적화까지, 실제 프로젝트에서 적용할 수 있는 성능 최적화 기법들을 소개합니다.",
+    author: "성능 최적화 전문가",
+    category: "성능 최적화",
+    difficulty: "고급",
+    tags: ["성능", "최적화", "Core Web Vitals"],
+    likes: 523,
+    publishedAt: "2024-01-15",
+    imageUrl: "/placeholder.svg?height=300&width=400",
+  },
+];
+
+// export const quizData = [
+//   {
+//     id: "quiz-1",
+//     title: "React Hooks 빈칸 채우기",
+//     description: "useState와 useEffect 사용법을 테스트하는 빈칸 채우기 문제입니다.",
+//     difficulty: "초급",
+//     category: "React",
+//     completions: 1234,
+//   },
+//   {
+//     id: "quiz-2",
+//     title: "JavaScript 클로저 이해하기",
+//     description: "클로저의 개념과 활용법을 테스트하는 코드 완성 문제입니다.",
+//     difficulty: "중급",
+//     category: "JavaScript",
+//     completions: 856,
+//   },
+//   {
+//     id: "quiz-3",
+//     title: "Next.js 라우팅 시스템",
+//     description: "App Router와 Pages Router의 차이점을 이해하는 문제입니다.",
+//     difficulty: "중급",
+//     category: "Next.js",
+//     completions: 642,
+//   },
+// ];

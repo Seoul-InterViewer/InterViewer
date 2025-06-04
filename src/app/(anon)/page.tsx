@@ -1,4 +1,4 @@
-import {Banner} from "./components/banner/Banner";
+import { Banner } from "./components/banner/Banner";
 
 export default function Home() {
   return (
@@ -7,7 +7,7 @@ export default function Home() {
       <Banner />
 
       {/* Main Content */}
-      <main className="flex flex-col gap-8 mt-[calc(100vh-64px)]">
+      <div className="flex flex-col gap-8 mt-[calc(100vh-64px)]">
         <div className="flex flex-col gap-4">
           <h2 className="text-3xl font-bold">Layout Test Page</h2>
           <p className="text-gray-600">Testing different layout components and spacing</p>
@@ -33,7 +33,7 @@ export default function Home() {
           <button className="bg-gray-500 text-white rounded px-4 py-2">Button 2</button>
           <button className="bg-green-500 text-white rounded px-4 py-2">Button 3</button>
         </div>
-      </main>
+      </div>
     </main>
   );
 }
