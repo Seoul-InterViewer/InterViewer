@@ -1,6 +1,6 @@
-import { IMainCardProps as IArticle } from "../components/mainCard/mainCard.type";
+import { IMainCardProps as IQuestion } from "../components/mainCard/mainCard.type";
 
-export const mockArticles: Record<string, IArticle[]> = {
+export const mockQuestions: Record<string, IQuestion[]> = {
   next: [
     {
       id: "next-1",
@@ -165,7 +165,7 @@ export const mockArticles: Record<string, IArticle[]> = {
   ],
 };
 
-export const featuredArticles: IArticle[] = [
+export const featuredQuestions: IQuestion[] = [
   {
     id: "featured-1",
     title: "2024년 프론트엔드 개발자 면접 트렌드",
