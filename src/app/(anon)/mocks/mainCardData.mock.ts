@@ -1,5 +1,7 @@
 import { IMainCardProps as IQuestion } from "../components/mainCard/mainCard.type";
 
+// mockQuestions의 각 객체의 category 속성이 반드시 mockQuestions의 key(next, react, javascript)와 일치하도록 수정
+
 export const mockQuestions: Record<string, IQuestion[]> = {
   next: [
     {
@@ -8,7 +10,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "Server-Side Rendering의 개념과 CSR과의 차이점, 그리고 실제 프로젝트에서 SSR을 선택해야 하는 상황에 대해 자세히 알아보겠습니다.",
       author: "프론트엔드 개발자",
-      category: "Next.js",
+      category: "next",
       difficulty: "중급",
       tags: ["SSR", "Next.js", "렌더링"],
       likes: 124,
@@ -21,7 +23,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "Next.js 13에서 도입된 App Router와 기존 Pages Router의 차이점을 실제 코드 예시와 함께 비교 분석해보겠습니다.",
       author: "시니어 개발자",
-      category: "Next.js",
+      category: "next",
       difficulty: "고급",
       tags: ["App Router", "Pages Router", "Next.js 13"],
       likes: 89,
@@ -34,7 +36,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "Next.js의 데이터 페칭 메서드들의 차이점과 각각을 언제 사용해야 하는지에 대한 실무 관점에서의 설명입니다.",
       author: "웹 개발 전문가",
-      category: "Next.js",
+      category: "next",
       difficulty: "중급",
       tags: ["getStaticProps", "getServerSideProps", "데이터 페칭"],
       likes: 156,
@@ -47,7 +49,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "인증, 리다이렉션, 국제화 등 다양한 상황에서 Next.js 미들웨어를 효과적으로 활용하는 방법을 알아보겠습니다.",
       author: "풀스택 개발자",
-      category: "Next.js",
+      category: "next",
       difficulty: "고급",
       tags: ["Middleware", "인증", "리다이렉션"],
       likes: 203,
@@ -62,7 +64,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "React에서 상태 관리 방법에 대해 설명하고 어떤 상황에서 어떤 방법을 사용해야 하는지, 그리고 왜 사용해야 하는지 설명해주세요.",
       author: "React 전문가",
-      category: "React",
+      category: "react",
       difficulty: "중급",
       tags: ["상태관리", "Redux", "Context API"],
       likes: 178,
@@ -75,7 +77,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "useEffect 훅의 의존성 배열이 어떻게 작동하는지, 빈 배열과 의존성이 있는 경우의 차이점을 실제 예시로 설명합니다.",
       author: "리액트 개발자",
-      category: "React",
+      category: "react",
       difficulty: "초급",
       tags: ["useEffect", "Hooks", "의존성 배열"],
       likes: 245,
@@ -88,7 +90,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "Concurrent Features, Automatic Batching, Suspense 개선사항 등 React 18에서 새롭게 추가된 기능들을 살펴봅니다.",
       author: "프론트엔드 아키텍트",
-      category: "React",
+      category: "react",
       difficulty: "고급",
       tags: ["React 18", "Concurrent", "Suspense"],
       likes: 134,
@@ -101,7 +103,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "재사용 가능하고 테스트하기 쉬운 Custom Hook을 만드는 방법과 실제 프로젝트에서 활용할 수 있는 패턴들을 소개합니다.",
       author: "시니어 리액트 개발자",
-      category: "React",
+      category: "react",
       difficulty: "고급",
       tags: ["Custom Hook", "설계 패턴", "재사용성"],
       likes: 167,
@@ -116,7 +118,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "JavaScript의 클로저 개념을 이해하고, 실제 개발에서 어떻게 활용할 수 있는지 다양한 예시와 함께 설명합니다.",
       author: "JavaScript 전문가",
-      category: "JavaScript",
+      category: "javascript",
       difficulty: "중급",
       tags: ["클로저", "스코프", "함수형 프로그래밍"],
       likes: 289,
@@ -129,7 +131,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "비동기 처리의 핵심인 Promise와 async/await의 차이점, 에러 처리 방법, 그리고 실무에서의 활용법을 알아봅니다.",
       author: "웹 개발자",
-      category: "JavaScript",
+      category: "javascript",
       difficulty: "초급",
       tags: ["Promise", "async/await", "비동기"],
       likes: 312,
@@ -142,7 +144,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "JavaScript 엔진의 이벤트 루프가 어떻게 작동하는지, 콜 스택과 태스크 큐의 관계를 시각적으로 설명합니다.",
       author: "백엔드 개발자",
-      category: "JavaScript",
+      category: "javascript",
       difficulty: "고급",
       tags: ["이벤트 루프", "콜 스택", "태스크 큐"],
       likes: 198,
@@ -155,7 +157,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "ES6부터 최신 JavaScript까지의 새로운 문법들을 정리하고, 실제 프로젝트에서 어떻게 활용할 수 있는지 알아봅니다.",
       author: "프론트엔드 개발자",
-      category: "JavaScript",
+      category: "javascript",
       difficulty: "초급",
       tags: ["ES6+", "모던 JavaScript", "문법"],
       likes: 267,
@@ -172,7 +174,7 @@ export const featuredQuestions: IQuestion[] = [
     description:
       "최신 프론트엔드 기술 스택과 면접에서 자주 묻는 질문들, 그리고 준비 방법에 대한 종합적인 가이드입니다.",
     author: "테크 리드",
-    category: "면접 준비",
+    category: "interview",
     difficulty: "중급",
     tags: ["면접", "트렌드", "2024"],
     likes: 456,
@@ -185,7 +187,7 @@ export const featuredQuestions: IQuestion[] = [
     description:
       "Generic, Conditional Types, Mapped Types 등 TypeScript의 고급 타입 시스템을 실제 예시와 함께 완벽하게 이해해봅시다.",
     author: "TypeScript 전문가",
-    category: "TypeScript",
+    category: "typescript",
     difficulty: "고급",
     tags: ["TypeScript", "고급 타입", "Generic"],
     likes: 378,
@@ -198,7 +200,7 @@ export const featuredQuestions: IQuestion[] = [
     description:
       "Core Web Vitals 개선부터 번들 사이즈 최적화까지, 실제 프로젝트에서 적용할 수 있는 성능 최적화 기법들을 소개합니다.",
     author: "성능 최적화 전문가",
-    category: "성능 최적화",
+    category: "performance",
     difficulty: "고급",
     tags: ["성능", "최적화", "Core Web Vitals"],
     likes: 523,
@@ -211,7 +213,7 @@ export const featuredQuestions: IQuestion[] = [
     description:
       "Context API, Redux, Recoil 등 다양한 상태 관리 도구의 장단점과 실제 프로젝트에서의 선택 기준을 비교합니다.",
     author: "React 마스터",
-    category: "React",
+    category: "react",
     difficulty: "중급",
     tags: ["상태관리", "Redux", "Recoil", "Context API"],
     likes: 412,
@@ -224,7 +226,7 @@ export const featuredQuestions: IQuestion[] = [
     description:
       "next/image 컴포넌트의 활용법과 다양한 이미지 최적화 기법을 실제 사례와 함께 소개합니다.",
     author: "프론트엔드 엔지니어",
-    category: "Next.js",
+    category: "next",
     difficulty: "초급",
     tags: ["Next.js", "이미지 최적화", "next/image"],
     likes: 301,
@@ -237,7 +239,7 @@ export const featuredQuestions: IQuestion[] = [
     description:
       "콜백, Promise, async/await의 차이와 각각의 장단점, 그리고 실무에서의 활용법을 심도 있게 다룹니다.",
     author: "JS 마스터",
-    category: "JavaScript",
+    category: "javascript",
     difficulty: "고급",
     tags: ["비동기", "Promise", "async/await"],
     likes: 389,
@@ -250,7 +252,7 @@ export const featuredQuestions: IQuestion[] = [
     description:
       "실제 서비스에서 바로 적용할 수 있는 웹 접근성 체크리스트와 주요 고려사항을 정리했습니다.",
     author: "A11y 전문가",
-    category: "웹 접근성",
+    category: "a11y",
     difficulty: "중급",
     tags: ["접근성", "A11y", "실전"],
     likes: 277,
@@ -265,7 +267,7 @@ export const featuredQuestions: IQuestion[] = [
 //     title: "React Hooks 빈칸 채우기",
 //     description: "useState와 useEffect 사용법을 테스트하는 빈칸 채우기 문제입니다.",
 //     difficulty: "초급",
-//     category: "React",
+//     category: "react",
 //     completions: 1234,
 //   },
 //   {
@@ -273,7 +275,7 @@ export const featuredQuestions: IQuestion[] = [
 //     title: "JavaScript 클로저 이해하기",
 //     description: "클로저의 개념과 활용법을 테스트하는 코드 완성 문제입니다.",
 //     difficulty: "중급",
-//     category: "JavaScript",
+//     category: "javascript",
 //     completions: 856,
 //   },
 //   {
@@ -281,7 +283,7 @@ export const featuredQuestions: IQuestion[] = [
 //     title: "Next.js 라우팅 시스템",
 //     description: "App Router와 Pages Router의 차이점을 이해하는 문제입니다.",
 //     difficulty: "중급",
-//     category: "Next.js",
+//     category: "next",
 //     completions: 642,
 //   },
 // ];

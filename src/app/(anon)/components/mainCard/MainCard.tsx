@@ -5,6 +5,31 @@ import { IMainCardProps } from "./mainCard.type";
 import { Icon } from "@/app/components/icon";
 import { Tag } from "@/app/components/tag";
 import { List, listVariants } from "@/app/components/list";
+import Image from "next/image";
+
+const categoryIconMapper = (category: string) => {
+  // 추후 DB에서 카테고리 목록을 가져와 이를 객체로 매핑하는 식으로 사용할 예정
+  const categories = {
+    javascript: "/icons/javascript.svg",
+    react: "/icons/react.svg",
+    nextjs: "/icons/nextjs.svg",
+    typescript: "/icons/typescript.svg",
+    nodejs: "/icons/nodejs.svg",
+    express: "/icons/express.svg",
+    mongodb: "/icons/mongodb.svg",
+    mysql: "/icons/mysql.svg",
+    postgresql: "/icons/postgresql.svg",
+    docker: "/icons/docker.svg",
+    aws: "/icons/aws.svg",
+    git: "/icons/git.svg",
+    github: "/icons/github.svg",
+    gitlab: "/icons/gitlab.svg",
+    interview: "/icons/interview.svg",
+    performance: "/icons/performance.svg",
+    a11y: "/icons/a11y.svg",
+  } as const;
+  return categories[category as keyof typeof categories];
+};
 
 export const MainCard = ({
   title,
@@ -18,9 +43,13 @@ export const MainCard = ({
 }: IMainCardProps) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
+
   return (
     <Card type="mainCard">
-      <div className="flex flex-col justify-between h-full">
+      <div className="flex flex-col justify-between h-full relative">
+        <div>
+          {category && <Image src={categoryIconMapper(category)} alt={title} width={100} height={100} />}
+        </div>
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-3">
             <div className="flex justify-between items-center">
@@ -28,10 +57,7 @@ export const MainCard = ({
                 {category} | {`난이도: ${difficulty}`}
               </strong>
               <div>
-                <Icon
-                  name="bookmark"
-                  onClick={() => setIsBookmarked((prev) => !prev)}
-                />
+                <Icon name="bookmark" onClick={() => setIsBookmarked((prev) => !prev)} />
               </div>
             </div>
             <List type="tags">
