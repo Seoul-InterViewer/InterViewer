@@ -13,6 +13,7 @@ import { GamePageListItem } from "./components/GamePageListItem";
 export default function page() {
   const modalProps = useModal();
 
+
   return (
     <section className="w-full flex flex-col gap-7.5">
       <BreadCrumb
@@ -23,7 +24,7 @@ export default function page() {
       />
       <List className={listVariants()}>
         {gameQuestions.map((gameQuestion) => {
-          return <GamePageListItem key={gameQuestion.id} gameQuestion={gameQuestion} />;
+          return <GamePageListItem key={gameQuestion.id} gameQuestion={gameQuestion} onOpen={modalProps.open}/>;
         })}
       </List>
       <AnimatePresence>
@@ -36,7 +37,7 @@ export default function page() {
             closeWithOverlay={true}
           >
             <div className="w-full h-full flex flex-col justify-center items-center gap-7.5">
-              <h3 className="font-regular-18">정말로 게임을 삭제하시겠습니까?</h3>
+              <h3 className="md:font-regular-18 font-regular-14">정말로 게임을 삭제하시겠습니까?</h3>
               <Button
                 type="button"
                 className={buttonVariants({ size: "lg", color: "red", hover: true })}

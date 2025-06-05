@@ -3,7 +3,7 @@ export const questions = [
     id: "123e4567-e89b-12d3-a456-426614174000",
     createdAt: "2024-01-01",
     updatedAt: "2024-01-01",
-    title: "React - 가상 돔(virtual DOM)",
+    title: "React에서 useMemo와 useCallback의 차이점은 무엇인가요? 언제 사용하는 것이 좋을까요?",
     content: "React의 기본 개념을 설명해주세요.",
     difficulty: "medium",
     likes: 10,
