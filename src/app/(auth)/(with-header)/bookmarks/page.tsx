@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookmarkCard } from "./components/BookmarkCard";
+import { BookmarkCard } from "./components/bookmarkCard/BookmarkCard";
 import { bookmarkData } from "./mocks/bookmarksPage.mock";
 import { BreadCrumb } from "@/app/components/breadCrumb";
 import { Button, buttonVariants } from "@/app/components/button";

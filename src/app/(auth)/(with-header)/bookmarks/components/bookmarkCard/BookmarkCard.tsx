@@ -1,7 +1,7 @@
 import { Card } from "@/app/components/card";
 import { TageCircle } from "./TagCircle";
 import { Icon, IconName } from "@/app/components/icon";
-import { IBookmarksProps } from "./bookmarkPage.type";
+import { IBookmarksProps } from "./bookmarkCard.type";
 
 const categoryIcons: IconName[] = [
   "typescript",

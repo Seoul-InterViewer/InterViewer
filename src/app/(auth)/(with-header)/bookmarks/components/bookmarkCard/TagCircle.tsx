@@ -1,6 +1,6 @@
 import { Icon, IconName } from "@/app/components/icon";
-import { ITagIconsProps } from "./bookmarkPage.type";
-import { tagCircleVariants } from "./bookmarkPage.variants";
+import { ITagIconsProps } from "./bookmarkCard.type";
+import { tagCircleVariants } from "./tagCircle.variants";
 
 export const TageCircle = ({ tagIcons }: ITagIconsProps) => {
   const showIcons: IconName[] = [];
