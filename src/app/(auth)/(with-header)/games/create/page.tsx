@@ -1,15 +1,13 @@
 "use client";
 import React, { useState, useCallback, useMemo } from "react";
 import { RadioButton, IRadioItem } from "@/app/components/radioButton";
-import { Tag } from "@/app/components/tag";
 import { List, listVariants } from "@/app/components/list";
-import { Card } from "@/app/components/card";
 import { Slider } from "@/app/components/slider";
 import { Button, buttonVariants } from "@/app/components/button";
 import { Icon } from "@/app/components/icon";
 
-import { questions, bookmarks, questionTags, tags } from "./mocks/gameCreateData";
-import { GameCreateBookmarkItem } from "./components/GameCreateBookmarkItem";
+import { questions, bookmarks, wrongAnswers } from "./mocks/gameCreateData";
+import { GameCreateListItem } from "./components/GameCreateListItem";
 
 const difficultyDatas: IRadioItem[] = [
   { value: "easy", txt: "하" },
@@ -31,31 +29,67 @@ const bookmarkedQuestions = questions.filter((question) =>
   bookmarks.some((bookmark) => bookmark.question_id === question.id),
 );
 
+const wrongAnswersQuestions = questions.filter((question) =>
+  wrongAnswers.some((wrongAnswer) => wrongAnswer.questionID === question.id),
+);
+
 export default function page() {
-  const [selectedQuestions, setSelectedQuestions] = useState<Set<string>>(new Set());
+  const [selectedQuestions, setSelectedQuestions] = useState<{
+    wrongAnswers: Set<string>;
+    bookmarks: Set<string>;
+  }>({
+    wrongAnswers: new Set(),
+    bookmarks: new Set(),
+  });
 
-  const handleCheckboxChange = useCallback((questionId: string) => {
-    setSelectedQuestions((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(questionId)) {
-        newSet.delete(questionId);
-      } else {
-        newSet.add(questionId);
-      }
-      return newSet;
-    });
-  }, []);
+  const handleCheckboxChange = useCallback(
+    (questionId: string, type: "wrongAnswer" | "bookmark") => {
+      setSelectedQuestions((prev) => {
+        const newState = {
+          wrongAnswers: new Set(prev.wrongAnswers),
+          bookmarks: new Set(prev.bookmarks),
+        };
 
-  const handleSelectAll = useCallback(() => {
-    setSelectedQuestions((prev) => {
-      if (prev.size === bookmarkedQuestions.length) {
-        return new Set();
-      }
-      return new Set(bookmarkedQuestions.map((q) => q.id));
-    });
-  }, [bookmarkedQuestions]);
+        if (type === "wrongAnswer") {
+          if (newState.wrongAnswers.has(questionId)) {
+            newState.wrongAnswers.delete(questionId);
+          } else {
+            newState.wrongAnswers.add(questionId);
+          }
+        } else {
+          if (newState.bookmarks.has(questionId)) {
+            newState.bookmarks.delete(questionId);
+          } else {
+            newState.bookmarks.add(questionId);
+          }
+        }
 
-  const selectedCount = useMemo(() => selectedQuestions.size, [selectedQuestions]);
+        return newState;
+      });
+    },
+    [],
+  );
+
+  const selectedWrongAnswersCount = useMemo(
+    () => selectedQuestions.wrongAnswers.size,
+    [selectedQuestions.wrongAnswers],
+  );
+  const selectedBookmarksCount = useMemo(
+    () => selectedQuestions.bookmarks.size,
+    [selectedQuestions.bookmarks],
+  );
+
+  const selectedQuestionsArray = useMemo(() => {
+    const wrongAnswerQuestions = [...selectedQuestions.wrongAnswers]
+      .map((id) => wrongAnswersQuestions.find((q) => q.id === id))
+      .filter((q): q is NonNullable<typeof q> => q !== undefined);
+
+    const bookmarkQuestions = [...selectedQuestions.bookmarks]
+      .map((id) => bookmarkedQuestions.find((q) => q.id === id))
+      .filter((q): q is NonNullable<typeof q> => q !== undefined);
+
+    return [...wrongAnswerQuestions, ...bookmarkQuestions];
+  }, [selectedQuestions, wrongAnswersQuestions, bookmarkedQuestions]);
 
   return (
     <div className="flex flex-col md:gap-30">
@@ -77,50 +111,100 @@ export default function page() {
         <hr className="text-sub-text md:mt-12.5" />
       </div>
 
-      <div className="flex flex-col md:gap-5">
-        <div className="flex justify-between">
-          <div className="flex items-center md:gap-5">
-            <span className="font-sb-28">최근 오답 문제</span>
-            <p className="font-regular-16 text-sub-text">08 / 17 선택됨</p>
-          </div>
-          <Button type="button" className={buttonVariants({ icon: true })}>
-            <div className="flex items-center md:gap-3">
-              <span className="font-bold-18 text-font-gray">전체보기</span>
-              <Icon name="chevronRight" className="w-2 h-3 text-font-gray" />
+      <div className="flex flex-col md:gap-12.5">
+        <div className="flex flex-col md:gap-5">
+          <div className="flex justify-between">
+            <div className="flex items-center md:gap-5">
+              <span className="font-sb-28">최근 오답 문제</span>
+              <p className="font-regular-16 text-sub-text">
+                {selectedWrongAnswersCount} / {wrongAnswersQuestions.length} 선택됨
+              </p>
             </div>
-          </Button>
+            <Button type="button" className={buttonVariants({ icon: true })}>
+              <div className="flex items-center md:gap-3">
+                <span className="font-bold-18 text-font-gray">전체보기</span>
+                <Icon name="chevronRight" className="w-2 h-3 text-font-gray" />
+              </div>
+            </Button>
+          </div>
+
+          <div>
+            <List className={listVariants()}>
+              {wrongAnswersQuestions.slice(0, 3).map((question) => (
+                <GameCreateListItem
+                  question={question}
+                  key={question.id}
+                  isSelected={selectedQuestions.wrongAnswers.has(question.id)}
+                  onCheckboxChange={(id) => handleCheckboxChange(id, "wrongAnswer")}
+                />
+              ))}
+            </List>
+          </div>
         </div>
 
-        <div></div>
-      </div>
-
-      <div className="flex flex-col md:gap-5">
-        <div className="flex justify-between">
-          <div className="flex items-center md:gap-5">
-            <span className="font-sb-28">북마크된 문제</span>
-            <p className="font-regular-16 text-sub-text">
-              {selectedCount} / {bookmarkedQuestions.length} 선택됨
-            </p>
-          </div>
-          <Button type="button" className={buttonVariants({ icon: true })}>
-            <div className="flex items-center md:gap-3">
-              <span className="font-bold-18 text-font-gray">전체보기</span>
-              <Icon name="chevronRight" className="w-2 h-3 text-font-gray" />
+        <div className="flex flex-col md:gap-5">
+          <div className="flex justify-between">
+            <div className="flex items-center md:gap-5">
+              <span className="font-sb-28">북마크된 문제</span>
+              <p className="font-regular-16 text-sub-text">
+                {selectedBookmarksCount} / {bookmarkedQuestions.length} 선택됨
+              </p>
             </div>
-          </Button>
+            <Button type="button" className={buttonVariants({ icon: true })}>
+              <div className="flex items-center md:gap-3">
+                <span className="font-bold-18 text-font-gray">전체보기</span>
+                <Icon name="chevronRight" className="w-2 h-3 text-font-gray" />
+              </div>
+            </Button>
+          </div>
+
+          <div>
+            <List className={listVariants()}>
+              {bookmarkedQuestions.slice(0, 3).map((question) => (
+                <GameCreateListItem
+                  question={question}
+                  key={question.id}
+                  isSelected={selectedQuestions.bookmarks.has(question.id)}
+                  onCheckboxChange={(id) => handleCheckboxChange(id, "bookmark")}
+                />
+              ))}
+            </List>
+          </div>
         </div>
 
         <div>
-          <List className={listVariants()}>
-            {bookmarkedQuestions.slice(0, 3).map((question) => (
-              <GameCreateBookmarkItem
+          <div className="flex justify-between">
+            <div className="flex items-center md:gap-5">
+              <span className="font-sb-28">선택된 질문</span>
+              <p className="font-regular-16 text-sub-text">
+                {selectedWrongAnswersCount + selectedBookmarksCount} / {bookmarkedQuestions.length}{" "}
+                선택됨
+              </p>
+            </div>
+            <Button type="button" className={buttonVariants({ icon: true })}>
+              <div className="flex items-center md:gap-3">
+                <span className="font-bold-18 text-font-gray">전체보기</span>
+                <Icon name="chevronRight" className="w-2 h-3 text-font-gray" />
+              </div>
+            </Button>
+          </div>
+
+          <Slider type="selectedQuestionCards">
+            {selectedQuestionsArray.map((question) => (
+              <GameCreateListItem
                 question={question}
                 key={question.id}
-                isSelected={selectedQuestions.has(question.id)}
-                onCheckboxChange={handleCheckboxChange}
+                isSelected={true}
+                onCheckboxChange={(id) => {
+                  if (selectedQuestions.wrongAnswers.has(id)) {
+                    handleCheckboxChange(id, "wrongAnswer");
+                  } else {
+                    handleCheckboxChange(id, "bookmark");
+                  }
+                }}
               />
             ))}
-          </List>
+          </Slider>
         </div>
       </div>
     </div>

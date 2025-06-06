@@ -3,9 +3,9 @@ import { Card } from "@/app/components/card";
 import { Tag } from "@/app/components/tag";
 import { Icon } from "@/app/components/icon";
 
-import { questions, bookmarks, questionTags, tags } from "../mocks/gameCreateData";
+import { questionTags, tags } from "../mocks/gameCreateData";
 import { Title } from "@/app/components/title";
-import { IGameCreateBookmarkItemProps } from "./gameCreateEditPageType";
+import { IGameCreateListItemProps } from "./gameCreateEditPageType";
 
 const getTagsForQuestion = (questionID: string) => {
   return questionTags
@@ -25,13 +25,11 @@ const translatedDifficulty = (difficulty: string) => {
   }
 };
 
-
-
-export const GameCreateBookmarkItem = ({
+export const GameCreateListItem = ({
   question,
   isSelected,
   onCheckboxChange,
-}: IGameCreateBookmarkItemProps) => {
+}: IGameCreateListItemProps) => {
   return (
     <Card key={question.id} type="checkCard">
       <div className="flex md:flex-row md:justify-between md:gap-0 flex-col-reverse gap-5">

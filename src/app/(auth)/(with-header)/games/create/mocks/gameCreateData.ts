@@ -101,3 +101,30 @@ export const questionTags = [
     tagID: "550e8400-e29b-41d4-a716-446655440001",
   },
 ];
+
+export const wrongAnswers = [
+  {
+    id: "a1e2c3d4-e5f6-7890-abcd-1234567890ab",
+    memo: "useEffect 사용 위치를 헷갈림",
+    createdAt: "2025-06-01T10:00:00Z",
+    questionID: "123e4567-e89b-12d3-a456-426614174000",
+  },
+  {
+    id: "b2f3g4h5-i6j7-8901-bcde-2345678901bc",
+    memo: "라이프사이클 함수가 기억 안남",
+    createdAt: "2025-06-02T12:30:00Z",
+    questionID: "987fcdeb-51a2-43d7-b987-654321098765",
+  },
+  {
+    id: "c3h4i5j6-k7l8-9012-cdef-3456789012cd",
+    memo: "useState와 useReducer 차이점 혼동",
+    createdAt: "2025-06-03T09:15:00Z",
+    questionID: "456a789b-cdef-0123-4567-89abcdef0123",
+  },
+  {
+    id: "d4i5j6k7-l8m9-0123-def0-4567890123de",
+    memo: "Props와 State 구분이 애매했음",
+    createdAt: "2025-06-04T14:45:00Z",
+    questionID: "789b012c-3456-789d-0123-456789abcdef",
+  },
+];
