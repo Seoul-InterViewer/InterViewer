@@ -30,7 +30,7 @@ export default function BookmarksPage() {
           </span>
         </Button>
       </div>
-      <div className="w-full overflow-x-hidden grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] justify-items-center gap-2 sm:gap-4 md:gap-5">
+      <div className="w-full mb-15 overflow-x-hidden grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] justify-items-center gap-2 sm:gap-4 md:gap-5">
         {bookmarkData.bookmarks.map((data) => (
           <Link href={`${pathname}/${data.id}`} key={data.id}>
             <BookmarkCard
