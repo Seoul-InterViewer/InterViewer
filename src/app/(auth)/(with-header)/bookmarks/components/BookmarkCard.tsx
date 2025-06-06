@@ -18,7 +18,7 @@ const formattedDate = (originDate: string) => {
   return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`;
 };
 
-export const BookmarkCard = ({ id, name, createdAt, userId, questions }: IBookmarksProps) => {
+export const BookmarkCard = ({ id, name, createdAt, questions }: IBookmarksProps) => {
   const tags: string[] = [];
   questions?.map((question) => {
     question.tags.map((tag) => tags.push(tag.tagName));
