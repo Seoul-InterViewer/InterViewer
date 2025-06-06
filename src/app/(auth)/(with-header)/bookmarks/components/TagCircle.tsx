@@ -17,9 +17,8 @@ export const TageCircle = ({ tagIcons }: ITagIconsProps) => {
             name={iconName}
             width={30}
             height={30}
-            fill="var(--color-font-gray)"
+            fill={iconName === "nextjs" ? "var(--color-font-gray)" : "var(--color-background)"}
             stroke="var(--color-background)"
-            strokeWidth={1}
             className={
               index !== 0 ? "opacity-0 absolute group-hover:opacity-100 group-hover:static" : ""
             }

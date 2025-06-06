@@ -138,17 +138,13 @@ export const bookmarkData: { bookmarks: IBookmarksProps[] } = {
         {
           questionId: "question_id_7",
           tags: [
-            // {
-            //   tagId: "tag_id_10",
-            //   tagName: "typescript",
-            // },
             {
               tagId: "tag_id_2",
               tagName: "generic",
             },
             {
-              tagId: "tag_id_11",
-              tagName: "javascript",
+              tagId: "tag_id_14",
+              tagName: "web",
             },
           ],
         },
@@ -156,12 +152,12 @@ export const bookmarkData: { bookmarks: IBookmarksProps[] } = {
           questionId: "question_id_8",
           tags: [
             {
-              tagId: "tag_id_12",
-              tagName: "nextjs",
+              tagId: "tag_id_15",
+              tagName: "cs",
             },
             {
-              tagId: "tag_id_4",
-              tagName: "react",
+              tagId: "tag_id_16",
+              tagName: "library",
             },
             {
               tagId: "tag_id_0",
