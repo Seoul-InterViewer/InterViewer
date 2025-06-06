@@ -1,6 +1,6 @@
 import { Icon, IconName } from "@/app/components/icon";
 import { ITagIconsProps } from "./bookmarkPage.type";
-import { bookmarkPageVariants } from "./bookmarkPage.variants";
+import { tagCircleVariants } from "./bookmarkPage.variants";
 
 export const TageCircle = ({ tagIcons }: ITagIconsProps) => {
   const showIcons: IconName[] = [];
@@ -9,19 +9,15 @@ export const TageCircle = ({ tagIcons }: ITagIconsProps) => {
   else showIcons.push(...tagIcons);
 
   return (
-    <div className={bookmarkPageVariants({ variant: tagIcons.length > 1 && true })}>
+    <div className={tagCircleVariants({ variant: tagIcons.length > 1 && true })}>
       <div className="flex gap-5">
         {showIcons.map((iconName, index) => (
           <Icon
             key={iconName}
             name={iconName}
-            width={30}
-            height={30}
             fill={iconName === "nextjs" ? "var(--color-font-gray)" : "var(--color-background)"}
             stroke="var(--color-background)"
-            className={
-              index !== 0 ? "opacity-0 absolute group-hover:opacity-100 group-hover:static" : ""
-            }
+            className={`${index !== 0 ? "opacity-0 absolute group-hover:opacity-100 group-hover:static" : ""} w-3.5 md:w-7.5 h-3.5 md:h-7.5`}
           />
         ))}
       </div>
