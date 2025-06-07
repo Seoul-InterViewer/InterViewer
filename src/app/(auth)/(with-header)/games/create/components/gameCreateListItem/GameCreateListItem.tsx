@@ -1,11 +1,13 @@
-import React from "react";
 import { Card } from "@/app/components/card";
 import { Tag } from "@/app/components/tag";
 import { Icon } from "@/app/components/icon";
 
-import { questionTags, tags } from "../mocks/gameCreateData";
+import { questionTags, tags } from "../../mocks/gameCreateData";
 import { Title } from "@/app/components/title";
-import { IGameCreateListItemProps } from "./gameCreateEditPageType";
+import { IGameCreateListItemProps } from "./gameCreateEditPage.type";
+import { CheckboxInput, checkboxInputVariants } from "@/app/components/input/checkboxInput";
+
+import { translatedDifficulty } from "../../utils/translatedDifficulty";
 
 const getTagsForQuestion = (questionID: string) => {
   return questionTags
@@ -14,21 +16,10 @@ const getTagsForQuestion = (questionID: string) => {
     .filter(Boolean);
 };
 
-const translatedDifficulty = (difficulty: string) => {
-  switch (difficulty) {
-    case "easy":
-      return "하";
-    case "medium":
-      return "중";
-    case "hard":
-      return "상";
-  }
-};
-
 export const GameCreateListItem = ({
   question,
-  isSelected,
-  onCheckboxChange,
+  isChecked,
+  onCheckChange,
 }: IGameCreateListItemProps) => {
   return (
     <Card key={question.id} type="checkCard">
@@ -55,11 +46,12 @@ export const GameCreateListItem = ({
           </div>
         </div>
         <div className="flex-center">
-          <input
-            type="checkbox"
-            className="md:w-6 md:h-6 cursor-pointer"
-            checked={isSelected}
-            onChange={() => onCheckboxChange(question.id)}
+          <CheckboxInput
+            className={checkboxInputVariants()}
+            id={`question-${question.id}`}
+            name={`question-${question.id}`}
+            checked={isChecked}
+            onChange={onCheckChange}
           />
         </div>
       </div>

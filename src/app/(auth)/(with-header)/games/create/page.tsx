@@ -1,29 +1,13 @@
 "use client";
-import React, { useState, useCallback, useMemo } from "react";
-import { RadioButton, IRadioItem } from "@/app/components/radioButton";
+import { useState } from "react";
 import { List, listVariants } from "@/app/components/list";
 import { Slider } from "@/app/components/slider";
 import { Button, buttonVariants } from "@/app/components/button";
-import { Icon } from "@/app/components/icon";
 
 import { questions, bookmarks, wrongAnswers } from "./mocks/gameCreateData";
-import { GameCreateListItem } from "./components/GameCreateListItem";
-
-const difficultyDatas: IRadioItem[] = [
-  { value: "easy", txt: "하" },
-  { value: "medium", txt: "중" },
-  { value: "hard", txt: "상" },
-];
-
-const categoryDatas: IRadioItem[] = [
-  { value: "nextjs", txt: "Next.js" },
-  { value: "react", txt: "React" },
-  { value: "typescript", txt: "Typescript" },
-  { value: "js", txt: "JavaScript" },
-  { value: "web", txt: "Web" },
-  { value: "cs", txt: "CS" },
-  { value: "library", txt: "Library" },
-];
+import { GameCreateListItem, GameCreateListSeletedItem } from "./components/gameCreateListItem";
+import { GameCreateListHeader } from "./components/gameCreateListHeader";
+import { GameCreateTitle } from "./components/gameCreateTitle";
 
 const bookmarkedQuestions = questions.filter((question) =>
   bookmarks.some((bookmark) => bookmark.question_id === question.id),
@@ -42,169 +26,105 @@ export default function page() {
     bookmarks: new Set(),
   });
 
-  const handleCheckboxChange = useCallback(
-    (questionId: string, type: "wrongAnswer" | "bookmark") => {
-      setSelectedQuestions((prev) => {
-        const newState = {
-          wrongAnswers: new Set(prev.wrongAnswers),
-          bookmarks: new Set(prev.bookmarks),
-        };
+  const handleWrongAnswerCheck = (questionId: string, checked: boolean) => {
+    setSelectedQuestions((prev) => ({
+      ...prev,
+      wrongAnswers: checked
+        ? new Set([...prev.wrongAnswers, questionId])
+        : new Set([...prev.wrongAnswers].filter((id) => id !== questionId)),
+    }));
+  };
 
-        if (type === "wrongAnswer") {
-          if (newState.wrongAnswers.has(questionId)) {
-            newState.wrongAnswers.delete(questionId);
-          } else {
-            newState.wrongAnswers.add(questionId);
-          }
-        } else {
-          if (newState.bookmarks.has(questionId)) {
-            newState.bookmarks.delete(questionId);
-          } else {
-            newState.bookmarks.add(questionId);
-          }
-        }
-
-        return newState;
-      });
-    },
-    [],
-  );
-
-  const selectedWrongAnswersCount = useMemo(
-    () => selectedQuestions.wrongAnswers.size,
-    [selectedQuestions.wrongAnswers],
-  );
-  const selectedBookmarksCount = useMemo(
-    () => selectedQuestions.bookmarks.size,
-    [selectedQuestions.bookmarks],
-  );
-
-  const selectedQuestionsArray = useMemo(() => {
-    const wrongAnswerQuestions = [...selectedQuestions.wrongAnswers]
-      .map((id) => wrongAnswersQuestions.find((q) => q.id === id))
-      .filter((q): q is NonNullable<typeof q> => q !== undefined);
-
-    const bookmarkQuestions = [...selectedQuestions.bookmarks]
-      .map((id) => bookmarkedQuestions.find((q) => q.id === id))
-      .filter((q): q is NonNullable<typeof q> => q !== undefined);
-
-    return [...wrongAnswerQuestions, ...bookmarkQuestions];
-  }, [selectedQuestions, wrongAnswersQuestions, bookmarkedQuestions]);
+  const handleBookmarkCheck = (questionId: string, checked: boolean) => {
+    setSelectedQuestions((prev) => ({
+      ...prev,
+      bookmarks: checked
+        ? new Set([...prev.bookmarks, questionId])
+        : new Set([...prev.bookmarks].filter((id) => id !== questionId)),
+    }));
+  };
 
   return (
     <div className="flex flex-col md:gap-30">
-      <div>
-        <div className="flex flex-col md:gap-11">
-          <p className="font-sb-24">게임 생성 중...</p>
-          <p className="font-bold-56">게임 제목</p>
-          <div className="flex flex-col md:gap-4">
-            <div className="flex flex-col md:gap-3">
-              <span className="font-sb-16">난이도</span>
-              <RadioButton datas={difficultyDatas} />
-            </div>
-            <div className="flex flex-col md:gap-3">
-              <span className="font-sb-16">카테고리</span>
-              <RadioButton datas={categoryDatas} />
-            </div>
-          </div>
-        </div>
-        <hr className="text-sub-text md:mt-12.5" />
+      <GameCreateTitle />
+
+      <div className="flex flex-col md:gap-5">
+        <GameCreateListHeader
+          selectedQuestions={selectedQuestions.wrongAnswers.size}
+          totalQuestions={wrongAnswersQuestions.length}
+          type="wrongAnswer"
+        />
+        <List className={listVariants()}>
+          {wrongAnswersQuestions.slice(0, 3).map((question) => (
+            <GameCreateListItem
+              question={question}
+              key={question.id}
+              isChecked={selectedQuestions.wrongAnswers.has(question.id)}
+              onCheckChange={(e) => handleWrongAnswerCheck(question.id, e.target.checked)}
+            />
+          ))}
+        </List>
+      </div>
+
+      <div className="flex flex-col md:gap-5">
+        <GameCreateListHeader
+          selectedQuestions={selectedQuestions.bookmarks.size}
+          totalQuestions={bookmarkedQuestions.length}
+          type="bookmark"
+        />
+        <List className={listVariants()}>
+          {bookmarkedQuestions.slice(0, 3).map((question) => (
+            <GameCreateListItem
+              question={question}
+              key={question.id}
+              isChecked={selectedQuestions.bookmarks.has(question.id)}
+              onCheckChange={(e) => handleBookmarkCheck(question.id, e.target.checked)}
+            />
+          ))}
+        </List>
       </div>
 
       <div className="flex flex-col md:gap-12.5">
         <div className="flex flex-col md:gap-5">
-          <div className="flex justify-between">
-            <div className="flex items-center md:gap-5">
-              <span className="font-sb-28">최근 오답 문제</span>
-              <p className="font-regular-16 text-sub-text">
-                {selectedWrongAnswersCount} / {wrongAnswersQuestions.length} 선택됨
-              </p>
-            </div>
-            <Button type="button" className={buttonVariants({ icon: true })}>
-              <div className="flex items-center md:gap-3">
-                <span className="font-bold-18 text-font-gray">전체보기</span>
-                <Icon name="chevronRight" className="w-2 h-3 text-font-gray" />
-              </div>
-            </Button>
-          </div>
-
-          <div>
-            <List className={listVariants()}>
-              {wrongAnswersQuestions.slice(0, 3).map((question) => (
-                <GameCreateListItem
-                  question={question}
-                  key={question.id}
-                  isSelected={selectedQuestions.wrongAnswers.has(question.id)}
-                  onCheckboxChange={(id) => handleCheckboxChange(id, "wrongAnswer")}
-                />
-              ))}
-            </List>
-          </div>
-        </div>
-
-        <div className="flex flex-col md:gap-5">
-          <div className="flex justify-between">
-            <div className="flex items-center md:gap-5">
-              <span className="font-sb-28">북마크된 문제</span>
-              <p className="font-regular-16 text-sub-text">
-                {selectedBookmarksCount} / {bookmarkedQuestions.length} 선택됨
-              </p>
-            </div>
-            <Button type="button" className={buttonVariants({ icon: true })}>
-              <div className="flex items-center md:gap-3">
-                <span className="font-bold-18 text-font-gray">전체보기</span>
-                <Icon name="chevronRight" className="w-2 h-3 text-font-gray" />
-              </div>
-            </Button>
-          </div>
-
-          <div>
-            <List className={listVariants()}>
-              {bookmarkedQuestions.slice(0, 3).map((question) => (
-                <GameCreateListItem
-                  question={question}
-                  key={question.id}
-                  isSelected={selectedQuestions.bookmarks.has(question.id)}
-                  onCheckboxChange={(id) => handleCheckboxChange(id, "bookmark")}
-                />
-              ))}
-            </List>
-          </div>
-        </div>
-
-        <div>
-          <div className="flex justify-between">
-            <div className="flex items-center md:gap-5">
-              <span className="font-sb-28">선택된 질문</span>
-              <p className="font-regular-16 text-sub-text">
-                {selectedWrongAnswersCount + selectedBookmarksCount} / {bookmarkedQuestions.length}{" "}
-                선택됨
-              </p>
-            </div>
-            <Button type="button" className={buttonVariants({ icon: true })}>
-              <div className="flex items-center md:gap-3">
-                <span className="font-bold-18 text-font-gray">전체보기</span>
-                <Icon name="chevronRight" className="w-2 h-3 text-font-gray" />
-              </div>
-            </Button>
-          </div>
+          <GameCreateListHeader
+            selectedQuestions={
+              selectedQuestions.wrongAnswers.size + selectedQuestions.bookmarks.size
+            }
+            totalQuestions={wrongAnswersQuestions.length + bookmarkedQuestions.length}
+            type="selected"
+          />
 
           <Slider type="selectedQuestionCards">
-            {selectedQuestionsArray.map((question) => (
-              <GameCreateListItem
-                question={question}
-                key={question.id}
-                isSelected={true}
-                onCheckboxChange={(id) => {
-                  if (selectedQuestions.wrongAnswers.has(id)) {
-                    handleCheckboxChange(id, "wrongAnswer");
-                  } else {
-                    handleCheckboxChange(id, "bookmark");
-                  }
-                }}
-              />
-            ))}
+            {questions
+              .filter(
+                (q) =>
+                  selectedQuestions.wrongAnswers.has(q.id) || selectedQuestions.bookmarks.has(q.id),
+              )
+              .map((question) => (
+                <GameCreateListSeletedItem
+                  key={question.id}
+                  question={question}
+                  onRemove={() => {
+                    setSelectedQuestions((prev) => {
+                      const newWrong = new Set(prev.wrongAnswers);
+                      const newBook = new Set(prev.bookmarks);
+                      newWrong.delete(question.id);
+                      newBook.delete(question.id);
+                      return { wrongAnswers: newWrong, bookmarks: newBook };
+                    });
+                  }}
+                />
+              ))}
           </Slider>
+        </div>
+
+        <div className="flex md:gap-5">
+          <Button type="button" className={buttonVariants({ size: "lg", color: "black" })}>
+            취소
+          </Button>
+          <Button type="button" className={buttonVariants({ size: "lg", color: "yellow" })}>
+            다음으로
+          </Button>
         </div>
       </div>
     </div>

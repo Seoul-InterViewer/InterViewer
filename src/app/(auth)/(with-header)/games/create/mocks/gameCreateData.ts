@@ -1,3 +1,5 @@
+import { IRadioItem } from "@/app/components/radioButton";
+
 export const questions = [
   {
     id: "123e4567-e89b-12d3-a456-426614174000",
@@ -8,7 +10,7 @@ export const questions = [
     difficulty: "medium",
     likes: 10,
     isSample: true,
-    categoryID: "550e8400-e29b-41d4-a716-446655440000",
+    categoryID: "550e8400-e29b-41d4-a716-446655440001",
     userID: "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
   },
   {
@@ -20,7 +22,7 @@ export const questions = [
     difficulty: "easy",
     likes: 10,
     isSample: true,
-    categoryID: "550e8400-e29b-41d4-a716-446655440000",
+    categoryID: "550e8400-e29b-41d4-a716-446655440001",
     userID: "7c9e6679-7425-40de-944b-e07fc1f90ae7",
   },
   {
@@ -32,7 +34,7 @@ export const questions = [
     difficulty: "hard",
     likes: 10,
     isSample: true,
-    categoryID: "550e8400-e29b-41d4-a716-446655440000",
+    categoryID: "550e8400-e29b-41d4-a716-446655440001",
     userID: "8ba7b810-9dad-11d1-80b4-00c04fd430c8",
   },
   {
@@ -44,7 +46,7 @@ export const questions = [
     difficulty: "easy",
     likes: 10,
     isSample: true,
-    categoryID: "550e8400-e29b-41d4-a716-446655440000",
+    categoryID: "550e8400-e29b-41d4-a716-446655440001",
     userID: "9ba7b810-9dad-11d1-80b4-00c04fd430c8",
   },
 ];
@@ -127,4 +129,58 @@ export const wrongAnswers = [
     createdAt: "2025-06-04T14:45:00Z",
     questionID: "789b012c-3456-789d-0123-456789abcdef",
   },
+];
+
+export const categories = [
+  {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+    name: "Next.js",
+    is_etc: true,
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440001",
+    name: "React",
+    is_etc: false,
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440002",
+    name: "Typescript",
+    is_etc: false,
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440003",
+    name: "JavaScript",
+    is_etc: false,
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440004",
+    name: "Web",
+    is_etc: false,
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440005",
+    name: "CS",
+    is_etc: false,
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440006",
+    name: "Library",
+    is_etc: false,
+  },
+];
+
+export const difficultyDatas: IRadioItem[] = [
+  { value: "easy", txt: "하" },
+  { value: "medium", txt: "중" },
+  { value: "hard", txt: "상" },
+];
+
+export const categoryDatas: IRadioItem[] = [
+  { value: "nextjs", txt: "Next.js" },
+  { value: "react", txt: "React" },
+  { value: "typescript", txt: "Typescript" },
+  { value: "js", txt: "JavaScript" },
+  { value: "web", txt: "Web" },
+  { value: "cs", txt: "CS" },
+  { value: "library", txt: "Library" },
 ];
