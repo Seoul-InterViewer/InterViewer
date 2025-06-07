@@ -17,6 +17,8 @@ export default function TagPage() {
       <div className="flex flex-wrap gap-2 mb-4">
         <Tag type="card">프론트엔드</Tag>
         <Tag type="card">백엔드</Tag>
+        <Tag type="card">AI인공지능개발자</Tag>
+        <Tag type="card">더긴텍스트가들어오게된다면</Tag>
       </div>
 
       <div className="flex flex-wrap gap-2 mb-4">
