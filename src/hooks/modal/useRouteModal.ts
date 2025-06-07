@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
-import { withViewTransition } from "@/lib/utils/withViewTransition";
+import { withViewTransition } from "@/utils/withViewTransition";
 
 export function useRouterModal() {
   const router = useRouter();
