@@ -14,6 +14,7 @@ export interface IBookmarksProps {
   id: string;
   name: string;
   createdAt: string;
+  userId?: string;
   questions?: IQuestionsProps[];
 }
 

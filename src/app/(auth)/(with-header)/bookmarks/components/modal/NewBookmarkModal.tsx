@@ -2,12 +2,12 @@
 
 import { AnimatePresence } from "motion/react";
 import { Modal } from "@/app/components/modal";
-import { IUseeModalProps } from "./bookmarkModal.type";
+import { INewBookmarkModalProps } from "./bookmarkModal.type";
 import { Button, buttonVariants } from "@/app/components/button";
 import { Input, inputVariants } from "@/app/components/input";
 import { useRef } from "react";
 
-export const NewBookmarkModal = ({ props }: { props: IUseeModalProps }) => {
+export const NewBookmarkModal = ({ props }: INewBookmarkModalProps) => {
   const formRef = useRef<HTMLFormElement | null>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,7 +31,7 @@ export const NewBookmarkModal = ({ props }: { props: IUseeModalProps }) => {
           onClose={props.close}
           className="w-76 h-57.5 p-3.5"
           closeButton={false}
-          type="bookmark"
+          closeWithOverlay={false}
         >
           <form ref={formRef} onSubmit={handleSubmit} className="w-full h-full">
             <div className="flex flex-col justify-between w-full h-full">
@@ -43,13 +43,16 @@ export const NewBookmarkModal = ({ props }: { props: IUseeModalProps }) => {
                   id="title"
                   placeholder="제목을 입력해주세요"
                   className={`${inputVariants({ variant: "withBg" })} md:font-sb-16 border-none`}
+                  maxLength={20}
                 />
               </div>
               <div className="flex-center gap-5 ">
                 <Button
                   type="button"
                   className={buttonVariants({ color: "black", size: "lg" })}
-                  onClick={props.close}
+                  onClick={() => {
+                    props.close();
+                  }}
                 >
                   취소하기
                 </Button>

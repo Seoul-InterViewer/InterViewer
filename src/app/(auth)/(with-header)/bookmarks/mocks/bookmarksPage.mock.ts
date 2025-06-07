@@ -1,4 +1,4 @@
-import { IBookmarksProps } from "../components/bookmarkPage.type";
+import { IBookmarksProps } from "../components/bookmarkCard/bookmarkCard.type";
 
 export const bookmarkData: { bookmarks: IBookmarksProps[] } = {
   bookmarks: [

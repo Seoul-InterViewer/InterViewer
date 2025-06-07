@@ -8,11 +8,18 @@ import { BreadCrumb } from "@/app/components/breadCrumb";
 import { Button, buttonVariants } from "@/app/components/button";
 import { Icon } from "@/app/components/icon";
 import useModal from "@/hooks/modal/useModal";
-import { NewBookmarkModal } from "./components/modal/NewBookmarkModal";
+import { EditBookmarkModal } from "./components/modal/EditBookmarkModal";
 
 export default function BookmarksPage() {
+  const checkName = "bookmarks";
   const pathname = usePathname();
-  const newBookmarkModalProps = useModal();
+  const editBookmarkModalProps = useModal();
+
+  const editBookmarkDatas = bookmarkData.bookmarks.map((data) => ({
+    text: data.name,
+    value: data.id,
+    count: data.questions?.length ?? 0,
+  }));
 
   return (
     <div>
@@ -26,7 +33,7 @@ export default function BookmarksPage() {
         <Button
           type="button"
           className={buttonVariants({ size: "md", color: "white", hover: true })}
-          onClick={newBookmarkModalProps.open}
+          onClick={editBookmarkModalProps.open}
         >
           <span className="flex items-center gap-0.5">
             <Icon name="plus" width={8} height={8} fill="var(--color-font)" />
@@ -47,8 +54,12 @@ export default function BookmarksPage() {
         ))}
       </div>
 
-      {/* modal */}
-      <NewBookmarkModal props={newBookmarkModalProps} />
+      {/* 북마크 편집 모달 */}
+      <EditBookmarkModal
+        datas={editBookmarkDatas}
+        checkName={checkName} // checkbox의 name으로 줄 값
+        props={editBookmarkModalProps}
+      />
     </div>
   );
 }
