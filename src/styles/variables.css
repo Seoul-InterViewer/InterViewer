@@ -19,6 +19,12 @@
   .font-bold-32 {
     font: var(--font-bold-32);
   }
+  .font-bold-28 {
+    font: var(--font-bold-28);
+  }
+  .font-bold-24 {
+    font: var(--font-bold-24);
+  }
   .font-bold-18 {
     font: var(--font-bold-18);
   }
@@ -76,6 +82,256 @@
     font: var(--font-medium-8);
   }
 
+  /* After classes */
+  .after\:font-bold-56 {
+    &::after {
+      font: var(--font-bold-56);
+    }
+  }
+  .after\:font-bold-48 {
+    &::after {
+      font: var(--font-bold-48);
+    }
+  }
+  .after\:font-bold-40 {
+    &::after {
+      font: var(--font-bold-40);
+    }
+  }
+  .after\:font-bold-38 {
+    &::after {
+      font: var(--font-bold-38);
+    }
+  }
+  .after\:font-bold-32 {
+    &::after {
+      font: var(--font-bold-32);
+    }
+  }
+  .after\:font-bold-28 {
+    &::after {
+      font: var(--font-bold-28);
+    }
+  }
+  .after\:font-bold-24 {
+    &::after {
+      font: var(--font-bold-24);
+    }
+  }
+  .after\:font-bold-18 {
+    &::after {
+      font: var(--font-bold-18);
+    }
+  }
+  .after\:font-bold-14 {
+    &::after {
+      font: var(--font-bold-14);
+    }
+  }
+
+  .after\:font-sb-28 {
+    &::after {
+      font: var(--font-sb-28);
+    }
+  }
+  .after\:font-sb-24 {
+    &::after {
+      font: var(--font-sb-24);
+    }
+  }
+  .after\:font-sb-20 {
+    &::after {
+      font: var(--font-sb-20);
+    }
+  }
+  .after\:font-sb-18 {
+    &::after {
+      font: var(--font-sb-18);
+    }
+  }
+  .after\:font-sb-16 {
+    &::after {
+      font: var(--font-sb-16);
+    }
+  }
+  .after\:font-sb-14 {
+    &::after {
+      font: var(--font-sb-14);
+    }
+  }
+  .after\:font-sb-12 {
+    &::after {
+      font: var(--font-sb-12);
+    }
+  }
+
+  .after\:font-regular-26 {
+    &::after {
+      font: var(--font-regular-26);
+    }
+  }
+  .after\:font-regular-24 {
+    &::after {
+      font: var(--font-regular-24);
+    }
+  }
+  .after\:font-regular-18 {
+    &::after {
+      font: var(--font-regular-18);
+    }
+  }
+  .after\:font-regular-16 {
+    &::after {
+      font: var(--font-regular-16);
+    }
+  }
+  .after\:font-regular-14 {
+    &::after {
+      font: var(--font-regular-14);
+    }
+  }
+
+  .after\:font-medium-12 {
+    &::after {
+      font: var(--font-medium-12);
+    }
+  }
+  .after\:font-medium-10 {
+    &::after {
+      font: var(--font-medium-10);
+    }
+  }
+  .after\:font-medium-8 {
+    &::after {
+      font: var(--font-medium-8);
+    }
+  }
+
+  /* Before classes */
+  .before\:font-bold-56 {
+    &::before {
+      font: var(--font-bold-56);
+    }
+  }
+  .before\:font-bold-48 {
+    &::before {
+      font: var(--font-bold-48);
+    }
+  }
+  .before\:font-bold-40 {
+    &::before {
+      font: var(--font-bold-40);
+    }
+  }
+  .before\:font-bold-38 {
+    &::before {
+      font: var(--font-bold-38);
+    }
+  }
+  .before\:font-bold-32 {
+    &::before {
+      font: var(--font-bold-32);
+    }
+  }
+  .before\:font-bold-28 {
+    &::before {
+      font: var(--font-bold-28);
+    }
+  }
+  .before\:font-bold-24 {
+    &::before {
+      font: var(--font-bold-24);
+    }
+  }
+  .before\:font-bold-18 {
+    &::before {
+      font: var(--font-bold-18);
+    }
+  }
+  .before\:font-bold-14 {
+    &::before {
+      font: var(--font-bold-14);
+    }
+  }
+
+  .before\:font-sb-28 {
+    &::before {
+      font: var(--font-sb-28);
+    }
+  }
+  .before\:font-sb-24 {
+    &::before {
+      font: var(--font-sb-24);
+    }
+  }
+  .before\:font-sb-20 {
+    &::before {
+      font: var(--font-sb-20);
+    }
+  }
+  .before\:font-sb-18 {
+    &::before {
+      font: var(--font-sb-18);
+    }
+  }
+  .before\:font-sb-16 {
+    &::before {
+      font: var(--font-sb-16);
+    }
+  }
+  .before\:font-sb-14 {
+    &::before {
+      font: var(--font-sb-14);
+    }
+  }
+  .before\:font-sb-12 {
+    &::before {
+      font: var(--font-sb-12);
+    }
+  }
+
+  .before\:font-regular-26 {
+    &::before {
+      font: var(--font-regular-26);
+    }
+  }
+  .before\:font-regular-24 {
+    &::before {
+      font: var(--font-regular-24);
+    }
+  }
+  .before\:font-regular-18 {
+    &::before {
+      font: var(--font-regular-18);
+    }
+  }
+  .before\:font-regular-16 {
+    &::before {
+      font: var(--font-regular-16);
+    }
+  }
+  .before\:font-regular-14 {
+    &::before {
+      font: var(--font-regular-14);
+    }
+  }
+
+  .before\:font-medium-12 {
+    &::before {
+      font: var(--font-medium-12);
+    }
+  }
+  .before\:font-medium-10 {
+    &::before {
+      font: var(--font-medium-10);
+    }
+  }
+  .before\:font-medium-8 {
+    &::before {
+      font: var(--font-medium-8);
+    }
+  }
+
   /* Media query classes */
   @media screen and (min-width: 768px) {
     .md\:font-bold-56 {
@@ -92,6 +348,12 @@
     }
     .md\:font-bold-32 {
       font: var(--font-bold-32);
+    }
+    .md\:font-bold-28 {
+      font: var(--font-bold-28);
+    }
+    .md\:font-bold-24 {
+      font: var(--font-bold-24);
     }
     .md\:font-bold-18 {
       font: var(--font-bold-18);
@@ -146,6 +408,256 @@
     }
     .md\:font-medium-8 {
       font: var(--font-medium-8);
+    }
+
+    /* Media query before classes */
+    .md\:before\:font-bold-56 {
+      &::before {
+        font: var(--font-bold-56);
+      }
+    }
+    .md\:before\:font-bold-48 {
+      &::before {
+        font: var(--font-bold-48);
+      }
+    }
+    .md\:before\:font-bold-40 {
+      &::before {
+        font: var(--font-bold-40);
+      }
+    }
+    .md\:before\:font-bold-38 {
+      &::before {
+        font: var(--font-bold-38);
+      }
+    }
+    .md\:before\:font-bold-32 {
+      &::before {
+        font: var(--font-bold-32);
+      }
+    }
+    .md\:before\:font-bold-28 {
+      &::before {
+        font: var(--font-bold-28);
+      }
+    }
+    .md\:before\:font-bold-24 {
+      &::before {
+        font: var(--font-bold-24);
+      }
+    }
+    .md\:before\:font-bold-18 {
+      &::before {
+        font: var(--font-bold-18);
+      }
+    }
+    .md\:before\:font-bold-14 {
+      &::before {
+        font: var(--font-bold-14);
+      }
+    }
+
+    .md\:before\:font-sb-28 {
+      &::before {
+        font: var(--font-sb-28);
+      }
+    }
+    .md\:before\:font-sb-24 {
+      &::before {
+        font: var(--font-sb-24);
+      }
+    }
+    .md\:before\:font-sb-20 {
+      &::before {
+        font: var(--font-sb-20);
+      }
+    }
+    .md\:before\:font-sb-18 {
+      &::before {
+        font: var(--font-sb-18);
+      }
+    }
+    .md\:before\:font-sb-16 {
+      &::before {
+        font: var(--font-sb-16);
+      }
+    }
+    .md\:before\:font-sb-14 {
+      &::before {
+        font: var(--font-sb-14);
+      }
+    }
+    .md\:before\:font-sb-12 {
+      &::before {
+        font: var(--font-sb-12);
+      }
+    }
+
+    .md\:before\:font-regular-26 {
+      &::before {
+        font: var(--font-regular-26);
+      }
+    }
+    .md\:before\:font-regular-24 {
+      &::before {
+        font: var(--font-regular-24);
+      }
+    }
+    .md\:before\:font-regular-18 {
+      &::before {
+        font: var(--font-regular-18);
+      }
+    }
+    .md\:before\:font-regular-16 {
+      &::before {
+        font: var(--font-regular-16);
+      }
+    }
+    .md\:before\:font-regular-14 {
+      &::before {
+        font: var(--font-regular-14);
+      }
+    }
+
+    .md\:before\:font-medium-12 {
+      &::before {
+        font: var(--font-medium-12);
+      }
+    }
+    .md\:before\:font-medium-10 {
+      &::before {
+        font: var(--font-medium-10);
+      }
+    }
+    .md\:before\:font-medium-8 {
+      &::before {
+        font: var(--font-medium-8);
+      }
+    }
+
+    /* Media query after classes */
+    .md\:after\:font-bold-56 {
+      &::after {
+        font: var(--font-bold-56);
+      }
+    }
+    .md\:after\:font-bold-48 {
+      &::after {
+        font: var(--font-bold-48);
+      }
+    }
+    .md\:after\:font-bold-40 {
+      &::after {
+        font: var(--font-bold-40);
+      }
+    }
+    .md\:after\:font-bold-38 {
+      &::after {
+        font: var(--font-bold-38);
+      }
+    }
+    .md\:after\:font-bold-32 {
+      &::after {
+        font: var(--font-bold-32);
+      }
+    }
+    .md\:after\:font-bold-28 {
+      &::after {
+        font: var(--font-bold-28);
+      }
+    }
+    .md\:after\:font-bold-24 {
+      &::after {
+        font: var(--font-bold-24);
+      }
+    }
+    .md\:after\:font-bold-18 {
+      &::after {
+        font: var(--font-bold-18);
+      }
+    }
+    .md\:after\:font-bold-14 {
+      &::after {
+        font: var(--font-bold-14);
+      }
+    }
+
+    .md\:after\:font-sb-28 {
+      &::after {
+        font: var(--font-sb-28);
+      }
+    }
+    .md\:after\:font-sb-24 {
+      &::after {
+        font: var(--font-sb-24);
+      }
+    }
+    .md\:after\:font-sb-20 {
+      &::after {
+        font: var(--font-sb-20);
+      }
+    }
+    .md\:after\:font-sb-18 {
+      &::after {
+        font: var(--font-sb-18);
+      }
+    }
+    .md\:after\:font-sb-16 {
+      &::after {
+        font: var(--font-sb-16);
+      }
+    }
+    .md\:after\:font-sb-14 {
+      &::after {
+        font: var(--font-sb-14);
+      }
+    }
+    .md\:after\:font-sb-12 {
+      &::after {
+        font: var(--font-sb-12);
+      }
+    }
+
+    .md\:after\:font-regular-26 {
+      &::after {
+        font: var(--font-regular-26);
+      }
+    }
+    .md\:after\:font-regular-24 {
+      &::after {
+        font: var(--font-regular-24);
+      }
+    }
+    .md\:after\:font-regular-18 {
+      &::after {
+        font: var(--font-regular-18);
+      }
+    }
+    .md\:after\:font-regular-16 {
+      &::after {
+        font: var(--font-regular-16);
+      }
+    }
+    .md\:after\:font-regular-14 {
+      &::after {
+        font: var(--font-regular-14);
+      }
+    }
+
+    .md\:after\:font-medium-12 {
+      &::after {
+        font: var(--font-medium-12);
+      }
+    }
+    .md\:after\:font-medium-10 {
+      &::after {
+        font: var(--font-medium-10);
+      }
+    }
+    .md\:after\:font-medium-8 {
+      &::after {
+        font: var(--font-medium-8);
+      }
     }
   }
 }
