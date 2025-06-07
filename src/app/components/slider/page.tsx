@@ -34,9 +34,7 @@ export default function SliderTestPage() {
       <div className="h-50">
         <Slider type="mainPageCards">
           {Array.from({ length: 16 }, (_, index) => (
-            <SwiperSlide key={index}>
-              <div className={mockSlideStyles(index)}>{index + 1}</div>
-            </SwiperSlide>
+            <div className={mockSlideStyles(index)}>{index + 1}</div>
           ))}
         </Slider>
       </div>
@@ -44,9 +42,7 @@ export default function SliderTestPage() {
       <div className="w-80 h-130 md:w-110 md:h-140">
         <Slider type="images">
           {Array.from({ length: 16 }, (_, index) => (
-            <SwiperSlide key={index} className={mockSlideStyles(index)}>
-              {index + 1}
-            </SwiperSlide>
+            <div className={mockSlideStyles(index)}>{index + 1}</div>
           ))}
         </Slider>
       </div>
@@ -54,9 +50,7 @@ export default function SliderTestPage() {
       <div className="h-50">
         <Slider type="selectedQuestionCards">
           {Array.from({ length: 16 }, (_, index) => (
-            <SwiperSlide key={index}>
-              <div className={mockSlideStyles(index)}>{index + 1}</div>
-            </SwiperSlide>
+            <div className={mockSlideStyles(index)}>{index + 1}</div>
           ))}
         </Slider>
       </div>
@@ -64,9 +58,7 @@ export default function SliderTestPage() {
       <div className="w-70 h-130 md:w-120 md:h-140">
         <Slider type="gameHistory">
           {Array.from({ length: 16 }, (_, index) => (
-            <SwiperSlide key={index}>
-              <div className={mockSlideStyles(index)}>{index + 1}</div>
-            </SwiperSlide>
+            <div className={mockSlideStyles(index)}>{index + 1}</div>
           ))}
         </Slider>
       </div>
@@ -116,9 +108,7 @@ export default function SliderTestPage() {
           useFreeMode
         >
           {Array.from({ length: 16 }, (_, index) => (
-            <SwiperSlide key={index}>
-              <div className={mockSlideStyles(index)}>{index + 1}</div>
-            </SwiperSlide>
+            <div className={mockSlideStyles(index)}>{index + 1}</div>
           ))}
         </Slider>
         <div className="custom-swiper-button-next right-3 ">
