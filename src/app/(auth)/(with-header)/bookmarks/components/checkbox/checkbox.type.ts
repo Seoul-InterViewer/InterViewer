@@ -4,5 +4,5 @@ export interface ICheckDataProps {
   value: string;
   count: number;
   firstPathname: string;
-  removeBookmarkOpen?: () => void;
+  removeBookmarkOpen?: (value: string) => void;
 }

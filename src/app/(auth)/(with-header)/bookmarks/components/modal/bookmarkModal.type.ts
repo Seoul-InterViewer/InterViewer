@@ -19,3 +19,8 @@ export interface IEditBookmarkModalProps {
 export interface INewBookmarkModalProps {
   props: IUseeModalProps;
 }
+
+export interface IRemoveBookmarkModalProps {
+  props: IUseeModalProps;
+  onConfirm: () => void;
+}

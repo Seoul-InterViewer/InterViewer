@@ -16,7 +16,7 @@ export const Checkbox = ({
   const handleRemoveButton = () => {
     if (!removeBookmarkOpen) return;
 
-    removeBookmarkOpen();
+    removeBookmarkOpen(value);
   };
 
   return (
@@ -49,7 +49,7 @@ export const Checkbox = ({
             <Button
               type="button"
               className={buttonVariants({ icon: true })}
-              onClick={() => handleRemoveButton()}
+              onClick={handleRemoveButton}
             >
               <Icon name="close" size={14} />
             </Button>

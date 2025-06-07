@@ -3,7 +3,7 @@
 import { Button, buttonVariants } from "@/app/components/button";
 import { Checkbox } from "../checkbox/Checkbox";
 import { IEditBookmarkModalProps } from "./bookmarkModal.type";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { AnimatePresence } from "motion/react";
 import { Modal } from "@/app/components/modal";
 import { usePathname } from "next/navigation";
@@ -14,12 +14,14 @@ import { NewBookmarkModal } from "./NewBookmarkModal";
 
 export const EditBookmarkModal = ({ props, datas, checkName }: IEditBookmarkModalProps) => {
   const firstPathname = usePathname().split("/")[1];
+  const [selectedToRemove, setSelectedToRemove] = useState<string | null>(null);
+
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   const newBookmarkModalProps = useModal();
   const removeBookmarkModalProps = useModal();
 
-  const formRef = useRef<HTMLFormElement | null>(null);
-
+  // 새 북마크 생성 or 저장하기 버튼
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -35,6 +37,23 @@ export const EditBookmarkModal = ({ props, datas, checkName }: IEditBookmarkModa
     }
   };
 
+  // x버튼 눌렀을 때
+  const handleOpenRemoveBookmark = (value: string) => {
+    setSelectedToRemove(value);
+    removeBookmarkModalProps.open();
+  };
+
+  // 삭제처리
+  const handleConfirmRemove = () => {
+    if (!selectedToRemove) return;
+
+    console.log("삭제할 북마크 value:", selectedToRemove);
+    //삭제 API 호출 등 처리 로직 추가
+
+    setSelectedToRemove(null);
+    removeBookmarkModalProps.close();
+  };
+
   return (
     <div>
       <AnimatePresence>
@@ -44,7 +63,6 @@ export const EditBookmarkModal = ({ props, datas, checkName }: IEditBookmarkModa
             onClose={props.close}
             closeButton={false}
             className="w-76.5 h-100 p-4"
-            // closeWithOverlay={false}
           >
             <div className="w-full h-full">
               <div className="w-full flex justify-between mb-6">
@@ -74,7 +92,7 @@ export const EditBookmarkModal = ({ props, datas, checkName }: IEditBookmarkModa
                       value={data.value}
                       count={data.count}
                       firstPathname={firstPathname}
-                      removeBookmarkOpen={removeBookmarkModalProps.open}
+                      removeBookmarkOpen={handleOpenRemoveBookmark}
                     />
                   ))}
                 </div>
@@ -94,7 +112,7 @@ export const EditBookmarkModal = ({ props, datas, checkName }: IEditBookmarkModa
       <NewBookmarkModal props={newBookmarkModalProps} />
 
       {/* 북마크 삭제 모달 */}
-      <RemoveBookmarkModal props={removeBookmarkModalProps} />
+      <RemoveBookmarkModal props={removeBookmarkModalProps} onConfirm={handleConfirmRemove} />
     </div>
   );
 };

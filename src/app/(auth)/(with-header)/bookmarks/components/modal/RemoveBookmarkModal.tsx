@@ -1,9 +1,9 @@
 import { Modal, modalVariants } from "@/app/components/modal";
-import { IUseeModalProps } from "./bookmarkModal.type";
+import { IRemoveBookmarkModalProps } from "./bookmarkModal.type";
 import { AnimatePresence } from "motion/react";
 import { Button, buttonVariants } from "@/app/components/button";
 
-export const RemoveBookmarkModal = ({ props }: { props: IUseeModalProps }) => {
+export const RemoveBookmarkModal = ({ props, onConfirm }: IRemoveBookmarkModalProps) => {
   return (
     <AnimatePresence>
       {props.isOpen && (
@@ -20,7 +20,7 @@ export const RemoveBookmarkModal = ({ props }: { props: IUseeModalProps }) => {
               <Button
                 type="button"
                 className={buttonVariants({ color: "black", size: "lg" })}
-                onClick={props.close}
+                onClick={onConfirm}
               >
                 네, 삭제할게요
               </Button>
