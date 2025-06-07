@@ -7,9 +7,12 @@ import { bookmarkData } from "./mocks/bookmarksPage.mock";
 import { BreadCrumb } from "@/app/components/breadCrumb";
 import { Button, buttonVariants } from "@/app/components/button";
 import { Icon } from "@/app/components/icon";
+import useModal from "@/hooks/modal/useModal";
+import { NewBookmarkModal } from "./components/modal/NewBookmarkModal";
 
 export default function BookmarksPage() {
   const pathname = usePathname();
+  const newBookmarkModalProps = useModal();
 
   return (
     <div>
@@ -23,6 +26,7 @@ export default function BookmarksPage() {
         <Button
           type="button"
           className={buttonVariants({ size: "md", color: "white", hover: true })}
+          onClick={newBookmarkModalProps.open}
         >
           <span className="flex items-center gap-0.5">
             <Icon name="plus" width={8} height={8} fill="var(--color-font)" />
@@ -42,6 +46,9 @@ export default function BookmarksPage() {
           </Link>
         ))}
       </div>
+
+      {/* modal */}
+      <NewBookmarkModal props={newBookmarkModalProps} />
     </div>
   );
 }

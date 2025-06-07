@@ -5,7 +5,7 @@ export interface ITagsProps {
   tagName: string;
 }
 
-export interface IquestionsProps {
+export interface IQuestionsProps {
   questionId: string;
   tags: ITagsProps[];
 }
@@ -14,7 +14,7 @@ export interface IBookmarksProps {
   id: string;
   name: string;
   createdAt: string;
-  questions?: IquestionsProps[];
+  questions?: IQuestionsProps[];
 }
 
 export interface ITagIconsProps {
