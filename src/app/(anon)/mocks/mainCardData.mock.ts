@@ -10,7 +10,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "SSR(Server-Side Rendering)의 개념, CSR과의 차이점, 실제 프로젝트에서 SSR을 선택해야 하는 상황을 설명합니다.",
       author: "프론트엔드 개발자",
-      category: "nextjs",
+      category: "next",
       difficulty: "중급",
       tags: ["SSR", "Next.js", "렌더링"],
       likes: 124,
@@ -23,7 +23,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "Next.js 13의 App Router와 기존 Pages Router의 기능 및 사용법을 비교하고, 마이그레이션 전략을 제시합니다.",
       author: "시니어 개발자",
-      category: "nextjs",
+      category: "next",
       difficulty: "고급",
       tags: ["App Router", "Pages Router", "Next.js 13"],
       likes: 89,
@@ -36,7 +36,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "Next.js에서 데이터를 효과적으로 가져오는 방법인 getStaticProps와 getServerSideProps의 차이점과 사용 사례를 분석합니다.",
       author: "웹 개발 전문가",
-      category: "nextjs",
+      category: "next",
       difficulty: "중급",
       tags: ["getStaticProps", "getServerSideProps", "데이터 페칭"],
       likes: 156,
@@ -49,7 +49,7 @@ export const mockQuestions: Record<string, IQuestion[]> = {
       description:
         "Next.js 미들웨어를 사용하여 인증, 리다이렉션, 국제화 등의 기능을 구현하는 방법을 실전 예제와 함께 알아봅니다.",
       author: "풀스택 개발자",
-      category: "nextjs",
+      category: "next",
       difficulty: "고급",
       tags: ["Middleware", "인증", "리다이렉션"],
       likes: 203,
@@ -226,7 +226,7 @@ export const featuredQuestions: IQuestion[] = [
     description:
       "Next.js에서 next/image 컴포넌트를 사용하여 이미지 로딩 성능을 최적화하는 방법과 다양한 고급 기법을 소개합니다.",
     author: "프론트엔드 엔지니어",
-    category: "nextjs",
+    category: "next",
     difficulty: "초급",
     tags: ["Next.js", "이미지 최적화", "next/image"],
     likes: 301,

@@ -3,7 +3,7 @@ import { tv } from "tailwind-variants";
 export const bannerCardVariants = tv({
   base: [
     // Main card styles
-    "p-10 w-85 aspect-square bg-white rounded-lg shadow-[0px_4px_4px_rgba(0,0,0,0.25)] relative",
+    "p-5 md:p-10 w-full h-full max-h-50 md:max-h-none md:w-85 md:aspect-square bg-white rounded-lg shadow-[0px_4px_4px_rgba(0,0,0,0.25)] relative",
 
     // Before pseudo-element
     "before:content-[attr(data-title)]",

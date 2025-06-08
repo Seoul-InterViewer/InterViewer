@@ -1,7 +1,7 @@
 const CATEGORY_ICONS = {
   javascript: "/images/card-javascript.svg",
   react: "/images/card-react.svg",
-  nextjs: "/images/card-nextjs.svg",
+  next: "/images/card-nextjs.svg",
   typescript: "/images/card-typescript.svg",
   nodejs: "/images/card-nodejs.svg",
   express: "/images/card-express.svg",
