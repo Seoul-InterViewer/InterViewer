@@ -1,5 +1,7 @@
 import { IMainCardProps as IQuestion } from "../components/mainCard/mainCard.type";
 
+// mockQuestions의 각 객체의 category 속성이 반드시 mockQuestions의 key(next, react, javascript)와 일치하도록 수정
+
 export const mockQuestions: Record<string, IQuestion[]> = {
   next: [
     {
@@ -265,7 +267,7 @@ export const featuredQuestions: IQuestion[] = [
 //     title: "React Hooks 빈칸 채우기",
 //     description: "useState와 useEffect 사용법을 테스트하는 빈칸 채우기 문제입니다.",
 //     difficulty: "초급",
-//     category: "React",
+//     category: "react",
 //     completions: 1234,
 //   },
 //   {
@@ -273,7 +275,7 @@ export const featuredQuestions: IQuestion[] = [
 //     title: "JavaScript 클로저 이해하기",
 //     description: "클로저의 개념과 활용법을 테스트하는 코드 완성 문제입니다.",
 //     difficulty: "중급",
-//     category: "JavaScript",
+//     category: "javascript",
 //     completions: 856,
 //   },
 //   {
@@ -281,7 +283,7 @@ export const featuredQuestions: IQuestion[] = [
 //     title: "Next.js 라우팅 시스템",
 //     description: "App Router와 Pages Router의 차이점을 이해하는 문제입니다.",
 //     difficulty: "중급",
-//     category: "Next.js",
+//     category: "next",
 //     completions: 642,
 //   },
 // ];
