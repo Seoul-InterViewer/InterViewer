@@ -2,8 +2,8 @@ import { Card } from "@/app/components/card";
 import { Tag } from "@/app/components/tag";
 import { Title } from "@/app/components/title";
 import { Icon } from "@/app/components/icon";
-import { questionTags, tags } from "../mocks/bookmarkDetailPageData";
-import { IQuestionProps } from "./bookmarkDetailPageType";
+import { questionTags, tags } from "../../mocks/bookmarkDetailPageData";
+import { IBookmarkQuestionProps } from "./bookmarkDetailPage.type";
 
 const getTagsForQuestion = (questionID: string) => {
   return questionTags
@@ -23,7 +23,7 @@ const translatedDifficulty = (difficulty: string) => {
   }
 };
 
-export const BookmarkListItem = ({ question }: { question: IQuestionProps }) => {
+export const BookmarkListItem = ({ question }: { question: IBookmarkQuestionProps }) => {
   return (
     <Card key={question.id} type="checkCard">
       <div className="flex md:flex-row md:justify-between md:gap-0 flex-col-reverse gap-5">

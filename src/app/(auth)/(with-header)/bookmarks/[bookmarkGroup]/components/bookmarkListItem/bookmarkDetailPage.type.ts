@@ -1,4 +1,4 @@
-export interface IQuestionProps {
+export interface IBookmarkQuestionProps {
   id: string;
   createdAt: string;
   updatedAt: string;

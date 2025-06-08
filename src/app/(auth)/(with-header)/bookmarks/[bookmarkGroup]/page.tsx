@@ -3,7 +3,7 @@
 import React from "react";
 import { BreadCrumb } from "@/app/components/breadCrumb";
 import { List, listVariants } from "@/app/components/list";
-import { BookmarkListItem } from "./components/BookmarkListItem";
+import { BookmarkListItem } from "./components/bookmarkListItem";
 import { questions, bookmarks } from "./mocks/bookmarkDetailPageData";
 
 const bookmarkedQuestions = questions.filter((question) =>
