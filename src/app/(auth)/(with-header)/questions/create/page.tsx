@@ -32,9 +32,49 @@ const bgColors = [
   "bg-blue-800",
   "bg-blue-900",
 ];
+
 const mockSlideStyles = (index: number) => {
   return `w-full h-full ${bgColors[index]}`;
 };
+
+const files = [
+  {
+    id: 1,
+    name: "react_컴포넌트.png",
+    date: "25/05/14",
+    size: "12mb",
+  },
+  {
+    id: 2,
+    name: "useEffect_활용법.jpg",
+    date: "25/05/14",
+    size: "8mb",
+  },
+  {
+    id: 3,
+    name: "리덕스_패턴_정리.png",
+    date: "25/05/14",
+    size: "15mb",
+  },
+  {
+    id: 4,
+    name: "최적화_팁.jpg",
+    date: "25/05/14",
+    size: "2mb",
+  },
+  {
+    id: 5,
+    name: "테스트_코드_예시.png",
+    date: "25/05/14",
+    size: "1mb",
+  },
+  {
+    id: 6,
+    name: "디자인_시스템_가이드.jpg",
+    date: "25/05/14",
+    size: "5mb",
+  },
+];
 
 export default function CreateQuestionPage() {
   const tagConditions = [
@@ -58,14 +98,6 @@ export default function CreateQuestionPage() {
     { value: "easy", txt: "상" },
     { value: "medium", txt: "중" },
     { value: "high", txt: "하" },
-  ];
-
-  const files = [
-    { name: "component를 시키는 방법.png", size: "12mb", date: "25/05/14" },
-    { name: "component를 시키는 방법.png", size: "12mb", date: "25/05/14" },
-    { name: "component를 시키는 방법.png", size: "12mb", date: "25/05/14" },
-    { name: "component를 시키는 방법.png", size: "12mb", date: "25/05/14" },
-    { name: "component를 시키는 방법.png", size: "12mb", date: "25/05/14" },
   ];
 
   const [dropdownTag, setDropdownTag] = useState("");
@@ -240,9 +272,9 @@ export default function CreateQuestionPage() {
             </div>
 
             {/* 파일 첨부 내용 */}
-            <div className="flex gap-2">
+            <div className="flex justify-between">
               {/* 이미지 슬라이드 */}
-              <div className="w-88 h-130 md:w-163 md:h-140 rounded-xl overflow-hidden">
+              <div className="w-88 h-130 w-108 h-130 md:h-140 rounded-xl overflow-hidden">
                 <Slider type="images">
                   {Array.from({ length: 16 }, (_, index) => (
                     <SwiperSlide key={index} className={mockSlideStyles(index)}>
@@ -252,7 +284,73 @@ export default function CreateQuestionPage() {
                 </Slider>
               </div>
               {/* 첨부된 파일 상세 내용 */}
-              <div className="hidden md:block w-[100%] border-gray-200 border">hi</div>
+              <div className="hidden md:block w-194 h-140 rounded-xl border border-gray-200 overflow-y-auto p-4">
+                <div className="bg-white rounded-lg">
+                  <div className="space-y-4">
+                    {files.map((file, idx) => (
+                      <div key={idx} className="flex items-center gap-4 py-2 cursor-pointer">
+                        {/* Menu dots icon */}
+                        <div>
+                          <div className="w-6 h-6 grid grid-cols-3 gap-1 p-1">
+                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                          </div>
+                        </div>
+
+                        {/* Code editor thumbnail */}
+                        <div>
+                          <div className="w-16 h-16 bg-gray-800 rounded-lg flex items-center justify-center relative"></div>
+                        </div>
+
+                        {/* File info */}
+                        <div className="flex-1 min-w-0">
+                          {/* 첫 번째 줄: 제목과 파일 크기 */}
+                          <div className="flex items-center justify-between mb-2">
+                            <h3 className="font-sb-18 font-medium text-gray-900 truncate">
+                              {file.name}
+                            </h3>
+                            <span className="font-regular-14 text-sub-text ml-4">{file.size}</span>
+                          </div>
+                          <div className="border-b border-gray-100 mb-3"></div>
+                          {/* 두 번째 줄: 날짜와 버튼들 */}
+                          <div className="flex items-center justify-between">
+                            <p className="font-regular-14 text-sub-text">{file.date}</p>
+                            <div className="flex gap-2">
+                              <Button
+                                type="button"
+                                className={buttonVariants({
+                                  size: "sm",
+                                  color: "red",
+                                  hover: true,
+                                })}
+                              >
+                                삭제하기
+                              </Button>
+                              <Button
+                                type="button"
+                                className={buttonVariants({
+                                  size: "sm",
+                                  color: "black",
+                                  hover: true,
+                                })}
+                              >
+                                변경하기
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
