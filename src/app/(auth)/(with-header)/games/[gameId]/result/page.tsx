@@ -6,6 +6,17 @@ import { listVariants } from "@/app/components/list";
 import { List } from "@/app/components/list";
 import { Icon } from "@/app/components/icon";
 
+import { resultVariants } from "./resultVariants";
+const {
+  gameResultWrapper,
+  questionWrapper,
+  resultSidebarWrapper,
+  scoreWrapper,
+  scoreTitle,
+  scoreDescription,
+  scoreList,
+} = resultVariants();
+
 // BreadCrumb 아이템들
 const items = [
   {
@@ -73,14 +84,14 @@ const MockListItem = ({
 
 export default function GameResultPage() {
   return (
-    <div className="w-full min-h-screen  relative">
+    <div className={gameResultWrapper()}>
       <div>
         {/* 브래드 크럼 */}
         <div className="mb-5">
           <BreadCrumb items={items} />
         </div>
         {/* Questions Wrapper */}
-        <div className="flex flex-col flex-col-reverse md:flex-row md:items-start">
+        <div className={questionWrapper()}>
           {/* Questions */}
           <div className="w-full md:w-[85%]">
             {/* 질문들과 Blank*/}
@@ -126,13 +137,13 @@ export default function GameResultPage() {
           </div>
 
           {/* Result Sidebar */}
-          <div className="w-full md:w-[20vw] self-start md:fixed top-45 right-0 pr-[1vw] bg-white md:min-h-screen">
-            <div className="">
+          <div className={resultSidebarWrapper()}>
+            <div>
               {/* Score */}
-              <div className="flex w-full px-4 md:px-0 py-3 md:py-10 flex-col bg-main/50 md:flex-center rounded-lg mb-12 relative">
-                <div className="font-sb-28 md:font-bold-48 md:text-center mb-2 md:mb-5">83점</div>
-                <div className="font-regular-14 md:text-center">총 20문제 중 8문제 정답</div>
-                <div className="absolute md:static bottom-1/2 right-3 translate-y-1/2 md:hidden flex items-center gap-2">
+              <div className={scoreWrapper()}>
+                <div className={scoreTitle()}>83점</div>
+                <div className={scoreDescription()}>총 20문제 중 8문제 정답</div>
+                <div className={scoreList()}>
                   <span>목록 보기</span>
                   <Icon name="chevronRight" className="w-3 h-3" />
                 </div>
