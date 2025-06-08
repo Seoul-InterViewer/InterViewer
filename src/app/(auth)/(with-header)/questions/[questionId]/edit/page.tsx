@@ -11,6 +11,23 @@ import { Textarea } from "@/app/components/textarea";
 import { Button, buttonVariants } from "@/app/components/button";
 import { Slider } from "@/app/components/slider";
 import { SwiperSlide } from "swiper/react";
+import { editVariants } from "./editVariants";
+
+const {
+  questionTitleWrapper,
+  questionInput,
+  tagDropdown,
+  questionInputWrapper,
+  questionTextarea,
+  questionTextareaCount,
+  codePenInputWrapper,
+  codePenTextarea,
+  fileUploadTitleWrapper,
+  imageSlideWrapper,
+  fileDetailWrapper,
+  fileDetailIcon,
+  fileDetailThumbnail,
+} = editVariants();
 
 const bgColors = [
   "bg-red-100",
@@ -36,7 +53,21 @@ const bgColors = [
 const mockSlideStyles = (index: number) => {
   return `w-full h-full ${bgColors[index]}`;
 };
-
+const tagConditions = [
+  { value: "designer", txt: "디자이너" },
+  { value: "developer", txt: "개발자" },
+  { value: "planner", txt: "기획자" },
+  { value: "publisher", txt: "퍼블리셔" },
+];
+const tags = [
+  { value: "react", txt: "React" },
+  { value: "js", txt: "JavaScript" },
+  { value: "next", txt: "Next" },
+  { value: "node", txt: "Node" },
+  { value: "php", txt: "PHP" },
+  { value: "java", txt: "JAVA" },
+  { value: "python", txt: "Python" },
+];
 const files = [
   {
     id: 1,
@@ -75,31 +106,13 @@ const files = [
     size: "5mb",
   },
 ];
+const level = [
+  { value: "easy", txt: "상" },
+  { value: "medium", txt: "중" },
+  { value: "high", txt: "하" },
+];
 
 export default function CreateQuestionPage() {
-  const tagConditions = [
-    { value: "designer", txt: "디자이너" },
-    { value: "developer", txt: "개발자" },
-    { value: "planner", txt: "기획자" },
-    { value: "publisher", txt: "퍼블리셔" },
-  ];
-
-  const tags = [
-    { value: "react", txt: "React" },
-    { value: "js", txt: "JavaScript" },
-    { value: "next", txt: "Next" },
-    { value: "node", txt: "Node" },
-    { value: "php", txt: "PHP" },
-    { value: "java", txt: "JAVA" },
-    { value: "python", txt: "Python" },
-  ];
-
-  const level = [
-    { value: "easy", txt: "상" },
-    { value: "medium", txt: "중" },
-    { value: "high", txt: "하" },
-  ];
-
   const [dropdownTag, setDropdownTag] = useState("");
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -116,35 +129,10 @@ export default function CreateQuestionPage() {
   return (
     <div className="w-full">
       {/* 질문 제목 */}
-      <div className="flex flex-col gap-11  mb-20 border-b border-gray-200 pb-20">
+      <div className={questionTitleWrapper()}>
         <div className="flex flex-col  gap-4">
-          <div className="font-regular-14 md:font-regular-24 mb-2 md:mb-4">글 작성 중..</div>
-          <input
-            type="text"
-            placeholder="질문 제목"
-            className="
-          pl-3
-    bg-gray-100/50 
-    h-10 md:h-20 
-    font-bold-32 md:font-bold-56 
-    text-color-font
-
-    /* 플레이스홀더의 기본 스타일 */
-    placeholder:text-font 
-    placeholder:opacity-100 
-
-    /* 포커스 시 플레이스홀더 opacity = 0 */
-    focus:placeholder:opacity-0 
-
-    /* 플레이스홀더에만 적용할 트랜지션 속성 */
-    placeholder:transition-opacity 
-    placeholder:duration-300 
-
-    /* input에서 outline 제거 */
-    outline-none
-    focus:outline-none
-  "
-          />
+          <div className="font-regular-14 md:font-regular-24 mb-2 md:mb-4">글 수정 중..</div>
+          <input type="text" placeholder="질문 제목" className={questionInput()} />
         </div>
         <div className="flex flex-col gap-4">
           <div>
@@ -185,7 +173,7 @@ export default function CreateQuestionPage() {
 
               {/* Dropdown */}
               {isDropdownOpen && (
-                <div className="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-md  z-10">
+                <div className={tagDropdown()}>
                   <ul className=" ">
                     {filteredTags.map((tag, idx) =>
                       dropdownTag ? (
@@ -212,32 +200,28 @@ export default function CreateQuestionPage() {
         <div className="flex flex-col gap-20">
           {/* 질문 */}
           <div>
-            <div className="w-[100%] h-25 md:h-54 border-border border flex flex-col gap-2.5">
+            <div className={questionInputWrapper()}>
               <textarea
-                className="w-full h-full px-3 py-3 md:px-5 md:py-4 flex flex-col gap-2.5 border-[#cdcdcd] resize-none placeholder:text-sub-text focus:outline-none font-regular-14 md:font-regular-18"
+                className={questionTextarea()}
                 placeholder="질문을 적어주세요"
                 onChange={onTextareaHandler}
               ></textarea>
-              <div className="w-full flex justify-between  px-3 py-3 md:px-5 md:py-4 items-center  bottom-7 left-5">
-                <span className="font-regular-14 md:font-regular-18 text-black/50">
-                  {count} / 500
-                </span>
+              <div className="w-full flex justify-between  px-3 py-3 md:px-5 md:py-4 items-center bottom-7 left-5">
+                <span className={questionTextareaCount()}>{count} / 500</span>
               </div>
             </div>
           </div>
           {/* 해설 */}
           <div className="flex flex-col gap-5">
             <Title size="md" title="📝&nbsp;해설" />
-            <div className="w-[100%] h-25 md:h-54 border-border border flex flex-col gap-2.5">
+            <div className={questionInputWrapper()}>
               <textarea
-                className="w-full h-full px-3 py-3 md:px-5 md:py-4 flex flex-col gap-2.5 border-[#cdcdcd] resize-none placeholder:text-sub-text focus:outline-none font-regular-14 md:font-regular-18"
+                className={questionTextarea()}
                 placeholder="해설을 적어주세요"
                 onChange={onTextareaHandler}
               ></textarea>
               <div className="w-full flex justify-between  px-3 py-3 md:px-5 md:py-4 items-center  bottom-7 left-5">
-                <span className="font-regular-14 md:font-regular-18 text-black/50">
-                  {count} / 500
-                </span>
+                <span className={questionTextareaCount()}>{count} / 500</span>
               </div>
             </div>
           </div>
@@ -247,9 +231,9 @@ export default function CreateQuestionPage() {
               <Icon name="codepen" className="w-8 h-8 md:w-12 md:h-12" />
               <Title size="sm" title="CODEPEN URL" />
             </div>
-            <div className="w-[100%] h-11 md:h-14 border-border border flex flex-col gap-2.5">
+            <div className={codePenInputWrapper()}>
               <textarea
-                className="w-full h-full px-3 py-3 md:px-5 md:py-4 flex flex-col gap-2.5 border-[#cdcdcd] resize-none placeholder:text-sub-text focus:outline-none font-regular-14 md:font-regular-18"
+                className={codePenTextarea()}
                 placeholder="https://..."
                 onChange={onTextareaHandler}
               ></textarea>
@@ -258,7 +242,7 @@ export default function CreateQuestionPage() {
           {/* 파일 첨부 */}
           <div>
             {/* 파일 첨부 TOP TITLE */}
-            <div className="flex gap-8 justify-between md:justify-start mb-5">
+            <div className={fileUploadTitleWrapper()}>
               {/* 이미지 UPLOAD */}
               <div className="flex gap-2 items-center ">
                 <p>이미지 업로드</p>
@@ -274,7 +258,7 @@ export default function CreateQuestionPage() {
             {/* 파일 첨부 내용 */}
             <div className="flex justify-between">
               {/* 이미지 슬라이드 */}
-              <div className="w-88 h-130 w-108 h-130 md:h-140 rounded-xl overflow-hidden">
+              <div className={imageSlideWrapper()}>
                 <Slider type="images">
                   {Array.from({ length: 16 }, (_, index) => (
                     <SwiperSlide key={index} className={mockSlideStyles(index)}>
@@ -284,7 +268,7 @@ export default function CreateQuestionPage() {
                 </Slider>
               </div>
               {/* 첨부된 파일 상세 내용 */}
-              <div className="hidden md:block w-194 h-140 rounded-xl border border-gray-200 overflow-y-auto p-4">
+              <div className={fileDetailWrapper()}>
                 <div className="bg-white rounded-lg">
                   <div className="space-y-4">
                     {files.map((file, idx) => (
@@ -292,21 +276,21 @@ export default function CreateQuestionPage() {
                         {/* Menu dots icon */}
                         <div>
                           <div className="w-6 h-6 grid grid-cols-3 gap-1 p-1">
-                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                            <div className={fileDetailIcon()}></div>
+                            <div className={fileDetailIcon()}></div>
+                            <div className={fileDetailIcon()}></div>
+                            <div className={fileDetailIcon()}></div>
+                            <div className={fileDetailIcon()}></div>
+                            <div className={fileDetailIcon()}></div>
+                            <div className={fileDetailIcon()}></div>
+                            <div className={fileDetailIcon()}></div>
+                            <div className={fileDetailIcon()}></div>
                           </div>
                         </div>
 
                         {/* Code editor thumbnail */}
                         <div>
-                          <div className="w-16 h-16 bg-gray-800 rounded-lg flex items-center justify-center relative"></div>
+                          <div className={fileDetailThumbnail()}></div>
                         </div>
 
                         {/* File info */}
@@ -367,7 +351,7 @@ export default function CreateQuestionPage() {
             type="button"
             className={buttonVariants({ size: "lg", color: "black", hover: true })}
           >
-            등록
+            수정
           </Button>
         </div>
       </div>
