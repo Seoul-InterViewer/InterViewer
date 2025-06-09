@@ -36,7 +36,7 @@ export default function LoginModal() {
               <p className="font-sb-24 text-font-gray">이메일로 로그인</p>
             </div>
             <div className="relative w-105 h-20">
-              <form className="relative w-full h-full flex top-0 left-0 bg-white overflow-x-hidden">
+              <form className="relative w-full h-full flex top-0 left-0 bg-white overflow-x-clip">
                 <div className="absolute w-full h-full flex top-0 ">
                   <Input
                     type="email"
