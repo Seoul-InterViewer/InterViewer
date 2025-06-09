@@ -20,7 +20,7 @@ export const questions = [
     difficulty: "easy",
     likes: 10,
     isSample: true,
-    categoryID: "550e8400-e29b-41d4-a716-446655440001",
+    categoryID: "550e8400-e29b-41d4-a716-446655440000",
     userID: "7c9e6679-7425-40de-944b-e07fc1f90ae7",
   },
   {
@@ -32,7 +32,7 @@ export const questions = [
     difficulty: "hard",
     likes: 10,
     isSample: true,
-    categoryID: "550e8400-e29b-41d4-a716-446655440001",
+    categoryID: "550e8400-e29b-41d4-a716-446655440002",
     userID: "8ba7b810-9dad-11d1-80b4-00c04fd430c8",
   },
   {
@@ -44,7 +44,7 @@ export const questions = [
     difficulty: "easy",
     likes: 10,
     isSample: true,
-    categoryID: "550e8400-e29b-41d4-a716-446655440001",
+    categoryID: "550e8400-e29b-41d4-a716-446655440003",
     userID: "9ba7b810-9dad-11d1-80b4-00c04fd430c8",
   },
 ];
