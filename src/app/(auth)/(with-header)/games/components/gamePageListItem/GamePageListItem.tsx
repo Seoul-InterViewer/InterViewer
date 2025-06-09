@@ -4,8 +4,8 @@ import { Button, buttonVariants } from "@/app/components/button";
 import { Title } from "@/app/components/title";
 import { IGameQuestionProps } from "./gamePageListItem.type";
 import {
-  tags,
-  questionTags,
+  // tags,
+  // questionTags,
   gameSessions,
   questions,
   gameSessionRecords,
@@ -18,14 +18,14 @@ import useModal from "@/hooks/modal/useModal";
 
 const getQuestions = (source_ids: string[]) => questions.filter((q) => source_ids.includes(q.id));
 
-const getTagsForQuestions = (questionIDs: string[]) => {
-  const tagNames = questionTags
-    .filter((qt) => questionIDs.includes(qt.questionID))
-    .map((qt) => tags.find((tag) => tag.id === qt.tagID)?.name)
-    .filter(Boolean);
+// const getTagsForQuestions = (questionIDs: string[]) => {
+//   const tagNames = questionTags
+//     .filter((qt) => questionIDs.includes(qt.questionID))
+//     .map((qt) => tags.find((tag) => tag.id === qt.tagID)?.name)
+//     .filter(Boolean);
 
-  return Array.from(new Set(tagNames));
-};
+//   return Array.from(new Set(tagNames));
+// };
 
 const getAverageScore = (questionID: string, source_ids: string[]) => {
   const totalScore = source_ids.length;
@@ -82,11 +82,11 @@ export const GamePageListItem = ({ gameQuestion }: { gameQuestion: IGameQuestion
               </div>
             </div>
             <div className="flex gap-2.5">
-              {getTagsForQuestions(gameQuestion.source_ids).map((tag) => (
+              {/* {getTagsForQuestions(gameQuestion.source_ids).map((tag) => (
                 <Tag type="default" key={tag}>
                   {tag}
                 </Tag>
-              ))}
+              ))} */}
             </div>
           </div>
 

@@ -8,7 +8,7 @@ export const questions = [
     difficulty: "medium",
     likes: 10,
     isSample: true,
-    categoryID: "550e8400-e29b-41d4-a716-446655440000",
+    categoryID: "550e8400-e29b-41d4-a716-446655440001",
     userID: "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
   },
   {
@@ -20,7 +20,7 @@ export const questions = [
     difficulty: "easy",
     likes: 10,
     isSample: true,
-    categoryID: "550e8400-e29b-41d4-a716-446655440000",
+    categoryID: "550e8400-e29b-41d4-a716-446655440001",
     userID: "7c9e6679-7425-40de-944b-e07fc1f90ae7",
   },
   {
@@ -32,7 +32,7 @@ export const questions = [
     difficulty: "hard",
     likes: 10,
     isSample: true,
-    categoryID: "550e8400-e29b-41d4-a716-446655440000",
+    categoryID: "550e8400-e29b-41d4-a716-446655440001",
     userID: "8ba7b810-9dad-11d1-80b4-00c04fd430c8",
   },
   {
@@ -44,7 +44,7 @@ export const questions = [
     difficulty: "easy",
     likes: 10,
     isSample: true,
-    categoryID: "550e8400-e29b-41d4-a716-446655440000",
+    categoryID: "550e8400-e29b-41d4-a716-446655440001",
     userID: "9ba7b810-9dad-11d1-80b4-00c04fd430c8",
   },
 ];
@@ -174,27 +174,40 @@ export const gameSessions = [
   },
 ];
 
-export const tags = [
-  { id: "20c1c3d0-6f35-4e99-a5b3-01b35493fd5f", name: "React" },
-  { id: "41f7c1f9-74a1-44b4-9b61-98e37ff3a123", name: "Javascript" },
-  { id: "734c7a57-d33e-4c3d-9087-2e7f9e8e822c", name: "Typescript" },
-];
-
-export const questionTags = [
+export const categories = [
   {
-    questionID: "123e4567-e89b-12d3-a456-426614174000",
-    tagID: "20c1c3d0-6f35-4e99-a5b3-01b35493fd5f",
+    id: "550e8400-e29b-41d4-a716-446655440000",
+    name: "Next.js",
+    is_etc: true,
   },
   {
-    questionID: "987fcdeb-51a2-43d7-b987-654321098765",
-    tagID: "20c1c3d0-6f35-4e99-a5b3-01b35493fd5f",
+    id: "550e8400-e29b-41d4-a716-446655440001",
+    name: "React",
+    is_etc: false,
   },
   {
-    questionID: "456a789b-cdef-0123-4567-89abcdef0123",
-    tagID: "20c1c3d0-6f35-4e99-a5b3-01b35493fd5f",
+    id: "550e8400-e29b-41d4-a716-446655440002",
+    name: "Typescript",
+    is_etc: false,
   },
   {
-    questionID: "789b012c-3456-789d-0123-456789abcdef",
-    tagID: "20c1c3d0-6f35-4e99-a5b3-01b35493fd5f",
+    id: "550e8400-e29b-41d4-a716-446655440003",
+    name: "JavaScript",
+    is_etc: false,
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440004",
+    name: "Web",
+    is_etc: false,
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440005",
+    name: "CS",
+    is_etc: false,
+  },
+  {
+    id: "550e8400-e29b-41d4-a716-446655440006",
+    name: "Library",
+    is_etc: false,
   },
 ];
