@@ -26,15 +26,18 @@ export const Banner = () => {
         animate={{ opacity: 1 }}
         transition={{ type: "tween", delay: 0.8, duration: 0.6 }}
       ></motion.div>
-      <div className="flex flex-col md:flex-row px-10 md:justify-between gap-15 md:gap-0 md:items-center">
-        <div className="flex md:flex-4 md:min-w-255 flex-col gap-4 md:px-15 md:py-18">
+      <div className="flex flex-col  md:flex-row px-10 md:justify-between gap-15 md:gap-0 md:items-center">
+        <div className="flex  md:px-50 2xl:px-15 md:py-18 md:flex-4 md:min-w-255 flex-col gap-4 ">
           <motion.div
             className="flex flex-col gap-6 md:gap-10"
             variants={bannerVariants}
             initial="initial"
             animate="animate"
           >
-            <motion.strong className="font-bold-28 md:font-bold-56 break-keep" variants={bannerChildVariants}>
+            <motion.strong
+              className="font-bold-28 md:font-bold-56 break-keep"
+              variants={bannerChildVariants}
+            >
               질문하고 답하며, 퀴즈로 정복하는 프론트엔드 면접
             </motion.strong>
             <motion.p
