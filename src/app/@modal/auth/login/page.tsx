@@ -35,36 +35,39 @@ export default function LoginModal() {
               <strong className="font-sb-28">로그인</strong>
               <p className="font-sb-24 text-font-gray">이메일로 로그인</p>
             </div>
-            <div className="relative  w-105 h-20 overflow-x-hidden">
-              <form className="absolute w-full h-full flex top-0 left-0 bg-white">
-                <Input
-                  type="email"
-                  placeholder="이메일"
-                  name="email"
-                  id="email"
-                  required
-                  isCredential
-                  className={inputVariants({ withButton: true, variant: "credentials" })}
-                  label="이메일을 입력해주세요."
-                />
-                <Button type="button" className="bg-black text-white p-2 h-full flex-1">
-                  다음
-                </Button>
-              </form>
-              <form className="absolute left-full w-full h-full flex top-0">
-                <Input
-                  type="password"
-                  placeholder="비밀번호"
-                  name="password"
-                  id="password"
-                  required
-                  isCredential
-                  className={inputVariants({ withButton: true, variant: "credentials" })}
-                  label="비밀번호를 입력해주세요."
-                />
-                <Button type="button" className="bg-black text-white p-2 h-full flex-1">
-                  로그인
-                </Button>
+            <div className="relative w-105 h-20">
+              <form className="relative w-full h-full flex top-0 left-0 bg-white overflow-x-hidden">
+                <div className="absolute w-full h-full flex top-0 ">
+                  <Input
+                    type="email"
+                    placeholder="이메일"
+                    name="email"
+                    id="email"
+                    required
+                    isCredential
+                    className={inputVariants({ withButton: true, variant: "credentials" })}
+                    label="이메일을 입력해주세요."
+                  />
+                  <Button type="button" className="bg-black text-white p-2 h-full flex-1">
+                    다음
+                  </Button>
+                </div>
+
+                <div className="absolute left-full w-full h-full flex top-0">
+                  <Input
+                    type="password"
+                    placeholder="비밀번호"
+                    name="password"
+                    id="password"
+                    required
+                    isCredential
+                    className={inputVariants({ withButton: true, variant: "credentials" })}
+                    label="비밀번호를 입력해주세요."
+                  />
+                  <Button type="button" className="bg-black text-white p-2 h-full flex-1">
+                    로그인
+                  </Button>
+                </div>
               </form>
             </div>
             <div>
