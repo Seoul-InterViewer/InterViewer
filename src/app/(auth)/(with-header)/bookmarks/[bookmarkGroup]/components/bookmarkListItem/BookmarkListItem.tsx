@@ -2,15 +2,13 @@ import { Card } from "@/app/components/card";
 import { Tag } from "@/app/components/tag";
 import { Title } from "@/app/components/title";
 import { Icon } from "@/app/components/icon";
-import { questionTags, tags } from "../../mocks/bookmarkDetailPageData";
+import { questions, categories } from "../../mocks/bookmarkDetailPageData";
 import { IBookmarkQuestionProps } from "./bookmarkDetailPage.type";
 
-const getTagsForQuestion = (questionID: string) => {
-  return questionTags
-    .filter((qt) => qt.questionID === questionID)
-    .map((qt) => tags.find((tag) => tag.id === qt.tagID)?.name)
-    .filter(Boolean);
-};
+export default function getCategroyForQuestion(questionID: string) {
+  const categoryID = questions.find((question) => question.id === questionID)?.categoryID;
+  return categories.find((category) => category.id === categoryID)?.name;
+}
 
 const translatedDifficulty = (difficulty: string) => {
   switch (difficulty) {
@@ -35,11 +33,7 @@ export const BookmarkListItem = ({ question }: { question: IBookmarkQuestionProp
             <p className="text-font-gray md:font-sb-18 font-sb-14">by 홍길동</p>
           </div>
           <div className="flex gap-2.5">
-            {getTagsForQuestion(question.id).map((tag) => (
-              <Tag key={tag} type="default">
-                {tag}
-              </Tag>
-            ))}
+            <Tag type="default">{getCategroyForQuestion(question.id)}</Tag>
             <Tag type="default">난이도 {translatedDifficulty(question.difficulty)}</Tag>
           </div>
         </div>
