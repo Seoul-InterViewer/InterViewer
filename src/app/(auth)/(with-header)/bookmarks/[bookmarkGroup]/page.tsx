@@ -17,7 +17,12 @@ export default function Page({ params }: { params: Promise<{ bookmarkGroup: stri
         items={[
           { label: "Home", href: "/" },
           { label: "즐겨찾는 질문들", href: "/bookmarks" },
-          { label: "react", href: `/bookmarks/${resolvedParams.bookmarkGroup}` },
+          {
+            label:
+              resolvedParams.bookmarkGroup.charAt(0).toUpperCase() +
+              resolvedParams.bookmarkGroup.slice(1),
+            href: `/bookmarks/${resolvedParams.bookmarkGroup}`,
+          },
         ]}
       />
       <List className={listVariants()}>
