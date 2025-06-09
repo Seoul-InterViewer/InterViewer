@@ -4,26 +4,28 @@ import { difficultyDatas, categoryDatas } from "../../mocks/gameCreateData";
 export const GameCreateTitle = () => {
   return (
     <div>
-      <div className="flex flex-col md:gap-11">
-        <h1 className="font-sb-24">게임 생성 중...</h1>
-        <input
-          type="text"
-          placeholder="게임 제목"
-          className="font-bold-56 placeholder:text-font focus:outline-none"
-          autoFocus
-        />
-        <div className="flex flex-col md:gap-4">
-          <div className="flex flex-col md:gap-3">
-            <label className="font-sb-16">난이도</label>
+      <div className="flex flex-col md:gap-11 gap-7.5">
+        <div className="flex flex-col md:gap-11 gap-2.5">
+          <h1 className="md:font-sb-24 font-regular-16">게임 생성 중...</h1>
+          <input
+            type="text"
+            placeholder="게임 제목"
+            className="md:font-bold-56 font-bold-28 placeholder:text-font focus:outline-none"
+            autoFocus
+          />
+        </div>
+        <div className="flex flex-col md:gap-4 gap-3">
+          <div className="flex flex-col gap-3">
+            <label className="md:font-sb-16 font-sb-14">난이도</label>
             <RadioButton datas={difficultyDatas} />
           </div>
-          <div className="flex flex-col md:gap-3">
-            <label className="font-sb-16">카테고리</label>
+          <div className="flex flex-col gap-3">
+            <label className="md:font-sb-16 font-sb-14">카테고리</label>
             <RadioButton datas={categoryDatas} />
           </div>
         </div>
       </div>
-      <hr className="text-sub-text md:mt-12.5" />
+      <hr className="text-sub-text md:mt-12.5 mt-11" />
     </div>
   );
 };

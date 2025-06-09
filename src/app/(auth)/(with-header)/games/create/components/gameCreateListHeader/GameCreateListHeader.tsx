@@ -49,7 +49,7 @@ export const GameCreateListHeader = ({
     const selectedCount = getSelectedCount();
 
     return (
-      <div className="flex flex-col w-300 h-200 p-15">
+      <div className="flex flex-col w-full max-w-300 h-200 p-15">
         <div className="flex flex-col md:gap-8 overflow-hidden">
           <div className="flex items-center md:gap-5">
             <h3 className="font-sb-28">{title}</h3>
@@ -80,7 +80,7 @@ export const GameCreateListHeader = ({
           <GameCreateListSeletedItem
             key={question.id}
             question={question}
-            type="selected"
+            type="modalSelected"
             onRemove={() => handleQuestionRemove?.(question.id)}
           />
         ));
@@ -90,7 +90,7 @@ export const GameCreateListHeader = ({
       <GameCreateListItem
         key={question.id}
         question={question}
-        type={type}
+        type={type === "wrongAnswer" ? "modalWrongAnswer" : "modalBookmark"}
         isChecked={isChecked(question.id)}
         onCheckChange={(e) => onCheckChange(question.id, e.target.checked)}
       />
@@ -108,15 +108,15 @@ export const GameCreateListHeader = ({
   return (
     <>
       <div className="flex justify-between">
-        <div className="flex items-center md:gap-5">
-          <h3 className="font-sb-28">{getTitle()}</h3>
-          <p className="font-regular-16 text-sub-text">
+        <div className="flex items-center md:gap-5 gap-4">
+          <h3 className="md:font-sb-28 font-sb-16">{getTitle()}</h3>
+          <p className="md:font-regular-16 font-regular-14 text-sub-text">
             {getSelectedCount()} / {totalQuestions.length} 선택됨
           </p>
         </div>
         <Button type="button" className={buttonVariants({ icon: true })} onClick={modalProps.open}>
-          <div className="flex items-center md:gap-3">
-            <span className="font-bold-18 text-font-gray">전체보기</span>
+          <div className="flex items-center md:gap-3 gap-1">
+            <span className="md:font-bold-18 font-sb-14 text-font-gray">전체보기</span>
             <Icon name="chevronRight" className="w-2 h-3 text-font-gray" />
           </div>
         </Button>

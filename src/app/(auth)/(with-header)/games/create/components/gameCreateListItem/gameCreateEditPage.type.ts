@@ -14,5 +14,11 @@ export interface IGameCreateListItemProps {
   isChecked?: boolean;
   onCheckChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onRemove?: () => void;
-  type: "wrongAnswer" | "bookmark" | "selected";
+  type:
+    | "wrongAnswer"
+    | "bookmark"
+    | "selected"
+    | "modalWrongAnswer"
+    | "modalBookmark"
+    | "modalSelected";
 }
