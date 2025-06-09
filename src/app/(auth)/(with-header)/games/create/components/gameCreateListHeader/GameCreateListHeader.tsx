@@ -1,3 +1,4 @@
+"use client";
 import { Button, buttonVariants } from "@/app/components/button";
 import { Icon } from "@/app/components/icon";
 import { IGameCreateListHeaderProps } from "./gameCreateListHeader.type";

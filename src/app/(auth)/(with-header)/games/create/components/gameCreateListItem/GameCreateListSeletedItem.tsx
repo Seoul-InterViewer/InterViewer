@@ -1,11 +1,12 @@
 import { Card } from "@/app/components/card";
 import { Tag } from "@/app/components/tag";
 import { CheckboxInput, checkboxInputVariants } from "@/app/components/input/checkboxInput";
+import Image from "next/image";
 
 import { categories } from "../../mocks/gameCreateData";
 import { IGameCreateListItemProps } from "./gameCreateEditPage.type";
 import translatedDifficulty from "../../utils/translatedDifficulty";
-import getCategroyForQuestion  from "../../utils/getCategroyForQuestion";
+import getCategroyForQuestion from "../../utils/getCategroyForQuestion";
 
 const getCategoryName = (categoryId: string) => {
   return categories.find((category) => category.id === categoryId)?.name;
@@ -19,17 +20,23 @@ export const GameCreateListSeletedItem = ({
 }: IGameCreateListItemProps) => {
   return (
     <Card key={question.id} type="mainCard">
-      <div
-        className="flex flex-col justify-between h-full"
-        style={{
-          background: `url(/images/card-${getCategoryName(question.categoryID)}.svg) no-repeat left 20% top 10% / cover`,
-        }}
-      >
+      <div className="flex flex-col justify-between h-full relative">
+        <div className="absolute -top-3 right-0 md:-right-20 w-2/3 md:w-75 md:h-67 z-0">
+          <Image
+            src={`/images/card-${getCategoryName(question.categoryID)}.svg`}
+            alt={getCategoryName(question.categoryID) || ""}
+            fill
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="flex flex-col md:gap-9">
           <div className="flex flex-col md:gap-2">
             <div className="flex gap-2 md:font-sb-24 font-sb-12 text-sub-text">
-              <span>{getCategoryName(question.categoryID)}</span>
-              <span>난이도: {translatedDifficulty(question.difficulty)}</span>
+              <span>
+                {`${getCategoryName(question.categoryID)} | 난이도: ${translatedDifficulty(
+                  question.difficulty,
+                )}`}
+              </span>
             </div>
             <div className="flex gap-2.5">
               <Tag type="card">{getCategroyForQuestion(question.id)}</Tag>

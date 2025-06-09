@@ -1,3 +1,4 @@
+"use client";
 import { Card } from "@/app/components/card";
 import { Tag } from "@/app/components/tag";
 import { Icon } from "@/app/components/icon";
@@ -5,7 +6,7 @@ import { IGameCreateListItemProps } from "./gameCreateEditPage.type";
 import { CheckboxInput, checkboxInputVariants } from "@/app/components/input/checkboxInput";
 import translatedDifficulty from "../../utils/translatedDifficulty";
 import getCategroyForQuestion from "../../utils/getCategroyForQuestion";
-import useIsMobile from "@/hooks/useIsMobile";
+import { useViewport } from "@/hooks/useViewport";
 
 export const GameCreateListItem = ({
   question,
@@ -13,7 +14,7 @@ export const GameCreateListItem = ({
   onCheckChange,
   type,
 }: IGameCreateListItemProps) => {
-  const isMobile = useIsMobile();
+  const { isMobile } = useViewport();
 
   return (
     <Card key={question.id} type={isMobile ? "mainCard" : "checkCard"}>
