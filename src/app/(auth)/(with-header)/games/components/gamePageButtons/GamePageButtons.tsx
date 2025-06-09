@@ -43,7 +43,7 @@ const GamePageButtons = () => {
       </div>
       <Button
         type="button"
-        className="md:hidden cursor-pointer hover:opacity-80 transition-opacity"
+        className="md:hidden block opacity-0 cursor-pointer group-hover:opacity-100 transition-opacity duration-300"
       >
         <Icon name="arrow" />
       </Button>
