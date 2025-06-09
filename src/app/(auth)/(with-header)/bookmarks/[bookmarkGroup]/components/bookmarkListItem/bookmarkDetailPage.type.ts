@@ -10,3 +10,4 @@ export interface IBookmarkQuestionProps {
   categoryID: string;
   userID: string;
 }
+

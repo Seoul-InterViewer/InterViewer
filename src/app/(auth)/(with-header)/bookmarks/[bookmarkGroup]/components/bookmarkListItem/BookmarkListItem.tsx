@@ -1,9 +1,10 @@
 import { Card } from "@/app/components/card";
 import { Tag } from "@/app/components/tag";
 import { Title } from "@/app/components/title";
-import { Icon } from "@/app/components/icon";
+import { Icon, IconName } from "@/app/components/icon";
 import { questions, categories } from "../../mocks/bookmarkDetailPageData";
 import { IBookmarkQuestionProps } from "./bookmarkDetailPage.type";
+import { CategoryName, getCategoryIcon } from "../../utils/getCategoryIcon";
 
 const getCategroyForQuestion = (questionID: string) => {
   const categoryID = questions.find((question) => question.id === questionID)?.categoryID;
@@ -22,6 +23,9 @@ const translatedDifficulty = (difficulty: string) => {
 };
 
 export const BookmarkListItem = ({ question }: { question: IBookmarkQuestionProps }) => {
+  const categroyName = getCategroyForQuestion(question.id);
+  const iconName = getCategoryIcon(categroyName as CategoryName);
+
   return (
     <Card key={question.id} type="checkCard">
       <div className="flex md:flex-row md:justify-between md:gap-0 flex-col-reverse gap-5">
@@ -38,7 +42,7 @@ export const BookmarkListItem = ({ question }: { question: IBookmarkQuestionProp
           </div>
         </div>
         <div className="flex-center md:w-43.75 md:h-43.75  border border-gray-200 rounded-lg h-40">
-          <Icon name="react" className="w-25 h-25" />
+          <Icon name={iconName} className="w-25 h-25" />
         </div>
       </div>
     </Card>

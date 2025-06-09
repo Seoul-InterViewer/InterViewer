@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { BreadCrumb } from "@/app/components/breadCrumb";
 import { List, listVariants } from "@/app/components/list";
@@ -14,7 +12,7 @@ export default function Page({ params }: { params: Promise<{ bookmarkGroup: stri
   const resolvedParams = React.use(params);
 
   return (
-    <section className="w-full flex flex-col gap-7.5">
+    <main className="w-full flex flex-col gap-7.5">
       <BreadCrumb
         items={[
           { label: "Home", href: "/" },
@@ -27,6 +25,6 @@ export default function Page({ params }: { params: Promise<{ bookmarkGroup: stri
           <BookmarkListItem key={question.id} question={question} />
         ))}
       </List>
-    </section>
+    </main>
   );
 }
