@@ -24,9 +24,9 @@ export const bannerCardVariants = tv({
     "before:rounded-lg",
     "before:opacity-0",
     "before:transition-all",
-    "hover:before:h-full",
-    "hover:before:p-10",
-    "hover:before:opacity-100",
+    "md:hover:before:h-full",
+    "md:hover:before:p-10",
+    "md:hover:before:opacity-100",
 
     // After pseudo-element
     "after:content-[attr(data-desc)]",
@@ -45,8 +45,8 @@ export const bannerCardVariants = tv({
     "after:break-keep",
     "after:!leading-6",
     "after:transition-all",
-    "hover:after:h-full",
-    "hover:after:p-10",
-    "hover:after:pt-36",
+    "md:hover:after:h-full",
+    "md:hover:after:p-10",
+    "md:hover:after:pt-36",
   ].join(" "),
 });

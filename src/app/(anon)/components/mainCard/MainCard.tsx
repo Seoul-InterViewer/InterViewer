@@ -4,7 +4,7 @@ import { Card } from "@/app/components/card";
 import { IMainCardProps } from "./mainCard.type";
 import { Icon } from "@/app/components/icon";
 import { Tag } from "@/app/components/tag";
-import { List, listVariants } from "@/app/components/list";
+import { List } from "@/app/components/list";
 import Image from "next/image";
 import categoryIconMapper from "@/utils/categoryIconMapper";
 import Link from "next/link";
@@ -28,13 +28,12 @@ export const MainCard = ({
   return (
     <Card type="mainCard">
       <div className="flex flex-col justify-between h-full min-h-55 relative group">
-        <div className="absolute -top-8 left-10 md:left-30 w-full h-full z-0">
-          {categoryIconMapper(category) && (
+        <div className="absolute -top-6 right-0 md:-right-20 w-2/3 md:w-94 h-full z-0">
+          {categoryIconMapper("mainCard", category) && (
             <Image
-              src={categoryIconMapper(category)}
+              src={categoryIconMapper("mainCard", category)}
               alt={title}
-              width={310}
-              height={180}
+              fill
               className="w-full h-full object-cover"
             />
           )}

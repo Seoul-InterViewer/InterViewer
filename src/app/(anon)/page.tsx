@@ -30,7 +30,7 @@ export default function Home() {
         {questionCategories.map((category) => (
           <div className="flex flex-col gap-5" key={`${category.category}-questions`}>
             <h2 className="font-sb-16 md:font-sb-28 font-bold">{`${category.category} 질문`}</h2>
-            <Slider type="mainPageCards">
+            <Slider type="mainPageCards" slideClassName="!w-full md:!w-104">
               {category.questions.map((question) => (
                 <MainCard key={`${question.id}-${category.category}`} {...question} />
               ))}
