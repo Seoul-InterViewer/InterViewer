@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import LoginForm from "./components/LoginForm";
 import SNSForm from "./components/SNSForm";
 import { useViewport } from "@/hooks/useViewport";
+import { Button, buttonVariants } from "@/app/components/button";
 
 export default function LoginModal() {
   const { isOpen, close, open } = useRouterModal();
@@ -19,7 +20,12 @@ export default function LoginModal() {
 
   return (
     <Modal isOpen={isOpen} onClose={close} closeButton={!isMobile}>
-      <div className="flex justify-center items-center w-screen h-screen md:w-auto md:h-auto md:px-40 md:py-50">
+      <div className="relative flex justify-center items-center w-screen h-screen md:w-auto md:h-auto md:px-40 md:py-50">
+        {isMobile && (
+          <Button type="button" className={buttonVariants({ class: "absolute top-10 left-10 font-regular-18 text-font-gray" })} onClick={() => {close()}}>
+            &larr; 뒤로 
+          </Button>
+        )}
         <div className="flex gap-47 items-center">
           <div className="w-66 hidden md:flex flex-col gap-7 items-center">
             <div className="w-full h-full">
