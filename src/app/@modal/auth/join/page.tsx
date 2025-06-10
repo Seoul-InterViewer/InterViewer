@@ -20,7 +20,7 @@ export default function JoinModal() {
 
   return (
     <Modal isOpen={isOpen} onClose={close} closeButton={!isMobile}>
-      <div className="relative flex justify-center items-center w-screen h-screen md:w-auto md:h-auto md:px-40 md:py-50">
+      <div className="relative flex justify-center items-center w-screen h-screen md:w-auto md:h-auto md:px-40 md:py-30">
         {isMobile && (
           <Button
             type="button"
@@ -52,7 +52,7 @@ export default function JoinModal() {
               <strong className="font-sb-28">회원가입</strong>
               <p className="font-sb-24 text-font-gray">이메일로 회원가입</p>
             </div>
-            <div className="relative max-w-105 md:w-105 h-20">
+            <div className="relative max-w-105 md:w-105">
               <JoinForm />
             </div>
             <SNSForm type="join" />
