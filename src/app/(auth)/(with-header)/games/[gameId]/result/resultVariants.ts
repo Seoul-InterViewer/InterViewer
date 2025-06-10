@@ -16,3 +16,15 @@ export const resultVariants = tv({
       "ring-1 ring-gray-200 shadow-lg rounded-2xl bg-gray-200/30 transition-all duration-400",
   },
 });
+
+// 모바일용 오른쪽 슬라이드 사이드바 variants
+export const gameResultSidebarVariants = tv({
+  base: "fixed top-0 right-0 bottom-0 w-3/4 max-w-xs h-full bg-white shadow-2xl z-50 transition-transform duration-300 ease-in-out shadow-lg",
+  variants: {
+    isOpen: {
+      default: false,
+      true: "-translate-x-0",
+      false: "translate-x-full",
+    },
+  },
+});
