@@ -6,43 +6,48 @@ import React, { useEffect, useRef, useState } from "react";
 
 const LoginForm = () => {
   const [loginMode, setLoginMode] = useState<"email" | "password">("email");
+  const [email, setEmail] = useState("");
 
-  const emailInput = useInput();
-
-  const emailRef = useRef<HTMLDivElement | null>(null);
+  const emailRef = useRef<HTMLFormElement | null>(null);
 
   useEffect(() => {
     if (emailRef.current && loginMode === "email") {
       emailRef.current.onkeydown = (e) => {
         if (e.key === "Enter") {
-          if (emailInput.value) {
+          if (email) {
             setLoginMode("password");
           }
         }
       };
     }
-  }, [loginMode, emailRef, emailInput.value]);
+  }, [loginMode, emailRef, email]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleEmailSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (email) {
+      setLoginMode("password");
+    }
+  };
+
+  const handlePasswordSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const email = formData.get("email");
     const password = formData.get("password");
     console.log(email, password);
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="relative w-full h-full flex top-0 left-0 bg-white overflow-x-clip"
-    >
-      <div
+    <div className="relative w-full h-full flex top-0 left-0 bg-white overflow-x-clip">
+      <form
+        onSubmit={handleEmailSubmit}
         ref={emailRef}
-        className={`absolute w-full h-full flex top-0 transition-all duration-300 ${loginMode === "email" ? "right-0 opacity-100" : "right-full opacity-0"}`}
+        className={`absolute w-full h-full flex top-0 transition-all duration-300 ${
+          loginMode === "email" ? "right-0 opacity-100" : "right-full opacity-0"
+        }`}
       >
         <Input
-          value={emailInput.value}
-          onChange={emailInput.handleChange}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           type="email"
           placeholder="이메일"
           name="email"
@@ -53,16 +58,18 @@ const LoginForm = () => {
           label="이메일을 입력해주세요."
         />
         <Button
-          type="button"
+          type="submit"
           className={buttonVariants({ color: "black", class: "p-2 h-full flex-1 rounded-none" })}
-          onClick={() => setLoginMode("password")}
         >
           다음
         </Button>
-      </div>
+      </form>
 
-      <div
-        className={`absolute w-full h-full flex top-0 transition-all duration-300 ${loginMode === "password" ? "left-0 opacity-100" : "left-full opacity-0  "}`}
+      <form
+        onSubmit={handlePasswordSubmit}
+        className={`absolute w-full h-full flex top-0 transition-all duration-300 ${
+          loginMode === "password" ? "left-0 opacity-100" : "left-full opacity-0"
+        }`}
       >
         <Input
           type="password"
@@ -89,8 +96,8 @@ const LoginForm = () => {
             &larr; 이전
           </Button>
         )}
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 
