@@ -113,16 +113,23 @@ const level = [
 
 export default function CreateQuestionPage() {
   const [dropdownTag, setDropdownTag] = useState("");
-
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
   const [selectedTag, setSelectedTag] = useState("");
-
   const filteredTags = tagConditions.filter((tag) => tag.txt.includes(dropdownTag));
 
-  const [count, setCount] = useState(0);
-  const onTextareaHandler: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
-    setCount(e.target.value.length);
+  // 각 textarea별 글자수 state 분리
+  const [questionCount, setQuestionCount] = useState(0);
+  const [answerCount, setAnswerCount] = useState(0);
+  const [codepenCount, setCodepenCount] = useState(0);
+
+  const onQuestionChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
+    setQuestionCount(e.target.value.length);
+  };
+  const onAnswerChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
+    setAnswerCount(e.target.value.length);
+  };
+  const onCodepenChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
+    setCodepenCount(e.target.value.length);
   };
 
   return (
@@ -199,28 +206,28 @@ export default function CreateQuestionPage() {
         <div className="flex flex-col gap-20">
           {/* 질문 */}
           <div>
-            <div className={questionInputWrapper()}>
+            <div className="w-[100%] h-25 md:h-54 border-border border flex flex-col gap-2.5">
               <textarea
                 className={questionTextarea()}
                 placeholder="질문을 적어주세요"
-                onChange={onTextareaHandler}
+                onChange={onQuestionChange}
               ></textarea>
-              <div className="w-full flex justify-between  px-3 py-3 md:px-5 md:py-4 items-center bottom-7 left-5">
-                <span className={questionTextareaCount()}>{count} / 500</span>
+              <div className="w-full flex justify-between  px-3 py-3 md:px-5 md:py-4 items-center  bottom-7 left-5">
+                <span className={questionTextareaCount()}>{questionCount} / 500</span>
               </div>
             </div>
           </div>
           {/* 해설 */}
           <div className="flex flex-col gap-5">
             <Title size="md" title="📝&nbsp;해설" />
-            <div className={questionInputWrapper()}>
+            <div className="w-[100%] h-25 md:h-54 border-border border flex flex-col gap-2.5">
               <textarea
                 className={questionTextarea()}
                 placeholder="해설을 적어주세요"
-                onChange={onTextareaHandler}
+                onChange={onAnswerChange}
               ></textarea>
               <div className="w-full flex justify-between  px-3 py-3 md:px-5 md:py-4 items-center  bottom-7 left-5">
-                <span className={questionTextareaCount()}>{count} / 500</span>
+                <span className={questionTextareaCount()}>{answerCount} / 500</span>
               </div>
             </div>
           </div>
@@ -234,8 +241,11 @@ export default function CreateQuestionPage() {
               <textarea
                 className={codePenTextarea()}
                 placeholder="https://..."
-                onChange={onTextareaHandler}
+                onChange={onCodepenChange}
               ></textarea>
+              <div className="w-full flex justify-between px-3 py-3 md:px-5 md:py-4 items-center bottom-7 left-5">
+                <span className={questionTextareaCount()}>{codepenCount} / 500</span>
+              </div>
             </div>
           </div>
           {/* 파일 첨부 */}
