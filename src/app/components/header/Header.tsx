@@ -196,10 +196,10 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
                 <Link href="/auth/login">
                   <Icon
                     name="user"
-                    width={32}
-                    height={32}
                     fill="var(--color-font)"
-                    stroke="var(--color-font)"
+                    stroke="var(--color-font)
+                    "
+                    className="w-6 h-6 md:w-8 md:h-8"
                   />
                 </Link>
               </motion.div>
