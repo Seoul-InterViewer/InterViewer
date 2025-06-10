@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const buttonVariants = tv({
-  base: "rounded-md !cursor-pointer",
+  base: "rounded-md cursor-pointer",
   variants: {
     size: {
       sm: "font-medium-12 px-2 py-1.5",
