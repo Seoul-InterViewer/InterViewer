@@ -5,8 +5,8 @@ import Image from "next/image";
 
 import { categories } from "../../mocks/gameCreateData";
 import { IGameCreateListItemProps } from "./gameCreateEditPage.type";
-import translatedDifficulty from "../../utils/translatedDifficulty";
-import getCategroyForQuestion from "../../utils/getCategroyForQuestion";
+import { translatedDifficulty } from "../../utils/translatedDifficulty";
+import { getCategroyForQuestion } from "../../utils/getCategroyForQuestion";
 
 const getCategoryName = (categoryId: string) => {
   return categories.find((category) => category.id === categoryId)?.name;

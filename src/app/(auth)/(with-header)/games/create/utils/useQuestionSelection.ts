@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function useQuestionSelection() {
+export const useQuestionSelection = () => {
   const [selectedQuestions, setSelectedQuestions] = useState<{
     wrongAnswers: Set<string>;
     bookmarks: Set<string>;
@@ -32,4 +32,4 @@ export default function useQuestionSelection() {
     handleQuestionCheck,
     handleQuestionRemove,
   };
-}
+};

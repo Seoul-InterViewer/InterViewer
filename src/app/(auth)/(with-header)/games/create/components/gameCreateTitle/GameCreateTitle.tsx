@@ -24,7 +24,7 @@ export const GameCreateTitle = () => {
           </div>
           <div className="flex flex-col gap-3">
             <span className="md:font-sb-16 font-sb-14">카테고리</span>
-            <RadioButton datas={categoryDatas} />
+            <RadioButton datas={categoryDatas}  />
           </div>
         </div>
       </div>

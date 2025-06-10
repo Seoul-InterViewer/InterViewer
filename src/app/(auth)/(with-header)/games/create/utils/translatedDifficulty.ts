@@ -1,4 +1,4 @@
-export default function translatedDifficulty(difficulty: string) {
+export const translatedDifficulty = (difficulty: string) => {
   switch (difficulty) {
     case "easy":
       return "하";
@@ -7,4 +7,4 @@ export default function translatedDifficulty(difficulty: string) {
     case "hard":
       return "상";
   }
-}
+};
