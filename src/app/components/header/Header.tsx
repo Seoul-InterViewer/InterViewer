@@ -193,9 +193,15 @@ export const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                <Button type="button" className={`${buttonVariants({ color: "white" })}`}>
-                  <div className={login()}>Login</div>
-                </Button>
+                <Link href="/auth/login">
+                  <Icon
+                    name="user"
+                    width={32}
+                    height={32}
+                    fill="var(--color-font)"
+                    stroke="var(--color-font)"
+                  />
+                </Link>
               </motion.div>
             )}
 
