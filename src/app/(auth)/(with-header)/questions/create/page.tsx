@@ -16,7 +16,6 @@ const {
   questionTitleWrapper,
   questionInput,
   tagDropdown,
-  questionInputWrapper,
   questionTextarea,
   questionTextareaCount,
   codePenInputWrapper,
@@ -48,7 +47,6 @@ const bgColors = [
   "bg-blue-800",
   "bg-blue-900",
 ];
-
 const mockSlideStyles = (index: number) => {
   return `w-full h-full ${bgColors[index]}`;
 };
@@ -206,7 +204,7 @@ export default function CreateQuestionPage() {
         <div className="flex flex-col gap-20">
           {/* 질문 */}
           <div>
-            <div className="w-[100%] h-25 md:h-54 border-border border flex flex-col gap-2.5">
+            <div className="w-full h-25 md:h-54 border-border border flex flex-col gap-2.5">
               <textarea
                 className={questionTextarea()}
                 placeholder="질문을 적어주세요"
@@ -220,7 +218,7 @@ export default function CreateQuestionPage() {
           {/* 해설 */}
           <div className="flex flex-col gap-5">
             <Title size="md" title="📝&nbsp;해설" />
-            <div className="w-[100%] h-25 md:h-54 border-border border flex flex-col gap-2.5">
+            <div className="w-full h-25 md:h-54 border-border border flex flex-col gap-2.5">
               <textarea
                 className={questionTextarea()}
                 placeholder="해설을 적어주세요"
