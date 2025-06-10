@@ -47,9 +47,9 @@ const AppleIcon = (props: SVGProps<SVGSVGElement>) => {
 
   return (
     <svg
-      width={width || "49"}
-      height={height || "49"}
-      viewBox={viewBox || "0 0 49 49"}
+      width={width || "34"}
+      height={height || "37"}
+      viewBox={viewBox || "5.7 6.1 34 37"}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
@@ -962,7 +962,7 @@ const CsIcon = (props: SVGProps<SVGSVGElement>) => {
   const { width, height, stroke, strokeWidth, fill, viewBox, ...restProps } = props;
 
   return (
-    <svg 
+    <svg
       width={width || "30"}
       height={height || "30"}
       viewBox={viewBox || "0 0 30 30"}
