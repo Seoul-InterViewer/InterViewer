@@ -1,26 +1,14 @@
 "use client";
 import { Button, buttonVariants } from "@/app/components/button";
 import { Input, inputVariants } from "@/app/components/input";
-import useInput from "@/hooks/input/useInput";
 import React, { useEffect, useRef, useState } from "react";
 
 const LoginForm = () => {
   const [loginMode, setLoginMode] = useState<"email" | "password">("email");
   const [email, setEmail] = useState("");
 
-  const emailRef = useRef<HTMLFormElement | null>(null);
-
-  useEffect(() => {
-    if (emailRef.current && loginMode === "email") {
-      emailRef.current.onkeydown = (e) => {
-        if (e.key === "Enter") {
-          if (email) {
-            setLoginMode("password");
-          }
-        }
-      };
-    }
-  }, [loginMode, emailRef, email]);
+  const emailRef = useRef<HTMLInputElement | null>(null);
+  const passwordRef = useRef<HTMLInputElement | null>(null);
 
   const handleEmailSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,11 +24,18 @@ const LoginForm = () => {
     console.log(email, password);
   };
 
+  useEffect(() => {
+    if (loginMode === "email") {
+      emailRef.current?.focus();
+    } else {
+      passwordRef.current?.focus();
+    }
+  }, [loginMode]);
+
   return (
     <div className="relative w-full h-full flex top-0 left-0 bg-white overflow-x-clip">
       <form
         onSubmit={handleEmailSubmit}
-        ref={emailRef}
         className={`absolute w-full h-full flex top-0 transition-all duration-300 ${
           loginMode === "email" ? "right-0 opacity-100" : "right-full opacity-0"
         }`}
@@ -56,6 +51,7 @@ const LoginForm = () => {
           isCredential
           className={inputVariants({ withButton: true, variant: "credentials" })}
           label="이메일을 입력해주세요."
+          ref={emailRef}
         />
         <Button
           type="submit"
@@ -80,6 +76,7 @@ const LoginForm = () => {
           isCredential
           className={inputVariants({ withButton: true, variant: "credentials" })}
           label="비밀번호를 입력해주세요."
+          ref={passwordRef}
         />
         <Button
           type="submit"
