@@ -1,7 +1,7 @@
 import { Button, buttonVariants } from "@/app/components/button";
 import { Icon, IconName } from "@/app/components/icon";
 import React from "react";
-import SOCIAL_LOGINS from "../../login/constants/socialLogins";
+import SOCIAL_LOGINS from "../../login/constants/socialLogins.constant";
 import { ISNSFormProps } from "./snsForm.type";
 
 export const SNSForm = ({type}: ISNSFormProps) => {

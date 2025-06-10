@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useViewport } from "@/hooks/useViewport";
 import { Button, buttonVariants } from "@/app/components/button";
-import JoinForm from "./components/JoinForm";
+import { JoinForm } from "./components/joinForm/JoinForm";
 import { SNSForm } from "../components/snsForm";
 
 export default function JoinModal() {
