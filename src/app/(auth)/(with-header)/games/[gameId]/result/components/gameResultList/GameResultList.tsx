@@ -5,9 +5,9 @@ import { GameResultListProps } from "./GameResultList.type";
 
 export const GameResultList = ({ q, i }: GameResultListProps) => {
   return (
-    <div key={i}>
+    <div key={i} id={`question-${i}`} className="md: p-4 md:w-[95%]">
       {/* 질문 이름 */}
-      <div className="flex w-[95%] justify-between mb-5">
+      <div className="flex justify-between mb-5  w-full">
         <Title size="md" title={q.title} />
         <Button
           type="button"

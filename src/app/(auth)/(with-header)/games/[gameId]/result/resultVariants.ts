@@ -12,5 +12,7 @@ export const resultVariants = tv({
     scoreDescription: "font-regular-14 md:text-center",
     scoreList:
       "absolute md:static bottom-1/2 right-3 translate-y-1/2 md:hidden flex items-center gap-2",
+    overShadow:
+      "ring-1 ring-gray-200 shadow-lg rounded-2xl bg-gray-200/30 transition-all duration-400",
   },
 });
