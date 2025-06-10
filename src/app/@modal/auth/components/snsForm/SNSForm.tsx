@@ -1,14 +1,17 @@
 import { Button, buttonVariants } from "@/app/components/button";
 import { Icon, IconName } from "@/app/components/icon";
-import React, { useActionState } from "react";
-import SOCIAL_LOGINS from "../constants/socialLogins";
+import React from "react";
+import SOCIAL_LOGINS from "../../login/constants/socialLogins";
+import { ISNSFormProps } from "./snsForm.type";
 
-const SNSForm = () => {
+export const SNSForm = ({type}: ISNSFormProps) => {
+
+
 
   return (
     <form>
       <div className="flex flex-col gap-8 pt-5">
-        <strong className="font-sb-24 text-font-gray">소셜 계정으로 로그인</strong>
+        <strong className="font-sb-24 text-font-gray">{type === "login" ? "소셜 계정으로 로그인" : "소셜 계정으로 간편가입하기"}</strong>
         <ul className="flex gap-10">
           {SOCIAL_LOGINS.map((social) => (
             <li key={social.name}>
@@ -28,4 +31,3 @@ const SNSForm = () => {
   );
 };
 
-export default SNSForm;

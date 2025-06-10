@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import LoginForm from "./components/LoginForm";
-import SNSForm from "./components/SNSForm";
+import SNSForm from "../components/snsForm/SNSForm";
 import { useViewport } from "@/hooks/useViewport";
 import { Button, buttonVariants } from "@/app/components/button";
 
@@ -22,8 +22,16 @@ export default function LoginModal() {
     <Modal isOpen={isOpen} onClose={close} closeButton={!isMobile}>
       <div className="relative flex justify-center items-center w-screen h-screen md:w-auto md:h-auto md:px-40 md:py-50">
         {isMobile && (
-          <Button type="button" className={buttonVariants({ class: "absolute top-10 left-10 font-regular-18 text-font-gray" })} onClick={() => {close()}}>
-            &larr; 뒤로 
+          <Button
+            type="button"
+            className={buttonVariants({
+              class: "absolute top-10 left-10 font-regular-18 text-font-gray",
+            })}
+            onClick={() => {
+              close();
+            }}
+          >
+            &larr; 뒤로
           </Button>
         )}
         <div className="flex gap-47 items-center">
