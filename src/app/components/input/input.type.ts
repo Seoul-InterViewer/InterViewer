@@ -4,5 +4,5 @@ export interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement>
   isCredential?: boolean;
   error?: boolean;
   errorMsg?: string;
-  ref?: React.RefObject<HTMLInputElement> | null;
+  ref?: React.RefObject<HTMLInputElement | null>;
 }
