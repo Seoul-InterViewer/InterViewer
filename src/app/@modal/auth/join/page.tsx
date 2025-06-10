@@ -7,6 +7,8 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useViewport } from "@/hooks/useViewport";
 import { Button, buttonVariants } from "@/app/components/button";
+import JoinForm from "./components/JoinForm";
+import { SNSForm } from "../\bcomponents/snsForm";
 
 export default function JoinModal() {
   const { isOpen, close, open } = useRouterModal();
@@ -43,7 +45,9 @@ export default function JoinModal() {
               <p className="font-sb-24 text-font-gray">이메일로 회원가입</p>
             </div>
             <div className="relative max-w-105 md:w-105 h-20">
+              <JoinForm />
             </div>
+            <SNSForm type="join" />
           </div>
         </div>
 

@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import LoginForm from "./components/LoginForm";
-import SNSForm from "../components/snsForm/SNSForm";
+import { SNSForm } from "../components/snsForm/SNSForm";
 import { useViewport } from "@/hooks/useViewport";
 import { Button, buttonVariants } from "@/app/components/button";
 
@@ -55,7 +55,7 @@ export default function LoginModal() {
             <div className="relative max-w-105 md:w-105 h-20">
               <LoginForm />
             </div>
-            <SNSForm />
+            <SNSForm type="login" />
           </div>
         </div>
 
