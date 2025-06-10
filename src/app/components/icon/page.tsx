@@ -44,6 +44,7 @@ const iconNames: IconName[] = [
   "chevronRight",
   "chevronUp",
   "chevronDown",
+  "logOut",
 ];
 
 export default function IconGalleryPage() {
