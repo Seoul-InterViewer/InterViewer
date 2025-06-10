@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BookmarkCard } from "./components/bookmarkCard/BookmarkCard";

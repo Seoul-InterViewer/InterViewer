@@ -1,5 +1,5 @@
 import { Card } from "@/app/components/card";
-import { TageCircle } from "./TagCircle";
+import { TagCircle } from "./TagCircle";
 import { Icon, IconName } from "@/app/components/icon";
 import { IBookmarksProps } from "./bookmarkCard.type";
 
@@ -24,7 +24,7 @@ export const BookmarkCard = ({ id, name, createdAt, questions }: IBookmarksProps
     question.tags.map((tag) => tags.push(tag.tagName));
   });
 
-  const tagIcons = tags.filter((tag): tag is IconName => categoryIcons.includes(tag as IconName));
+  const tagIcons = tags.filter((tag) => categoryIcons.includes(tag as IconName)) as IconName[];
 
   return (
     <Card type="favoriteCard">
@@ -38,13 +38,13 @@ export const BookmarkCard = ({ id, name, createdAt, questions }: IBookmarksProps
               {formattedDate(createdAt)}
             </p>
           </div>
-          <p className="font-medium-10 md:font-bold-14 text-[#6B7280] tracking-tight md:tracking-normal overflow-hidden text-ellipsis whitespace-nowrap">
+          <p className="font-medium-10 md:font-bold-14 text-sub-text tracking-tight md:tracking-normal overflow-hidden text-ellipsis whitespace-nowrap">
             {tags && tags.join(", ")}
           </p>
         </div>
         {tags.length > 0 && (
           <div className="flex gap-1.5 md:gap-4.5 absolute bottom-0 right-0">
-            <TageCircle tagIcons={tagIcons} />
+            <TagCircle tagIcons={tagIcons} />
             <div className="w-7.5 md:w-15 h-7.5 md:h-15 bg-font rounded-full flex justify-center items-center gap-0.25 md:gap-0.5 text-background font-sb-12 md:font-sb-20">
               {tags.length}
               <Icon

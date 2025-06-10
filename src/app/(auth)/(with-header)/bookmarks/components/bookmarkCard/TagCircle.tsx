@@ -2,7 +2,7 @@ import { Icon, IconName } from "@/app/components/icon";
 import { ITagIconsProps } from "./bookmarkCard.type";
 import { tagCircleVariants } from "./tagCircle.variants";
 
-export const TageCircle = ({ tagIcons }: ITagIconsProps) => {
+export const TagCircle = ({ tagIcons }: ITagIconsProps) => {
   const showIcons: IconName[] = [];
   if (tagIcons.length === 0) showIcons.push("horizontalElipsis");
   else if (tagIcons.length > 4) showIcons.push(...tagIcons.slice(0, 4), "horizontalElipsis");

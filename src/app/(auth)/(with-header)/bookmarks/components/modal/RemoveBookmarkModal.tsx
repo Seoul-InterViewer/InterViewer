@@ -15,7 +15,7 @@ export const RemoveBookmarkModal = ({ props, onConfirm }: IRemoveBookmarkModalPr
           closeWithOverlay={false}
         >
           <div className="flex-center flex-col gap-7.5 w-full h-full">
-            <h2 className="font-regular-18">북마트 된 목록을 정말 삭제하시겠습니까?</h2>
+            <h2 className="font-regular-18">북마크 된 목록을 정말 삭제하시겠습니까?</h2>
             <div className="flex-center gap-5 ">
               <Button
                 type="button"
