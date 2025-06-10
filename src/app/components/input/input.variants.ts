@@ -16,7 +16,7 @@ export const inputVariants = tv({
       true: "flex-5 items-center gap-2 border-r-0",
     },
     search: {
-      true: "p-2 indent-0 bg-[#f8f8f8] font-sb-16",
+      true: "px-1 !py-2 indent-0 bg-[#f8f8f8] font-sb-16",
     },
     error: {
       true: "text-red-500 border-red-500",
