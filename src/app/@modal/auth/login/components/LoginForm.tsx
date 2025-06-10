@@ -2,17 +2,18 @@
 import { Button, buttonVariants } from "@/app/components/button";
 import { Input, inputVariants } from "@/app/components/input";
 import React, { useEffect, useRef, useState } from "react";
+import useInput from "@/hooks/input/useInput";
 
 const LoginForm = () => {
   const [loginMode, setLoginMode] = useState<"email" | "password">("email");
-  const [email, setEmail] = useState("");
+  const emailInput = useInput();
 
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
 
   const handleEmailSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (email) {
+    if (emailInput.value) {
       setLoginMode("password");
     }
   };
@@ -21,7 +22,7 @@ const LoginForm = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const password = formData.get("password");
-    console.log(email, password);
+    console.log(emailInput.value, password);
   };
 
   useEffect(() => {
@@ -41,8 +42,8 @@ const LoginForm = () => {
         }`}
       >
         <Input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={emailInput.value}
+          onChange={emailInput.handleChange}
           type="email"
           placeholder="이메일"
           name="email"

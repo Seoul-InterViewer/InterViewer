@@ -7,19 +7,21 @@ import Link from "next/link";
 import { useEffect } from "react";
 import LoginForm from "./components/LoginForm";
 import SNSForm from "./components/SNSForm";
+import { useViewport } from "@/hooks/useViewport";
 
 export default function LoginModal() {
   const { isOpen, close, open } = useRouterModal();
+  const { isMobile } = useViewport();
   console.log(isOpen);
   useEffect(() => {
     open();
   }, []);
 
   return (
-    <Modal isOpen={isOpen} onClose={close} closeButton>
-      <div className="flex justify-center items-center px-40 py-50">
+    <Modal isOpen={isOpen} onClose={close} closeButton={!isMobile}>
+      <div className="flex justify-center items-center w-screen h-screen md:w-auto md:h-auto md:px-40 md:py-50">
         <div className="flex gap-47 items-center">
-          <div className="flex flex-col gap-7 items-center">
+          <div className="w-66 hidden md:flex flex-col gap-7 items-center">
             <div className="w-full h-full">
               <Image
                 src="/images/logo.svg"
@@ -36,7 +38,7 @@ export default function LoginModal() {
               <strong className="font-sb-28">로그인</strong>
               <p className="font-sb-24 text-font-gray">이메일로 로그인</p>
             </div>
-            <div className="relative w-105 h-20">
+            <div className="relative max-w-105 md:w-105 h-20">
               <LoginForm />
             </div>
             <SNSForm />
