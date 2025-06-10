@@ -1,7 +1,5 @@
 "use client";
 
-import { Button } from "@/app/components/button";
-import { Icon } from "@/app/components/icon";
 import { Modal } from "@/app/components/modal/Modal";
 import { useRouterModal } from "@/hooks/modal/useRouteModal";
 import Image from "next/image";
