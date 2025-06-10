@@ -40,7 +40,12 @@ export const GameCreateListHeader = ({
       case "wrongAnswer":
         return selectedQuestions.wrongAnswers.size;
       default:
-        return selectedQuestions.wrongAnswers.size + selectedQuestions.bookmarks.size;
+        // 중복된 ID를 제거하고 카운트
+        const uniqueSelectedIds = new Set([
+          ...Array.from(selectedQuestions.wrongAnswers),
+          ...Array.from(selectedQuestions.bookmarks),
+        ]);
+        return uniqueSelectedIds.size;
     }
   };
 
@@ -50,9 +55,9 @@ export const GameCreateListHeader = ({
     const selectedCount = getSelectedCount();
 
     return (
-      <div className="flex flex-col w-full max-w-300 h-200 p-15">
+      <div className="flex flex-col w-screen h-screen p-15">
         <div className="flex flex-col md:gap-8 overflow-hidden">
-          <div className="flex items-center md:gap-5">
+          <div className="flex items-center justify-between  ">
             <h3 className="font-sb-28">{title}</h3>
             <p className="font-regular-16 text-sub-text">
               {selectedCount} / {totalQuestions.length} 선택됨

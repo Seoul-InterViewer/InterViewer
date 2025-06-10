@@ -110,7 +110,7 @@ export default function GameCreatePage() {
               })()}
             </Slider>
           ) : (
-            <div className="flex-center w-full md:h-104 h-44">
+            <div className="flex-center w-full md:h-104 h-70">
               <p className="text-font-gray font-sb-20">선택된 질문이 없습니다. 😭</p>
             </div>
           )}

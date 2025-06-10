@@ -20,8 +20,8 @@ export const GameCreateListSeletedItem = ({
 }: IGameCreateListItemProps) => {
   return (
     <Card key={question.id} type="mainCard">
-      <div className="flex flex-col justify-between h-full relative">
-        <div className="absolute -top-3 right-0 md:-right-20 w-2/3 md:w-75 md:h-67 z-0">
+      <div className="flex flex-col justify-between h-full min-h-50 relative">
+        <div className="absolute -top-3 right-0 md:-right-20 w-2/3 md:w-75 h-40 md:h-67 z-0">
           <Image
             src={`/images/card-${getCategoryName(question.categoryID)}.svg`}
             alt={getCategoryName(question.categoryID) || ""}
@@ -29,8 +29,8 @@ export const GameCreateListSeletedItem = ({
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="flex flex-col md:gap-9">
-          <div className="flex flex-col md:gap-2">
+        <div className="flex flex-col md:gap-9 gap-4">
+          <div className="flex flex-col gap-2">
             <div className="flex gap-2 md:font-sb-24 font-sb-12 text-sub-text">
               <span>
                 {`${getCategoryName(question.categoryID)} | 난이도: ${translatedDifficulty(
@@ -43,7 +43,7 @@ export const GameCreateListSeletedItem = ({
             </div>
           </div>
 
-          <div className="flex flex-col md:gap-4.5">
+          <div className="flex flex-col md:gap-4.5 gap-3">
             <div className="line-clamp-2">
               <h3 className="md:font-sb-28 font-sb-16">{question.title}</h3>
             </div>
@@ -54,7 +54,7 @@ export const GameCreateListSeletedItem = ({
         </div>
 
         <div className="flex justify-between">
-          <span className="md:font-bold-14 font-medium-8">작성자: 전우진</span>
+          <span className="flex items-center md:font-bold-14 font-medium-8">작성자: 전우진</span>
           <CheckboxInput
             className={checkboxInputVariants()}
             id={`question-${type}-${question.id}`}

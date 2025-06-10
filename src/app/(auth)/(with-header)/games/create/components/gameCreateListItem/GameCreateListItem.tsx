@@ -18,9 +18,9 @@ export const GameCreateListItem = ({
 
   return (
     <Card key={question.id} type={isMobile ? "mainCard" : "checkCard"}>
-      <div className="flex md:flex-row md:gap-12.5 flex-col gap-1 w-full">
-        <div className="flex-center md:w-43.75 md:h-43.75 border border-gray-200 rounded-lg w-14 h-14 md:border md:border-gray-200 md:rounded-lg">
-          <Icon name="react" className="md:w-25 md:h-25 w-14 h-14" />
+      <div className="w-full h-full flex md:flex-row flex-col md:justify-start md:gap-12.5 gap-7">
+        <div className="flex-center md:w-43.75 md:h-43.75 w-18 h-18 md:border md:border-gray-200 md:rounded-lg">
+          <Icon name="react" className="md:w-25 md:h-25 w-18 h-18" />
         </div>
         <div className="flex-1">
           <div className="flex flex-col justify-between w-full h-full">
