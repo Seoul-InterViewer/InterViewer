@@ -11,7 +11,7 @@ export default function SelectBlanksPage() {
   const currentQuestion = questions[0];
   const currentBlanks = gameQuestionBlanks;
 
-  const handleWordClick = (word: string) => {
+  const handleWordClick = (word: string,) => {
     if (selectedBlanks.includes(word)) {
       setSelectedBlanks(selectedBlanks.filter((w) => w !== word));
     } else {
@@ -19,8 +19,8 @@ export default function SelectBlanksPage() {
     }
   };
 
+  const words = currentQuestion.content.split(" ");
   const renderContent = () => {
-    const words = currentQuestion.content.split(/(\s+)/);
     return words.map((word, index) => {
       const isSelected = selectedBlanks.includes(word.replace(/\*\*/g, ""));
       const isBlank = word.includes("**");
@@ -30,7 +30,7 @@ export default function SelectBlanksPage() {
         <span
           key={index}
           onClick={() => isBlank && handleWordClick(cleanWord)}
-          className={`cursor-pointer ${isSelected ? "bg-yellow-200" : ""}`}
+          className={`cursor-pointer ${isSelected ? "bg-yellow-200" : ""} md:font-regular-26 `}
         >
           {cleanWord}
         </span>
@@ -46,7 +46,7 @@ export default function SelectBlanksPage() {
       </Button>
 
       <article className="flex flex-col">
-        <div>
+        <div className="flex md:gap-2.5 ">
           <Icon name="questionBlack" />
           <p>Question 1 of {questions.length}</p>
         </div>
@@ -55,12 +55,17 @@ export default function SelectBlanksPage() {
           <span className="md:font-medium-12">(최소 한개의 단어는 남겨야합니다.)</span>
         </p>
         <section>
-          <div>
+          <div className="flex items-end`">
             <span className="md:font-bold-32">Q.</span>
             <Title size="sm" title={currentQuestion.title} />
           </div>
-          <div className="whitespace-pre-wrap">{renderContent()}</div>
-          <div>
+          <div className="whitespace-pre-wrap">
+            {renderContent()}
+            {words.map((word, idx) => (
+              <span key={idx}>{word}</span>
+            ))}
+          </div>
+          <div className="text-sub-text">
             선택된 빈칸 :{" "}
             {selectedBlanks.map((blank, index) => (
               <span key={index} className="mr-2">
