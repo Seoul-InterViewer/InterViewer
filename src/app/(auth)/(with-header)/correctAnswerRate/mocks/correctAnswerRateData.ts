@@ -71,3 +71,54 @@ export const gameSessions = [
     user_id: "06c2cf08-1f2c-472e-914f-f569f9f0b03b",
   },
 ];
+
+export const gameQuestions = [
+  {
+    id: "d0a7eecc-06d9-4a76-bd6f-9e77a83b9173",
+    title: "게임 01",
+    createdAt: "2024-01-01",
+    updatedAt: "2024-01-01",
+    source_ids: [
+      "123e4567-e89b-12d3-a456-426614174000",
+      "987fcdeb-51a2-43d7-b987-654321098765",
+      "456a789b-cdef-0123-4567-89abcdef0123",
+    ],
+    user_id: "06c2cf08-1f2c-472e-914f-f569f9f0b03b",
+  },
+  {
+    id: "f13b1b34-4cf3-4121-bc37-65b8f5a1f74e",
+    title: "게임 02",
+    createdAt: "2024-01-01",
+    updatedAt: "2024-01-01",
+    source_ids: [
+      "987fcdeb-51a2-43d7-b987-654321098765",
+      "456a789b-cdef-0123-4567-89abcdef0123",
+      "789b012c-3456-789d-0123-456789abcdef",
+    ],
+    user_id: "06c2cf08-1f2c-472e-914f-f569f9f0b03b",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    title: "게임 03",
+    createdAt: "2024-01-01",
+    updatedAt: "2024-01-01",
+    source_ids: [
+      "456a789b-cdef-0123-4567-89abcdef0123",
+      "789b012c-3456-789d-0123-456789abcdef",
+      "123e4567-e89b-12d3-a456-426614174000",
+    ],
+    user_id: "06c2cf08-1f2c-472e-914f-f569f9f0b03b",
+  },
+  {
+    id: "c5d6e7f8-9a0b-1234-cdef-567890123456",
+    title: "게임 04",
+    createdAt: "2024-01-01",
+    updatedAt: "2024-01-01",
+    source_ids: [
+      "789b012c-3456-789d-0123-456789abcdef",
+      "123e4567-e89b-12d3-a456-426614174000",
+      "987fcdeb-51a2-43d7-b987-654321098765",
+    ],
+    user_id: "06c2cf08-1f2c-472e-914f-f569f9f0b03b",
+  },
+];

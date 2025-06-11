@@ -1,16 +1,6 @@
 import React from "react";
-import { gameSessionRecords, gameSessions } from "./mocks/correctAnswerRateData";
 
-export const getAverageScore = (questionID: string, source_ids: string[]) => {
-  const totalScore = source_ids.length;
-  const sessionRecord = gameSessionRecords.find((record) => record.game_question_id === questionID);
-  const userScore =
-    gameSessions.find((session) => session.id === sessionRecord?.session_id)?.total_score ?? 0;
-
-  return Math.floor((userScore / totalScore) * 100);
-};
-
-export const CorrectRate = ({ averageScore }: { averageScore: number }) => {
+export const CorrectAnswerRate = ({ averageScore }: { averageScore: number }) => {
   return (
     <div className="md:flex items-center gap-4 border-r-2 border-r-tag md:pr-15 hidden">
       <div
