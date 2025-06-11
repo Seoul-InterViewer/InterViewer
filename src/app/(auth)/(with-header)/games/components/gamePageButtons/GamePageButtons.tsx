@@ -36,7 +36,7 @@ const GamePageButtons = () => {
         <Button
           type="button"
           onClick={modalProps.open}
-          className="rounded-md cursor-pointer md:font-regular-18 md:px-5 md:py-2.5 font-sb-12 px-2 py-1.5 bg-incorrect/60 text-white hover:opacity-80 transition-opacity"
+          className="rounded-md cursor-pointer md:font-regular-18 md:px-5 md:py-2.5 font-sb-12 px-2 py-2 bg-incorrect/60 text-white hover:opacity-80 transition-opacity"
         >
           삭제하기
         </Button>

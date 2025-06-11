@@ -8,7 +8,7 @@ import { GamePageListItem } from "./components/gamePageListItem";
 
 export default function page() {
   return (
-    <main className="w-full flex flex-col gap-7.5">
+    <main className="w-full flex flex-col gap-7.5 md:pb-30 pb-15">
       <BreadCrumb
         items={[
           { label: "Home", href: "/" },

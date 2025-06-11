@@ -23,22 +23,23 @@ export const GamePageListItem = ({ gameQuestion }: { gameQuestion: IGameQuestion
 
   return (
     <Card type="editCard" key={gameQuestion.id}>
-      <div className="group flex md:flex-row justify-between h-full flex-col">
-        <div className="flex flex-col md:justify-between md:gap-0 gap-5">
-          <div className="flex flex-col md:gap-6.5 gap-5">
-            <div className="flex items-center md:gap-3.5 gap-3">
+      <article className="group flex h-full flex-col justify-between md:flex-row">
+        <section className="flex flex-col gap-7 md:justify-between">
+          <div className="flex flex-col gap-5">
+            <div className="flex items-center gap-3 md:gap-3.5">
               <Title size="sm" title={gameQuestion.title} />
               <Icon
                 name="chevronRight"
                 strokeWidth={2.5}
-                className="md:w-3 md:h-5 w-2.5 h-4.5 opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
+                className="w-2.5 h-4.5 opacity-0 transition-opacity duration-300 md:w-3 md:h-5 md:group-hover:opacity-100"
               />
             </div>
-            <div className="flex flex-col gap-2">
+
+            <section className="flex flex-col gap-3 md:gap-2">
               {firstTwo.map((q, idx) => (
                 <div
                   key={q.id}
-                  className="md:text-sub-text md:font-sb-16 md:line-clamp-1 text-font font-bold-14 line-clamp-2"
+                  className="text-font font-bold-14 line-clamp-2 md:text-sub-text md:font-sb-16 md:line-clamp-1"
                 >
                   문제 {idx + 1}: {q.title}
                 </div>
@@ -46,8 +47,9 @@ export const GamePageListItem = ({ gameQuestion }: { gameQuestion: IGameQuestion
               {restCount > 0 && (
                 <div className="text-gray-300 font-medium-12">외 {restCount}문제...</div>
               )}
-            </div>
+            </section>
           </div>
+
           <div className="flex gap-2.5">
             {categoryNames.map((category) => (
               <Tag key={category} type="default">
@@ -55,13 +57,13 @@ export const GamePageListItem = ({ gameQuestion }: { gameQuestion: IGameQuestion
               </Tag>
             ))}
           </div>
-        </div>
+        </section>
 
         <div className="flex items-center justify-between">
           <CorrectRate averageScore={averageScore} />
           <GamePageButtons />
         </div>
-      </div>
+      </article>
     </Card>
   );
 };
