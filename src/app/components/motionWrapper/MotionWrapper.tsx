@@ -3,7 +3,7 @@ import React from "react";
 import { IMotionWrapperProps } from "./motionWrapper.type";
 import { motion } from "framer-motion";
 
-const MotionWrapper = ({
+export const MotionWrapper = ({
   children,
   className,
   initial,
@@ -28,4 +28,3 @@ const MotionWrapper = ({
   );
 };
 
-export default MotionWrapper;
