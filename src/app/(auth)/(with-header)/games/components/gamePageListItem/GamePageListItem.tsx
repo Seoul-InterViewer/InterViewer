@@ -10,6 +10,8 @@ import { getAverageScore } from "../../utils/getAverageScore";
 import { useViewport } from "@/hooks/useViewport";
 import { CorrectRate } from "../correctRate/CorrectRate";
 import GamePageButtons from "../gamePageButtons/GamePageButtons";
+import Link from "next/link";
+import capitalize from "@/utils/capitalize";
 
 const getQuestions = (source_ids: string[]) => questions.filter((q) => source_ids.includes(q.id));
 
@@ -27,11 +29,13 @@ export const GamePageListItem = ({ gameQuestion }: { gameQuestion: IGameQuestion
         <section className="flex flex-col gap-7 md:justify-between">
           <div className="flex flex-col gap-5">
             <div className="flex items-center gap-3 md:gap-3.5">
-              <Title size="sm" title={gameQuestion.title} />
+              <Link href={`/games/${gameQuestion.id}`}>
+                <Title size="sm" title={gameQuestion.title} />
+              </Link>
               <Icon
                 name="chevronRight"
                 strokeWidth={2.5}
-                className="w-2.5 h-4.5 opacity-0 transition-opacity duration-300 md:w-3 md:h-5 md:group-hover:opacity-100"
+                className="w-2.5 h-4.5 opacity-0 md:w-3 md:h-5 md:group-hover:opacity-100"
               />
             </div>
 
@@ -53,7 +57,7 @@ export const GamePageListItem = ({ gameQuestion }: { gameQuestion: IGameQuestion
           <div className="flex gap-2.5">
             {categoryNames.map((category) => (
               <Tag key={category} type="default">
-                {category}
+                {capitalize(category)}
               </Tag>
             ))}
           </div>
