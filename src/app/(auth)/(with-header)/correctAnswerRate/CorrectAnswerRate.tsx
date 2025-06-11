@@ -1,10 +1,14 @@
 import React from "react";
+import { CorrectAnswerRateProps } from "./correctAnswerRate.type";
+import { container, progressCircle, innerCircle, percentage } from "./correctAnswerRateVariants";
 
-export const CorrectAnswerRate = ({ averageScore }: { averageScore: number }) => {
+export const CorrectAnswerRate = ({ averageScore, type }: CorrectAnswerRateProps) => {
+  const isGame = type === "game";
+
   return (
-    <div className="md:flex items-center gap-4 border-r-2 border-r-tag md:pr-15 hidden">
+    <div className={container({ type })}>
       <div
-        className="flex-center w-28 h-28 rounded-full bg-sub-text"
+        className={progressCircle({ type })}
         style={{
           background: `conic-gradient(
                     #040450 0%,
@@ -14,9 +18,15 @@ export const CorrectAnswerRate = ({ averageScore }: { averageScore: number }) =>
                   )`,
         }}
       >
-        <div className="w-5/6 h-5/6 rounded-full bg-white"></div>
+        <div className={innerCircle()}>
+          {isGame ? (
+            <div className="w-full h-full" />
+          ) : (
+            <span className={percentage({ type })}>{averageScore}%</span>
+          )}
+        </div>
       </div>
-      <span className="min-w-18.75 font-sb-28">{averageScore}%</span>
+      {isGame && <span className={percentage({ type })}>{averageScore}%</span>}
     </div>
   );
 };
