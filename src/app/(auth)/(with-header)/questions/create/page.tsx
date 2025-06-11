@@ -19,12 +19,12 @@ const {
   questionTextarea,
   questionTextareaCount,
   codePenInputWrapper,
-  codePenTextarea,
   fileUploadTitleWrapper,
   imageSlideWrapper,
   fileDetailWrapper,
   fileDetailIcon,
   fileDetailThumbnail,
+  codePenInput,
 } = createVariants();
 
 const bgColors = [
@@ -232,18 +232,11 @@ export default function CreateQuestionPage() {
           {/* CODEPEN URL */}
           <div className="flex flex-col gap-5">
             <div className="flex gap-2 items-center">
-              <Icon name="codepen" className="w-8 h-8 md:w-12 md:h-12" />
+              <Icon name="codepen" className="w-8 h-8 md:w-12 md:h-10" />
               <Title size="sm" title="CODEPEN URL" />
             </div>
             <div className={codePenInputWrapper()}>
-              <textarea
-                className={codePenTextarea()}
-                placeholder="https://..."
-                onChange={onCodepenChange}
-              ></textarea>
-              <div className="w-full flex justify-between px-3 py-3 md:px-5 md:py-4 items-center bottom-7 left-5">
-                <span className={questionTextareaCount()}>{codepenCount} / 500</span>
-              </div>
+              <input className={codePenInput()} placeholder="https://..." />
             </div>
           </div>
           {/* 파일 첨부 */}

@@ -10,7 +10,10 @@ export const createVariants = tv({
     questionTextarea:
       "w-full h-full px-3 py-3 md:px-5 md:py-4 flex flex-col gap-2.5 border-[#cdcdcd] resize-none placeholder:text-sub-text focus:outline-none font-regular-14 md:font-regular-18",
     questionTextareaCount: "font-regular-14 md:font-regular-18 text-black/50",
-    codePenInputWrapper: "w-[100%] h-11 md:h-14 border-border border flex flex-col gap-2.5",
+    codePenInputWrapper:
+      "w-[100%] h-11 md:h-14 border-border border flex flex-col justify-center gap-2.5 font-regular-14 md:font-regular-18",
+    codePenInput:
+      "outline-none h-10 px-4 py-0 overflow-y-auto bg-transparent transition-colors duration-200  placeholder:text-sub-text",
     codePenTextarea:
       "w-full h-full px-3 py-3 md:px-5 md:py-4 flex flex-col gap-2.5 border-[#cdcdcd] resize-none placeholder:text-sub-text focus:outline-none font-regular-14 md:font-regular-18",
     fileUploadTitleWrapper: "flex gap-8 justify-between md:justify-start mb-5",
