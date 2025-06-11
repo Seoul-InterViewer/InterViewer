@@ -1,10 +1,7 @@
 import { RadioButton } from "@/app/components/radioButton";
 import { difficultyDatas, categoryDatas } from "../../mocks/gameCreateData";
-import { useViewport } from "@/hooks/useViewport";
 
 export const GameCreateTitle = () => {
-  const { isMobile } = useViewport();
-
   return (
     <div>
       <div className="flex flex-col md:gap-11 gap-7.5">

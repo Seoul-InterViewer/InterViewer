@@ -6,11 +6,13 @@ import { Title } from "@/app/components/title";
 import { gameQuestions, questions } from "./mocks/selectBlanksData";
 import { NavigationButton } from "./components/navigationButtons";
 import { QestionContent } from "./components/questionContent";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function SelectBlanksPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedBlanks, setSelectedBlanks] = useState<{ word: string; index: number }[]>([]);
   const [inputValues, setInputValues] = useState<{ [key: number]: string }>({});
+  const [direction, setDirection] = useState(0);
 
   const currentGameQuestion = gameQuestions[0];
   const currentQuestion = questions.find(
@@ -36,6 +38,7 @@ export default function SelectBlanksPage() {
   };
 
   const handlePrev = () => {
+    setDirection(-1);
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
       setSelectedBlanks([]);
@@ -44,6 +47,7 @@ export default function SelectBlanksPage() {
   };
 
   const handleNext = () => {
+    setDirection(1);
     if (currentIndex < currentGameQuestion.source_id.length - 1) {
       setCurrentIndex(currentIndex + 1);
       setSelectedBlanks([]);
@@ -78,23 +82,31 @@ export default function SelectBlanksPage() {
         <div className="flex flex-col gap-5 md:pb-10 pb-5">
           <div className="flex gap-2.5 items-center">
             <Icon name="questionBlack" />
-            <p className="md:font-regular-16">
+            <p className="md:font-regular-18 font-regular-16">
               Question {currentIndex + 1} of {currentGameQuestion.source_id.length}
             </p>
           </div>
-          <p className="md:font-sb-16">
+          <p className="font-sb-16 text-font-gray">
             빈칸으로 지정할 단어를 클릭해주세요.{" "}
             <span className="md:font-medium-12">(최소 한개의 단어는 남겨야합니다.)</span>
           </p>
         </div>
 
         <section className="flex flex-col gap-7">
-          <div className="flex flex-col gap-6">
-            <div className="flex items-end gap-2">
-              <span className="font-bold-28">Q.</span>
-              <Title size="sm" title={currentQuestion?.title || ""} />
-            </div>
-            <div className="whitespace-pre-wrap">
+          <div className="md:h-80 flex items-center">
+            <motion.div
+              key={currentIndex}
+              initial={{ x: direction * 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -direction * 100, opacity: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 30,
+                duration: 0.5,
+              }}
+              className="whitespace-pre-wrap"
+            >
               {words.map((word, index) => (
                 <QestionContent
                   key={index}
@@ -106,7 +118,7 @@ export default function SelectBlanksPage() {
                   onInputChange={handleInputChange}
                 />
               ))}
-            </div>
+            </motion.div>
           </div>
 
           <div className="flex flex-col gap-3.5">

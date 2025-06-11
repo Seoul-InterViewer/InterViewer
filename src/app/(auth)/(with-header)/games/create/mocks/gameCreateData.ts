@@ -176,7 +176,7 @@ export const difficultyDatas: IRadioItem[] = [
 ];
 
 export const categoryDatas: IRadioItem[] = [
-  { value: "nextjs", txt: "Next.js" },
+  { value: "nextjs", txt: "Nextjs" },
   { value: "react", txt: "React" },
   { value: "typescript", txt: "Typescript" },
   { value: "js", txt: "JavaScript" },
