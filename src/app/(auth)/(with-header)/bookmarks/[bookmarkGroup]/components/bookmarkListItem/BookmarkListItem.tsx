@@ -4,25 +4,43 @@ import { Title } from "@/app/components/title";
 import { Icon, IconName } from "@/app/components/icon";
 import { questions, categories } from "../../mocks/bookmarkDetailPageData";
 import { IBookmarkQuestionProps } from "./bookmarkDetailPage.type";
-import { CategoryName, getCategoryIcon } from "../../utils/getCategoryIcon";
+import Link from "next/link";
 import translatedDifficulty from "@/utils/translatedDifficulty";
+
+const mapCategoryToIconName = (categoryName: string | undefined): IconName => {
+  if (!categoryName) return "web";
+
+  const categoryMap: Record<string, IconName> = {
+    React: "react",
+    Nextjs: "nextjs",
+    Typescript: "typescript",
+    JavaScript: "javascript",
+    Web: "web",
+    CS: "cs",
+    Library: "library",
+  };
+
+  return categoryMap[categoryName];
+};
 
 const getCategroyForQuestion = (questionID: string) => {
   const categoryID = questions.find((question) => question.id === questionID)?.categoryID;
-  return categories.find((category) => category.id === categoryID)?.name;
+  const categoryName = categories.find((category) => category.id === categoryID)?.name;
+  return mapCategoryToIconName(categoryName);
 };
 
 export const BookmarkListItem = ({ question }: { question: IBookmarkQuestionProps }) => {
-  const categroyName = getCategroyForQuestion(question.id);
-  const iconName = getCategoryIcon(categroyName as CategoryName);
+  const iconName = getCategroyForQuestion(question.id);
 
   return (
     <Card key={question.id} type="checkCard">
       <div className="flex md:flex-row md:justify-between md:gap-0 flex-col-reverse gap-5">
         <div className="flex flex-col md:gap-12.5 gap-9.5">
           <div className="flex flex-col md:gap-8.75 gap-2.5">
-            <div className="text-ellipsis overflow-hidden whitespace-nowrap">
-              <Title size="sm" title={question.title} />
+            <div className="text-ellipsis overflow-hidden whitespace-nowrap hover:underline">
+              <Link href={`/questions/${question.id}`}>
+                <Title size="sm" title={question.title} />
+              </Link>
             </div>
             <p className="text-font-gray md:font-sb-18 font-sb-14">by 홍길동</p>
           </div>
