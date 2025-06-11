@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import MotionWrapper from "./MotionWrapper";
+import { MotionWrapper } from "./MotionWrapper";
 import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
@@ -21,7 +21,7 @@ export default function MotionWrapperTestPage() {
     stiffness: 700,
     damping: 30,
   };
-  
+
   // Stagger children example
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -30,31 +30,31 @@ export default function MotionWrapperTestPage() {
       transition: {
         staggerChildren: 0.1,
         delayChildren: 0.3,
-      }
+      },
     },
     exit: {
       opacity: 0,
-      transition: { 
+      transition: {
         staggerChildren: 0.05,
-        staggerDirection: -1 
-      }
-    }
+        staggerDirection: -1,
+      },
+    },
   };
-  
+
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { 
-      y: 0, 
+    visible: {
+      y: 0,
       opacity: 1,
-      transition: { type: "spring", stiffness: 300 }
+      transition: { type: "spring", stiffness: 300 },
     },
-    exit: { 
-      y: -20, 
+    exit: {
+      y: -20,
       opacity: 0,
-      transition: { type: "tween", ease: "easeInOut" }
-    }
+      transition: { type: "tween", ease: "easeInOut" },
+    },
   };
-  
+
   // Orchestrated animation with when property
   const orchestratedVariants = {
     hidden: { scale: 0.8, opacity: 0 },
@@ -63,21 +63,21 @@ export default function MotionWrapperTestPage() {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        duration: 0.3
-      }
-    }
+        duration: 0.3,
+      },
+    },
   };
-  
+
   const childVariants = {
     hidden: { opacity: 0, x: -20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
@@ -159,7 +159,7 @@ export default function MotionWrapperTestPage() {
           <p>애니메이션을 보려면 호버하고 탭하세요</p>
         </MotionWrapper>
       </div>
-      
+
       {/* StaggerChildren example */}
       <div className="example">
         <h2>자식 요소 시차 애니메이션</h2>
@@ -171,17 +171,13 @@ export default function MotionWrapperTestPage() {
           className="bg-indigo-100 p-4 rounded space-y-2"
         >
           {[1, 2, 3, 4].map((item) => (
-            <MotionWrapper
-              key={item}
-              variants={itemVariants}
-              className="bg-indigo-200 p-2 rounded"
-            >
+            <MotionWrapper key={item} variants={itemVariants} className="bg-indigo-200 p-2 rounded">
               <p>시차 아이템 {item}</p>
             </MotionWrapper>
           ))}
         </MotionWrapper>
       </div>
-      
+
       {/* Orchestrated animation */}
       <div className="example">
         <h2>조율된 애니메이션 (beforeChildren)</h2>
@@ -192,32 +188,29 @@ export default function MotionWrapperTestPage() {
           className="bg-pink-100 p-4 rounded"
         >
           <p className="mb-4">부모가 먼저 애니메이션</p>
-          <MotionWrapper
-            variants={childVariants}
-            className="bg-pink-200 p-2 rounded"
-          >
+          <MotionWrapper variants={childVariants} className="bg-pink-200 p-2 rounded">
             <p>그 다음 자식 애니메이션</p>
           </MotionWrapper>
         </MotionWrapper>
       </div>
-      
+
       {/* Animation with keyframes */}
       <div className="example">
         <h2>키프레임 애니메이션</h2>
         <MotionWrapper
           initial={{ opacity: 0 }}
-          animate={{ 
+          animate={{
             opacity: 1,
             x: [0, 50, -50, 0],
             scale: [1, 1.2, 0.8, 1],
-            rotate: [0, 45, -45, 0]
+            rotate: [0, 45, -45, 0],
           }}
-          transition={{ 
+          transition={{
             duration: 2,
             ease: "easeInOut",
             times: [0, 0.3, 0.6, 1],
             repeat: Infinity,
-            repeatDelay: 1
+            repeatDelay: 1,
           }}
           className="bg-emerald-100 p-4 rounded"
         >
