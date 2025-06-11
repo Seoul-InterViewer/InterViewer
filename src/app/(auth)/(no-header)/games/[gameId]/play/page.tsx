@@ -3,7 +3,7 @@ import { Button, buttonVariants } from "@/app/components/button";
 import { Icon } from "@/app/components/icon";
 import { questions } from "./mockups/gameListData";
 import React, { useState } from "react";
-import { RenderAnswerWithBlanks } from "./components/RenderAnswerWithBlanks";
+import { RenderAnswerWithBlanks } from "./components/RenderAnswerWithBlanks/RenderAnswerWithBlanks";
 
 export default function GamePlayPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
