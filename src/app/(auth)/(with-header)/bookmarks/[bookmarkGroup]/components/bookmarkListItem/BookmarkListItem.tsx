@@ -5,21 +5,11 @@ import { Icon, IconName } from "@/app/components/icon";
 import { questions, categories } from "../../mocks/bookmarkDetailPageData";
 import { IBookmarkQuestionProps } from "./bookmarkDetailPage.type";
 import { CategoryName, getCategoryIcon } from "../../utils/getCategoryIcon";
+import translatedDifficulty from "@/utils/translatedDifficulty";
 
 const getCategroyForQuestion = (questionID: string) => {
   const categoryID = questions.find((question) => question.id === questionID)?.categoryID;
   return categories.find((category) => category.id === categoryID)?.name;
-};
-
-const translatedDifficulty = (difficulty: string) => {
-  switch (difficulty) {
-    case "easy":
-      return "하";
-    case "medium":
-      return "중";
-    case "hard":
-      return "상";
-  }
 };
 
 export const BookmarkListItem = ({ question }: { question: IBookmarkQuestionProps }) => {

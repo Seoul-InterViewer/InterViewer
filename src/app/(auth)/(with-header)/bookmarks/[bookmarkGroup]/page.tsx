@@ -3,6 +3,7 @@ import { BreadCrumb } from "@/app/components/breadCrumb";
 import { List, listVariants } from "@/app/components/list";
 import { BookmarkListItem } from "./components/bookmarkListItem";
 import { questions, bookmarks } from "./mocks/bookmarkDetailPageData";
+import capitalize from "@/utils/capitalize";
 
 const bookmarkedQuestions = questions.filter((question) =>
   bookmarks.some((bookmark) => bookmark.question_id === question.id),
@@ -18,9 +19,7 @@ export default function Page({ params }: { params: Promise<{ bookmarkGroup: stri
           { label: "Home", href: "/" },
           { label: "즐겨찾는 질문들", href: "/bookmarks" },
           {
-            label:
-              resolvedParams.bookmarkGroup.charAt(0).toUpperCase() +
-              resolvedParams.bookmarkGroup.slice(1),
+            label: capitalize(resolvedParams.bookmarkGroup),
             href: `/bookmarks/${resolvedParams.bookmarkGroup}`,
           },
         ]}
