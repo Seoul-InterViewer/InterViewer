@@ -47,9 +47,9 @@ const AppleIcon = (props: SVGProps<SVGSVGElement>) => {
 
   return (
     <svg
-      width={width || "49"}
-      height={height || "49"}
-      viewBox={viewBox || "0 0 49 49"}
+      width={width || "34"}
+      height={height || "37"}
+      viewBox={viewBox || "5.7 6.1 34 37"}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...restProps}
@@ -962,7 +962,7 @@ const CsIcon = (props: SVGProps<SVGSVGElement>) => {
   const { width, height, stroke, strokeWidth, fill, viewBox, ...restProps } = props;
 
   return (
-    <svg 
+    <svg
       width={width || "30"}
       height={height || "30"}
       viewBox={viewBox || "0 0 30 30"}
@@ -1074,6 +1074,30 @@ const CloseIcon = (props: SVGProps<SVGSVGElement>) => {
   );
 };
 
+const LogOutIcon = (props: SVGProps<SVGSVGElement>) => {
+  const { width, height, stroke, strokeWidth, fill, viewBox, ...restProps } = props;
+
+  return (
+    <svg
+      width={width || "32"}
+      height={height || "32"}
+      viewBox={viewBox || "0 0 32 32"}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...restProps}
+    >
+      <path
+        d="M8.66667 4.99987C7.96533 4.99987 7 5.83987 7 7.42787V24.5732C7 26.1625 7.96533 27.0012 8.66667 27.0012H17.9947C18.2599 27.0012 18.5142 27.1066 18.7018 27.2941C18.8893 27.4816 18.9947 27.736 18.9947 28.0012C18.9947 28.2664 18.8893 28.5208 18.7018 28.7083C18.5142 28.8958 18.2599 29.0012 17.9947 29.0012H8.66667C6.42267 29.0012 5 26.7705 5 24.5732V7.42654C5 5.2292 6.42267 2.99854 8.66667 2.99854H18C18.2652 2.99854 18.5196 3.10389 18.7071 3.29143C18.8946 3.47896 19 3.73332 19 3.99854C19 4.26375 18.8946 4.51811 18.7071 4.70564C18.5196 4.89318 18.2652 4.99854 18 4.99854L8.66667 4.99987Z"
+        fill={fill || "#000000"}
+      />
+      <path
+        d="M22.0403 10.6264C21.8528 10.4392 21.5987 10.334 21.3337 10.334C21.0687 10.334 20.8145 10.4392 20.627 10.6264V14.9944H12.667C12.4018 14.9944 12.1474 15.0998 11.9599 15.2873C11.7723 15.4749 11.667 15.7292 11.667 15.9944C11.667 16.2597 11.7723 16.514 11.9599 16.7015C12.1474 16.8891 12.4018 16.9944 12.667 16.9944H20.627V21.3731C20.8145 21.5604 21.0687 21.6656 21.3337 21.6656C21.5987 21.6656 21.8528 21.5604 22.0403 21.3731L26.707 16.7064C26.8002 16.6134 26.8741 16.5028 26.9244 16.381C26.9748 16.2593 27.0006 16.1288 27.0003 15.9971V15.9944C27.0002 15.8482 26.9681 15.7038 26.9061 15.5713C26.8441 15.4388 26.7539 15.3216 26.6417 15.2278L22.0403 10.6264Z"
+        fill={fill || "#000000"}
+      />
+    </svg>
+  );
+};
+
 // SVG 컴포넌트 정의
 const icons: Record<IconName, IconComponent> = {
   apple: AppleIcon,
@@ -1118,6 +1142,7 @@ const icons: Record<IconName, IconComponent> = {
   correct: CorrectIcon,
   codepen: CodepenIcon,
   close: CloseIcon,
+  logOut: LogOutIcon,
 };
 
 export const Icon = ({
