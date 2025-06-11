@@ -1,9 +1,10 @@
 "use client";
-import { Button, buttonVariants } from "@/app/components/button";
 import { Icon } from "@/app/components/icon";
 import { questions } from "./mockups/gameListData";
 import React, { useState } from "react";
-import { RenderAnswerWithBlanks } from "./components/RenderAnswerWithBlanks/RenderAnswerWithBlanks";
+import { RenderAnswerWithBlanks } from "./components/renderAnswerWithBlanks/RenderAnswerWithBlanks";
+import { Buttons } from "./components/buttons/Buttons";
+import { Notice } from "./components/notice/Notice";
 
 export default function GamePlayPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -17,15 +18,7 @@ export default function GamePlayPage() {
 
       <div className="w-full md:w-[70%]  min-h-[65vh] mx-auto flex flex-col justify-between">
         <div>
-          <div className="flex gap-2 mb-4">
-            <Icon name="questionBlack" />
-            <div className="font-regular-16">
-              Question <span>{currentIndex + 1}</span> of <span>{questions.length}</span>
-            </div>
-          </div>
-          <div className="md:w-full font-medium-12 text-font-gray mb-16 !leading-5">
-            빈칸을 채워주세요. <span>(최소 한 칸 이상은 채워야합니다.)</span>
-          </div>
+          <Notice currentIndex={currentIndex} questions={questions} />
           <div className="font-sb-20 mb-4 !leading-8">
             Q. <span>{questions[currentIndex].question}</span>
           </div>
@@ -34,39 +27,11 @@ export default function GamePlayPage() {
             <br />
           </p>
         </div>
-
-        <div className="flex gap-4">
-          <Button
-            type="button"
-            className={
-              buttonVariants({ size: "md", color: "black", hover: true }) +
-              (currentIndex === 0 ? " opacity-50 cursor-not-allowed pointer-events-none" : "")
-            }
-            onClick={() => {
-              if (currentIndex > 0) setCurrentIndex(currentIndex - 1);
-            }}
-          >
-            이전
-          </Button>
-          {currentIndex === questions.length - 1 ? (
-            <Button
-              type="button"
-              className={buttonVariants({ size: "md", color: "yellow", hover: true })}
-            >
-              제출
-            </Button>
-          ) : (
-            <Button
-              type="button"
-              className={buttonVariants({ size: "md", color: "yellow", hover: true })}
-              onClick={() => {
-                if (currentIndex < questions.length - 1) setCurrentIndex(currentIndex + 1);
-              }}
-            >
-              다음
-            </Button>
-          )}
-        </div>
+        <Buttons
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+          questions={questions}
+        />
       </div>
     </main>
   );
