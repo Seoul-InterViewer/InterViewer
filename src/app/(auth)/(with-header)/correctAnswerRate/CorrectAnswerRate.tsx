@@ -1,6 +1,6 @@
 import React from "react";
 import { CorrectAnswerRateProps } from "./correctAnswerRate.type";
-import { container, progressCircle, innerCircle, percentage } from "./correctAnswerRateVariants";
+import { container, progressCircle, innerCircle, percentage } from "./correctAnswerRate.variants";
 
 export const CorrectAnswerRate = ({ averageScore, type }: CorrectAnswerRateProps) => {
   const isGame = type === "game";
