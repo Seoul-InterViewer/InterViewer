@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { CorrectAnswerRateProps } from "./correctAnswerRate.type";
 import { container, progressCircle, innerCircle, percentage } from "./correctAnswerRate.variants";
