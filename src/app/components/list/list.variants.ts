@@ -12,7 +12,7 @@ export const listVariants = tv({
       tags: "flex-row gap-1 md:gap-2",
       image: "gap-0 md:gap-6",
       input: "gap-3 md:gap-8",
-      showAll: "grid grid-cols-4 md:gap-6",
+      showAll: "grid md:grid-cols-4 grid-cols-2 md:gap-6 gap-2",
       tableOfContents: "gap-7",
       gameResultNav: "gap-2 md:gap-4",
       comment: "gap-8 md:gap-14",
