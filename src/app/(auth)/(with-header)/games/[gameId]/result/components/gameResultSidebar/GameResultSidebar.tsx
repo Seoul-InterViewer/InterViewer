@@ -33,6 +33,14 @@ export const GameResultSidebar = ({
     const question = document.getElementById(`question-${index}`);
     if (!question) return;
 
+    const classes = overShadow().split(" ");
+    if (options?.remove) {
+      question.classList.remove(...classes);
+      return;
+    }
+    if (options?.add) {
+      question.classList.add(...classes);
+    }
     if (options?.scroll && scrollContainerRef?.current && window.innerWidth >= 768) {
       const container = scrollContainerRef.current;
       const questionRect = question.getBoundingClientRect();
