@@ -12,8 +12,7 @@ import { MotionWrapper } from "@/app/components/motionWrapper";
 export default function SelectBlanksPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedBlanks, setSelectedBlanks] = useState<{ word: string; index: number }[]>([]);
-  const [inputValues, setInputValues] = useState<{ [key: number]: string }>({});
-  const [direction, setDirection] = useState(0);
+  const [selectedValues, setSelectedValues] = useState<{ [key: number]: string }>({});
   const { isMobile } = useViewport();
   const navigate = useRouter();
 
@@ -27,34 +26,28 @@ export default function SelectBlanksPage() {
 
     if (isAlreadySelected) {
       setSelectedBlanks(selectedBlanks.filter((blank) => blank.index !== index));
-      const newInputValues = { ...inputValues };
-      delete newInputValues[index];
-      setInputValues(newInputValues);
+      const newSelectedValues = { ...selectedValues };
+      delete newSelectedValues[index];
+      setSelectedValues(newSelectedValues);
     } else {
       setSelectedBlanks([...selectedBlanks, { word, index }]);
-      setInputValues({ ...inputValues, [index]: "" });
+      setSelectedValues({ ...selectedValues, [index]: "" });
     }
   };
 
-  const handleInputChange = (index: number, value: string) => {
-    setInputValues({ ...inputValues, [index]: value });
-  };
-
   const handlePrev = () => {
-    setDirection(-1);
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
       setSelectedBlanks([]);
-      setInputValues({});
+      setSelectedValues({});
     }
   };
 
   const handleNext = () => {
-    setDirection(1);
     if (currentIndex < currentGameQuestion.source_id.length - 1) {
       setCurrentIndex(currentIndex + 1);
       setSelectedBlanks([]);
-      setInputValues({});
+      setSelectedValues({});
     }
   };
 
@@ -62,7 +55,7 @@ export default function SelectBlanksPage() {
     const blanks = selectedBlanks.map((blank, index) => ({
       id: `blank-${index + 1}`,
       word_index: blank.index,
-      word: inputValues[blank.index] || blank.word,
+      word: selectedValues[blank.index] || blank.word,
       createdAt: new Date().toISOString(),
       game_question_id: currentGameQuestion.id,
     }));
@@ -74,9 +67,9 @@ export default function SelectBlanksPage() {
   const words = currentQuestion?.content.split(" ") || [];
 
   const moveInOutVariants = {
-    initial: { x: direction * 100, opacity: 0 },
+    initial: { x: 100, opacity: 0 },
     animate: { x: 0, opacity: 1 },
-    exit: { x: -direction * 100, opacity: 0 },
+    exit: { x: 100, opacity: 0 },
     transition: {
       type: "spring",
       stiffness: 300,
@@ -112,14 +105,14 @@ export default function SelectBlanksPage() {
         </div>
 
         <section className="flex flex-col gap-7">
-          <div className="flex items-center">
+          <div className="flex items-center h-100">
             <MotionWrapper
               key={currentIndex}
               variants={moveInOutVariants}
               initial="initial"
               animate="animate"
               exit="exit"
-              className="whitespace-pre-wrap leading-11"
+              className="whitespace-pre-wrap md:leading-11 leading-7"
             >
               {words.map((word, index) => (
                 <QestionContent
@@ -127,7 +120,7 @@ export default function SelectBlanksPage() {
                   word={word}
                   index={index}
                   isSelected={selectedBlanks.some((blank) => blank.index === index)}
-                  inputValue={inputValues[index] || ""}
+                  selectedValues={selectedValues[index] || ""}
                   onWordClick={handleWordClick}
                 />
               ))}
@@ -139,7 +132,7 @@ export default function SelectBlanksPage() {
               선택된 빈칸 :{" "}
               {selectedBlanks.map((blank, index) => (
                 <span key={index} className="mr-2">
-                  {inputValues[blank.index] || blank.word}
+                  {selectedValues[blank.index] || blank.word}
                 </span>
               ))}
             </div>
