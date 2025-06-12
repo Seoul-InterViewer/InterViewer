@@ -8,7 +8,7 @@ export const RadioButton = ({ datas }: IRadioButtonProps) => {
   const [selected, setSeleted] = useState(datas[0].value);
 
   return (
-    <ul className="w-full flex items-center gap-4">
+    <ul className="w-full flex items-center gap-4 flex-wrap md:flex-nowrap">
       {datas.map((data) => (
         <li key={data.value}>
           <button
