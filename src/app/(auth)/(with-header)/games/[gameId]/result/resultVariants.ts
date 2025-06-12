@@ -2,10 +2,9 @@ import { tv } from "tailwind-variants";
 
 export const resultVariants = tv({
   slots: {
-    gameResultWrapper: "w-full min-h-screen relative",
+    gameResultWrapper: "w-full relative overflow-y-hidden",
     questionWrapper: "flex flex-col flex-col-reverse md:flex-row md:items-start",
-    resultSidebarWrapper:
-      "w-full md:w-[20vw] self-start md:fixed top-45 right-0 pr-[1vw] bg-white md:min-h-screen",
+    resultSidebarWrapper: "w-full md:w-[25%] self-start top-45  bg-white ",
     scoreWrapper:
       "flex w-full px-4 md:px-0 py-3 md:py-10 flex-col bg-main/50 md:flex-center rounded-lg mb-12 relative",
     scoreTitle: "font-sb-28 md:font-bold-48 md:text-center mb-2 md:mb-5",

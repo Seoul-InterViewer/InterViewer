@@ -3,7 +3,7 @@ import { Icon } from "@/app/components/icon";
 import { List, listVariants } from "@/app/components/list";
 import { resultVariants } from "../../resultVariants";
 import { GameResultData } from "./GameResultSidebar.type";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { gameResultSidebarVariants } from "../../resultVariants";
 import { HighlightQuestionOptions } from "./GameResultSidebar.type";
 
@@ -18,7 +18,13 @@ const MockListItem = ({
   className?: string;
 }) => <li className={`p-4 border border-border rounded-md ${className}`}>{children}</li>;
 
-export const GameResultSidebar = ({ data }: { data: GameResultData[] }) => {
+export const GameResultSidebar = ({
+  data,
+  scrollContainerRef,
+}: {
+  data: GameResultData[];
+  scrollContainerRef?: React.RefObject<HTMLDivElement>;
+}) => {
   const [open, setOpen] = useState(false);
   const correctCount = data.filter((q) => q.isCorrect).length;
   const score = (correctCount / data.length) * 100;
@@ -26,16 +32,15 @@ export const GameResultSidebar = ({ data }: { data: GameResultData[] }) => {
   const highlightQuestion = (index: number, options?: HighlightQuestionOptions) => {
     const question = document.getElementById(`question-${index}`);
     if (!question) return;
-    const classes = overShadow().split(" ");
-    if (options?.remove) {
-      question.classList.remove(...classes);
-      return;
-    }
-    if (options?.scroll) {
+
+    if (options?.scroll && scrollContainerRef?.current && window.innerWidth >= 768) {
+      const container = scrollContainerRef.current;
+      const questionRect = question.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      const offset = questionRect.top - containerRect.top + container.scrollTop;
+      container.scrollTo({ top: offset, behavior: "smooth" });
+    } else if (options?.scroll) {
       question.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-    if (options?.add || options?.scroll || !options) {
-      question.classList.add(...classes);
     }
   };
 

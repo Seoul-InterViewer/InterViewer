@@ -1,5 +1,6 @@
+"use client";
 import { BreadCrumb } from "@/app/components/breadCrumb";
-import React from "react";
+import React, { useRef } from "react";
 import { questions } from "./mockups/gameResultData";
 import { resultVariants } from "./resultVariants";
 import { GameResultList } from "./components/gameResultList";
@@ -24,8 +25,10 @@ const items = [
 ];
 
 export default function GameResultPage() {
+  const leftScrollRef = useRef<HTMLDivElement>(null);
+
   return (
-    <div className={gameResultWrapper()}>
+    <main className={gameResultWrapper()}>
       <div>
         {/* 브래드 크럼 */}
         <div className="mb-5">
@@ -34,18 +37,24 @@ export default function GameResultPage() {
         {/* Questions Wrapper */}
         <div className={questionWrapper()}>
           {/* Questions */}
-          <div className="w-full md:w-[85%]">
+          <div className="w-full h-min-screen flex flex-col-reverse  md:flex-row justify-between md:h-[calc(100vh-240px)] md:overflow-hidden">
             {/* 질문들과 Blank*/}
-            <div className="flex flex-col gap-20">
+            <div
+              ref={leftScrollRef}
+              className="flex flex-col gap-20 md:w-[72%] h-full overflow-y-auto scrollbar-hide"
+            >
               {questions.map((q, i) => (
                 <GameResultList key={i} q={q} i={i} />
               ))}
             </div>
+            {/* Result Sidebar */}
+            <GameResultSidebar
+              data={questions}
+              scrollContainerRef={leftScrollRef as React.RefObject<HTMLDivElement>}
+            />
           </div>
-          {/* Result Sidebar */}
-          <GameResultSidebar data={questions} />
         </div>
       </div>
-    </div>
+    </main>
   );
 }
