@@ -1,12 +1,14 @@
-import { IGameSessionRecordProps, IGameSessionProps, IGameQuestionProps } from "@/types/utils/getAverageScore.type";
-
+import {
+  IGameQuestionProps,
+  IGameSessionProps,
+  IGameSessionRecordProps,
+} from "../types/getAverageScore.type";
 
 export const getAverageScore = (
   gameQuestion: IGameQuestionProps,
   sessionRecords: IGameSessionRecordProps[],
   sessions: IGameSessionProps[],
 ): number => {
-    
   // 해당 게임의 세션 기록 찾기
   const questionSessionRecords = sessionRecords.filter(
     (record) => record.game_question_id === gameQuestion.id,
