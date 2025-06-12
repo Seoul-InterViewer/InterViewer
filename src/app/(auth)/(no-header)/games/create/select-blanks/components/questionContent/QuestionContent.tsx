@@ -1,5 +1,4 @@
 import { IWordProps } from "./questionContent.type";
-import { Input, inputVariants } from "@/app/components/input";
 import { Icon } from "@/app/components/icon";
 
 export const QestionContent = ({
@@ -8,7 +7,6 @@ export const QestionContent = ({
   isSelected,
   inputValue,
   onWordClick,
-  onInputChange,
 }: IWordProps) => {
   const cleanWord = word.replace(/[.,!?]/g, "");
 
@@ -23,12 +21,9 @@ export const QestionContent = ({
     >
       {isSelected ? (
         <div className="relative inline-flex items-center md:h-12 w-fit">
-          <Input
-            value={inputValue}
-            onChange={(e) => onInputChange(index, e.target.value)}
-            className={inputVariants({ variant: "blank", class: "w-fit p-0" })}
-            placeholder={cleanWord}
-          />
+          <span className="w-fit p-0">
+            {inputValue}
+          </span>
           <button
             onClick={(e) => {
               e.stopPropagation();

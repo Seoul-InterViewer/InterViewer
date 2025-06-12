@@ -4,5 +4,4 @@ export interface IWordProps {
   isSelected: boolean;
   inputValue: string;
   onWordClick: (word: string, index: number) => void;
-  onInputChange: (index: number, value: string) => void;
 }

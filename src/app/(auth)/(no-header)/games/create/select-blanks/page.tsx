@@ -129,7 +129,6 @@ export default function SelectBlanksPage() {
                   isSelected={selectedBlanks.some((blank) => blank.index === index)}
                   inputValue={inputValues[index] || ""}
                   onWordClick={handleWordClick}
-                  onInputChange={handleInputChange}
                 />
               ))}
             </MotionWrapper>
