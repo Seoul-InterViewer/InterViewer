@@ -35,7 +35,7 @@ export const RenderAnswerWithBlanks = ({ q }: { q: QuestionData }) => {
                   setInputs(newInputs);
                 }}
                 className="
-                  bg-gray-300/20 rounded-2xl text-center outline-yellow-200/10  border border-gray-400/30 focus:border-yellow-400 focus:outline-yellow-400/60  h-8.5 pt-0.7 duration-300 ease-in-out
+                  bg-gray-300/20 rounded-lg text-center outline-yellow-200/10  border border-gray-400/30 focus:border-yellow-400 focus:outline-yellow-400/60  h-8.5 pt-0.7 duration-300 ease-in-out
                 "
                 style={{
                   width: Math.max((spanRefs.current[inputIdx]?.offsetWidth ?? 60) + 20, 60),

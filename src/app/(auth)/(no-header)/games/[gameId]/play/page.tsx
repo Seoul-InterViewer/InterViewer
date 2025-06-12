@@ -2,7 +2,7 @@
 import { Icon } from "@/app/components/icon";
 import { questions } from "./mockups/gameListData";
 import React, { useState } from "react";
-import { RenderAnswerWithBlanks } from "./components/renderAnswerWithBlanks/RenderAnswerWithBlanks";
+import { RenderAnswerWithBlanks } from "./components/RenderAnswerWithBlanks/RenderAnswerWithBlanks";
 import { Buttons } from "./components/buttons/Buttons";
 import { Notice } from "./components/notice/Notice";
 
@@ -24,6 +24,8 @@ export default function GamePlayPage() {
           </div>
           <p className="font-regular-16 text-font-gray !leading-7 md:!leading-8 mb-20 max-h-[20vh] md:max-h-[30vh] overflow-y-auto">
             <RenderAnswerWithBlanks q={questions[currentIndex]} />
+            <br />
+            <br />
             <br />
           </p>
         </div>
