@@ -1,17 +1,17 @@
 import React from "react";
 import { CorrectAnswerRate } from "../correctAnswerRate";
 import { getAverageScore } from "../utils/getAverageScore";
-import { gameQuestions, gameSessionRecords, gameSessions } from "./correctAnswerRate.mock";
+import { correctAnswerRateGameQuestions, correctAnswerRateGameSessionRecords, correctAnswerRateGameSessions } from "./correctAnswerRate.mock";
 
 const page = () => {
   return (
     <div>
-      <CorrectAnswerRate
-        averageScore={getAverageScore(gameQuestions[0], gameSessionRecords, gameSessions)}
+      <CorrectAnswerRate    
+        averageScore={getAverageScore(correctAnswerRateGameQuestions[0], correctAnswerRateGameSessionRecords, correctAnswerRateGameSessions)}
         type="game"
       />
       <CorrectAnswerRate
-        averageScore={getAverageScore(gameQuestions[0], gameSessionRecords, gameSessions)}
+        averageScore={getAverageScore(correctAnswerRateGameQuestions[0], correctAnswerRateGameSessionRecords, correctAnswerRateGameSessions)}
         type="session"
       />
     </div>

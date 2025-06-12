@@ -1,4 +1,4 @@
-export const gameQuestions = [
+export const correctAnswerRateGameQuestions = [
   {
     id: "d0a7eecc-06d9-4a76-bd6f-9e77a83b9173",
     title: "게임 01",
@@ -49,7 +49,7 @@ export const gameQuestions = [
   },
 ];
 
-export const gameSessionRecords = [
+export const correctAnswerRateGameSessionRecords = [
   {
     id: "c1d7e6fc-d73d-495f-909c-2fba658eb97c",
     is_correct: true,
@@ -88,7 +88,7 @@ export const gameSessionRecords = [
   },
 ];
 
-export const gameSessions = [
+export const correctAnswerRateGameSessions = [
   {
     id: "3a593292-5a18-49a1-84df-246ed9a7dc0f",
     createdAt: "2024-01-01",
