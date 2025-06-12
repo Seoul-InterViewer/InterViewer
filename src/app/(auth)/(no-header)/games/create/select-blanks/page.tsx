@@ -2,17 +2,20 @@
 import { useState } from "react";
 import { Button } from "@/app/components/button/Button";
 import { Icon } from "@/app/components/icon";
-import { Title } from "@/app/components/title";
 import { gameQuestions, questions } from "./mocks/selectBlanksData";
 import { NavigationButton } from "./components/navigationButtons";
 import { QestionContent } from "./components/questionContent";
-import { motion, AnimatePresence } from "framer-motion";
+import { useViewport } from "@/hooks/useViewport";
+import { useRouter } from "next/navigation";
+import { MotionWrapper } from "@/app/components/motionWrapper";
 
 export default function SelectBlanksPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedBlanks, setSelectedBlanks] = useState<{ word: string; index: number }[]>([]);
   const [inputValues, setInputValues] = useState<{ [key: number]: string }>({});
   const [direction, setDirection] = useState(0);
+  const { isMobile } = useViewport();
+  const navigate = useRouter();
 
   const currentGameQuestion = gameQuestions[0];
   const currentQuestion = questions.find(
@@ -70,10 +73,26 @@ export default function SelectBlanksPage() {
 
   const words = currentQuestion?.content.split(" ") || [];
 
+  const moveInOutVariants = {
+    initial: { x: direction * 100, opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: -direction * 100, opacity: 0 },
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 30,
+      duration: 0.5,
+    },
+  };
+
   return (
-    <main className="w-full min-h-screen flex justify-center items-center px-4 md:px-10 py-10 relative">
-      <div className="fixed md:top-17 md:left-15 top-5 left-9">
-        <Button type="button" className="flex items-center gap-3.5 cursor-pointer ">
+    <main className="w-full min-h-screen flex md:flex-row flex-col md:justify-center md:items-center md:gap-0 gap-12 px-4 md:px-10 py-10 relative">
+      <div className={`${isMobile ? "" : "fixed md:top-17 md:left-15 top-5 left-9"}`}>
+        <Button
+          type="button"
+          className="flex items-center gap-3.5 cursor-pointer"
+          onClick={() => navigate.back()}
+        >
           <Icon name="reply" className="md:w-6 md:h-6 w-4.5 h-3.5" />
           <span className="md:font-regular-24 font-regular-18">뒤로</span>
         </Button>
@@ -93,19 +112,14 @@ export default function SelectBlanksPage() {
         </div>
 
         <section className="flex flex-col gap-7">
-          <div className="md:h-80 flex items-center">
-            <motion.div
+          <div className="flex items-center">
+            <MotionWrapper
               key={currentIndex}
-              initial={{ x: direction * 100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: -direction * 100, opacity: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 30,
-                duration: 0.5,
-              }}
-              className="whitespace-pre-wrap"
+              variants={moveInOutVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="whitespace-pre-wrap leading-11"
             >
               {words.map((word, index) => (
                 <QestionContent
@@ -118,7 +132,7 @@ export default function SelectBlanksPage() {
                   onInputChange={handleInputChange}
                 />
               ))}
-            </motion.div>
+            </MotionWrapper>
           </div>
 
           <div className="flex flex-col gap-3.5">

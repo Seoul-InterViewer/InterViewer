@@ -18,15 +18,15 @@ export const QestionContent = ({
         isSelected
           ? ""
           : "hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)] hover:-translate-y-0.5 hover:bg-main/30 hover:text-orange-600"
-      } relative inline-block md:font-regular-26 font-regular-16 px-3 py-1.5 whitespace-pre md:h-12 h-8 rounded-sm cursor-pointer transition-all duration-200 mx-0.5`}
+      } relative inline-block md:font-regular-24 font-regular-16 whitespace-pre h-fit rounded-sm cursor-pointer transition-all duration-200 mx-0.5 w-fit`}
       onClick={() => onWordClick(cleanWord, index)}
     >
       {isSelected ? (
-        <div className="relative inline-flex items-center md:h-12 h-8">
+        <div className="relative inline-flex items-center md:h-12 w-fit">
           <Input
             value={inputValue}
             onChange={(e) => onInputChange(index, e.target.value)}
-            className={inputVariants({ variant: "blank" })}
+            className={inputVariants({ variant: "blank", class: "w-fit p-0" })}
             placeholder={cleanWord}
           />
           <button
@@ -40,7 +40,7 @@ export const QestionContent = ({
           </button>
         </div>
       ) : (
-        <span className="md:h-12 h-8 inline-block">{cleanWord}</span>
+        <span className="inline-block">{cleanWord}</span>
       )}
       {word.match(/\s+/) || " "}
     </span>
