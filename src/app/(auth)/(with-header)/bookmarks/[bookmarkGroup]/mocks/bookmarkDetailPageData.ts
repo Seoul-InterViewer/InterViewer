@@ -79,37 +79,37 @@ export const bookmarks = [
 export const categories = [
   {
     id: "550e8400-e29b-41d4-a716-446655440000",
-    name: "Nextjs",
+    name: "nextjs",
     is_etc: true,
   },
   {
     id: "550e8400-e29b-41d4-a716-446655440001",
-    name: "React",
+    name: "react",
     is_etc: false,
   },
   {
     id: "550e8400-e29b-41d4-a716-446655440002",
-    name: "Typescript",
+    name: "typescript",
     is_etc: false,
   },
   {
     id: "550e8400-e29b-41d4-a716-446655440003",
-    name: "JavaScript",
+    name: "javascript",
     is_etc: false,
   },
   {
     id: "550e8400-e29b-41d4-a716-446655440004",
-    name: "Web",
+    name: "web",
     is_etc: false,
   },
   {
     id: "550e8400-e29b-41d4-a716-446655440005",
-    name: "CS",
+    name: "cs",
     is_etc: false,
   },
   {
     id: "550e8400-e29b-41d4-a716-446655440006",
-    name: "Library",
+    name: "library",
     is_etc: false,
   },
 ];

@@ -7,26 +7,10 @@ import { IBookmarkQuestionProps } from "./bookmarkDetailPage.type";
 import Link from "next/link";
 import translatedDifficulty from "@/utils/translatedDifficulty";
 
-const mapCategoryToIconName = (categoryName: string | undefined): IconName => {
-  if (!categoryName) return "web";
-
-  const categoryMap: Record<string, IconName> = {
-    React: "react",
-    Nextjs: "nextjs",
-    Typescript: "typescript",
-    JavaScript: "javascript",
-    Web: "web",
-    CS: "cs",
-    Library: "library",
-  };
-
-  return categoryMap[categoryName];
-};
-
 const getCategroyForQuestion = (questionID: string) => {
   const categoryID = questions.find((question) => question.id === questionID)?.categoryID;
   const categoryName = categories.find((category) => category.id === categoryID)?.name;
-  return mapCategoryToIconName(categoryName);
+  return categoryName as IconName;
 };
 
 export const BookmarkListItem = ({ question }: { question: IBookmarkQuestionProps }) => {
