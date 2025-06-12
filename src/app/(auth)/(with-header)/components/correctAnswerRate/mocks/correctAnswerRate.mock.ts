@@ -1,7 +1,3 @@
-import React from "react";
-import { CorrectAnswerRate } from "../CorrectAnswerRate";
-import { getAverageScore } from "../../utils/getAverageScore";
-
 export const gameQuestions = [
   {
     id: "d0a7eecc-06d9-4a76-bd6f-9e77a83b9173",
@@ -126,21 +122,3 @@ export const gameSessions = [
     user_id: "06c2cf08-1f2c-472e-914f-f569f9f0b03b",
   },
 ];
-
-const page = () => {
-  return (
-    <div>
-      <CorrectAnswerRate
-        averageScore={getAverageScore(gameQuestions[0], gameSessionRecords, gameSessions)}
-        type="game"
-      />
-      <CorrectAnswerRate
-        averageScore={getAverageScore(gameQuestions[0], gameSessionRecords, gameSessions)}
-        type="session"
-      />
-
-    </div>
-  );
-};
-
-export default page;
