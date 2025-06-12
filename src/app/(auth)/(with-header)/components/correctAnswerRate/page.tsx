@@ -1,7 +1,7 @@
 import React from "react";
 import { CorrectAnswerRate } from "../correctAnswerRate";
 import { getAverageScore } from "../utils/getAverageScore";
-import { gameQuestions, gameSessionRecords, gameSessions } from "./mocks/correctAnswerRate.mock";
+import { gameQuestions, gameSessionRecords, gameSessions } from "./correctAnswerRate.mock";
 
 const page = () => {
   return (
