@@ -8,7 +8,7 @@ import { gameQuestions, questions } from "./mocks/selectBlanksData";
 import { useRouter } from "next/navigation";
 import { Button } from "@/app/components/button/Button";
 
-export default function GamePlayPage() {
+export default function GameSelectBlanksPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedBlanks, setSelectedBlanks] = useState<{ word: string; index: number }[]>([]);
   const [selectedValues, setSelectedValues] = useState<{ [key: number]: string }>({});
@@ -30,22 +30,6 @@ export default function GamePlayPage() {
     } else {
       setSelectedBlanks([...selectedBlanks, { word, index }]);
       setSelectedValues({ ...selectedValues, [index]: "" });
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-      setSelectedBlanks([]);
-      setSelectedValues({});
-    }
-  };
-
-  const handleNext = () => {
-    if (currentIndex < currentGameQuestion.source_id.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-      setSelectedBlanks([]);
-      setSelectedValues({});
     }
   };
 
@@ -78,7 +62,7 @@ export default function GamePlayPage() {
         <div>
           <Notice currentIndex={currentIndex} questions={currentGameQuestion.source_id} />
           <div className="font-sb-20 mb-4 !leading-8">
-            Q. <span>{}</span>
+            Q. <span>{currentQuestion?.title}</span>
           </div>
           <p className="font-regular-16 text-font-gray !leading-7 md:!leading-8 mb-20 max-h-[20vh] md:max-h-[30vh] overflow-y-auto">
             {words.map((word, index) => (
@@ -93,11 +77,23 @@ export default function GamePlayPage() {
             ))}
           </p>
         </div>
-        <Buttons
-          currentIndex={currentIndex}
-          setCurrentIndex={setCurrentIndex}
-          questions={currentGameQuestion.source_id.length}
-        />
+        <div className="flex flex-col gap-3.5">
+          <div className="flex flex-col gap-3.5">
+            <div className="text-sub-text">
+              선택된 빈칸 :{" "}
+              {selectedBlanks.map((blank, index) => (
+                <span key={index} className="mr-2">
+                  {selectedValues[blank.index] || blank.word}
+                </span>
+              ))}
+            </div>
+          </div>
+          <Buttons
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}
+            questions={currentGameQuestion.source_id.length}
+          />
+        </div>
       </div>
     </main>
   );
