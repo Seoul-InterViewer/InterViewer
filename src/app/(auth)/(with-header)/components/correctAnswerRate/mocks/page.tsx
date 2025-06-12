@@ -1,6 +1,6 @@
 import React from "react";
-import { CorrectAnswerRate } from "./CorrectAnswerRate";
-import { getAverageScore } from "@/utils/getAverageScore";
+import { CorrectAnswerRate } from "../CorrectAnswerRate";
+import { getAverageScore } from "../../utils/getAverageScore";
 
 export const gameQuestions = [
   {
