@@ -13,6 +13,8 @@ export const resultVariants = tv({
       "absolute md:static bottom-1/2 right-3 translate-y-1/2 md:hidden flex items-center gap-2",
     overShadow:
       "ring-1 ring-gray-200 shadow-lg rounded-2xl bg-gray-200/30 transition-all duration-400",
+    correctBg: "bg-correct-bg mb-2 cursor-pointer",
+    incorrectBg: "bg-incorrect-bg mb-2 cursor-pointer",
   },
 });
 

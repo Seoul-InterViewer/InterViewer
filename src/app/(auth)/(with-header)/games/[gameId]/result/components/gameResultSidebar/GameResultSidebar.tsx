@@ -7,8 +7,16 @@ import React, { useState, useRef } from "react";
 import { gameResultSidebarVariants } from "../../resultVariants";
 import { HighlightQuestionOptions } from "./GameResultSidebar.type";
 
-const { resultSidebarWrapper, scoreWrapper, scoreTitle, scoreDescription, scoreList, overShadow } =
-  resultVariants();
+const {
+  resultSidebarWrapper,
+  scoreWrapper,
+  scoreTitle,
+  scoreDescription,
+  scoreList,
+  overShadow,
+  correctBg,
+  incorrectBg,
+} = resultVariants();
 
 const MockListItem = ({
   children,
@@ -79,9 +87,9 @@ export const GameResultSidebar = ({
         {/* Result  */}
         <List className={`${listVariants({ type: "gameResultNav" })} hidden md:block`}>
           {data.map((q, index) => (
-            <MockListItem key={index} className="cursor-pointer">
+            <MockListItem key={index} className={q.isCorrect ? correctBg() : incorrectBg()}>
               <div
-                className="flex items-center gap-4 w-full h-full"
+                className="flex items-center gap-4 w-full h-full "
                 onClick={() => highlightQuestion(index, { scroll: true })}
                 onMouseEnter={() => highlightQuestion(index, { add: true })}
                 onMouseLeave={() => highlightQuestion(index, { remove: true })}
