@@ -7,7 +7,7 @@ import { Modal, modalVariants } from "@/app/components/modal";
 import useModal from "@/hooks/modal/useModal";
 import toastStore from "@/stores/toastStore";
 
-const GamePageButtons = () => {
+export const GamePageButtons = () => {
   const modalProps = useModal();
   const { addToast } = toastStore();
   const [shouldShowToast, setShouldShowToast] = useState(false);
@@ -76,4 +76,3 @@ const GamePageButtons = () => {
   );
 };
 
-export default GamePageButtons;

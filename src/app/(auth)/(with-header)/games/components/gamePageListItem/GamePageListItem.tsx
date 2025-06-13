@@ -3,13 +3,14 @@ import { Card } from "@/app/components/card";
 import { Tag } from "@/app/components/tag";
 import { Title } from "@/app/components/title";
 import { IGameQuestionProps } from "./gamePageListItem.type";
-import { questions } from "../../mocks/gamePageData";
+import { questions, gameSessionRecords, gameSessions } from "../../mocks/gamePageData";
 import { Icon } from "@/app/components/icon";
 import { getCategoryForQuestions } from "../../utils/getCategoryForQuestions";
-import { getAverageScore } from "../../utils/getAverageScore";
+// import { getAverageScore } from "../../../components/utils/getAverageScore";
+import { getAverageScore2 } from "../../utils/getAverageScore";
 import { useViewport } from "@/hooks/useViewport";
-import { CorrectRate } from "../correctRate/CorrectRate";
-import GamePageButtons from "../gamePageButtons/GamePageButtons";
+import { GamePageButtons } from "../gamePageButtons/GamePageButtons";
+import { CorrectAnswerRate } from "../../../components/correctAnswerRate";
 import Link from "next/link";
 import capitalize from "@/utils/capitalize";
 
@@ -20,9 +21,9 @@ export const GamePageListItem = ({ gameQuestion }: { gameQuestion: IGameQuestion
   const relatedQuestions = getQuestions(gameQuestion.source_ids);
   const firstTwo = relatedQuestions.slice(0, isMobile ? 1 : 2);
   const restCount = relatedQuestions.length - 2;
-  const averageScore = getAverageScore(gameQuestion.id, gameQuestion.source_ids);
   const categoryNames = getCategoryForQuestions(gameQuestion.source_ids);
-
+  // const averageScore = getAverageScore(gameQuestion, gameSessionRecords, gameSessions);
+  const averageScore = getAverageScore2(gameQuestion, gameSessionRecords, gameSessions);
   return (
     <Card type="editCard" key={gameQuestion.id}>
       <article className="group flex h-full flex-col justify-between md:flex-row">
@@ -64,7 +65,7 @@ export const GamePageListItem = ({ gameQuestion }: { gameQuestion: IGameQuestion
         </section>
 
         <div className="flex items-center justify-between">
-          <CorrectRate averageScore={averageScore} />
+          <CorrectAnswerRate averageScore={averageScore} type="game" />
           <GamePageButtons />
         </div>
       </article>
