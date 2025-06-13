@@ -3,8 +3,6 @@ import { IWordProps } from "./questionContent.type";
 import { Icon } from "@/app/components/icon";
 
 export const QestionContent = ({ word, index, isSelected, onWordClick }: IWordProps) => {
-  const cleanWord = word.trim();
-
   return (
     <span
       className={`${
@@ -12,7 +10,7 @@ export const QestionContent = ({ word, index, isSelected, onWordClick }: IWordPr
           ? ""
           : "hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)] hover:-translate-y-0.5 hover:bg-main/30 hover:text-orange-600"
       } relative rounded-sm cursor-pointer transition-all duration-200 `}
-      onClick={() => onWordClick(cleanWord, index)}
+      onClick={() => onWordClick(word, index)}
     >
       {isSelected ? (
         <span className="bg-sub-text text-white relative rounded-sm hover:shadow-[0_4px_8px_rgba(0,0,0,0.3)] transition-all duration-200 pr-5">
@@ -20,7 +18,7 @@ export const QestionContent = ({ word, index, isSelected, onWordClick }: IWordPr
           <button
             onClick={(e) => {
               e.stopPropagation();
-              onWordClick(cleanWord, index);
+              onWordClick(word, index);
             }}
             className="w-3.5 h-3.5 flex-center cursor-pointer absolute right-0.5 top-1/2 -translate-y-1/2 bg-black/70 rounded-full"
           >
@@ -28,7 +26,7 @@ export const QestionContent = ({ word, index, isSelected, onWordClick }: IWordPr
           </button>
         </span>
       ) : (
-        <span>{cleanWord}</span>
+        <span>{word}</span>
       )}
       {word.match(/\s+/) || " "}
     </span>

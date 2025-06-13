@@ -7,6 +7,7 @@ import { Notice } from "./components/notice/Notice";
 import { gameQuestions, questions } from "./mocks/selectBlanksData";
 import { useRouter } from "next/navigation";
 import { Button } from "@/app/components/button/Button";
+import { SelectedBlankList } from "./components/selectedBlankList";
 
 export default function GameSelectBlanksPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -78,16 +79,7 @@ export default function GameSelectBlanksPage() {
           </p>
         </div>
         <div className="flex flex-col gap-3.5">
-          <div className="flex flex-col gap-3.5">
-            <div className="text-sub-text">
-              선택된 빈칸 :{" "}
-              {selectedBlanks.map((blank, index) => (
-                <span key={index} className="mr-2">
-                  {selectedValues[blank.index] || blank.word}
-                </span>
-              ))}
-            </div>
-          </div>
+          <SelectedBlankList selectedBlanks={selectedBlanks} selectedValues={selectedValues} />
           <Buttons
             currentIndex={currentIndex}
             setCurrentIndex={setCurrentIndex}
