@@ -1,6 +1,9 @@
 import { Button } from "@/app/components/button/Button";
 import { buttonVariants } from "@/app/components/button/button.variants";
-
+import { Modal, modalVariants } from "@/app/components/modal";
+import useModal from "@/hooks/modal/useModal";
+import { AnimatePresence } from "motion/react";
+import { useRouter } from "next/navigation";
 export const Buttons = ({
   currentIndex,
   setCurrentIndex,
@@ -10,6 +13,11 @@ export const Buttons = ({
   setCurrentIndex: (index: number) => void;
   questions: number;
 }) => {
+  const modalProps = useModal();
+  const router = useRouter();
+  const handleOnClick = () => {
+    router.back();
+  };
   return (
     <div className="flex gap-4">
       <Button
@@ -28,8 +36,9 @@ export const Buttons = ({
         <Button
           type="button"
           className={buttonVariants({ size: "md", color: "yellow", hover: true })}
+          onClick={modalProps.open}
         >
-          제출
+          수정
         </Button>
       ) : (
         <Button
@@ -42,6 +51,28 @@ export const Buttons = ({
           다음
         </Button>
       )}
+      <AnimatePresence>
+        {modalProps.isOpen && (
+          <Modal
+            isOpen={modalProps.isOpen}
+            onClose={modalProps.close}
+            closeButton={true}
+            closeWithOverlay={false}
+            className={modalVariants({ size: "default" })}
+          >
+            <div className="flex-center flex-col gap-7.5 w-full h-full">
+              <h3 className="font-regular-18">이대로 수정하시겠습니까?</h3>
+              <Button
+                type="button"
+                className={buttonVariants({ color: "black", size: "lg" })}
+                onClick={handleOnClick}
+              >
+                네, 수정할게요.
+              </Button>
+            </div>
+          </Modal>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

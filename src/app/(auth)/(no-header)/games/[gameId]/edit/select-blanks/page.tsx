@@ -60,7 +60,6 @@ export default function GameEditSelectBlanksPage() {
   };
 
   const words = currentQuestion?.content.split(" ") || [];
-  console.log("Split words:", words);
 
   const moveInOutVariants = {
     initial: { x: 100, opacity: 0 },
