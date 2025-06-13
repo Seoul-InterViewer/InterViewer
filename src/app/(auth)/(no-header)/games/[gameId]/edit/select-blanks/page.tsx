@@ -1,24 +1,29 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Icon } from "@/app/components/icon";
-import { Button } from "@/app/components/button/Button";
+import { Button, buttonVariants } from "@/app/components/button";
 import { QestionContent } from "./components/questionContent/QuestionContent";
 import { Buttons } from "./components/buttons/Buttons";
 import { Notice } from "./components/notice/Notice";
 import { useRouter } from "next/navigation";
 import { SelectedBlankList } from "./components/selectedBlankList";
+import { AnimatePresence } from "motion/react";
+import { Modal, modalVariants } from "@/app/components/modal";
 import { gameQuestions, questions, gameQuestionBlanks } from "./mocks/selectBlanksData";
+import useModal from "@/hooks/modal/useModal";
 
 export default function GameEditSelectBlanksPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedBlanks, setSelectedBlanks] = useState<{ word: string; index: number }[]>([]);
   const [selectedValues, setSelectedValues] = useState<{ [key: number]: string }>({});
+  const modalProps = useModal();
   const router = useRouter();
 
   const currentGameQuestion = gameQuestions[0];
   const currentQuestion = questions.find(
     (question) => question.id === currentGameQuestion.source_id[currentIndex],
   );
+  const words = currentQuestion?.content.split(" ") || [];
 
   // 현재 question에 해당하는 빈칸들을 초기화
   useEffect(() => {
@@ -59,7 +64,10 @@ export default function GameEditSelectBlanksPage() {
     }
   };
 
-  const words = currentQuestion?.content.split(" ") || [];
+  const handleGivingUp = () => {
+    modalProps.close;
+    router.back();
+  };
 
   const moveInOutVariants = {
     initial: { x: 100, opacity: 0 },
@@ -83,6 +91,27 @@ export default function GameEditSelectBlanksPage() {
         <Icon name="reply" />
         <span>뒤로</span>
       </Button>
+
+      <AnimatePresence>
+        <Modal
+          isOpen={modalProps.isOpen}
+          onClose={modalProps.close}
+          className={modalVariants({ size: "default" })}
+          closeButton={true}
+          closeWithOverlay={false}
+        >
+          <div className="flex-center flex-col gap-7.5 w-full h-full">
+            <h3 className="font-regular-18">정말 게임 수정을 그만두시겠어요?</h3>
+            <Button
+              type="button"
+              className={buttonVariants({ color: "black", size: "lg" })}
+              onClick={handleGivingUp}
+            >
+              네, 그만둘게요.
+            </Button>
+          </div>
+        </Modal>
+      </AnimatePresence>
 
       <div className="w-full md:w-[70%]  min-h-[65vh] mx-auto flex flex-col justify-between">
         <div>

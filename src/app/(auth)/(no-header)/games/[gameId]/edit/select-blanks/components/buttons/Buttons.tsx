@@ -16,7 +16,7 @@ export const Buttons = ({
   const modalProps = useModal();
   const router = useRouter();
   const handleOnClick = () => {
-    router.back();
+    router.push(`/games`);
   };
   return (
     <div className="flex gap-4">
