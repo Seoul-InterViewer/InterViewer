@@ -1,5 +1,6 @@
+"use client";
+
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { BookmarkCard } from "./components/bookmarkCard/BookmarkCard";
 import { bookmarkData } from "./mocks/bookmarksPage.mock";
 import { BreadCrumb } from "@/app/components/breadCrumb";
@@ -10,7 +11,6 @@ import { EditBookmarkModal } from "./components/modal/EditBookmarkModal";
 
 export default function BookmarksPage() {
   const checkName = "bookmarks";
-  const pathname = usePathname();
   const editBookmarkModalProps = useModal();
 
   const editBookmarkDatas = bookmarkData.bookmarks.map((data) => ({
@@ -41,7 +41,7 @@ export default function BookmarksPage() {
       </div>
       <div className="w-full mb-15 overflow-x-hidden grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] justify-items-center gap-2 sm:gap-4 md:gap-5">
         {bookmarkData.bookmarks.map((data) => (
-          <Link href={`${pathname}/${data.id}`} key={data.id}>
+          <Link href={`bookmarks/${data.id}`} key={data.id}>
             <BookmarkCard
               id={data.id}
               name={data.name}
