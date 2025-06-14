@@ -18,6 +18,17 @@ export default function TextareaTestPage() {
         />
       </div>
 
+      <div className="h-25 md:h-54">
+        <Textarea
+          name="comment"
+          id="comment"
+          type="comment"
+          maxLength={500}
+          placeholder="댓글을 입력하세요.."
+          noButton={true}
+        />
+      </div>
+
       {/* type="reply" */}
       <div className="h-57 px-7.5 pt-8.5 pb-5.5 bg-[#f5f5f5] flex flex-col gap-3.5">
         <Textarea name="reply" id="reply" type="reply" placeholder="댓글을 입력하세요.." />

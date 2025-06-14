@@ -5,7 +5,7 @@ import { ITextareaProps } from "./textarea.type";
 import { wrapperVariants, textareaVariants } from "./textarea.variants";
 import { Button, buttonVariants } from "../button";
 
-export const Textarea = ({ name, id, type, maxLength, placeholder }: ITextareaProps) => {
+export const Textarea = ({ name, id, type, maxLength, placeholder, noButton }: ITextareaProps) => {
   const [count, setCount] = useState(0);
   const onTextareaHandler: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     setCount(e.target.value.length);
@@ -28,7 +28,7 @@ export const Textarea = ({ name, id, type, maxLength, placeholder }: ITextareaPr
           </span>
           <Button
             type="button"
-            className={`${buttonVariants({ size: "sm", color: "borderGray", hover: true })} px-4 py-1.5`}
+            className={`${buttonVariants({ size: "sm", color: "borderGray", hover: true })} px-4 py-1.5 ${noButton && "hidden"}`}
           >
             작성
           </Button>

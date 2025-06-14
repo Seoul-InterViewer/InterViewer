@@ -6,4 +6,5 @@ export interface ITextareaProps {
   type: TextareaType;
   maxLength?: number;
   placeholder: string;
+  noButton?: boolean;
 }
