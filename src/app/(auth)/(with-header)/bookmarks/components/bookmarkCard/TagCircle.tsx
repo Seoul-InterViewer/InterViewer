@@ -1,6 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import { Icon, IconName } from "@/app/components/icon";
 import { ITagIconsProps } from "./bookmarkCard.type";
-import { useState } from "react";
 
 export const TagCircle = ({ tagIcons }: ITagIconsProps) => {
   const [isHovered, setIsHovered] = useState(false);

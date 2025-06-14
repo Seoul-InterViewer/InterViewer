@@ -11,7 +11,7 @@ export default function BookmarksPage() {
   const checkName = "bookmarks";
   const editBookmarkModalProps = useModal();
 
-  const editBookmarkDatas = bookmarkData.bookmarks.map((data) => ({
+  const editBookmarkDatas = bookmarkData.map((data) => ({
     text: data.name,
     value: data.id,
     count: data.questions?.length ?? 0,
@@ -38,7 +38,7 @@ export default function BookmarksPage() {
         </Button>
       </div>
       <div className="w-full mb-15 overflow-x-hidden grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] justify-items-center gap-2 sm:gap-4 md:gap-5">
-        {bookmarkData.bookmarks.map((data) => (
+        {bookmarkData.map((data) => (
           <Link href={`bookmarks/${data.id}`} key={data.id}>
             <BookmarkCard
               id={data.id}
