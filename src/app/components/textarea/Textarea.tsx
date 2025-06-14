@@ -28,7 +28,7 @@ export const Textarea = ({ name, id, type, maxLength, placeholder, noButton }: I
           </span>
           <Button
             type="button"
-            className={`${buttonVariants({ size: "sm", color: "borderGray", hover: true })} px-4 py-1.5 ${noButton && "opacity-0"}`}
+            className={`${buttonVariants({ size: "sm", color: "borderGray", hover: true })} px-4 py-1.5 ${noButton && "hidden"}`}
           >
             작성
           </Button>
