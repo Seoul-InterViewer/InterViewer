@@ -18,8 +18,8 @@ export default function BookmarksPage() {
   }));
 
   return (
-    <div>
-      <div className="flex justify-between mb-15">
+    <main className="w-full flex flex-col gap-7.5 md:pb-30 pb-15">
+      <div className="flex justify-between">
         <BreadCrumb
           items={[
             { label: "Home", href: "/" },
@@ -37,7 +37,7 @@ export default function BookmarksPage() {
           </span>
         </Button>
       </div>
-      <div className="w-full mb-15 overflow-x-hidden grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] justify-items-center gap-2 sm:gap-4 md:gap-5">
+      <div className="w-full overflow-x-hidden grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] justify-items-center gap-2 sm:gap-4 md:gap-5">
         {bookmarkData.map((data) => (
           <Link href={`bookmarks/${data.id}`} key={data.id}>
             <BookmarkCard
@@ -56,6 +56,6 @@ export default function BookmarksPage() {
         checkName={checkName} // checkbox의 name으로 줄 값
         props={editBookmarkModalProps}
       />
-    </div>
+    </main>
   );
 }
