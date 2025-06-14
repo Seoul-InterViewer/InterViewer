@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { BookmarkCard } from "./components/bookmarkCard/BookmarkCard";
 import { bookmarkData } from "./mocks/bookmarksPage.mock";
