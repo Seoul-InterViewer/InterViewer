@@ -2,6 +2,7 @@ import { Card } from "@/app/components/card";
 import { TagCircle } from "./TagCircle";
 import { Icon, IconName } from "@/app/components/icon";
 import { IBookmarksProps } from "./bookmarkCard.type";
+import { formattedDate } from "@/utils/formattedDate";
 
 const categoryIcons: IconName[] = [
   "typescript",
@@ -12,11 +13,6 @@ const categoryIcons: IconName[] = [
   "cs",
   "library",
 ];
-
-const formattedDate = (originDate: string) => {
-  const date = new Date(originDate);
-  return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`;
-};
 
 export const BookmarkCard = ({ id, name, createdAt, questions }: IBookmarksProps) => {
   const tags: string[] = [];
