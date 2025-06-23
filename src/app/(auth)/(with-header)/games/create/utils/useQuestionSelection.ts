@@ -9,6 +9,12 @@ export const useQuestionSelection = () => {
     bookmarks: new Set(),
   });
 
+  const isQuestionInWrongAnswers = (questionId: string) =>
+    selectedQuestions.wrongAnswers.has(questionId);
+  const isQuestionInBookmarks = (questionId: string) => selectedQuestions.bookmarks.has(questionId);
+  const isQuestionSelected = (questionId: string) =>
+    isQuestionInWrongAnswers(questionId) || isQuestionInBookmarks(questionId);
+
   const handleQuestionCheck =
     (type: "wrongAnswers" | "bookmarks") => (questionId: string, checked: boolean) => {
       setSelectedQuestions((prev) => {
@@ -56,5 +62,8 @@ export const useQuestionSelection = () => {
     selectedQuestions,
     handleQuestionCheck,
     handleQuestionRemove,
+    isQuestionInWrongAnswers,
+    isQuestionInBookmarks,
+    isQuestionSelected,
   };
 };

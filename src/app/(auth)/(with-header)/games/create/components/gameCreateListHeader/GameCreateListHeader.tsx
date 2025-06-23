@@ -79,9 +79,7 @@ export const GameCreateListHeader = ({
   const renderQuestionList = () => {
     if (type === "selected") {
       return questions
-        .filter(
-          (q) => selectedQuestions.wrongAnswers.has(q.id) || selectedQuestions.bookmarks.has(q.id),
-        )
+        .filter((q) => isChecked(q.id))
         .map((question) => (
           <GameCreateListSeletedItem
             key={question.id}
