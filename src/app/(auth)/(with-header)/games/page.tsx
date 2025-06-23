@@ -2,8 +2,9 @@ import React from "react";
 import { BreadCrumb } from "@/app/components/breadCrumb";
 import { List, listVariants } from "@/app/components/list";
 import { gameQuestions } from "./mocks/gamePageData";
-import { GamePageListItem } from "./components/gamePageListItem";
+import { GamePageListItem, IGameQuestionProps } from "./components/gamePageListItem";
 import { MotionWrapper } from "@/app/components/motionWrapper";
+import { EmptyUI } from "@/app/components/emptyUI";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -37,6 +38,17 @@ const itemVariants = {
   },
 };
 
+const renderGameList = (gameQuestions: IGameQuestionProps[]) => {
+  if (!gameQuestions || gameQuestions.length === 0) {
+    return <EmptyUI type="game" />;
+  }
+  return gameQuestions.map((gameQuestion) => (
+    <MotionWrapper variants={itemVariants} key={gameQuestion.id}>
+      <GamePageListItem key={gameQuestion.id} gameQuestion={gameQuestion} />
+    </MotionWrapper>
+  ));
+};
+
 export default function page() {
   return (
     <main className="w-full flex flex-col gap-7.5 md:pb-30 pb-15">
@@ -47,13 +59,7 @@ export default function page() {
         ]}
       />
       <MotionWrapper variants={containerVariants} initial="hidden" animate="visible" exit="exit">
-        <List className={listVariants()}>
-          {gameQuestions.map((gameQuestion) => (
-            <MotionWrapper variants={itemVariants} key={gameQuestion.id}>
-              <GamePageListItem key={gameQuestion.id} gameQuestion={gameQuestion} />
-            </MotionWrapper>
-          ))}
-        </List>
+        <List className={listVariants()}>{renderGameList(gameQuestions)}</List>
       </MotionWrapper>
     </main>
   );

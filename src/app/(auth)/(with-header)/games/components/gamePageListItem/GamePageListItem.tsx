@@ -66,7 +66,7 @@ export const GamePageListItem = ({ gameQuestion }: { gameQuestion: IGameQuestion
 
         <div className="flex items-center justify-between">
           <CorrectAnswerRate averageScore={averageScore} type="game" />
-          <GamePageButtons />
+          <GamePageButtons gameId={gameQuestion.id} />
         </div>
       </article>
     </Card>

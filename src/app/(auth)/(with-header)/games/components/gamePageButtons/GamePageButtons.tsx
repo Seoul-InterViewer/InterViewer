@@ -6,9 +6,11 @@ import { AnimatePresence } from "motion/react";
 import { Modal, modalVariants } from "@/app/components/modal";
 import useModal from "@/hooks/modal/useModal";
 import toastStore from "@/stores/toastStore";
+import { useRouter } from "next/navigation";
 
-export const GamePageButtons = () => {
+export const GamePageButtons = ({ gameId }: { gameId: string }) => {
   const modalProps = useModal();
+  const router = useRouter();
   const { addToast } = toastStore();
   const [shouldShowToast, setShouldShowToast] = useState(false);
 
@@ -30,6 +32,7 @@ export const GamePageButtons = () => {
         <Button
           type="button"
           className="rounded-md cursor-pointer md:font-regular-18 md:px-5 md:py-2.5 font-sb-12 px-2 py-1.5 md:bg-sub-text text-white bg-font hover:opacity-80 transition-opacity"
+          onClick={() => router.push(`/games/${gameId}/edit/select-blanks`)}
         >
           수정하기
         </Button>
@@ -75,4 +78,3 @@ export const GamePageButtons = () => {
     </>
   );
 };
-
