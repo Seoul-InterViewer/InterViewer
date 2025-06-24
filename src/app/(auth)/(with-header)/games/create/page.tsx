@@ -87,10 +87,9 @@ export default function GameCreatePage() {
   };
 
   // 선택된 문제들 렌더링 함수
+  const hasSelectedQuestions =
+    selectedQuestions.wrongAnswers.size + selectedQuestions.bookmarks.size > 0;
   const renderSelectedQuestions = () => {
-    const hasSelectedQuestions =
-      selectedQuestions.wrongAnswers.size + selectedQuestions.bookmarks.size > 0;
-
     if (!hasSelectedQuestions) {
       return (
         <div className="flex-center w-full ">
@@ -159,7 +158,7 @@ export default function GameCreatePage() {
           {renderSelectedQuestions()}
         </div>
 
-        <GameCreateButtons />
+        <GameCreateButtons hasSelectedQuestions={hasSelectedQuestions} />
       </section>
     </main>
   );
