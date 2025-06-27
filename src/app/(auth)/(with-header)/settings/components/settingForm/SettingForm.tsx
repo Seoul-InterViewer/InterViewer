@@ -4,6 +4,11 @@ import { useState } from "react";
 import { InputLine } from "../inputLIne/InputLine";
 import { ISettingFormProps } from "./settingForm.type";
 import { Password } from "../password/Password";
+import { Button, buttonVariants } from "@/app/components/button";
+import { AnimatePresence } from "motion/react";
+import useModal from "@/hooks/modal/useModal";
+import { Modal, modalVariants } from "@/app/components/modal";
+import toastStore from "@/stores/toastStore";
 
 export const SettingForm = ({
   defaultNickname,
@@ -14,6 +19,19 @@ export const SettingForm = ({
 }: ISettingFormProps) => {
   const [nickname, setNickname] = useState(defaultNickname);
   const [email, setEmail] = useState(defaultEmail);
+
+  const defaultModalProps = useModal();
+  const { addToast } = toastStore();
+
+  const withdrawMembership = () => {
+    // TODO: 회월 탈퇴 로직 필요
+    console.log("회원탈퇴");
+
+    addToast("탈퇴 되었습니다.");
+    defaultModalProps.close();
+
+    // TODO: 로그아웃 로직 추가
+  };
 
   return (
     <div>
@@ -53,7 +71,47 @@ export const SettingForm = ({
           onChangeValue={setEmail}
         />
         <Password defaultPassword={defaultPassword} />
+        <div className="w-full">
+          <div className="w-full h-7 flex justify-between items-end mb-2.5 md:mb-5">
+            <label className="w-27.5 md:w-37.5 font-sb-20 md:font-sb-24">회원 탈퇴</label>
+            <Button
+              type="button"
+              className={buttonVariants({ size: "lg", color: "red", hover: true })}
+              onClick={defaultModalProps.open}
+            >
+              회원 탈퇴
+            </Button>
+          </div>
+          <div className="font-regular-14 md:font-regular-18 text-sub-text">
+            탈퇴 시 작성하신 질문 및 댓글이 모두 삭제되며 복구되지 않습니다.
+          </div>
+        </div>
       </div>
+
+      <AnimatePresence>
+        {defaultModalProps.isOpen && (
+          <Modal
+            isOpen={defaultModalProps.isOpen}
+            onClose={defaultModalProps.close}
+            className={modalVariants({ size: "default" })}
+            closeButton={true}
+            closeWithOverlay={false}
+          >
+            <div className="flex-center flex-col gap-7.5 w-full h-full">
+              <h2 className="font-regular-18">정말로 회원을 탈퇴하시겠습니까?</h2>
+              <div className="flex-center gap-5 ">
+                <Button
+                  type="button"
+                  className={buttonVariants({ color: "red", size: "lg" })}
+                  onClick={withdrawMembership}
+                >
+                  네, 탈퇴할게요.
+                </Button>
+              </div>
+            </div>
+          </Modal>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

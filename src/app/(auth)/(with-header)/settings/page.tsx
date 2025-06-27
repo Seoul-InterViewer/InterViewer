@@ -4,7 +4,7 @@ import { SettingForm } from "./components/settingForm/SettingForm";
 
 export default function SettingsPage() {
   return (
-    <main className="w-full flex flex-col gap-7.5 md:pb-30 pb-15 border border-red-200">
+    <main className="w-full flex flex-col gap-7.5 md:pb-30 pb-15 ">
       <BreadCrumb
         items={[
           { label: "Home", href: "/" },
