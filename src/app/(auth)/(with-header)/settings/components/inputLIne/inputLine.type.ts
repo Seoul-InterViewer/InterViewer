@@ -1,7 +1,9 @@
 export interface IInputProps {
   labelName: string;
   inputName: string;
-  nickname: string;
+  inputType: string;
+  inputValue: string;
   placeholder: string;
   explanation: string;
+  onChangeValue: (newValue: string) => void;
 }
