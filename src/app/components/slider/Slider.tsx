@@ -21,6 +21,7 @@ export const Slider = ({
   usePagination,
   useNavigation,
   useFreeMode,
+  slideClassName,
 }: ISliderProps) => {
   const { isMobile } = useViewport();
 
@@ -64,10 +65,10 @@ export const Slider = ({
     }
   }, [isMobile, type]);
 
-    // children이 배열이면 map 돌리고, 아니면 단일 child도 감싸줌
-    const wrappedSlides = React.Children.map(children, (child) => (
-      <SwiperSlide>{child}</SwiperSlide>
-    ));
+  // children이 배열이면 map 돌리고, 아니면 단일 child도 감싸줌
+  const wrappedSlides = React.Children.map(children, (child) => (
+    <SwiperSlide className={slideClassName}>{child}</SwiperSlide>
+  ));
 
   return (
     <Swiper className={`w-full h-full ${className}`} {...config} modules={modules}>

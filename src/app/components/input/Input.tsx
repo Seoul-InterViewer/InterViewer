@@ -16,8 +16,10 @@ export const Input = ({
   isCredential = false,
   error = false,
   errorMsg = "",
+  ref,
   onBlur,
   onFocus,
+  ...restProps
 }: IInputProps) => {
   return (
     <>
@@ -36,6 +38,8 @@ export const Input = ({
             onChange={onChange}
             onBlur={onBlur}
             onFocus={onFocus}
+            ref={ref}
+            {...restProps}
           />
         </div>
       ) : (
@@ -49,6 +53,8 @@ export const Input = ({
           onChange={onChange}
           onBlur={onBlur}
           onFocus={onFocus}
+          ref={ref}
+          {...restProps}
         />
       )}
     </>

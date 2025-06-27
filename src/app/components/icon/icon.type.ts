@@ -42,7 +42,9 @@ export type IconName =
   | "createNew"
   | "correct"
   | "codepen"
-  | "close";
+  | "close"
+  | "user"
+  | "logOut";
 
 export interface IIconProps extends Omit<SVGProps<SVGSVGElement>, "name"> {
   name: IconName;
@@ -51,8 +53,8 @@ export interface IIconProps extends Omit<SVGProps<SVGSVGElement>, "name"> {
   stroke?: string;
   fill?: string;
   size?: number;
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
   viewBox?: string;
 }
 

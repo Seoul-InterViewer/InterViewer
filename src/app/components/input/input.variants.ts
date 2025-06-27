@@ -10,13 +10,13 @@ export const inputVariants = tv({
       blank:
         "p-2 border-0 bg-[#b4b4b4] rounded-lg  placeholder:text-black font-regular-16 text-black md:font-regular-26",
 
-      credentials: "h-15 d:p-3 h-20",
+      credentials: "md:p-3",
     },
     withButton: {
       true: "flex-5 items-center gap-2 border-r-0",
     },
     search: {
-      true: "p-2 indent-0 bg-[#f8f8f8] font-sb-16",
+      true: "px-1 !py-2 indent-0 bg-[#f8f8f8] font-sb-16",
     },
     error: {
       true: "text-red-500 border-red-500",

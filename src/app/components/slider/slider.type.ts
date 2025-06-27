@@ -12,6 +12,7 @@ export interface ISliderProps {
   useNavigation?: boolean;
   useEffectCards?: boolean;
   useFreeMode?: boolean;
+  slideClassName?: string;
   type: "images" | "mainPageCards" | "selectedQuestionCards" | "custom" | "gameHistory";
   breakpoints?: {
     [key: string]: {
